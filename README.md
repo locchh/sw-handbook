@@ -1,3 +1,3 @@
 # sw-handbook
 
-*About Software, Data and AI**
+*About Software, Data and AI*
