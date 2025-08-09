@@ -1,0 +1,43 @@
+site_name: Software Engineering Handbook
+site_description: A handbook about Software Engineering, Data and AI
+site_author: locch
+
+theme:
+  name: material
+  palette:
+    # Darker color scheme
+    primary: indigo
+    accent: blue
+  font:
+    text: Roboto Mono
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.sections
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Software Engineering:
+      - Overview: software/index.md
+      - Design Patterns: software/design-patterns.md
+  - Data:
+      - Overview: data/index.md
+  - AI:
+      - Overview: ai/index.md
+  - About: about.md
+
+repo_url: https://github.com/locch/sw-handbook
+repo_name: locch/sw-handbook
+edit_uri: edit/main/docs/
