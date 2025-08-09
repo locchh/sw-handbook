@@ -29,7 +29,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Software Engineering:
+  - Software:
       - Overview: software/index.md
   - Data:
       - Overview: data/index.md
@@ -37,6 +37,6 @@ nav:
       - Overview: ai/index.md
   - About: about.md
 
-repo_url: https://github.com/locch/sw-handbook
+repo_url: https://github.com/locchh/sw-handbook
 repo_name: locch/sw-handbook
 edit_uri: edit/main/docs/
