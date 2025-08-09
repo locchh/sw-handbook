@@ -31,7 +31,6 @@ nav:
   - Home: index.md
   - Software Engineering:
       - Overview: software/index.md
-      - Design Patterns: software/design-patterns.md
   - Data:
       - Overview: data/index.md
   - AI:
