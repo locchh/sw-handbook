@@ -1,4 +1,4 @@
-# Software Engineering Handbook
+# Software Handbook
 
 *A collection of notes about Software Engineering, Data and AI*
 
