@@ -1,8 +1,15 @@
-site_name: Software Engineering Handbook
+# Site
+site_name: Software Handbook
 site_description: A handbook about Software Engineering, Data and AI
 site_author: locch
 site_url: https://locchh.github.io/sw-handbook/
 
+# Repository
+repo_url: https://github.com/locchh/sw-handbook
+repo_name: locch/sw-handbook
+edit_uri: edit/main/docs/
+
+# Theme
 theme:
   name: material
   palette:
@@ -19,6 +26,7 @@ theme:
     - navigation.sections
     - content.code.copy
 
+# Markdown extensions
 markdown_extensions:
   - admonition
   - pymdownx.highlight
@@ -28,6 +36,7 @@ markdown_extensions:
   - toc:
       permalink: true
 
+# Navigation
 nav:
   - Home: index.md
   - Software:
@@ -37,7 +46,3 @@ nav:
   - AI:
       - Overview: ai/index.md
   - About: about.md
-
-repo_url: https://github.com/locchh/sw-handbook
-repo_name: locch/sw-handbook
-edit_uri: edit/main/docs/
