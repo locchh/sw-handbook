@@ -1,6 +1,7 @@
 site_name: Software Engineering Handbook
 site_description: A handbook about Software Engineering, Data and AI
 site_author: locch
+site_url: https://locchh.github.io/sw-handbook/
 
 theme:
   name: material

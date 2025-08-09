@@ -6,9 +6,9 @@ Welcome to my personal handbook where I document my learnings, insights, and ref
 
 ## What's Inside
 
-- **[Software](/software/)** - Best practices, design patterns, architecture, and tools
-- **[Data](/data/)** - Data engineering, databases, analytics, and visualization
-- **[AI](/ai/)** - Machine learning, deep learning, and AI applications
+- **[Software](software/index.md)** - Best practices, design patterns, architecture, and tools
+- **[Data](data/index.md)** - Data engineering, databases, analytics, and visualization
+- **[AI](ai/index.md)** - Machine learning, deep learning, and AI applications
 
 ## How to Use This Handbook
 
