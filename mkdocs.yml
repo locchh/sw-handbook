@@ -41,8 +41,12 @@ nav:
   - Home: index.md
   - Software:
       - Overview: software/index.md
+      - Fundamentals:
+        - Basic Concepts: software/basics/basic_concepts.md
   - Data:
       - Overview: data/index.md
+      - Fundamentals:
+          - Introduction to Data: data/basics/introduction_to_data.md
   - AI:
       - Overview: ai/index.md
   - About: about.md

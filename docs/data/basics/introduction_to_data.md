@@ -47,7 +47,6 @@ Classification of data based on their nature:
 
 ## The DIKW pyramid
 
-
 ```
 Data -> Information -> Knowledge -> Wisdom
 ```
@@ -73,3 +72,71 @@ Data -> Information -> Knowledge -> Wisdom
 ```
 Ask questions -> Gather data -> Prepare data -> Conduct Analysis -> Make decision
 ```
+
+## Data as a resource
+
+**Overwhelming data**
+
+- Data is often too large in its raw form. Even "simple" analysis require large amount of data.
+
+- More complex analysis can leverage even million or billion of records.
+
+**Data aggregation**
+
+Aggregation is the process to summarize a dataset into a smaller pieces (easier to understand) is required to make informed decisions.
+
+Common aggregation:
+- Simple average (mean)
+- Sum (totals)
+- Minimum or Maximum
+- Modes
+
+Aggregation appear in many ways throughout organizations.
+- Metrics
+- Benchmarks
+- Key performance indicators (KPIs)
+
+Understanding how these aggregations are created is extremely helpful for many investigations.
+
+
+## Key concepts
+
+**Data flow**
+
+Data flow within organizations is often  highly complex.
+
+- Data from many different sources systems
+- Processed through other systems
+- Displayed and manipulated in other systems.
+
+**Data management**
+Data management is responsible trying to unify and standardize data from many different data flows. These 
+
+**Data governance**
+Ensure data is consistent, trustworthy, and isn't misused.
+
+**Data quality**
+Ensure data is accurate, complete, consistent, and up-to-date.
+
+**Data Privacy and Security**
+Ensure proper data access, use, and protection.
+
+## Principles of data ethics
+
+- Permission for 
+- Transparency about the plan
+- Privacy of data
+- Good intentions
+- Consider the outcome
+
+## Data lifecycle
+
+```
+Planning -> Collection -> Storage -> Management -> Cleaning and processing -> Analysis and Visualization -> Sharing -> Archiving/destroying
+```
+
+## Common mistakes about data
+- Not having a clear goal or question
+- Insufficient or wrong data (data bias, dirty data,etc.)
+- Lack of appropriate analysis (lack of context, wrong metrics,etc.)
+- No clear communication of results
