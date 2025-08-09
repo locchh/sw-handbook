@@ -1,0 +1,1591 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/basic_concepts/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../../../data/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Basic Concepts - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-software-engineering-concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locch/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locch/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic Concepts
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chomsky Hierarchy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chomsky Hierarchy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-levels-of-the-chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four Levels of the Chomsky Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why It Matters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming Paradigms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-object-oriented-programming-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object-Oriented Programming (OOP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-functional-programming-fp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Functional Programming (FP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-procedural-programming-pp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Procedural Programming (PP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-declarative-programming-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Declarative Programming (DP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-logic-programming-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Logic Programming (LP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-component-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Component Levels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Component Levels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-expression-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Expression / Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Module
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers-in-software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layers in Software Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers in Software Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-layer-persistence-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Data Layer (Persistence Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-business-layer-service-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application / Business Layer (Service Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-presentation-layer-ui-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Presentation Layer (UI Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Extensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-popular-software-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some Popular Software Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Some Popular Software Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-web-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Web Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mobile-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Mobile Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-desktop-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Desktop Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-console-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Console Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-development-framework-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Development Framework, Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-development-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Development Tool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Data
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chomsky Hierarchy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chomsky Hierarchy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-levels-of-the-chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four Levels of the Chomsky Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why It Matters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming Paradigms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-object-oriented-programming-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Object-Oriented Programming (OOP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-functional-programming-fp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Functional Programming (FP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-procedural-programming-pp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Procedural Programming (PP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-declarative-programming-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Declarative Programming (DP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-logic-programming-lp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Logic Programming (LP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-component-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Component Levels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Component Levels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-expression-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Expression / Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Module
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers-in-software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layers in Software Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layers in Software Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-layer-persistence-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Data Layer (Persistence Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-business-layer-service-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application / Business Layer (Service Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-presentation-layer-ui-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Presentation Layer (UI Layer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Extensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-popular-software-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some Popular Software Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Some Popular Software Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-web-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Web Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mobile-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Mobile Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-desktop-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Desktop Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-console-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Console Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-development-framework-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Development Framework, Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-development-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Development Tool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="basic-software-engineering-concepts">Basic Software Engineering Concepts<a class="headerlink" href="#basic-software-engineering-concepts" title="Permanent link">&para;</a></h1>
+<h2 id="chomsky-hierarchy">Chomsky Hierarchy<a class="headerlink" href="#chomsky-hierarchy" title="Permanent link">&para;</a></h2>
+<p>The <strong>Chomsky Hierarchy</strong> is a classification of formal grammars (and the languages they generate) into four types, organized from the most general (most expressive) to the most restricted (least expressive).</p>
+<p>It’s a core concept in <strong>formal language theory</strong>, automata theory, and compiler design — originally introduced by <strong>Noam Chomsky</strong> in 1956 to describe the structure of natural languages but now widely used in computer science.</p>
+<h3 id="the-four-levels-of-the-chomsky-hierarchy">The Four Levels of the Chomsky Hierarchy<a class="headerlink" href="#the-four-levels-of-the-chomsky-hierarchy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Type</strong></th>
+<th><strong>Grammar Name</strong></th>
+<th><strong>Language Class</strong></th>
+<th><strong>Equivalent Automaton</strong></th>
+<th><strong>Rules / Restrictions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type 0</strong></td>
+<td><strong>Unrestricted grammar</strong></td>
+<td>Recursively enumerable languages</td>
+<td><strong>Turing Machine</strong></td>
+<td>No restrictions on productions: α → β, where α and β are any strings of terminals/nonterminals and α ≠ ε.</td>
+</tr>
+<tr>
+<td><strong>Type 1</strong></td>
+<td><strong>Context-sensitive grammar</strong></td>
+<td>Context-sensitive languages</td>
+<td><strong>Linear bounded automaton</strong> (Turing machine with tape limited to input length)</td>
+<td>Productions of the form αAβ → αγβ, where γ ≠ ε (length of output ≥ length of input)</td>
+</tr>
+<tr>
+<td><strong>Type 2</strong></td>
+<td><strong>Context-free grammar (CFG)</strong></td>
+<td>Context-free languages</td>
+<td><strong>Pushdown Automaton (PDA)</strong></td>
+<td>Productions of the form A → γ, where A is a single nonterminal</td>
+</tr>
+<tr>
+<td><strong>Type 3</strong></td>
+<td><strong>Regular grammar</strong></td>
+<td>Regular languages</td>
+<td><strong>Finite State Automaton (FSA)</strong></td>
+<td>Productions of the form A → aB or A → a (right-linear or left-linear)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Compiler design</strong>:</p>
+</li>
+<li>
+<p>Regular languages → Lexical analysis (regex, tokenizing)</p>
+</li>
+<li>Context-free languages → Syntax analysis (parsing)</li>
+<li><strong>Theoretical computer science</strong>: Helps in <strong>classifying computational problems</strong> by their complexity.</li>
+<li><strong>Natural language processing</strong>: Models grammatical structures of human languages.</li>
+</ul>
+<h3 id="example-of-restrictions">Example of Restrictions<a class="headerlink" href="#example-of-restrictions" title="Permanent link">&para;</a></h3>
+<p>Let’s see an example where a grammar moves down the hierarchy:</p>
+<ol>
+<li><strong>Type 0</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>S → aSb | ε
+</code></pre></div>
+<p>(No restrictions — works fine in Type 0 and all below if it matches the form.)</p>
+<ol>
+<li><strong>Type 1</strong>: Must be length non-decreasing:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>AB → AC  
+C → b
+</code></pre></div>
+<ol>
+<li><strong>Type 2</strong>: Only single nonterminal on LHS:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>S → aSb | ε
+</code></pre></div>
+<ol>
+<li><strong>Type 3</strong>: Only one terminal on RHS and at most one nonterminal:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>S → aA  
+A → bS | ε
+</code></pre></div>
+<h2 id="programming-paradigms">Programming Paradigms<a class="headerlink" href="#programming-paradigms" title="Permanent link">&para;</a></h2>
+<p>Programming paradigms are fundamental styles or approaches to programming that shape how solutions are designed and implemented. Below are some of the major paradigms:</p>
+<h3 id="1-object-oriented-programming-oop">1. Object-Oriented Programming (OOP)<a class="headerlink" href="#1-object-oriented-programming-oop" title="Permanent link">&para;</a></h3>
+<p><strong>Key Concepts:</strong> Objects, Classes, Inheritance, Encapsulation, Polymorphism
+<strong>Languages:</strong> Java, C++, Python, C#, Ruby
+<strong>Description:</strong>
+OOP organizes code around <strong>objects</strong>, which are instances of <strong>classes</strong>—blueprints that define attributes and behaviors. It promotes code <strong>reuse</strong>, <strong>modularity</strong>, and <strong>scalability</strong>, making it ideal for large and complex software systems.</p>
+<h3 id="2-functional-programming-fp">2. Functional Programming (FP)<a class="headerlink" href="#2-functional-programming-fp" title="Permanent link">&para;</a></h3>
+<p><strong>Key Concepts:</strong> Pure Functions, Immutability, First-Class Functions, Higher-Order Functions
+<strong>Languages:</strong> Haskell, Lisp, Elixir, Scala, JavaScript (partial)
+<strong>Description:</strong>
+FP emphasizes <strong>declarative code</strong> using pure functions and avoids mutable state and side effects. It’s rooted in <strong>mathematical functions</strong> and is well-suited for concurrent and parallel programming.</p>
+<h3 id="3-procedural-programming-pp">3. Procedural Programming (PP)<a class="headerlink" href="#3-procedural-programming-pp" title="Permanent link">&para;</a></h3>
+<p><strong>Key Concepts:</strong> Procedures (Functions), Sequence, Selection, Iteration
+<strong>Languages:</strong> C, Pascal, Fortran, BASIC
+<strong>Description:</strong>
+Procedural programming structures programs as a series of <strong>instructions</strong> grouped into <strong>procedures</strong> or <strong>routines</strong>. It is a subset of imperative programming and is suitable for applications with a clear step-by-step logic.</p>
+<h3 id="4-declarative-programming-dp">4. Declarative Programming (DP)<a class="headerlink" href="#4-declarative-programming-dp" title="Permanent link">&para;</a></h3>
+<p><strong>Key Concepts:</strong> What to Do (Not How), Abstraction, Constraints
+<strong>Languages:</strong> SQL, HTML, Prolog, Haskell
+<strong>Description:</strong>
+Declarative programming expresses the <strong>logic of computation</strong> without describing its control flow. The focus is on <strong>what</strong> the program should accomplish rather than detailing <strong>how</strong> to achieve it.</p>
+<h3 id="5-logic-programming-lp">5. Logic Programming (LP)<a class="headerlink" href="#5-logic-programming-lp" title="Permanent link">&para;</a></h3>
+<p><strong>Key Concepts:</strong> Facts, Rules, Queries, Inference
+<strong>Languages:</strong> Prolog, Datalog
+<strong>Description:</strong>
+Logic programming is based on <strong>formal logic</strong>. Programs consist of a set of facts and rules, and computation is performed through <strong>logical inference</strong>. It is widely used in <strong>AI</strong>, <strong>natural language processing</strong>, and <strong>expert systems</strong>.</p>
+<h2 id="code-component-levels">Code Component Levels<a class="headerlink" href="#code-component-levels" title="Permanent link">&para;</a></h2>
+<h3 id="1-expression-statement">1. Expression / Statement<a class="headerlink" href="#1-expression-statement" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+The most basic unit of code that performs an action or produces a value.
+<strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>         <span class="c1"># Statement  </span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>     <span class="c1"># Expression within a statement</span>
+</code></pre></div>
+<h3 id="2-function">2. Function<a class="headerlink" href="#2-function" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A reusable block of code designed to perform a specific task, often with inputs (parameters) and outputs (return values).
+<strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+<h3 id="3-class">3. Class<a class="headerlink" href="#3-class" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A blueprint for creating objects. Classes group related data and methods (functions) together, supporting object-oriented design.
+<strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+<h3 id="4-file">4. File<a class="headerlink" href="#4-file" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A physical file (e.g., <code>.py</code>, <code>.js</code>) containing source code, which may include multiple functions, classes, or even runnable scripts.
+<strong>Example:</strong>
+<code>calculator.py</code> might contain all calculator-related classes and functions.</p>
+<h3 id="5-module">5. Module<a class="headerlink" href="#5-module" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A file or collection of files that define a namespace and can be imported into other files. Modules allow encapsulation and reuse.
+<strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">add</span>
+</code></pre></div>
+<h3 id="6-package">6. Package<a class="headerlink" href="#6-package" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A collection of related modules organized in a directory with an optional <code>__init__.py</code> file. Packages help group functionality logically.
+<strong>Example:</strong>
+<code>numpy</code>, <code>scikit-learn</code>, or your own directory like <code>myutils/</code></p>
+<h3 id="7-project">7. Project<a class="headerlink" href="#7-project" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A complete application or system that may consist of multiple packages, configurations, tests, and documentation.
+<strong>Example:</strong>
+A Django web app or a machine learning pipeline.</p>
+<h3 id="8-platform">8. Platform<a class="headerlink" href="#8-platform" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A larger ecosystem or environment where projects are deployed, integrated, or distributed. May include OS, runtime environments, SDKs, or cloud infrastructure.</p>
+<h2 id="layers-in-software-architecture">Layers in Software Architecture<a class="headerlink" href="#layers-in-software-architecture" title="Permanent link">&para;</a></h2>
+<p>Software systems are often organized into logical layers, each responsible for a specific concern. This separation helps manage complexity, supports scalability, and improves testability.</p>
+<h3 id="1-data-layer-persistence-layer">1. Data Layer (Persistence Layer)<a class="headerlink" href="#1-data-layer-persistence-layer" title="Permanent link">&para;</a></h3>
+<p><strong>Responsibility:</strong>
+Manages <strong>storage</strong>, <strong>retrieval</strong>, and <strong>manipulation</strong> of data from databases, file systems, or external APIs.
+<strong>Key Components:</strong></p>
+<ul>
+<li>Database access (SQL, ORM)</li>
+<li>Data models / entities</li>
+<li>Repositories / DAOs
+  <strong>Examples:</strong></li>
+<li>PostgreSQL, MongoDB</li>
+<li>SQLAlchemy, Hibernate</li>
+<li><code>UserRepository</code>, <code>ProductDAO</code></li>
+</ul>
+<h3 id="2-application-business-layer-service-layer">2. Application / Business Layer (Service Layer)<a class="headerlink" href="#2-application-business-layer-service-layer" title="Permanent link">&para;</a></h3>
+<p><strong>Responsibility:</strong>
+Implements <strong>business logic</strong> and rules. It coordinates between the data and presentation layers, encapsulating core operations of the application.
+<strong>Key Components:</strong></p>
+<ul>
+<li>Services</li>
+<li>Use cases</li>
+<li>Domain logic
+  <strong>Examples:</strong></li>
+<li><code>OrderService</code>, <code>AuthManager</code></li>
+<li>Validating input, calculating discounts, enforcing rules</li>
+</ul>
+<h3 id="3-presentation-layer-ui-layer">3. Presentation Layer (UI Layer)<a class="headerlink" href="#3-presentation-layer-ui-layer" title="Permanent link">&para;</a></h3>
+<p><strong>Responsibility:</strong>
+Handles <strong>user interaction</strong> and displays output. This layer communicates with the application layer to send input and present results.
+<strong>Key Components:</strong></p>
+<ul>
+<li>Web or mobile UI</li>
+<li>Controllers / ViewModels</li>
+<li>Frontend frameworks
+  <strong>Examples:</strong></li>
+<li>HTML, React, Flutter</li>
+<li><code>LoginController</code>, <code>DashboardPage</code></li>
+</ul>
+<h3 id="optional-extensions">Optional Extensions<a class="headerlink" href="#optional-extensions" title="Permanent link">&para;</a></h3>
+<p>If you're interested in a more complex architecture (like enterprise systems), you might also include:</p>
+<ul>
+<li><strong>API Layer:</strong> For REST/GraphQL endpoints that expose services to clients.</li>
+<li><strong>Integration Layer:</strong> Manages communication with external systems and services (e.g., third-party APIs).</li>
+<li><strong>Security Layer:</strong> Handles authentication, authorization, and encryption across layers.</li>
+</ul>
+<h2 id="some-popular-software-applications">Some Popular Software Applications<a class="headerlink" href="#some-popular-software-applications" title="Permanent link">&para;</a></h2>
+<h3 id="1-web-application">1. Web Application<a class="headerlink" href="#1-web-application" title="Permanent link">&para;</a></h3>
+<h3 id="2-mobile-application">2. Mobile Application<a class="headerlink" href="#2-mobile-application" title="Permanent link">&para;</a></h3>
+<h3 id="3-desktop-application">3. Desktop Application<a class="headerlink" href="#3-desktop-application" title="Permanent link">&para;</a></h3>
+<h3 id="4-console-application">4. Console Application<a class="headerlink" href="#4-console-application" title="Permanent link">&para;</a></h3>
+<h3 id="5-development-framework-library">5. Development Framework, Library<a class="headerlink" href="#5-development-framework-library" title="Permanent link">&para;</a></h3>
+<h3 id="6-development-tool">6. Development Tool<a class="headerlink" href="#6-development-tool" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
