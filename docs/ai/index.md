@@ -4,12 +4,8 @@ Welcome to the AI section of my handbook. This section covers various aspects of
 
 ## Topics
 
-- **Machine Learning** - Supervised, unsupervised, and reinforcement learning
-- **Deep Learning** - Neural networks, CNN, RNN, transformers, and more
-- **Natural Language Processing** - Text analysis, sentiment analysis, and language models
-- **Computer Vision** - Image recognition, object detection, and image generation
-- **AI Applications** - Real-world applications and case studies
-
-## Latest Articles
-
-This section will be updated as I add more content.
+- **Machine Learning** - Supervised, unsupervised, and reinforcement learning, traditional AI.
+- **Deep Learning** - Neural networks, CNN, RNN, transformers, and more.
+- **Natural Language Processing** - Text analysis, sentiment analysis, and language models.
+- **Computer Vision** - Image recognition, object detection, and image generation.
+- **AI Applications** - Real-world applications and case studies.
