@@ -43,10 +43,17 @@ nav:
       - Overview: software/index.md
       - Fundamentals:
         - Basic Concepts: software/basics/basic_concepts.md
+        - Development Concepts: software/basics/devlopment_concepts.md
+        - Study Guide: software/basics/study_guide.md
+        - Styles: software/basics/styles.md
+      - Tool/Tip:
+        - Database: software/tool_tip/database.md
   - Data:
       - Overview: data/index.md
       - Fundamentals:
           - Introduction to Data: data/basics/introduction_to_data.md
   - AI:
       - Overview: ai/index.md
+      - Fundamentals:
+          - Concepts: ai/basics/concepts.md
   - About: about.md
