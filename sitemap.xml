@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://locchh.github.io/sw-handbook/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/about/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/basics/concepts/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/introduction_to_data/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/basics/abbreviations/</loc>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/basic_concepts/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/devlopment_concepts/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/study_guide/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/styles/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/tool_tip/database/</loc>
-         <lastmod>2025-08-10</lastmod>
+         <lastmod>2025-08-11</lastmod>
     </url>
 </urlset>

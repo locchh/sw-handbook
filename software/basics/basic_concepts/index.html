@@ -330,6 +330,8 @@
       
         
       
+        
+      
     
     
     
@@ -577,27 +579,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-package" class="md-nav__link">
+  <a href="#6-sub-package-name-space-package" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Package
+      6. Sub-package, Name-space package
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-project" class="md-nav__link">
+  <a href="#7-package" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Project
+      7. Package
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-platform" class="md-nav__link">
+  <a href="#8-project" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Platform
+      8. Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Platform
     </span>
   </a>
   
@@ -723,6 +734,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#7-some-codebase-for-research-learning-or-demo-purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Some codebase for research, learning, or demo purposes
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -767,12 +787,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../study_guide/" class="md-nav__link">
+      <a href="../styles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Study Guide
+    Styles
     
   </span>
   
@@ -790,12 +810,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../styles/" class="md-nav__link">
+      <a href="../abbreviations/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Styles
+    Abbreviations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Study Guide
     
   </span>
   
@@ -1386,27 +1429,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-package" class="md-nav__link">
+  <a href="#6-sub-package-name-space-package" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Package
+      6. Sub-package, Name-space package
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-project" class="md-nav__link">
+  <a href="#7-package" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Project
+      7. Package
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-platform" class="md-nav__link">
+  <a href="#8-project" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Platform
+      8. Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Platform
     </span>
   </a>
   
@@ -1527,6 +1579,15 @@
   <a href="#6-development-tool" class="md-nav__link">
     <span class="md-ellipsis">
       6. Development Tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-some-codebase-for-research-learning-or-demo-purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Some codebase for research, learning, or demo purposes
     </span>
   </a>
   
@@ -1701,17 +1762,42 @@ A file or collection of files that define a namespace and can be imported into o
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">add</span>
 </code></pre></div>
-<h3 id="6-package">6. Package<a class="headerlink" href="#6-package" title="Permanent link">&para;</a></h3>
+<h3 id="6-sub-package-name-space-package">6. Sub-package, Name-space package<a class="headerlink" href="#6-sub-package-name-space-package" title="Permanent link">&para;</a></h3>
+<p><strong>Description:</strong>
+A sub-package is a package contained within another package (a nested directory structure). It helps organize larger packages into logical groups, e.g., <code>utils/text/</code> under <code>utils/</code>.</p>
+<p>A namespace package is a logical package that can be spread across multiple directories on <code>sys.path</code> (in Python, enabled by PEP 420). Unlike regular packages, a namespace package may not have a single <code>__init__.py</code> file and can be extended by separate distributions.
+<strong>Examples:</strong></p>
+<p>Regular package with sub-packages:</p>
+<div class="highlight"><pre><span></span><code>myapp/
+  utils/
+    __init__.py
+    text/
+      __init__.py
+      tokenize.py
+    math/
+      __init__.py
+      stats.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">myapp.utils.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">tokenize</span>
+</code></pre></div>
+<p>Namespace package (pieces located in multiple roots on sys.path):</p>
+<div class="highlight"><pre><span></span><code>/src/pkg_a/acme/plugins/foo.py
+/src/pkg_b/acme/plugins/bar.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># When both /src/pkg_a and /src/pkg_b are on sys.path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">acme.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">foo</span><span class="p">,</span> <span class="n">bar</span>
+</code></pre></div>
+<h3 id="7-package">7. Package<a class="headerlink" href="#7-package" title="Permanent link">&para;</a></h3>
 <p><strong>Description:</strong>
 A collection of related modules organized in a directory with an optional <code>__init__.py</code> file. Packages help group functionality logically.
 <strong>Example:</strong>
 <code>numpy</code>, <code>scikit-learn</code>, or your own directory like <code>myutils/</code></p>
-<h3 id="7-project">7. Project<a class="headerlink" href="#7-project" title="Permanent link">&para;</a></h3>
+<h3 id="8-project">8. Project<a class="headerlink" href="#8-project" title="Permanent link">&para;</a></h3>
 <p><strong>Description:</strong>
 A complete application or system that may consist of multiple packages, configurations, tests, and documentation.
 <strong>Example:</strong>
 A Django web app or a machine learning pipeline.</p>
-<h3 id="8-platform">8. Platform<a class="headerlink" href="#8-platform" title="Permanent link">&para;</a></h3>
+<h3 id="9-platform">9. Platform<a class="headerlink" href="#9-platform" title="Permanent link">&para;</a></h3>
 <p><strong>Description:</strong>
 A larger ecosystem or environment where projects are deployed, integrated, or distributed. May include OS, runtime environments, SDKs, or cloud infrastructure.</p>
 <h2 id="layers-in-software-architecture">Layers in Software Architecture<a class="headerlink" href="#layers-in-software-architecture" title="Permanent link">&para;</a></h2>
@@ -1767,6 +1853,7 @@ Handles <strong>user interaction</strong> and displays output. This layer commun
 <h3 id="4-console-application">4. Console Application<a class="headerlink" href="#4-console-application" title="Permanent link">&para;</a></h3>
 <h3 id="5-development-framework-library">5. Development Framework, Library<a class="headerlink" href="#5-development-framework-library" title="Permanent link">&para;</a></h3>
 <h3 id="6-development-tool">6. Development Tool<a class="headerlink" href="#6-development-tool" title="Permanent link">&para;</a></h3>
+<h3 id="7-some-codebase-for-research-learning-or-demo-purposes">7. Some codebase for research, learning, or demo purposes<a class="headerlink" href="#7-some-codebase-for-research-learning-or-demo-purposes" title="Permanent link">&para;</a></h3>
 
 
 
