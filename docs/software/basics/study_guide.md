@@ -56,15 +56,19 @@
 
 5. What technologies, frameworks, and languages are used?
 
-6. How to run the codebase locally?
+6. What are the coding standards and patterns used throughout the project?
 
-7. How is the codebase tested and what is the test coverage?
+7. How is the project configured for different environments (development, testing, production)?
 
-8. What are the data models and how is data flowing through the system?
+8. How to run the codebase locally?
 
-9. What are the coding standards and patterns used throughout the project?
+9. What are the data models and how is data flowing through the system?
 
-10. How is the project configured for different environments (development, testing, production)?
+10. **Explain about the project's architecture and how it works**
+
+11. **Explain about the relationship between the code components in this sub-package**
+
+12. How is the codebase tested and what is the test coverage?
 
 ## Top Level Platform Questions
 

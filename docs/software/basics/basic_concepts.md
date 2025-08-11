@@ -149,21 +149,59 @@ import math
 from calculator import add
 ```
 
-### 6. Package
+### 6. Sub-package, Name-space package
+
+**Description:**
+A sub-package is a package contained within another package (a nested directory structure). It helps organize larger packages into logical groups, e.g., `utils/text/` under `utils/`.
+
+A namespace package is a logical package that can be spread across multiple directories on `sys.path` (in Python, enabled by PEP 420). Unlike regular packages, a namespace package may not have a single `__init__.py` file and can be extended by separate distributions.
+**Examples:**
+
+Regular package with sub-packages:
+
+```
+myapp/
+  utils/
+    __init__.py
+    text/
+      __init__.py
+      tokenize.py
+    math/
+      __init__.py
+      stats.py
+```
+
+```python
+from myapp.utils.text import tokenize
+```
+
+Namespace package (pieces located in multiple roots on sys.path):
+
+```
+/src/pkg_a/acme/plugins/foo.py
+/src/pkg_b/acme/plugins/bar.py
+```
+
+```python
+# When both /src/pkg_a and /src/pkg_b are on sys.path
+from acme.plugins import foo, bar
+```
+
+### 7. Package
 
 **Description:**
 A collection of related modules organized in a directory with an optional `__init__.py` file. Packages help group functionality logically.
 **Example:**
 `numpy`, `scikit-learn`, or your own directory like `myutils/`
 
-### 7. Project
+### 8. Project
 
 **Description:**
 A complete application or system that may consist of multiple packages, configurations, tests, and documentation.
 **Example:**
 A Django web app or a machine learning pipeline.
 
-### 8. Platform
+### 9. Platform
 
 **Description:**
 A larger ecosystem or environment where projects are deployed, integrated, or distributed. May include OS, runtime environments, SDKs, or cloud infrastructure.
@@ -234,3 +272,4 @@ If you're interested in a more complex architecture (like enterprise systems), y
 
 ### 6. Development Tool
 
+### 7. Some codebase for research, learning, or demo purposes 

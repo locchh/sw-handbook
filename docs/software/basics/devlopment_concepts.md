@@ -1,6 +1,14 @@
 
 # Development Concepts
 
+## Development Diagram
+
+core logic
+|----->backend (fastapi, django, flask)
+|----->cli (click, typer, argparse)
+|----->GUI framework (pyqt, pywx)
+|----->lo (react, flutter)
+
 ## Environments
 - **Local**: Your development machine (e.g., `<your_name>/dev` branch)
 
