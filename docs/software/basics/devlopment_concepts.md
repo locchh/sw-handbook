@@ -1,7 +1,7 @@
 
 # Development Concepts
 
-## Development Diagram
+## Application Types and Delivery Channels
 
 ```
 ┌────────────────┐

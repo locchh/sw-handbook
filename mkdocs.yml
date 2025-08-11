@@ -44,8 +44,9 @@ nav:
       - Fundamentals:
         - Basic Concepts: software/basics/basic_concepts.md
         - Development Concepts: software/basics/devlopment_concepts.md
-        - Study Guide: software/basics/study_guide.md
         - Styles: software/basics/styles.md
+        - Abbreviations: software/basics/abbreviations.md
+        - Study Guide: software/basics/study_guide.md
       - Tool/Tip:
         - Database: software/tool_tip/database.md
   - Data:
