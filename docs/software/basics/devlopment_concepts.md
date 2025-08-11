@@ -3,11 +3,33 @@
 
 ## Development Diagram
 
-core logic
-|----->backend (fastapi, django, flask)
-|----->cli (click, typer, argparse)
-|----->GUI framework (pyqt, pywx)
-|----->lo (react, flutter)
+```
+┌────────────────┐
+│   Core Logic   │  (domain/use-cases/libs)
+└───────┬────────┘
+        │
+        ├── Backend Services (FastAPI, Django, Flask, gRPC, Serverless)
+        │     ├── API-only Service (REST/GraphQL/gRPC)
+        │     ├── Background Jobs / Workers / Schedulers
+        │     └── BFF (Backend for Frontend)
+        │
+        ├── Web Application
+        │     ├── Browser-based UI (SPA/SSR; or Jupyter, MLflow)
+        │     └── Consumes Backend APIs
+        │
+        ├── Mobile Application
+        │     └── iOS/Android app consuming Backend/BFF APIs
+        │
+        ├── Desktop Application
+        │     ├── Native GUI (PyQt/PySide6, wxPython, Tkinter)
+        │     └── Webview/Electron/Tauri-style
+        │
+        ├── Command Line Application (CLI: click, typer, argparse)
+        │
+        └── Integrations / Services
+              ├── MCP Server
+              └── External APIs, Messaging, etc.
+```
 
 ## Environments
 - **Local**: Your development machine (e.g., `<your_name>/dev` branch)
