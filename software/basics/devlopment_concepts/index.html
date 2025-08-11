@@ -1145,9 +1145,10 @@
 
 <h1 id="development-concepts">Development Concepts<a class="headerlink" href="#development-concepts" title="Permanent link">&para;</a></h1>
 <h2 id="application-types-and-delivery-channels">Application Types and Delivery Channels<a class="headerlink" href="#application-types-and-delivery-channels" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>┌────────────────┐
-│   Core Logic   │  (domain/use-cases/libs)
-└───────┬────────┘
+<div class="highlight"><pre><span></span><code>┌────────────────────────┐
+│   Core Logic           │
+│ (domain/use-cases/libs)│
+└───────┬────────────────┘
         │
         ├── Backend Services (FastAPI, Django, Flask, gRPC, Serverless)
         │     ├── API-only Service (REST/GraphQL/gRPC)
@@ -1272,7 +1273,7 @@
                             |
                             v
             +--------------------------------+
-            | Create `release/*` from `develop`|
+            |Create `release/*` from `develop`|
             +---------------+----------------+
                             |
                             v
@@ -1295,11 +1296,11 @@
 <p><code>Alpha</code> is the initial version, <code>Beta</code> is the second version, <code>RC1</code> is the first release candidate, <code>RC2</code> is the second release candidate, and so on. <code>Release</code> is the final version.</p>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Unit Testing</strong>: Test the code to ensure it works as expected</li>
-<li><strong>Stress Testing</strong>: Test the code with high load to ensure it works as expected</li>
-<li><strong>Integration Testing</strong>: Test the code to ensure it works as expected</li>
-<li><strong>System Testing</strong>: Test the code to ensure it works as expected</li>
-<li><strong>Acceptance Testing</strong>: Test the code to ensure it works as expected</li>
+<li><strong>Unit Testing</strong>: Testing individual units of code in isolation to ensure they function correctly.</li>
+<li><strong>Stress Testing</strong>: Testing the code with high load to ensure it works as expected</li>
+<li><strong>Integration Testing</strong>: Testing how individual units or components interact with each other to ensure they work together properly. It focuses on verifying that different parts of the application integrate correctly and data flows appropriately between components.</li>
+<li><strong>System Testing</strong>: Testing the entire system as a whole to ensure all components work together as expected</li>
+<li><strong>Acceptance Testing</strong>: Testing performed to determine if the requirements of a specification or contract are met. It's the final verification before the software is delivered to the customer.</li>
 </ul>
 <h2 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h2>
 <ul>
