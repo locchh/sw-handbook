@@ -4,9 +4,10 @@
 ## Application Types and Delivery Channels
 
 ```
-┌────────────────┐
-│   Core Logic   │  (domain/use-cases/libs)
-└───────┬────────┘
+┌────────────────────────┐
+│   Core Logic           │
+│ (domain/use-cases/libs)│
+└───────┬────────────────┘
         │
         ├── Backend Services (FastAPI, Django, Flask, gRPC, Serverless)
         │     ├── API-only Service (REST/GraphQL/gRPC)
@@ -121,7 +122,7 @@ Feature -> Workflow -> Code Components -> Develop -> Unit Test -> Code Review
                             |
                             v
             +--------------------------------+
-            | Create `release/*` from `develop`|
+            |Create `release/*` from `develop`|
             +---------------+----------------+
                             |
                             v
@@ -151,11 +152,11 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 
 ## Testing
 
-- **Unit Testing**: Test the code to ensure it works as expected
-- **Stress Testing**: Test the code with high load to ensure it works as expected
-- **Integration Testing**: Test the code to ensure it works as expected
-- **System Testing**: Test the code to ensure it works as expected
-- **Acceptance Testing**: Test the code to ensure it works as expected
+- **Unit Testing**: Testing individual units of code in isolation to ensure they function correctly.
+- **Stress Testing**: Testing the code with high load to ensure it works as expected
+- **Integration Testing**: Testing how individual units or components interact with each other to ensure they work together properly. It focuses on verifying that different parts of the application integrate correctly and data flows appropriately between components.
+- **System Testing**: Testing the entire system as a whole to ensure all components work together as expected
+- **Acceptance Testing**: Testing performed to determine if the requirements of a specification or contract are met. It's the final verification before the software is delivered to the customer.
 
 ## CI/CD
 
