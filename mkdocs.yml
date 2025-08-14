@@ -49,6 +49,7 @@ nav:
         - Study Guide: software/basics/study_guide.md
       - Tool/Tip:
         - Database: software/tool_tip/database.md
+        - Prompting: software/tool_tip/prompting.md
   - Data:
       - Overview: data/index.md
       - Fundamentals:
