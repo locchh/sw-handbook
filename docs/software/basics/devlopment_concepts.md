@@ -45,6 +45,19 @@
 - **System Requirement**: A request for a new feature or change to an existing feature
 - **Code Requirement**: A request for a new feature or change to an existing feature
 
+## Development Roles
+
+- **Developer**: Develop the code (front-end, back-end, machine learning enginer, data engineer, data scientist, data analyst, etc.)
+- **BA**: Business Analyst
+- **QA**: Quality Assurance
+- **DevOps**: Deploy the code (DevOps, MLOps, LLMOps, System Administrator, etc.)
+- **Architect**: Design the system
+- **PM**: Project Manager
+- **PO**: Product Owner
+- **Scrum Master**: Scrum Master
+- **UX/UI Designer**: Design the user interface
+- **Tech Lead**: Lead the development team
+
 ## Development Actions
 
 - **Develop**: Develop the code
@@ -68,7 +81,7 @@
 ## Coding Workflow
 
 ```
-Feature -> Workflow -> Code Components -> Develop -> Unit Test -> Code Review
+Feature -> Workflow -> Data Models-> Code Components -> Develop -> Unit Test -> Code Review
 ```
 
 ## Development Workflow
@@ -185,3 +198,57 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 **Dependencies:**
 
 - Imported Libraries: List of Python packages imported in your environment
+
+## Implementation Patterns
+
+1) Server-rendered backend (FastAPI/Flask + Jinja)
+
+- Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app
+- When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint
+- Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns
+- Cons: Limited rich interactivity, backend tightly coupled to UI
+
+2) Decoupled SPA + API (React/Vue + FastAPI)
+
+- Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend
+- When to use: Rich UX, complex state, team separation, mobile + web reuse
+- Pros: Independent scaling/deploy, modern DX, reusable API
+- Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity
+
+## Deployment Options
+
+- Two servers
+  - Example: React on Vercel; FastAPI on AWS EC2/Fly/Docker
+- Single server (Reverse proxy)
+  - Nginx serves static build; proxies /api to FastAPI
+- Unified dev/monorepo (local-first)
+  - One repo; dev servers for FE/BE; production still split or proxied
+
+## Implementation
+
+The two solutions you described are usually referred to like this:
+
+1. **FastAPI or Flask returning HTML UI directly**
+
+   * **Common names:**
+
+     * *Server-side rendering* (SSR) — HTML is generated on the server (using templates like Jinja2) and sent to the browser.
+     * *Monolithic web app* — backend and frontend logic are part of the same codebase and deployment.
+     * *Backend-rendered UI* — backend handles both data and view rendering.
+
+2. **Letting the user access a frontend server (React, Vue, etc.) separately**
+
+   * **Common names:**
+
+     * *Decoupled architecture* — backend and frontend are separate projects.
+     * *Frontend–backend separation* — UI is built in a frontend framework, backend is only for APIs.
+     * *SPA + API* — Single Page Application (React/Vue) consuming REST or GraphQL APIs.
+     * *Headless backend* — backend only serves data, no HTML views.
+
+Deployment options
+
+Two separate servers: e.g., React on Vercel, FastAPI on AWS EC2.
+
+Single server (Reverse proxy): Serve React build files from Nginx, API requests proxied to FastAPI.
+
+Full-stack build pipeline: Tools like create-react-app + FastAPI behind one uvicorn server (less common in production, more for local dev).

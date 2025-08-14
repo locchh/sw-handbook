@@ -82,3 +82,7 @@
 **POC**: Proof of Concept
 
 **MVP**: Minimum Viable Product
+
+**NAT**: Network Address Translation
+
+**MFA**: Multi-Factor Authentication

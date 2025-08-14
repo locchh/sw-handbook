@@ -12,10 +12,15 @@ Data is everywhere.
 *Everything can be the context, but which ones are prior?*
 
 Information that provides meaning to data
+
 - When the data was collected?
+
 - Where the data was collected?
+
 - How the data was collected?
+
 - Who collected the data?
+
 - Why the data was collected?
 
 These characteristics of data are called the **metadata**.
@@ -23,12 +28,17 @@ These characteristics of data are called the **metadata**.
 ## Type of data
 
 Classification of data based on their structure:
+
 - Structured data (*If there are rules, then there must be some form of structure*)
+
 - Semi-structured data
+
 - Unstructured data
 
 Classification of data based on their nature: 
+
 - Quantitative data
+
 - Qualitative data
 
 ## Data storage is changing

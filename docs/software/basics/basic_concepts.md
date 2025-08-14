@@ -272,4 +272,10 @@ If you're interested in a more complex architecture (like enterprise systems), y
 
 ### 6. Development Tool
 
-### 7. Some codebase for research, learning, or demo purposes 
+### 7. Extension
+
+### 8. Platform
+
+### 9. Ecosystem
+
+### 10. Some codebase for research, learning, or demo purposes 
