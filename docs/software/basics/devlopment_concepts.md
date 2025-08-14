@@ -223,3 +223,57 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
   - Nginx serves static build; proxies /api to FastAPI
 - Unified dev/monorepo (local-first)
   - One repo; dev servers for FE/BE; production still split or proxied
+
+## Performance Bottleneck Classification
+
+### Types of Performance Limitations
+
+- **CPU-bound**: Tasks limited by computational power
+  - Characteristics: High CPU usage, low I/O wait, processor at/near 100%
+  - Examples: Complex calculations, data processing, rendering, compression
+  - Solutions: Optimize algorithms, parallelize work, use compiled languages, scale vertically (more CPU power)
+
+- **Memory-bound**: Tasks limited by memory capacity or bandwidth
+  - Characteristics: High memory usage, swapping, garbage collection pauses
+  - Examples: Large data structures, caching, in-memory databases
+  - Solutions: Optimize data structures, reduce memory footprint, memory profiling, vertical scaling (more RAM)
+
+- **I/O-bound**: Tasks limited by input/output operations
+  - Characteristics: Low CPU usage, high wait time, processes blocked on I/O
+  - Examples: Database queries, file operations, network requests, API calls
+  - Solutions: Asynchronous I/O, connection pooling, caching, batching requests
+
+- **Network-bound**: Tasks limited by network throughput or latency
+  - Characteristics: Waiting on remote services, bandwidth saturation
+  - Examples: Downloading/uploading large files, microservice communication
+  - Solutions: Compression, CDNs, edge computing, protocol optimization, connection reuse
+
+- **Disk-bound**: Tasks limited by storage read/write speeds
+  - Characteristics: High disk utilization, processes waiting on disk operations
+  - Examples: Database writes, log processing, file system operations
+  - Solutions: SSDs, RAID configurations, write batching, appropriate file systems
+
+### Identifying Performance Bottlenecks
+
+```
+Observe → Measure → Analyze → Optimize → Verify
+```
+
+1. **Observation Tools**:
+   - CPU: `top`, `htop`, `mpstat`
+   - Memory: `free`, `vmstat`
+   - I/O: `iostat`, `iotop`
+   - Network: `netstat`, `iftop`
+   - Comprehensive: `dstat`, `glances`
+
+2. **Profiling Techniques**:
+   - Sampling profilers: Capture stack traces at intervals
+   - Tracing profilers: Instrument code to track execution
+   - Distributed tracing: Track requests across services (Jaeger, Zipkin)
+   - Flame graphs: Visualize CPU/memory usage hierarchically
+
+3. **Performance Testing**:
+   - Load testing: Simulate expected load (JMeter, Locust)
+   - Stress testing: Find breaking points
+   - Soak testing: Verify stability under sustained load
+   - Spike testing: Test response to sudden load increases
