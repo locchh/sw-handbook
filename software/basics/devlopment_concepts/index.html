@@ -561,6 +561,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#performance-bottleneck-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Bottleneck Classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Bottleneck Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-performance-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Performance Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identifying Performance Bottlenecks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1203,6 +1236,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#performance-bottleneck-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Bottleneck Classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Bottleneck Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-performance-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Performance Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identifying Performance Bottlenecks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1445,6 +1511,75 @@
 <li>Unified dev/monorepo (local-first)</li>
 <li>One repo; dev servers for FE/BE; production still split or proxied</li>
 </ul>
+<h2 id="performance-bottleneck-classification">Performance Bottleneck Classification<a class="headerlink" href="#performance-bottleneck-classification" title="Permanent link">&para;</a></h2>
+<h3 id="types-of-performance-limitations">Types of Performance Limitations<a class="headerlink" href="#types-of-performance-limitations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CPU-bound</strong>: Tasks limited by computational power</li>
+<li>Characteristics: High CPU usage, low I/O wait, processor at/near 100%</li>
+<li>Examples: Complex calculations, data processing, rendering, compression</li>
+<li>
+<p>Solutions: Optimize algorithms, parallelize work, use compiled languages, scale vertically (more CPU power)</p>
+</li>
+<li>
+<p><strong>Memory-bound</strong>: Tasks limited by memory capacity or bandwidth</p>
+</li>
+<li>Characteristics: High memory usage, swapping, garbage collection pauses</li>
+<li>Examples: Large data structures, caching, in-memory databases</li>
+<li>
+<p>Solutions: Optimize data structures, reduce memory footprint, memory profiling, vertical scaling (more RAM)</p>
+</li>
+<li>
+<p><strong>I/O-bound</strong>: Tasks limited by input/output operations</p>
+</li>
+<li>Characteristics: Low CPU usage, high wait time, processes blocked on I/O</li>
+<li>Examples: Database queries, file operations, network requests, API calls</li>
+<li>
+<p>Solutions: Asynchronous I/O, connection pooling, caching, batching requests</p>
+</li>
+<li>
+<p><strong>Network-bound</strong>: Tasks limited by network throughput or latency</p>
+</li>
+<li>Characteristics: Waiting on remote services, bandwidth saturation</li>
+<li>Examples: Downloading/uploading large files, microservice communication</li>
+<li>
+<p>Solutions: Compression, CDNs, edge computing, protocol optimization, connection reuse</p>
+</li>
+<li>
+<p><strong>Disk-bound</strong>: Tasks limited by storage read/write speeds</p>
+</li>
+<li>Characteristics: High disk utilization, processes waiting on disk operations</li>
+<li>Examples: Database writes, log processing, file system operations</li>
+<li>Solutions: SSDs, RAID configurations, write batching, appropriate file systems</li>
+</ul>
+<h3 id="identifying-performance-bottlenecks">Identifying Performance Bottlenecks<a class="headerlink" href="#identifying-performance-bottlenecks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Observe → Measure → Analyze → Optimize → Verify
+</code></pre></div>
+<ol>
+<li><strong>Observation Tools</strong>:</li>
+<li>CPU: <code>top</code>, <code>htop</code>, <code>mpstat</code></li>
+<li>Memory: <code>free</code>, <code>vmstat</code></li>
+<li>I/O: <code>iostat</code>, <code>iotop</code></li>
+<li>Network: <code>netstat</code>, <code>iftop</code></li>
+<li>
+<p>Comprehensive: <code>dstat</code>, <code>glances</code></p>
+</li>
+<li>
+<p><strong>Profiling Techniques</strong>:</p>
+</li>
+<li>Sampling profilers: Capture stack traces at intervals</li>
+<li>Tracing profilers: Instrument code to track execution</li>
+<li>Distributed tracing: Track requests across services (Jaeger, Zipkin)</li>
+<li>
+<p>Flame graphs: Visualize CPU/memory usage hierarchically</p>
+</li>
+<li>
+<p><strong>Performance Testing</strong>:</p>
+</li>
+<li>Load testing: Simulate expected load (JMeter, Locust)</li>
+<li>Stress testing: Find breaking points</li>
+<li>Soak testing: Verify stability under sustained load</li>
+<li>Spike testing: Test response to sudden load increases</li>
+</ol>
 
 
 
