@@ -561,15 +561,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementation
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1212,15 +1203,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementation
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1463,37 +1445,6 @@
 <li>Unified dev/monorepo (local-first)</li>
 <li>One repo; dev servers for FE/BE; production still split or proxied</li>
 </ul>
-<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
-<p>The two solutions you described are usually referred to like this:</p>
-<ol>
-<li>
-<p><strong>FastAPI or Flask returning HTML UI directly</strong></p>
-</li>
-<li>
-<p><strong>Common names:</strong></p>
-<ul>
-<li><em>Server-side rendering</em> (SSR) — HTML is generated on the server (using templates like Jinja2) and sent to the browser.</li>
-<li><em>Monolithic web app</em> — backend and frontend logic are part of the same codebase and deployment.</li>
-<li><em>Backend-rendered UI</em> — backend handles both data and view rendering.</li>
-</ul>
-</li>
-<li>
-<p><strong>Letting the user access a frontend server (React, Vue, etc.) separately</strong></p>
-</li>
-<li>
-<p><strong>Common names:</strong></p>
-<ul>
-<li><em>Decoupled architecture</em> — backend and frontend are separate projects.</li>
-<li><em>Frontend–backend separation</em> — UI is built in a frontend framework, backend is only for APIs.</li>
-<li><em>SPA + API</em> — Single Page Application (React/Vue) consuming REST or GraphQL APIs.</li>
-<li><em>Headless backend</em> — backend only serves data, no HTML views.</li>
-</ul>
-</li>
-</ol>
-<p>Deployment options</p>
-<p>Two separate servers: e.g., React on Vercel, FastAPI on AWS EC2.</p>
-<p>Single server (Reverse proxy): Serve React build files from Nginx, API requests proxied to FastAPI.</p>
-<p>Full-stack build pipeline: Tools like create-react-app + FastAPI behind one uvicorn server (less common in production, more for local dev).</p>
 
 
 
