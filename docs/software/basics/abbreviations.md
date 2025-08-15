@@ -86,3 +86,7 @@
 **NAT**: Network Address Translation
 
 **MFA**: Multi-Factor Authentication
+
+**ISP**: Internet Service Provider
+
+**CDN**: Content Delivery Network
