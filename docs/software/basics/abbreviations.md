@@ -55,9 +55,11 @@
 
 **JS**: JavaScript (web page behavior)
 
+**SSR**: Server-Side Rendering (web app with server-side rendering)
+
 **SPA**: Single-Page Application (web app with client-side routing)
 
-**SSR**: Server-Side Rendering
+**MPA**: Multi-Page Application (web app with server-side routing)
 
 **PWA**: Progressive Web App
 
@@ -90,3 +92,23 @@
 **ISP**: Internet Service Provider
 
 **CDN**: Content Delivery Network
+
+**API**: Application Programming Interface
+
+**CLI**: Command Line Interface
+
+**GUI**: Graphical User Interface
+
+**IDE**: Integrated Development Environment
+
+**RPC**: Remote Procedure Call
+
+**MVC**: Model-View-Controller
+
+**SaaS**: Software as a Service
+
+**IaaS**: Infrastructure as a Service
+
+**PaaS**: Platform as a Service
+
+**CI/CD**: Continuous Integration/Continuous Deployment
