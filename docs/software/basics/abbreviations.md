@@ -112,3 +112,9 @@
 **PaaS**: Platform as a Service
 
 **CI/CD**: Continuous Integration/Continuous Deployment
+
+**BD**: Basic Design
+
+**DD**: Detailed Design
+
+**SD**: System Design
