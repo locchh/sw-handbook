@@ -91,7 +91,7 @@
 
 **ISP**: Internet Service Provider
 
-**CDN**: Content Delivery Network
+**ORM**: Object–Relational Mapping (It’s a technique lets you interact with a relational database using objects)
 
 **API**: Application Programming Interface
 
@@ -118,3 +118,9 @@
 **DD**: Detailed Design
 
 **SD**: System Design
+
+**DB**: Database
+
+**RDB**: Relational Database
+
+**RDBMS**: Relational Database Management System
