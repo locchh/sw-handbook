@@ -124,3 +124,5 @@
 **RDB**: Relational Database
 
 **RDBMS**: Relational Database Management System
+
+**ACID**: Atomicity, Consistency, Isolation, Durability
