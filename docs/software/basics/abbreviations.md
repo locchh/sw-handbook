@@ -126,3 +126,7 @@
 **RDBMS**: Relational Database Management System
 
 **ACID**: Atomicity, Consistency, Isolation, Durability
+
+**SDLC**: Software Development Life Cycle
+
+**SRS**: Software Requirements Specification
