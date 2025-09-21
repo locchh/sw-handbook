@@ -30,11 +30,20 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed
   - pymdownx.details
   - toc:
       permalink: true
+
+# Extra JavaScript
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
 
 # Navigation
 nav:
@@ -44,6 +53,7 @@ nav:
       - Fundamentals:
         - Basic Concepts: software/basics/basic_concepts.md
         - Development Concepts: software/basics/devlopment_concepts.md
+        - Architecture Patterns: software/basics/architecture_patterns.md
         - Styles: software/basics/styles.md
         - Abbreviations: software/basics/abbreviations.md
         - Study Guide: software/basics/study_guide.md
