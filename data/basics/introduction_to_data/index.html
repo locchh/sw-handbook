@@ -328,6 +328,8 @@
       
         
       
+        
+      
     
     
     
@@ -397,6 +399,29 @@
   
   <span class="md-ellipsis">
     Development Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/architecture_patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture Patterns
     
   </span>
   
@@ -846,6 +871,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#approaches-for-importing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approaches for Importing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes-about-data" class="md-nav__link">
     <span class="md-ellipsis">
       Common mistakes about data
@@ -1159,6 +1193,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#approaches-for-importing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approaches for Importing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes-about-data" class="md-nav__link">
     <span class="md-ellipsis">
       Common mistakes about data
@@ -1187,7 +1230,7 @@
 
 
 <h1 id="introduction-to-data">Introduction to Data<a class="headerlink" href="#introduction-to-data" title="Permanent link">&para;</a></h1>
-<p>Data is everywhere.</p>
+<p><em>Data is everywhere.</em></p>
 <h2 id="what-is-data">What is Data?<a class="headerlink" href="#what-is-data" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Derived from <code>datum</code>: given, fact.</li>
@@ -1296,12 +1339,41 @@
 <li>Processed through other systems</li>
 <li>Displayed and manipulated in other systems.</li>
 </ul>
+<p><strong>Data ingestion</strong></p>
+<p>Data ingestion is the process of collecting data from various sources and loading it into a data storage system. The same process is also called <strong>data population</strong>.</p>
+<p><strong>Data transformation</strong></p>
+<p>Data transformation is the process of converting raw data into a format that is useful for analysis.</p>
+<p><strong>Data storage</strong></p>
+<p>Data storage is the process of storing data in a way that is accessible and secure.</p>
+<p><strong>Data analysis</strong></p>
+<p>Data analysis is the process of using statistical and machine learning techniques to extract insights from data.</p>
+<p><strong>Data visualization</strong></p>
+<p>Data visualization is the process of representing data in a way that is easy to understand.</p>
+<p><strong>Data normalization</strong></p>
+<p>Avoid data redundancy and maintain integrity. Organize data into multiple related tables using normal forms (1NF, 2NF, 3NF, BCNF, etc.).</p>
 <p><strong>Data management</strong>
 Data management is responsible trying to unify and standardize data from many different data flows. These </p>
 <p><strong>Data governance</strong>
 Ensure data is consistent, trustworthy, and isn't misused.</p>
-<p><strong>Data quality</strong>
-Ensure data is accurate, complete, consistent, and up-to-date.</p>
+<p><strong>Data quality</strong></p>
+<p>You should assess the source data for accuracy, validity, completeness, reliability, and consistency:</p>
+<ul>
+<li>
+<p>Accuracy - verify that the data is correct and error-free by cross-referencing with reliable sources.</p>
+</li>
+<li>
+<p>Validity - Ensure the data is applicable and suitable for the intended use or context.</p>
+</li>
+<li>
+<p>Completeness - Check that you included all necessary data and there are no missing elements.</p>
+</li>
+<li>
+<p>Reliability - Ascertain that the data comes from a credible and dependable source.</p>
+</li>
+<li>
+<p>Consistency - Confirm that the data does not show discrepancies when compared over time or with similar datasets.</p>
+</li>
+</ul>
 <p><strong>Data Privacy and Security</strong>
 Ensure proper data access, use, and protection.</p>
 <h2 id="principles-of-data-ethics">Principles of data ethics<a class="headerlink" href="#principles-of-data-ethics" title="Permanent link">&para;</a></h2>
@@ -1315,6 +1387,81 @@ Ensure proper data access, use, and protection.</p>
 <h2 id="data-lifecycle">Data lifecycle<a class="headerlink" href="#data-lifecycle" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>Planning -&gt; Collection -&gt; Storage -&gt; Management -&gt; Cleaning and processing -&gt; Analysis and Visualization -&gt; Sharing -&gt; Archiving/destroying
 </code></pre></div>
+<h2 id="approaches-for-importing-data">Approaches for Importing Data<a class="headerlink" href="#approaches-for-importing-data" title="Permanent link">&para;</a></h2>
+<p>When we say importing data, it means the process of moving data from one system into database. The import could be a one-time operation, or it could be a regular process that you need to automate. Typically, the source system would have a different data model than database, and by importing data, you would transform the data into a model that is more appropriate for your use case.</p>
+<p>The source may expose data in different ways, for example:</p>
+<ul>
+<li>
+<p>Relational Database Management Systems (RDBMS)</p>
+</li>
+<li>
+<p>Web APIs</p>
+</li>
+<li>
+<p>Public data directories</p>
+</li>
+<li>
+<p>BI tools</p>
+</li>
+<li>
+<p>Excel</p>
+</li>
+<li>
+<p>Flat files (CSV, JSON, XML)</p>
+</li>
+</ul>
+<p>The method by which you import data into database will depend on several factors, including:</p>
+<ul>
+<li>
+<p>The source of the data</p>
+</li>
+<li>
+<p>The volume of data</p>
+</li>
+<li>
+<p>The frequency of the import</p>
+</li>
+<li>
+<p>The complexity of the data model</p>
+</li>
+<li>
+<p>The transformation required</p>
+</li>
+</ul>
+<p>The options available to you are numerous, and include:</p>
+<ul>
+<li>
+<p>One-off batch import of all data</p>
+</li>
+<li>
+<p>One-off load with a regular update</p>
+</li>
+<li>
+<p>Continuous import of data</p>
+</li>
+<li>
+<p>Real-time application updates</p>
+</li>
+<li>
+<p>ETL (Extract, Transform, Load) pipelines</p>
+</li>
+</ul>
+<p>Before you start importing data, you should take time to understand the data you are working with, including:</p>
+<ul>
+<li>
+<p>The data format and structure</p>
+</li>
+<li>
+<p>The frequency of updates</p>
+</li>
+<li>
+<p>Data quality</p>
+</li>
+<li>
+<p>Uniquely identifying data</p>
+</li>
+</ul>
+<p>These factors will influence the process you take to import the data into database.</p>
 <h2 id="common-mistakes-about-data">Common mistakes about data<a class="headerlink" href="#common-mistakes-about-data" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Not having a clear goal or question</li>
@@ -1374,6 +1521,10 @@ Ensure proper data access, use, and protection.</p>
     
     
       <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
       
     
   </body>

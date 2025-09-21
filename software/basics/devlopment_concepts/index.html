@@ -18,7 +18,7 @@
         <link rel="prev" href="../basic_concepts/">
       
       
-        <link rel="next" href="../styles/">
+        <link rel="next" href="../architecture_patterns/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -332,6 +332,8 @@
       
         
       
+        
+      
     
     
     
@@ -559,6 +561,90 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-in-one-server-monolithic-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-in-One Server (Monolithic Deployment)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-db-into-its-own-server-database-separation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Split DB into its own server (Database Separation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#each-service-on-its-own-server-microservices-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Each service on its own server (Microservices Architecture)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Deployment Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Deployment Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serverlessfunction-as-a-service-faas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serverless/Function-as-a-Service (FaaS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-orchestration-docker-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Orchestration (Docker + Kubernetes)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Path
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -598,6 +684,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture_patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture Patterns
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1234,6 +1343,90 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-in-one-server-monolithic-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      All-in-One Server (Monolithic Deployment)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-db-into-its-own-server-database-separation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Split DB into its own server (Database Separation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#each-service-on-its-own-server-microservices-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Each service on its own server (Microservices Architecture)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Deployment Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Deployment Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serverlessfunction-as-a-service-faas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serverless/Function-as-a-Service (FaaS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-orchestration-docker-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Orchestration (Docker + Kubernetes)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Path
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1490,29 +1683,432 @@
 <li>Imported Libraries: List of Python packages imported in your environment</li>
 </ul>
 <h2 id="implementation-patterns">Implementation Patterns<a class="headerlink" href="#implementation-patterns" title="Permanent link">&para;</a></h2>
-<p>1) Server-rendered backend (FastAPI/Flask + Jinja)</p>
+<p>1) SSR</p>
 <ul>
 <li>Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app</li>
 <li>When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint</li>
 <li>Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns</li>
 <li>Cons: Limited rich interactivity, backend tightly coupled to UI</li>
 </ul>
-<p>2) Decoupled SPA + API (React/Vue + FastAPI)</p>
+<p>2) Decoupled</p>
 <ul>
 <li>Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend</li>
 <li>When to use: Rich UX, complex state, team separation, mobile + web reuse</li>
 <li>Pros: Independent scaling/deploy, modern DX, reusable API</li>
 <li>Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity</li>
 </ul>
-<h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
+<p>3) MPA (Multi-Page Application)</p>
 <ul>
-<li>Two servers</li>
-<li>Example: React on Vercel; FastAPI on AWS EC2/Fly/Docker</li>
-<li>Single server (Reverse proxy)</li>
-<li>Nginx serves static build; proxies /api to FastAPI</li>
-<li>Unified dev/monorepo (local-first)</li>
-<li>One repo; dev servers for FE/BE; production still split or proxied</li>
+<li>Common names: Multi-page application (MPA), Client-side routing, Static site generation (SSG). Hybrid approach using server-side routing with client-side rendering. Each page is a separate mini-application with its own entry point.</li>
+<li>When to use: Large applications, complex state, team separation, mobile + web reuse</li>
+<li>Pros: Better initial load performance than SPAs for large applications, Easier code-splitting as each page loads only what it needs, SEO-friendly without extra complexity (each route has its own HTML), Progressive enhancement - pages can work even before JS loads.</li>
+<li>Cons: Page transitions require full reloads (slower than SPA navigation), More complex routing setup (need both server and client routes), Potential code duplication across pages, Session/state management more complex across page boundaries.</li>
 </ul>
+<h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
+<p>Deployment architecture determines how your application components are distributed across infrastructure. The choice affects scalability, maintainability, cost, and operational complexity.</p>
+<h3 id="all-in-one-server-monolithic-deployment">All-in-One Server (Monolithic Deployment)<a class="headerlink" href="#all-in-one-server-monolithic-deployment" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture</strong>: Single server hosts all application components - web server, application logic, database, and file storage.</p>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────┐
+│           Single Server              │
+│  ┌─────────────────────────────────┐ │
+│  │        Web Server               │ │
+│  │     (Nginx/Apache)              │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │     Application Server          │ │
+│  │   (Django/Flask/FastAPI)        │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │        Database                 │ │
+│  │    (PostgreSQL/MySQL)           │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │      File Storage               │ │
+│  │     (Local Disk)                │ │
+│  └─────────────────────────────────┘ │
+└──────────────────────────────────────┘
+</code></pre></div>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>
+<p>Small to medium applications</p>
+</li>
+<li>
+<p>Limited budget or resources</p>
+</li>
+<li>
+<p>Simple deployment requirements</p>
+</li>
+<li>
+<p>Proof of concepts or MVPs</p>
+</li>
+<li>
+<p>Teams with limited DevOps expertise</p>
+</li>
+</ul>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>
+<p><strong>Simple deployment</strong>: Single artifact to deploy</p>
+</li>
+<li>
+<p><strong>Low operational overhead</strong>: One server to manage</p>
+</li>
+<li>
+<p><strong>Cost-effective</strong>: Minimal infrastructure costs</p>
+</li>
+<li>
+<p><strong>Fast development</strong>: No network latency between components</p>
+</li>
+<li>
+<p><strong>Easy debugging</strong>: All logs in one place</p>
+</li>
+<li>
+<p><strong>No network complexity</strong>: No inter-service communication issues</p>
+</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>
+<p><strong>Single point of failure</strong>: Server down = entire app down</p>
+</li>
+<li>
+<p><strong>Limited scalability</strong>: Can only scale vertically</p>
+</li>
+<li>
+<p><strong>Resource contention</strong>: Database and app compete for CPU/memory</p>
+</li>
+<li>
+<p><strong>Technology lock-in</strong>: All components must use compatible tech stack</p>
+</li>
+<li>
+<p><strong>Deployment risk</strong>: Any update affects entire system</p>
+</li>
+</ul>
+<p><strong>Example Stack</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Docker Compose for all-in-one deployment</span>
+version:<span class="w"> </span><span class="s1">&#39;3.8&#39;</span>
+services:
+<span class="w">  </span>app:
+<span class="w">    </span>build:<span class="w"> </span>.
+<span class="w">    </span>ports:
+<span class="w">      </span>-<span class="w"> </span><span class="s2">&quot;80:8000&quot;</span>
+<span class="w">    </span>volumes:
+<span class="w">      </span>-<span class="w"> </span>./data:/app/data
+<span class="w">      </span>-<span class="w"> </span>./logs:/app/logs
+<span class="w">    </span>environment:
+<span class="w">      </span>-<span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>sqlite:///app/data/app.db
+</code></pre></div></p>
+<h3 id="split-db-into-its-own-server-database-separation">Split DB into its own server (Database Separation)<a class="headerlink" href="#split-db-into-its-own-server-database-separation" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture</strong>: Application server and database run on separate machines, connected via network.</p>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────┐    ┌──────────────────────────────────────┐
+│        Application Server            │    │         Database Server              │
+│  ┌─────────────────────────────────┐ │    │  ┌─────────────────────────────────┐ │
+│  │        Web Server               │ │    │  │        Database                 │ │
+│  │     (Nginx/Apache)              │ │    │  │    (PostgreSQL/MySQL)           │ │
+│  └─────────────────────────────────┘ │    │  │                                 │ │
+│  ┌─────────────────────────────────┐ │    │  │  - Optimized for DB workloads   │ │
+│  │     Application Logic           │◄┼────┼──┤  - Dedicated storage (SSD)      │ │
+│  │   (Django/Flask/FastAPI)        │ │    │  │  - Memory tuned for caching     │ │
+│  └─────────────────────────────────┘ │    │  │  - Regular backups              │ │
+│  ┌─────────────────────────────────┐ │    │  └─────────────────────────────────┘ │
+│  │      File Storage               │ │    └──────────────────────────────────────┘
+│  │     (Local/Cloud)               │ │
+│  └─────────────────────────────────┘ │
+└──────────────────────────────────────┘
+</code></pre></div>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>
+<p>Growing applications with database performance issues</p>
+</li>
+<li>
+<p>Need for database-specific optimizations</p>
+</li>
+<li>
+<p>Different scaling requirements for app vs. database</p>
+</li>
+<li>
+<p>Security requirements (database isolation)</p>
+</li>
+<li>
+<p>Multiple applications sharing same database</p>
+</li>
+</ul>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>
+<p><strong>Independent scaling</strong>: Scale app and DB separately</p>
+</li>
+<li>
+<p><strong>Specialized optimization</strong>: DB server tuned for database workloads</p>
+</li>
+<li>
+<p><strong>Better resource utilization</strong>: No competition between app and DB</p>
+</li>
+<li>
+<p><strong>Enhanced security</strong>: Database isolated from web-facing server</p>
+</li>
+<li>
+<p><strong>Backup flexibility</strong>: Database backups don't affect app performance</p>
+</li>
+<li>
+<p><strong>Technology flexibility</strong>: Can use managed database services</p>
+</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>
+<p><strong>Network latency</strong>: Communication overhead between app and DB</p>
+</li>
+<li>
+<p><strong>Increased complexity</strong>: Two servers to manage and monitor</p>
+</li>
+<li>
+<p><strong>Network security</strong>: Need secure connection between servers</p>
+</li>
+<li>
+<p><strong>Higher costs</strong>: Additional server infrastructure</p>
+</li>
+<li>
+<p><strong>Deployment coordination</strong>: Changes may require coordinating both servers</p>
+</li>
+</ul>
+<p><strong>Example Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Application server configuration</span>
+<span class="n">DATABASE_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;db-server.internal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+    <span class="s1">&#39;database&#39;</span><span class="p">:</span> <span class="s1">&#39;myapp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;app_user&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;pool_size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s1">&#39;max_overflow&#39;</span><span class="p">:</span> <span class="mi">30</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="each-service-on-its-own-server-microservices-architecture">Each service on its own server (Microservices Architecture)<a class="headerlink" href="#each-service-on-its-own-server-microservices-architecture" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture</strong>: Application broken into independent services, each deployed on separate infrastructure.</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   User Service  │    │  Order Service  │    │ Payment Service │
+│                 │    │                 │    │                 │
+│  ┌───────────┐  │    │  ┌───────────┐  │    │  ┌───────────┐  │
+│  │    API    │  │    │  │    API    │  │    │  │    API    │  │
+│  └───────────┘  │    │  └───────────┘  │    │  └───────────┘  │
+│  ┌───────────┐  │    │  ┌───────────┐  │    │  ┌───────────┐  │
+│  │ User DB   │  │    │  │ Order DB  │  │    │  │Payment DB │  │
+│  └───────────┘  │    │  └───────────┘  │    │  └───────────┘  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+                ┌─────────────────────────────────┐
+                │         API Gateway             │
+                │      (Load Balancer)            │
+                └─────────────────────────────────┘
+                                 │
+                ┌─────────────────────────────────┐
+                │         Frontend/Client         │
+                └─────────────────────────────────┘
+</code></pre></div>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>
+<p>Large, complex applications</p>
+</li>
+<li>
+<p>Multiple development teams</p>
+</li>
+<li>
+<p>Different scaling requirements per service</p>
+</li>
+<li>
+<p>Need for technology diversity</p>
+</li>
+<li>
+<p>High availability requirements</p>
+</li>
+<li>
+<p>Rapid development and deployment cycles</p>
+</li>
+</ul>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>
+<p><strong>Independent scaling</strong>: Scale each service based on demand</p>
+</li>
+<li>
+<p><strong>Technology diversity</strong>: Each service can use optimal tech stack</p>
+</li>
+<li>
+<p><strong>Team autonomy</strong>: Teams can develop and deploy independently</p>
+</li>
+<li>
+<p><strong>Fault isolation</strong>: Failure in one service doesn't crash entire system</p>
+</li>
+<li>
+<p><strong>Easier maintenance</strong>: Smaller, focused codebases</p>
+</li>
+<li>
+<p><strong>Continuous deployment</strong>: Deploy services independently</p>
+</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>
+<p><strong>Operational complexity</strong>: Many services to monitor and manage</p>
+</li>
+<li>
+<p><strong>Network overhead</strong>: Inter-service communication latency</p>
+</li>
+<li>
+<p><strong>Data consistency</strong>: Distributed transactions are complex</p>
+</li>
+<li>
+<p><strong>Service discovery</strong>: Need mechanisms to find and connect services</p>
+</li>
+<li>
+<p><strong>Testing complexity</strong>: Integration testing across services</p>
+</li>
+<li>
+<p><strong>Debugging difficulty</strong>: Tracing issues across multiple services</p>
+</li>
+</ul>
+<p><strong>Supporting Infrastructure</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Kubernetes deployment example</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp/user-service:v1.2.3</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATABASE_URL</span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-db-secret</span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url</span>
+</code></pre></div></p>
+<h3 id="additional-deployment-patterns">Additional Deployment Patterns<a class="headerlink" href="#additional-deployment-patterns" title="Permanent link">&para;</a></h3>
+<h4 id="serverlessfunction-as-a-service-faas">Serverless/Function-as-a-Service (FaaS)<a class="headerlink" href="#serverlessfunction-as-a-service-faas" title="Permanent link">&para;</a></h4>
+<p><strong>Architecture</strong>: Application logic deployed as individual functions that execute on-demand.</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   API Gateway   │    │  Lambda/Cloud   │    │   Database      │
+│                 │    │    Functions    │    │   Service       │
+│  ┌───────────┐  │    │                 │    │                 │
+│  │  Routing  │──┼────┼─► Function A    │    │  ┌───────────┐  │
+│  │   Rules   │  │    │  Function B ◄───┼────┼──│Managed DB │  │
+│  └───────────┘  │    │  Function C     │    │  └───────────┘  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+</code></pre></div>
+<p><strong>When to Use</strong>:
+- Event-driven applications
+- Unpredictable or sporadic traffic
+- Cost optimization (pay-per-use)
+- Rapid prototyping
+- Microservices with minimal infrastructure management</p>
+<h4 id="container-orchestration-docker-kubernetes">Container Orchestration (Docker + Kubernetes)<a class="headerlink" href="#container-orchestration-docker-kubernetes" title="Permanent link">&para;</a></h4>
+<p><strong>Architecture</strong>: Containerized services managed by orchestration platform.</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────┐
+│                    Kubernetes Cluster                      │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
+│  │    Node 1   │  │    Node 2   │  │    Node 3   │         │
+│  │             │  │             │  │             │         │
+│  │ ┌─────────┐ │  │ ┌─────────┐ │  │ ┌─────────┐ │         │
+│  │ │Pod: App │ │  │ │Pod: App │ │  │ │Pod: DB  │ │         │
+│  │ └─────────┘ │  │ └─────────┘ │  │ └─────────┘ │         │
+│  │ ┌─────────┐ │  │ ┌─────────┐ │  │ ┌─────────┐ │         │
+│  │ │Pod:Cache│ │  │ │Pod:Queue│ │  │ │Pod:Cache│ │         │
+│  │ └─────────┘ │  │ └─────────┘ │  │ └─────────┘ │         │
+│  └─────────────┘  └─────────────┘  └─────────────┘         │
+└────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="deployment-decision-matrix">Deployment Decision Matrix<a class="headerlink" href="#deployment-decision-matrix" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>All-in-One</th>
+<th>Split DB</th>
+<th>Microservices</th>
+<th>Serverless</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Team Size</strong></td>
+<td>1-3 devs</td>
+<td>3-8 devs</td>
+<td>8+ devs</td>
+<td>Any size</td>
+</tr>
+<tr>
+<td><strong>App Complexity</strong></td>
+<td>Simple</td>
+<td>Medium</td>
+<td>Complex</td>
+<td>Event-driven</td>
+</tr>
+<tr>
+<td><strong>Traffic Pattern</strong></td>
+<td>Predictable</td>
+<td>Growing</td>
+<td>Variable</td>
+<td>Sporadic</td>
+</tr>
+<tr>
+<td><strong>Budget</strong></td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td><strong>Ops Expertise</strong></td>
+<td>Basic</td>
+<td>Intermediate</td>
+<td>Advanced</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td><strong>Scalability Need</strong></td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+<td>Auto</td>
+</tr>
+<tr>
+<td><strong>Development Speed</strong></td>
+<td>Fast</td>
+<td>Medium</td>
+<td>Slow</td>
+<td>Fast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="migration-path">Migration Path<a class="headerlink" href="#migration-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>All-in-One → Split DB → Service Separation → Full Microservices
+     ↓           ↓            ↓                    ↓
+   Simple    Moderate      Complex           Enterprise
+</code></pre></div>
+<p><strong>Evolution Strategy</strong>:
+1. <strong>Start Simple</strong>: Begin with all-in-one for MVP
+2. <strong>Identify Bottlenecks</strong>: Monitor performance and identify constraints
+3. <strong>Extract Database</strong>: Move to split DB when database becomes bottleneck
+4. <strong>Service Extraction</strong>: Extract high-load or independent features as services
+5. <strong>Full Decomposition</strong>: Move to full microservices when team and complexity justify it</p>
 <h2 id="performance-bottleneck-classification">Performance Bottleneck Classification<a class="headerlink" href="#performance-bottleneck-classification" title="Permanent link">&para;</a></h2>
 <h3 id="types-of-performance-limitations">Types of Performance Limitations<a class="headerlink" href="#types-of-performance-limitations" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1634,6 +2230,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
       
     
   </body>
