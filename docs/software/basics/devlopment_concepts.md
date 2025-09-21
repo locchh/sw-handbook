@@ -203,28 +203,355 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 
 ## Implementation Patterns
 
-1) Server-rendered backend (FastAPI/Flask + Jinja)
+1) SSR
 
 - Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app
 - When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint
 - Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns
 - Cons: Limited rich interactivity, backend tightly coupled to UI
 
-2) Decoupled SPA + API (React/Vue + FastAPI)
+2) Decoupled
 
 - Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend
 - When to use: Rich UX, complex state, team separation, mobile + web reuse
 - Pros: Independent scaling/deploy, modern DX, reusable API
 - Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity
 
+3) MPA (Multi-Page Application)
+
+- Common names: Multi-page application (MPA), Client-side routing, Static site generation (SSG). Hybrid approach using server-side routing with client-side rendering. Each page is a separate mini-application with its own entry point.
+- When to use: Large applications, complex state, team separation, mobile + web reuse
+- Pros: Better initial load performance than SPAs for large applications, Easier code-splitting as each page loads only what it needs, SEO-friendly without extra complexity (each route has its own HTML), Progressive enhancement - pages can work even before JS loads.
+- Cons: Page transitions require full reloads (slower than SPA navigation), More complex routing setup (need both server and client routes), Potential code duplication across pages, Session/state management more complex across page boundaries.
+
 ## Deployment Options
 
-- Two servers
-  - Example: React on Vercel; FastAPI on AWS EC2/Fly/Docker
-- Single server (Reverse proxy)
-  - Nginx serves static build; proxies /api to FastAPI
-- Unified dev/monorepo (local-first)
-  - One repo; dev servers for FE/BE; production still split or proxied
+Deployment architecture determines how your application components are distributed across infrastructure. The choice affects scalability, maintainability, cost, and operational complexity.
+
+### All-in-One Server (Monolithic Deployment)
+
+**Architecture**: Single server hosts all application components - web server, application logic, database, and file storage.
+
+```
+┌──────────────────────────────────────┐
+│           Single Server              │
+│  ┌─────────────────────────────────┐ │
+│  │        Web Server               │ │
+│  │     (Nginx/Apache)              │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │     Application Server          │ │
+│  │   (Django/Flask/FastAPI)        │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │        Database                 │ │
+│  │    (PostgreSQL/MySQL)           │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │      File Storage               │ │
+│  │     (Local Disk)                │ │
+│  └─────────────────────────────────┘ │
+└──────────────────────────────────────┘
+```
+
+**When to Use**:
+
+- Small to medium applications
+
+- Limited budget or resources
+
+- Simple deployment requirements
+
+- Proof of concepts or MVPs
+
+- Teams with limited DevOps expertise
+
+**Pros**:
+
+- **Simple deployment**: Single artifact to deploy
+
+- **Low operational overhead**: One server to manage
+
+- **Cost-effective**: Minimal infrastructure costs
+
+- **Fast development**: No network latency between components
+
+- **Easy debugging**: All logs in one place
+
+- **No network complexity**: No inter-service communication issues
+
+**Cons**:
+
+- **Single point of failure**: Server down = entire app down
+
+- **Limited scalability**: Can only scale vertically
+
+- **Resource contention**: Database and app compete for CPU/memory
+
+- **Technology lock-in**: All components must use compatible tech stack
+
+- **Deployment risk**: Any update affects entire system
+
+**Example Stack**:
+```bash
+# Docker Compose for all-in-one deployment
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "80:8000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - DATABASE_URL=sqlite:///app/data/app.db
+```
+
+### Split DB into its own server (Database Separation)
+
+**Architecture**: Application server and database run on separate machines, connected via network.
+
+```
+┌──────────────────────────────────────┐    ┌──────────────────────────────────────┐
+│        Application Server            │    │         Database Server              │
+│  ┌─────────────────────────────────┐ │    │  ┌─────────────────────────────────┐ │
+│  │        Web Server               │ │    │  │        Database                 │ │
+│  │     (Nginx/Apache)              │ │    │  │    (PostgreSQL/MySQL)           │ │
+│  └─────────────────────────────────┘ │    │  │                                 │ │
+│  ┌─────────────────────────────────┐ │    │  │  - Optimized for DB workloads   │ │
+│  │     Application Logic           │◄┼────┼──┤  - Dedicated storage (SSD)      │ │
+│  │   (Django/Flask/FastAPI)        │ │    │  │  - Memory tuned for caching     │ │
+│  └─────────────────────────────────┘ │    │  │  - Regular backups              │ │
+│  ┌─────────────────────────────────┐ │    │  └─────────────────────────────────┘ │
+│  │      File Storage               │ │    └──────────────────────────────────────┘
+│  │     (Local/Cloud)               │ │
+│  └─────────────────────────────────┘ │
+└──────────────────────────────────────┘
+```
+
+**When to Use**:
+
+- Growing applications with database performance issues
+
+- Need for database-specific optimizations
+
+- Different scaling requirements for app vs. database
+
+- Security requirements (database isolation)
+
+- Multiple applications sharing same database
+
+**Pros**:
+
+- **Independent scaling**: Scale app and DB separately
+
+- **Specialized optimization**: DB server tuned for database workloads
+
+- **Better resource utilization**: No competition between app and DB
+
+- **Enhanced security**: Database isolated from web-facing server
+
+- **Backup flexibility**: Database backups don't affect app performance
+
+- **Technology flexibility**: Can use managed database services
+
+**Cons**:
+
+- **Network latency**: Communication overhead between app and DB
+
+- **Increased complexity**: Two servers to manage and monitor
+
+- **Network security**: Need secure connection between servers
+
+- **Higher costs**: Additional server infrastructure
+
+- **Deployment coordination**: Changes may require coordinating both servers
+
+**Example Configuration**:
+```python
+# Application server configuration
+DATABASE_CONFIG = {
+    'host': 'db-server.internal',
+    'port': 5432,
+    'database': 'myapp',
+    'user': 'app_user',
+    'password': os.environ['DB_PASSWORD'],
+    'pool_size': 20,
+    'max_overflow': 30
+}
+```
+
+### Each service on its own server (Microservices Architecture)
+
+**Architecture**: Application broken into independent services, each deployed on separate infrastructure.
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   User Service  │    │  Order Service  │    │ Payment Service │
+│                 │    │                 │    │                 │
+│  ┌───────────┐  │    │  ┌───────────┐  │    │  ┌───────────┐  │
+│  │    API    │  │    │  │    API    │  │    │  │    API    │  │
+│  └───────────┘  │    │  └───────────┘  │    │  └───────────┘  │
+│  ┌───────────┐  │    │  ┌───────────┐  │    │  ┌───────────┐  │
+│  │ User DB   │  │    │  │ Order DB  │  │    │  │Payment DB │  │
+│  └───────────┘  │    │  └───────────┘  │    │  └───────────┘  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+                ┌─────────────────────────────────┐
+                │         API Gateway             │
+                │      (Load Balancer)            │
+                └─────────────────────────────────┘
+                                 │
+                ┌─────────────────────────────────┐
+                │         Frontend/Client         │
+                └─────────────────────────────────┘
+```
+
+**When to Use**:
+
+- Large, complex applications
+
+- Multiple development teams
+
+- Different scaling requirements per service
+
+- Need for technology diversity
+
+- High availability requirements
+
+- Rapid development and deployment cycles
+
+**Pros**:
+
+- **Independent scaling**: Scale each service based on demand
+
+- **Technology diversity**: Each service can use optimal tech stack
+
+- **Team autonomy**: Teams can develop and deploy independently
+
+- **Fault isolation**: Failure in one service doesn't crash entire system
+
+- **Easier maintenance**: Smaller, focused codebases
+
+- **Continuous deployment**: Deploy services independently
+
+**Cons**:
+
+- **Operational complexity**: Many services to monitor and manage
+
+- **Network overhead**: Inter-service communication latency
+
+- **Data consistency**: Distributed transactions are complex
+
+- **Service discovery**: Need mechanisms to find and connect services
+
+- **Testing complexity**: Integration testing across services
+
+- **Debugging difficulty**: Tracing issues across multiple services
+
+**Supporting Infrastructure**:
+```yaml
+# Kubernetes deployment example
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: myapp/user-service:v1.2.3
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: user-db-secret
+              key: url
+```
+
+### Additional Deployment Patterns
+
+#### Serverless/Function-as-a-Service (FaaS)
+
+**Architecture**: Application logic deployed as individual functions that execute on-demand.
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   API Gateway   │    │  Lambda/Cloud   │    │   Database      │
+│                 │    │    Functions    │    │   Service       │
+│  ┌───────────┐  │    │                 │    │                 │
+│  │  Routing  │──┼────┼─► Function A    │    │  ┌───────────┐  │
+│  │   Rules   │  │    │  Function B ◄───┼────┼──│Managed DB │  │
+│  └───────────┘  │    │  Function C     │    │  └───────────┘  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+**When to Use**:
+- Event-driven applications
+- Unpredictable or sporadic traffic
+- Cost optimization (pay-per-use)
+- Rapid prototyping
+- Microservices with minimal infrastructure management
+
+#### Container Orchestration (Docker + Kubernetes)
+
+**Architecture**: Containerized services managed by orchestration platform.
+
+```
+┌────────────────────────────────────────────────────────────┐
+│                    Kubernetes Cluster                      │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
+│  │    Node 1   │  │    Node 2   │  │    Node 3   │         │
+│  │             │  │             │  │             │         │
+│  │ ┌─────────┐ │  │ ┌─────────┐ │  │ ┌─────────┐ │         │
+│  │ │Pod: App │ │  │ │Pod: App │ │  │ │Pod: DB  │ │         │
+│  │ └─────────┘ │  │ └─────────┘ │  │ └─────────┘ │         │
+│  │ ┌─────────┐ │  │ ┌─────────┐ │  │ ┌─────────┐ │         │
+│  │ │Pod:Cache│ │  │ │Pod:Queue│ │  │ │Pod:Cache│ │         │
+│  │ └─────────┘ │  │ └─────────┘ │  │ └─────────┘ │         │
+│  └─────────────┘  └─────────────┘  └─────────────┘         │
+└────────────────────────────────────────────────────────────┘
+```
+
+### Deployment Decision Matrix
+
+| Factor | All-in-One | Split DB | Microservices | Serverless |
+|--------|------------|----------|---------------|------------|
+| **Team Size** | 1-3 devs | 3-8 devs | 8+ devs | Any size |
+| **App Complexity** | Simple | Medium | Complex | Event-driven |
+| **Traffic Pattern** | Predictable | Growing | Variable | Sporadic |
+| **Budget** | Low | Medium | High | Variable |
+| **Ops Expertise** | Basic | Intermediate | Advanced | Minimal |
+| **Scalability Need** | Low | Medium | High | Auto |
+| **Development Speed** | Fast | Medium | Slow | Fast |
+
+### Migration Path
+
+```
+All-in-One → Split DB → Service Separation → Full Microservices
+     ↓           ↓            ↓                    ↓
+   Simple    Moderate      Complex           Enterprise
+```
+
+**Evolution Strategy**:
+1. **Start Simple**: Begin with all-in-one for MVP
+2. **Identify Bottlenecks**: Monitor performance and identify constraints
+3. **Extract Database**: Move to split DB when database becomes bottleneck
+4. **Service Extraction**: Extract high-load or independent features as services
+5. **Full Decomposition**: Move to full microservices when team and complexity justify it
 
 ## Performance Bottleneck Classification
 
