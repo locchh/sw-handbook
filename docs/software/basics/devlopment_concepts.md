@@ -89,25 +89,17 @@
 **Example:**
 ```
 src/
-├── user-management/
-│   ├── User.java
-│   ├── UserService.java
-│   ├── UserRepository.java
-│   └── UserValidator.java
-├── order-processing/
-│   ├── Order.java
-│   ├── OrderService.java
-│   ├── PaymentProcessor.java
-│   └── OrderStatus.java
-├── inventory/
-│   ├── Product.java
-│   ├── InventoryService.java
-│   └── StockLevel.java
-└── notification/
-    ├── NotificationService.java
-    ├── EmailSender.java
-    └── SMSProvider.java
+├── graph/
+│   ├── Graph.java
+│   ├── GraphService.java
+│   └── GraphPersister.java        # interface defining the minimal needs of graph
+├── graph-storage/
+│   ├── FileGraphPersister.java    # implements GraphPersister
+│   └── StorageConfig.java
+└── app/
+    └── AppModule.java             # wires GraphService with a GraphPersister impl
 ```
+Note: The `graph` component depends only on its own `GraphPersister` interface; the storage implementation depends on that interface (no mutual dependency). This mirrors the article’s emphasis on isolating components via minimal interfaces and eliminating cyclic deps.
 
 ### Strategy #2 - By Toolbox
 **Focus:** Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.
@@ -118,26 +110,19 @@ src/
 ```
 src/
 ├── collections/
-│   ├── ArrayList.java
-│   ├── LinkedList.java
-│   ├── HashMap.java
-│   ├── TreeMap.java
-│   └── ConcurrentHashMap.java
-├── loggers/
-│   ├── FileLogger.java
-│   ├── ConsoleLogger.java
-│   ├── DatabaseLogger.java
-│   └── RemoteLogger.java
-├── parsers/
-│   ├── JsonParser.java
-│   ├── XmlParser.java
-│   ├── CsvParser.java
-│   └── YamlParser.java
-└── validators/
-    ├── EmailValidator.java
-    ├── PhoneValidator.java
-    └── CreditCardValidator.java
+│   ├── List.java                  # interface
+│   ├── ArrayList.java             # implementation
+│   ├── LinkedList.java            # implementation
+│   ├── Map.java                   # interface
+│   ├── HashMap.java               # implementation
+│   └── TreeMap.java               # implementation
+└── log-appenders/
+    ├── LogAppender.java           # interface
+    ├── ConsoleAppender.java       # implementation
+    ├── FileAppender.java          # implementation
+    └── HttpAppender.java          # implementation
 ```
+Note: A toolbox favors external cohesion and consumer convenience: interchangeable implementations share common interfaces. This reflects the article’s examples (collections and logging appenders).
 
 ### Strategy #3 - By Layer
 **Focus:** Organizing code based on its technical role within the application architecture (e.g., `presentation`, `business`, `data`).
@@ -149,25 +134,19 @@ src/
 src/
 ├── presentation/
 │   ├── UserController.java
-│   ├── OrderController.java
-│   ├── ProductController.java
-│   └── ErrorHandler.java
-├── business/
-│   ├── UserService.java
+│   └── ErrorMapper.java           # map domain errors to i18n messages
+├── application/
+│   ├── PlaceOrderUseCase.java
+│   └── DtoMapper.java             # map DTOs to domain early
+├── domain/
+│   ├── Order.java
 │   ├── OrderService.java
-│   ├── ProductService.java
-│   └── BusinessRules.java
-├── data/
-│   ├── UserRepository.java
-│   ├── OrderRepository.java
-│   ├── ProductRepository.java
-│   └── DatabaseConfig.java
+│   └── OrderRepository.java       # interface
 └── infrastructure/
-    ├── EmailService.java
-    ├── CacheService.java
-    ├── LoggingService.java
-    └── SecurityService.java
+    ├── JdbcOrderRepository.java   # implements OrderRepository
+    └── MessageBusClient.java
 ```
+Note: The article warns that most changes often cut across layers (tight coupling). One mitigation it suggests is sequestering layer-specific concerns at boundaries (e.g., central error/i18n mapping, early DTO-to-domain mapping) rather than letting them infiltrate the codebase.
 
 ### Strategy #4 - By Kind (Considered Harmful)
 **Focus:** Grouping classes into arbitrary buckets based on their technical type (e.g., `interfaces`, `exceptions`, `managers`) instead of their business function.
@@ -201,6 +180,7 @@ src/
     ├── OrderException.java
     └── ValidationException.java
 ```
+Note: As the article states, this seems neat but hides conceptual relationships and typically increases coupling; most changes cut across all buckets.
 
 ### Key Takeaways
 - **Component organization** is the strongest strategy, emphasizing true separation and minimal coupling
