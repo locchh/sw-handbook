@@ -492,6 +492,76 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#organization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-1-by-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #1 - By Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-2-by-toolbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #2 - By Toolbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-3-by-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #3 - By Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-4-by-kind-considered-harmful" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #4 - By Kind (Considered Harmful)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#coding-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Coding Workflow
@@ -499,13 +569,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Development Workflow
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1274,6 +1349,76 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#organization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-1-by-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #1 - By Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-2-by-toolbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #2 - By Toolbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-3-by-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #3 - By Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-4-by-kind-considered-harmful" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy #4 - By Kind (Considered Harmful)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#coding-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Coding Workflow
@@ -1281,13 +1426,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Development Workflow
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1572,10 +1722,142 @@
 <p><strong>Release</strong>: Release the code to the production environment</p>
 </li>
 </ul>
-<h2 id="coding-workflow">Coding Workflow<a class="headerlink" href="#coding-workflow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Feature -&gt; Workflow -&gt; Data Models-&gt; Code Components -&gt; Develop -&gt; Unit Test -&gt; Code Review
+<h2 id="organization-strategies">Organization Strategies<a class="headerlink" href="#organization-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="strategy-1-by-component">Strategy #1 - By Component<a class="headerlink" href="#strategy-1-by-component" title="Permanent link">&para;</a></h3>
+<p><strong>Focus:</strong> External and internal cohesion - minimal interfaces with strongly interrelated internal code.</p>
+<p><strong>Key principle:</strong> Eliminate mutual dependencies between packages to create truly separate units that can be understood in isolation.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>src/
+├── user-management/
+│   ├── User.java
+│   ├── UserService.java
+│   ├── UserRepository.java
+│   └── UserValidator.java
+├── order-processing/
+│   ├── Order.java
+│   ├── OrderService.java
+│   ├── PaymentProcessor.java
+│   └── OrderStatus.java
+├── inventory/
+│   ├── Product.java
+│   ├── InventoryService.java
+│   └── StockLevel.java
+└── notification/
+    ├── NotificationService.java
+    ├── EmailSender.java
+    └── SMSProvider.java
+</code></pre></div></p>
+<h3 id="strategy-2-by-toolbox">Strategy #2 - By Toolbox<a class="headerlink" href="#strategy-2-by-toolbox" title="Permanent link">&para;</a></h3>
+<p><strong>Focus:</strong> External cohesion - provides complementary implementations that consumers can choose from or combine.</p>
+<p><strong>Key principle:</strong> Related tools grouped together for convenience, often implementing similar interfaces with different characteristics.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>src/
+├── collections/
+│   ├── ArrayList.java
+│   ├── LinkedList.java
+│   ├── HashMap.java
+│   ├── TreeMap.java
+│   └── ConcurrentHashMap.java
+├── loggers/
+│   ├── FileLogger.java
+│   ├── ConsoleLogger.java
+│   ├── DatabaseLogger.java
+│   └── RemoteLogger.java
+├── parsers/
+│   ├── JsonParser.java
+│   ├── XmlParser.java
+│   ├── CsvParser.java
+│   └── YamlParser.java
+└── validators/
+    ├── EmailValidator.java
+    ├── PhoneValidator.java
+    └── CreditCardValidator.java
+</code></pre></div></p>
+<h3 id="strategy-3-by-layer">Strategy #3 - By Layer<a class="headerlink" href="#strategy-3-by-layer" title="Permanent link">&para;</a></h3>
+<p><strong>Focus:</strong> Workflow cohesion - organized along deployment boundaries or contributor responsibility areas.</p>
+<p><strong>Key principle:</strong> Wide interfaces accessed piecemeal, but often leads to changes spanning multiple layers.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>src/
+├── presentation/
+│   ├── UserController.java
+│   ├── OrderController.java
+│   ├── ProductController.java
+│   └── ErrorHandler.java
+├── business/
+│   ├── UserService.java
+│   ├── OrderService.java
+│   ├── ProductService.java
+│   └── BusinessRules.java
+├── data/
+│   ├── UserRepository.java
+│   ├── OrderRepository.java
+│   ├── ProductRepository.java
+│   └── DatabaseConfig.java
+└── infrastructure/
+    ├── EmailService.java
+    ├── CacheService.java
+    ├── LoggingService.java
+    └── SecurityService.java
+</code></pre></div></p>
+<h3 id="strategy-4-by-kind-considered-harmful">Strategy #4 - By Kind (Considered Harmful)<a class="headerlink" href="#strategy-4-by-kind-considered-harmful" title="Permanent link">&para;</a></h3>
+<p><strong>Focus:</strong> Grouping by class type rather than functionality - creates artificial categories.</p>
+<p><strong>Key principle:</strong> The author considers this harmful as it hides complexity while maintaining tight coupling between packages.</p>
+<p><strong>Example (Anti-pattern):</strong>
+<div class="highlight"><pre><span></span><code>src/
+├── interfaces/
+│   ├── UserInterface.java
+│   ├── OrderInterface.java
+│   ├── ProductInterface.java
+│   └── PaymentInterface.java
+├── entities/
+│   ├── User.java
+│   ├── Order.java
+│   ├── Product.java
+│   └── Payment.java
+├── managers/
+│   ├── UserManager.java
+│   ├── OrderManager.java
+│   ├── ProductManager.java
+│   └── PaymentManager.java
+├── helpers/
+│   ├── ValidationHelper.java
+│   ├── ConversionHelper.java
+│   └── UtilityHelper.java
+└── exceptions/
+    ├── UserException.java
+    ├── OrderException.java
+    └── ValidationException.java
+</code></pre></div></p>
+<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Component organization</strong> is the strongest strategy, emphasizing true separation and minimal coupling</li>
+<li><strong>Toolbox organization</strong> works well for complementary implementations</li>
+<li><strong>Layer organization</strong> should be used cautiously as it often increases complexity</li>
+<li><strong>Kind organization</strong> is an anti-pattern that hides rather than solves complexity issues</li>
+</ul>
+<p>The article emphasizes that the main goal is reducing complexity through proper separation, not just making packages smaller. Read the <a href="https://medium.com/@msandin/strategies-for-organizing-code-2c9d690b6f33">blog post</a> for more details.</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h3 id="coding-workflow">Coding Workflow<a class="headerlink" href="#coding-workflow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>+---------+      +-----------+      +-------------+      +-----------------+
+| Feature | ---&gt; | Workflow  | ---&gt; | Data Models | ---&gt; | Code Components |
++---------+      +-----------+      +-------------+      +-----------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      |   Develop    |
+                                                      +--------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      |  Unit Test   |
+                                                      +--------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      | Code Review  |
+                                                      +--------------+
 </code></pre></div>
-<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>            +--------------------------------+
             |        Feature Request         |
             |         (Jira Ticket)          |
@@ -1639,12 +1921,20 @@
             +--------------------------------+
 </code></pre></div>
 <h2 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Permanent link">&para;</a></h2>
+<p><strong>Version control tools</strong>
+- Git
+- dvc (Data Version Control)
+- svn (Subversion)</p>
 <p><strong>Semantic Versioning</strong>
 - <code>v1.2.3</code> means <code>Major.Minor.Patch</code>, where <code>Major</code> is when you make incompatible API changes, <code>Minor</code> is when you add functionality in a backwards-compatible manner, and <code>Patch</code> is when you make backwards-compatible bug fixes</p>
 <p><strong>Version Control Workflow</strong></p>
 <div class="highlight"><pre><span></span><code>Alpha -&gt; Beta -&gt; RC1 -&gt; RC2 -&gt; ... -&gt; RCn -&gt; Release
 </code></pre></div>
 <p><code>Alpha</code> is the initial version, <code>Beta</code> is the second version, <code>RC1</code> is the first release candidate, <code>RC2</code> is the second release candidate, and so on. <code>Release</code> is the final version.</p>
+<ul>
+<li>Read more about <a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a></li>
+<li>Read more about <a href="https://github.blog/developer-skills/github/write-better-commits-build-better-projects/">Write Better Commits, Build Better Projects</a></li>
+</ul>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Unit Testing</strong>: Testing individual units of code in isolation to ensure they function correctly.</li>
