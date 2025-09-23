@@ -502,36 +502,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strategy-1-by-component" class="md-nav__link">
+  <a href="#by-component" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #1 - By Component
+      By Component
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-2-by-toolbox" class="md-nav__link">
+  <a href="#by-toolbox" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #2 - By Toolbox
+      By Toolbox
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-3-by-layer" class="md-nav__link">
+  <a href="#by-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #3 - By Layer
+      By Layer
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-4-by-kind-considered-harmful" class="md-nav__link">
+  <a href="#by-kind-considered-harmful" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #4 - By Kind (Considered Harmful)
+      By Kind (Considered Harmful)
     </span>
   </a>
   
@@ -1359,36 +1359,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strategy-1-by-component" class="md-nav__link">
+  <a href="#by-component" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #1 - By Component
+      By Component
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-2-by-toolbox" class="md-nav__link">
+  <a href="#by-toolbox" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #2 - By Toolbox
+      By Toolbox
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-3-by-layer" class="md-nav__link">
+  <a href="#by-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #3 - By Layer
+      By Layer
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#strategy-4-by-kind-considered-harmful" class="md-nav__link">
+  <a href="#by-kind-considered-harmful" class="md-nav__link">
     <span class="md-ellipsis">
-      Strategy #4 - By Kind (Considered Harmful)
+      By Kind (Considered Harmful)
     </span>
   </a>
   
@@ -1723,7 +1723,7 @@
 </li>
 </ul>
 <h2 id="organization-strategies">Organization Strategies<a class="headerlink" href="#organization-strategies" title="Permanent link">&para;</a></h2>
-<h3 id="strategy-1-by-component">Strategy #1 - By Component<a class="headerlink" href="#strategy-1-by-component" title="Permanent link">&para;</a></h3>
+<h3 id="by-component">By Component<a class="headerlink" href="#by-component" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Grouping code by business feature or domain (e.g., <code>user-management</code>, <code>order-processing</code>). The goal is to create self-contained, independent components.</p>
 <p><strong>Key principle:</strong> Each component should be highly independent with a clear, minimal interface. This minimizes dependencies between different parts of the system, allowing developers to work on one feature without impacting others.</p>
 <p><strong>Example:</strong>
@@ -1739,7 +1739,7 @@
     └── AppModule.java             # wires GraphService with a GraphPersister impl
 </code></pre></div>
 Note: The <code>graph</code> component depends only on its own <code>GraphPersister</code> interface; the storage implementation depends on that interface (no mutual dependency). This mirrors the article’s emphasis on isolating components via minimal interfaces and eliminating cyclic deps.</p>
-<h3 id="strategy-2-by-toolbox">Strategy #2 - By Toolbox<a class="headerlink" href="#strategy-2-by-toolbox" title="Permanent link">&para;</a></h3>
+<h3 id="by-toolbox">By Toolbox<a class="headerlink" href="#by-toolbox" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.</p>
 <p><strong>Key principle:</strong> Provides a collection of complementary implementations (e.g., different types of collection lists, various log appenders). The consumer can choose the best tool for their specific need from this "toolbox." This strategy is effective when the tools are related but don't warrant their own separate, larger components.</p>
 <p><strong>Example:</strong>
@@ -1758,7 +1758,7 @@ Note: The <code>graph</code> component depends only on its own <code>GraphPersis
     └── HttpAppender.java          # implementation
 </code></pre></div>
 Note: A toolbox favors external cohesion and consumer convenience: interchangeable implementations share common interfaces. This reflects the article’s examples (collections and logging appenders).</p>
-<h3 id="strategy-3-by-layer">Strategy #3 - By Layer<a class="headerlink" href="#strategy-3-by-layer" title="Permanent link">&para;</a></h3>
+<h3 id="by-layer">By Layer<a class="headerlink" href="#by-layer" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Organizing code based on its technical role within the application architecture (e.g., <code>presentation</code>, <code>business</code>, <code>data</code>).</p>
 <p><strong>Key principle:</strong> Code is separated into horizontal layers, where each layer has a specific responsibility. A request flows down through the layers, and changes often require modifications in multiple layers.</p>
 <p><strong>Example:</strong>
@@ -1778,7 +1778,7 @@ Note: A toolbox favors external cohesion and consumer convenience: interchangeab
     └── MessageBusClient.java
 </code></pre></div>
 Note: The article warns that most changes often cut across layers (tight coupling). One mitigation it suggests is sequestering layer-specific concerns at boundaries (e.g., central error/i18n mapping, early DTO-to-domain mapping) rather than letting them infiltrate the codebase.</p>
-<h3 id="strategy-4-by-kind-considered-harmful">Strategy #4 - By Kind (Considered Harmful)<a class="headerlink" href="#strategy-4-by-kind-considered-harmful" title="Permanent link">&para;</a></h3>
+<h3 id="by-kind-considered-harmful">By Kind (Considered Harmful)<a class="headerlink" href="#by-kind-considered-harmful" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Grouping classes into arbitrary buckets based on their technical type (e.g., <code>interfaces</code>, <code>exceptions</code>, <code>managers</code>) instead of their business function.</p>
 <p><strong>Key principle:</strong> This is an anti-pattern that ignores the actual relationships and dependencies between classes. While it appears to create order, it actually hides complexity and results in tightly coupled packages, as a single feature change often requires modifying files in every bucket. It forces classes into artificial roles (e.g., a <code>Helper</code> or <code>Manager</code>) just to fit a category.</p>
 <p><strong>Example (Anti-pattern):</strong>
