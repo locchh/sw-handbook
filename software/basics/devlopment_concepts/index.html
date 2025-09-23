@@ -1728,51 +1728,36 @@
 <p><strong>Key principle:</strong> Each component should be highly independent with a clear, minimal interface. This minimizes dependencies between different parts of the system, allowing developers to work on one feature without impacting others.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>src/
-├── user-management/
-│   ├── User.java
-│   ├── UserService.java
-│   ├── UserRepository.java
-│   └── UserValidator.java
-├── order-processing/
-│   ├── Order.java
-│   ├── OrderService.java
-│   ├── PaymentProcessor.java
-│   └── OrderStatus.java
-├── inventory/
-│   ├── Product.java
-│   ├── InventoryService.java
-│   └── StockLevel.java
-└── notification/
-    ├── NotificationService.java
-    ├── EmailSender.java
-    └── SMSProvider.java
-</code></pre></div></p>
+├── graph/
+│   ├── Graph.java
+│   ├── GraphService.java
+│   └── GraphPersister.java        # interface defining the minimal needs of graph
+├── graph-storage/
+│   ├── FileGraphPersister.java    # implements GraphPersister
+│   └── StorageConfig.java
+└── app/
+    └── AppModule.java             # wires GraphService with a GraphPersister impl
+</code></pre></div>
+Note: The <code>graph</code> component depends only on its own <code>GraphPersister</code> interface; the storage implementation depends on that interface (no mutual dependency). This mirrors the article’s emphasis on isolating components via minimal interfaces and eliminating cyclic deps.</p>
 <h3 id="strategy-2-by-toolbox">Strategy #2 - By Toolbox<a class="headerlink" href="#strategy-2-by-toolbox" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.</p>
 <p><strong>Key principle:</strong> Provides a collection of complementary implementations (e.g., different types of collection lists, various log appenders). The consumer can choose the best tool for their specific need from this "toolbox." This strategy is effective when the tools are related but don't warrant their own separate, larger components.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>src/
 ├── collections/
-│   ├── ArrayList.java
-│   ├── LinkedList.java
-│   ├── HashMap.java
-│   ├── TreeMap.java
-│   └── ConcurrentHashMap.java
-├── loggers/
-│   ├── FileLogger.java
-│   ├── ConsoleLogger.java
-│   ├── DatabaseLogger.java
-│   └── RemoteLogger.java
-├── parsers/
-│   ├── JsonParser.java
-│   ├── XmlParser.java
-│   ├── CsvParser.java
-│   └── YamlParser.java
-└── validators/
-    ├── EmailValidator.java
-    ├── PhoneValidator.java
-    └── CreditCardValidator.java
-</code></pre></div></p>
+│   ├── List.java                  # interface
+│   ├── ArrayList.java             # implementation
+│   ├── LinkedList.java            # implementation
+│   ├── Map.java                   # interface
+│   ├── HashMap.java               # implementation
+│   └── TreeMap.java               # implementation
+└── log-appenders/
+    ├── LogAppender.java           # interface
+    ├── ConsoleAppender.java       # implementation
+    ├── FileAppender.java          # implementation
+    └── HttpAppender.java          # implementation
+</code></pre></div>
+Note: A toolbox favors external cohesion and consumer convenience: interchangeable implementations share common interfaces. This reflects the article’s examples (collections and logging appenders).</p>
 <h3 id="strategy-3-by-layer">Strategy #3 - By Layer<a class="headerlink" href="#strategy-3-by-layer" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Organizing code based on its technical role within the application architecture (e.g., <code>presentation</code>, <code>business</code>, <code>data</code>).</p>
 <p><strong>Key principle:</strong> Code is separated into horizontal layers, where each layer has a specific responsibility. A request flows down through the layers, and changes often require modifications in multiple layers.</p>
@@ -1780,25 +1765,19 @@
 <div class="highlight"><pre><span></span><code>src/
 ├── presentation/
 │   ├── UserController.java
-│   ├── OrderController.java
-│   ├── ProductController.java
-│   └── ErrorHandler.java
-├── business/
-│   ├── UserService.java
+│   └── ErrorMapper.java           # map domain errors to i18n messages
+├── application/
+│   ├── PlaceOrderUseCase.java
+│   └── DtoMapper.java             # map DTOs to domain early
+├── domain/
+│   ├── Order.java
 │   ├── OrderService.java
-│   ├── ProductService.java
-│   └── BusinessRules.java
-├── data/
-│   ├── UserRepository.java
-│   ├── OrderRepository.java
-│   ├── ProductRepository.java
-│   └── DatabaseConfig.java
+│   └── OrderRepository.java       # interface
 └── infrastructure/
-    ├── EmailService.java
-    ├── CacheService.java
-    ├── LoggingService.java
-    └── SecurityService.java
-</code></pre></div></p>
+    ├── JdbcOrderRepository.java   # implements OrderRepository
+    └── MessageBusClient.java
+</code></pre></div>
+Note: The article warns that most changes often cut across layers (tight coupling). One mitigation it suggests is sequestering layer-specific concerns at boundaries (e.g., central error/i18n mapping, early DTO-to-domain mapping) rather than letting them infiltrate the codebase.</p>
 <h3 id="strategy-4-by-kind-considered-harmful">Strategy #4 - By Kind (Considered Harmful)<a class="headerlink" href="#strategy-4-by-kind-considered-harmful" title="Permanent link">&para;</a></h3>
 <p><strong>Focus:</strong> Grouping classes into arbitrary buckets based on their technical type (e.g., <code>interfaces</code>, <code>exceptions</code>, <code>managers</code>) instead of their business function.</p>
 <p><strong>Key principle:</strong> This is an anti-pattern that ignores the actual relationships and dependencies between classes. While it appears to create order, it actually hides complexity and results in tightly coupled packages, as a single feature change often requires modifying files in every bucket. It forces classes into artificial roles (e.g., a <code>Helper</code> or <code>Manager</code>) just to fit a category.</p>
@@ -1827,7 +1806,8 @@
     ├── UserException.java
     ├── OrderException.java
     └── ValidationException.java
-</code></pre></div></p>
+</code></pre></div>
+Note: As the article states, this seems neat but hides conceptual relationships and typically increases coupling; most changes cut across all buckets.</p>
 <h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Component organization</strong> is the strongest strategy, emphasizing true separation and minimal coupling</li>
