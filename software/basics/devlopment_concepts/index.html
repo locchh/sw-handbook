@@ -1724,8 +1724,8 @@
 </ul>
 <h2 id="organization-strategies">Organization Strategies<a class="headerlink" href="#organization-strategies" title="Permanent link">&para;</a></h2>
 <h3 id="strategy-1-by-component">Strategy #1 - By Component<a class="headerlink" href="#strategy-1-by-component" title="Permanent link">&para;</a></h3>
-<p><strong>Focus:</strong> External and internal cohesion - minimal interfaces with strongly interrelated internal code.</p>
-<p><strong>Key principle:</strong> Eliminate mutual dependencies between packages to create truly separate units that can be understood in isolation.</p>
+<p><strong>Focus:</strong> Grouping code by business feature or domain (e.g., <code>user-management</code>, <code>order-processing</code>). The goal is to create self-contained, independent components.</p>
+<p><strong>Key principle:</strong> Each component should be highly independent with a clear, minimal interface. This minimizes dependencies between different parts of the system, allowing developers to work on one feature without impacting others.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>src/
 ├── user-management/
@@ -1748,8 +1748,8 @@
     └── SMSProvider.java
 </code></pre></div></p>
 <h3 id="strategy-2-by-toolbox">Strategy #2 - By Toolbox<a class="headerlink" href="#strategy-2-by-toolbox" title="Permanent link">&para;</a></h3>
-<p><strong>Focus:</strong> External cohesion - provides complementary implementations that consumers can choose from or combine.</p>
-<p><strong>Key principle:</strong> Related tools grouped together for convenience, often implementing similar interfaces with different characteristics.</p>
+<p><strong>Focus:</strong> Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.</p>
+<p><strong>Key principle:</strong> Provides a collection of complementary implementations (e.g., different types of collection lists, various log appenders). The consumer can choose the best tool for their specific need from this "toolbox." This strategy is effective when the tools are related but don't warrant their own separate, larger components.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>src/
 ├── collections/
@@ -1774,8 +1774,8 @@
     └── CreditCardValidator.java
 </code></pre></div></p>
 <h3 id="strategy-3-by-layer">Strategy #3 - By Layer<a class="headerlink" href="#strategy-3-by-layer" title="Permanent link">&para;</a></h3>
-<p><strong>Focus:</strong> Workflow cohesion - organized along deployment boundaries or contributor responsibility areas.</p>
-<p><strong>Key principle:</strong> Wide interfaces accessed piecemeal, but often leads to changes spanning multiple layers.</p>
+<p><strong>Focus:</strong> Organizing code based on its technical role within the application architecture (e.g., <code>presentation</code>, <code>business</code>, <code>data</code>).</p>
+<p><strong>Key principle:</strong> Code is separated into horizontal layers, where each layer has a specific responsibility. A request flows down through the layers, and changes often require modifications in multiple layers.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>src/
 ├── presentation/
@@ -1800,8 +1800,8 @@
     └── SecurityService.java
 </code></pre></div></p>
 <h3 id="strategy-4-by-kind-considered-harmful">Strategy #4 - By Kind (Considered Harmful)<a class="headerlink" href="#strategy-4-by-kind-considered-harmful" title="Permanent link">&para;</a></h3>
-<p><strong>Focus:</strong> Grouping by class type rather than functionality - creates artificial categories.</p>
-<p><strong>Key principle:</strong> The author considers this harmful as it hides complexity while maintaining tight coupling between packages.</p>
+<p><strong>Focus:</strong> Grouping classes into arbitrary buckets based on their technical type (e.g., <code>interfaces</code>, <code>exceptions</code>, <code>managers</code>) instead of their business function.</p>
+<p><strong>Key principle:</strong> This is an anti-pattern that ignores the actual relationships and dependencies between classes. While it appears to create order, it actually hides complexity and results in tightly coupled packages, as a single feature change often requires modifying files in every bucket. It forces classes into artificial roles (e.g., a <code>Helper</code> or <code>Manager</code>) just to fit a category.</p>
 <p><strong>Example (Anti-pattern):</strong>
 <div class="highlight"><pre><span></span><code>src/
 ├── interfaces/
@@ -1833,7 +1833,7 @@
 <li><strong>Component organization</strong> is the strongest strategy, emphasizing true separation and minimal coupling</li>
 <li><strong>Toolbox organization</strong> works well for complementary implementations</li>
 <li><strong>Layer organization</strong> should be used cautiously as it often increases complexity</li>
-<li><strong>Kind organization</strong> is an anti-pattern that hides rather than solves complexity issues</li>
+<li><strong>Kind organization</strong> is an anti-pattern that groups unrelated classes by technical type, which hides complexity and increases coupling.</li>
 </ul>
 <p>The article emphasizes that the main goal is reducing complexity through proper separation, not just making packages smaller. Read the <a href="https://medium.com/@msandin/strategies-for-organizing-code-2c9d690b6f33">blog post</a> for more details.</p>
 <h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
