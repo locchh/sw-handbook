@@ -81,7 +81,7 @@
 
 ## Organization Strategies
 
-### Strategy #1 - By Component
+### By Component
 **Focus:** Grouping code by business feature or domain (e.g., `user-management`, `order-processing`). The goal is to create self-contained, independent components.
 
 **Key principle:** Each component should be highly independent with a clear, minimal interface. This minimizes dependencies between different parts of the system, allowing developers to work on one feature without impacting others.
@@ -101,7 +101,7 @@ src/
 ```
 Note: The `graph` component depends only on its own `GraphPersister` interface; the storage implementation depends on that interface (no mutual dependency). This mirrors the article’s emphasis on isolating components via minimal interfaces and eliminating cyclic deps.
 
-### Strategy #2 - By Toolbox
+### By Toolbox
 **Focus:** Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.
 
 **Key principle:** Provides a collection of complementary implementations (e.g., different types of collection lists, various log appenders). The consumer can choose the best tool for their specific need from this "toolbox." This strategy is effective when the tools are related but don't warrant their own separate, larger components.
@@ -124,7 +124,7 @@ src/
 ```
 Note: A toolbox favors external cohesion and consumer convenience: interchangeable implementations share common interfaces. This reflects the article’s examples (collections and logging appenders).
 
-### Strategy #3 - By Layer
+### By Layer
 **Focus:** Organizing code based on its technical role within the application architecture (e.g., `presentation`, `business`, `data`).
 
 **Key principle:** Code is separated into horizontal layers, where each layer has a specific responsibility. A request flows down through the layers, and changes often require modifications in multiple layers.
@@ -148,7 +148,7 @@ src/
 ```
 Note: The article warns that most changes often cut across layers (tight coupling). One mitigation it suggests is sequestering layer-specific concerns at boundaries (e.g., central error/i18n mapping, early DTO-to-domain mapping) rather than letting them infiltrate the codebase.
 
-### Strategy #4 - By Kind (Considered Harmful)
+### By Kind (Considered Harmful)
 **Focus:** Grouping classes into arbitrary buckets based on their technical type (e.g., `interfaces`, `exceptions`, `managers`) instead of their business function.
 
 **Key principle:** This is an anti-pattern that ignores the actual relationships and dependencies between classes. While it appears to create order, it actually hides complexity and results in tightly coupled packages, as a single feature change often requires modifying files in every bucket. It forces classes into artificial roles (e.g., a `Helper` or `Manager`) just to fit a category.
