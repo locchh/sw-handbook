@@ -78,13 +78,165 @@
 
 - **Release**: Release the code to the production environment
 
-## Coding Workflow
+
+## Organization Strategies
+
+### Strategy #1 - By Component
+**Focus:** External and internal cohesion - minimal interfaces with strongly interrelated internal code.
+
+**Key principle:** Eliminate mutual dependencies between packages to create truly separate units that can be understood in isolation.
+
+**Example:**
+```
+src/
+├── user-management/
+│   ├── User.java
+│   ├── UserService.java
+│   ├── UserRepository.java
+│   └── UserValidator.java
+├── order-processing/
+│   ├── Order.java
+│   ├── OrderService.java
+│   ├── PaymentProcessor.java
+│   └── OrderStatus.java
+├── inventory/
+│   ├── Product.java
+│   ├── InventoryService.java
+│   └── StockLevel.java
+└── notification/
+    ├── NotificationService.java
+    ├── EmailSender.java
+    └── SMSProvider.java
+```
+
+### Strategy #2 - By Toolbox
+**Focus:** External cohesion - provides complementary implementations that consumers can choose from or combine.
+
+**Key principle:** Related tools grouped together for convenience, often implementing similar interfaces with different characteristics.
+
+**Example:**
+```
+src/
+├── collections/
+│   ├── ArrayList.java
+│   ├── LinkedList.java
+│   ├── HashMap.java
+│   ├── TreeMap.java
+│   └── ConcurrentHashMap.java
+├── loggers/
+│   ├── FileLogger.java
+│   ├── ConsoleLogger.java
+│   ├── DatabaseLogger.java
+│   └── RemoteLogger.java
+├── parsers/
+│   ├── JsonParser.java
+│   ├── XmlParser.java
+│   ├── CsvParser.java
+│   └── YamlParser.java
+└── validators/
+    ├── EmailValidator.java
+    ├── PhoneValidator.java
+    └── CreditCardValidator.java
+```
+
+### Strategy #3 - By Layer
+**Focus:** Workflow cohesion - organized along deployment boundaries or contributor responsibility areas.
+
+**Key principle:** Wide interfaces accessed piecemeal, but often leads to changes spanning multiple layers.
+
+**Example:**
+```
+src/
+├── presentation/
+│   ├── UserController.java
+│   ├── OrderController.java
+│   ├── ProductController.java
+│   └── ErrorHandler.java
+├── business/
+│   ├── UserService.java
+│   ├── OrderService.java
+│   ├── ProductService.java
+│   └── BusinessRules.java
+├── data/
+│   ├── UserRepository.java
+│   ├── OrderRepository.java
+│   ├── ProductRepository.java
+│   └── DatabaseConfig.java
+└── infrastructure/
+    ├── EmailService.java
+    ├── CacheService.java
+    ├── LoggingService.java
+    └── SecurityService.java
+```
+
+### Strategy #4 - By Kind (Considered Harmful)
+**Focus:** Grouping by class type rather than functionality - creates artificial categories.
+
+**Key principle:** The author considers this harmful as it hides complexity while maintaining tight coupling between packages.
+
+**Example (Anti-pattern):**
+```
+src/
+├── interfaces/
+│   ├── UserInterface.java
+│   ├── OrderInterface.java
+│   ├── ProductInterface.java
+│   └── PaymentInterface.java
+├── entities/
+│   ├── User.java
+│   ├── Order.java
+│   ├── Product.java
+│   └── Payment.java
+├── managers/
+│   ├── UserManager.java
+│   ├── OrderManager.java
+│   ├── ProductManager.java
+│   └── PaymentManager.java
+├── helpers/
+│   ├── ValidationHelper.java
+│   ├── ConversionHelper.java
+│   └── UtilityHelper.java
+└── exceptions/
+    ├── UserException.java
+    ├── OrderException.java
+    └── ValidationException.java
+```
+
+### Key Takeaways
+- **Component organization** is the strongest strategy, emphasizing true separation and minimal coupling
+- **Toolbox organization** works well for complementary implementations
+- **Layer organization** should be used cautiously as it often increases complexity
+- **Kind organization** is an anti-pattern that hides rather than solves complexity issues
+
+The article emphasizes that the main goal is reducing complexity through proper separation, not just making packages smaller. Read the [blog post](https://medium.com/@msandin/strategies-for-organizing-code-2c9d690b6f33) for more details.
+
+
+## Workflow
+
+### Coding Workflow
 
 ```
-Feature -> Workflow -> Data Models-> Code Components -> Develop -> Unit Test -> Code Review
++---------+      +-----------+      +-------------+      +-----------------+
+| Feature | ---> | Workflow  | ---> | Data Models | ---> | Code Components |
++---------+      +-----------+      +-------------+      +-----------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      |   Develop    |
+                                                      +--------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      |  Unit Test   |
+                                                      +--------------+
+                                                             |
+                                                             v
+                                                      +--------------+
+                                                      | Code Review  |
+                                                      +--------------+
 ```
 
-## Development Workflow
+### Development Workflow
 
 ```ascii
             +--------------------------------+
@@ -152,6 +304,12 @@ Feature -> Workflow -> Data Models-> Code Components -> Develop -> Unit Test -> 
 
 ## Version Control
 
+**Version control tools**
+- Git
+- dvc (Data Version Control)
+- svn (Subversion)
+
+
 **Semantic Versioning**
 - `v1.2.3` means `Major.Minor.Patch`, where `Major` is when you make incompatible API changes, `Minor` is when you add functionality in a backwards-compatible manner, and `Patch` is when you make backwards-compatible bug fixes
 
@@ -162,6 +320,9 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 ```
 
 `Alpha` is the initial version, `Beta` is the second version, `RC1` is the first release candidate, `RC2` is the second release candidate, and so on. `Release` is the final version.
+
+- Read more about [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+- Read more about [Write Better Commits, Build Better Projects](https://github.blog/developer-skills/github/write-better-commits-build-better-projects/)
 
 ## Testing
 
