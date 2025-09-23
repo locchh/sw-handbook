@@ -82,9 +82,9 @@
 ## Organization Strategies
 
 ### Strategy #1 - By Component
-**Focus:** External and internal cohesion - minimal interfaces with strongly interrelated internal code.
+**Focus:** Grouping code by business feature or domain (e.g., `user-management`, `order-processing`). The goal is to create self-contained, independent components.
 
-**Key principle:** Eliminate mutual dependencies between packages to create truly separate units that can be understood in isolation.
+**Key principle:** Each component should be highly independent with a clear, minimal interface. This minimizes dependencies between different parts of the system, allowing developers to work on one feature without impacting others.
 
 **Example:**
 ```
@@ -110,9 +110,9 @@ src/
 ```
 
 ### Strategy #2 - By Toolbox
-**Focus:** External cohesion - provides complementary implementations that consumers can choose from or combine.
+**Focus:** Grouping a set of related and often interchangeable tools that serve a common purpose. The classes are technically independent but are bundled together for consumer convenience.
 
-**Key principle:** Related tools grouped together for convenience, often implementing similar interfaces with different characteristics.
+**Key principle:** Provides a collection of complementary implementations (e.g., different types of collection lists, various log appenders). The consumer can choose the best tool for their specific need from this "toolbox." This strategy is effective when the tools are related but don't warrant their own separate, larger components.
 
 **Example:**
 ```
@@ -140,9 +140,9 @@ src/
 ```
 
 ### Strategy #3 - By Layer
-**Focus:** Workflow cohesion - organized along deployment boundaries or contributor responsibility areas.
+**Focus:** Organizing code based on its technical role within the application architecture (e.g., `presentation`, `business`, `data`).
 
-**Key principle:** Wide interfaces accessed piecemeal, but often leads to changes spanning multiple layers.
+**Key principle:** Code is separated into horizontal layers, where each layer has a specific responsibility. A request flows down through the layers, and changes often require modifications in multiple layers.
 
 **Example:**
 ```
@@ -170,9 +170,9 @@ src/
 ```
 
 ### Strategy #4 - By Kind (Considered Harmful)
-**Focus:** Grouping by class type rather than functionality - creates artificial categories.
+**Focus:** Grouping classes into arbitrary buckets based on their technical type (e.g., `interfaces`, `exceptions`, `managers`) instead of their business function.
 
-**Key principle:** The author considers this harmful as it hides complexity while maintaining tight coupling between packages.
+**Key principle:** This is an anti-pattern that ignores the actual relationships and dependencies between classes. While it appears to create order, it actually hides complexity and results in tightly coupled packages, as a single feature change often requires modifying files in every bucket. It forces classes into artificial roles (e.g., a `Helper` or `Manager`) just to fit a category.
 
 **Example (Anti-pattern):**
 ```
@@ -206,7 +206,7 @@ src/
 - **Component organization** is the strongest strategy, emphasizing true separation and minimal coupling
 - **Toolbox organization** works well for complementary implementations
 - **Layer organization** should be used cautiously as it often increases complexity
-- **Kind organization** is an anti-pattern that hides rather than solves complexity issues
+- **Kind organization** is an anti-pattern that groups unrelated classes by technical type, which hides complexity and increases coupling.
 
 The article emphasizes that the main goal is reducing complexity through proper separation, not just making packages smaller. Read the [blog post](https://medium.com/@msandin/strategies-for-organizing-code-2c9d690b6f33) for more details.
 
