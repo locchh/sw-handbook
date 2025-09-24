@@ -1901,12 +1901,64 @@ Note: As the article states, this seems neat but hides conceptual relationships 
             +--------------------------------+
 </code></pre></div>
 <h2 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Permanent link">&para;</a></h2>
-<p><strong>Version control tools</strong>
-- Git
-- dvc (Data Version Control)
-- svn (Subversion)</p>
-<p><strong>Semantic Versioning</strong>
-- <code>v1.2.3</code> means <code>Major.Minor.Patch</code>, where <code>Major</code> is when you make incompatible API changes, <code>Minor</code> is when you add functionality in a backwards-compatible manner, and <code>Patch</code> is when you make backwards-compatible bug fixes</p>
+<p><strong>Version control tools</strong></p>
+<ul>
+<li>
+<p><code>git</code></p>
+</li>
+<li>
+<p><code>dvc</code> (Data Version Control)</p>
+</li>
+<li>
+<p><code>svn</code> (Subversion)</p>
+</li>
+</ul>
+<p><strong>Branching Conventions</strong></p>
+<ul>
+<li>
+<p><code>main</code> branch: The main branch is the default branch for the repository. It is the branch that is used to store the latest stable version of the code.</p>
+</li>
+<li>
+<p><code>develop</code> or <code>dev</code> branch: The develop branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.</p>
+</li>
+<li>
+<p><code>feature/*</code> branch: The feature branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.</p>
+</li>
+<li>
+<p><code>release/*</code> branch: The release branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.</p>
+</li>
+<li>
+<p><code>hotfix/*</code> branch: The hotfix branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.</p>
+</li>
+</ul>
+<p><strong>Commit Conventions</strong></p>
+<ul>
+<li>
+<p><code>feat:&lt;comment&gt;</code>: A new feature</p>
+</li>
+<li>
+<p><code>fix:&lt;comment&gt;</code>: A bug fix</p>
+</li>
+<li>
+<p><code>docs:&lt;comment&gt;</code>: Documentation only changes</p>
+</li>
+<li>
+<p><code>style:&lt;comment&gt;</code>: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</p>
+</li>
+<li>
+<p><code>refactor:&lt;comment&gt;</code>: A code change that neither fixes a bug or adds a feature</p>
+</li>
+<li>
+<p><code>test:&lt;comment&gt;</code>: Adding missing tests or correcting existing tests</p>
+</li>
+<li>
+<p><code>chore:&lt;comment&gt;</code>: Changes to the build process or auxiliary tools and libraries such as documentation generation</p>
+</li>
+</ul>
+<p><strong>Semantic Versioning</strong></p>
+<ul>
+<li><code>v1.2.3</code> means <code>Major.Minor.Patch</code>, where <code>Major</code> is when you make incompatible API changes, <code>Minor</code> is when you add functionality in a backwards-compatible manner, and <code>Patch</code> is when you make backwards-compatible bug fixes</li>
+</ul>
 <p><strong>Version Control Workflow</strong></p>
 <div class="highlight"><pre><span></span><code>Alpha -&gt; Beta -&gt; RC1 -&gt; RC2 -&gt; ... -&gt; RCn -&gt; Release
 </code></pre></div>
