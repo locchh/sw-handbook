@@ -285,12 +285,43 @@ The article emphasizes that the main goal is reducing complexity through proper 
 ## Version Control
 
 **Version control tools**
-- Git
-- dvc (Data Version Control)
-- svn (Subversion)
 
+- `git`
+
+- `dvc` (Data Version Control)
+
+- `svn` (Subversion)
+
+**Branching Conventions**
+
+- `main` branch: The main branch is the default branch for the repository. It is the branch that is used to store the latest stable version of the code.
+
+- `develop` or `dev` branch: The develop branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.
+
+- `feature/*` branch: The feature branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.
+
+- `release/*` branch: The release branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.
+
+- `hotfix/*` branch: The hotfix branch is used to store the latest development version of the code. It is the branch that is used to store the latest development version of the code.
+
+**Commit Conventions**
+
+- `feat:<comment>`: A new feature
+
+- `fix:<comment>`: A bug fix
+
+- `docs:<comment>`: Documentation only changes
+
+- `style:<comment>`: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+
+- `refactor:<comment>`: A code change that neither fixes a bug or adds a feature
+
+- `test:<comment>`: Adding missing tests or correcting existing tests
+
+- `chore:<comment>`: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
 **Semantic Versioning**
+
 - `v1.2.3` means `Major.Minor.Patch`, where `Major` is when you make incompatible API changes, `Minor` is when you add functionality in a backwards-compatible manner, and `Patch` is when you make backwards-compatible bug fixes
 
 **Version Control Workflow**
