@@ -1,5 +1,55 @@
 
 # Development Concepts
+## Software Development Life Cycle (SDLC)
+
+```
+[Analysis]
+    |
+    v
+[Design]
+    |
+    v
+[Development]
+    |
+    v
+[Testing]
+    |
+    v
+[Deployment]
+    |
+    v
+[Maintenance]
+```
+
+### Analysis Phase
+
+- BRD (Business Requirements Document) - Business objectives and high-level requirements
+- FRS (Functional Requirements Specification) - Detailed functional requirements
+- SRS (Software Requirements Specification) - Complete system requirements (functional + non-functional)
+- Use Case Diagrams / User Stories – capture user interactions and scenarios.
+- DFD (Data Flow Diagram) - shows how data moves through the system
+
+### Design Phase
+
+- BD (Basic Design) - High-level design document
+- DD (Detailed Design) - Low-level design document
+- DBD (Database Design) - Database design document
+- UI/UX Design - User interface design document
+- BFF (Backend for Frontend) - API-only service
+
+### Development Phase
+
+- Code
+- Comments
+- Markdown
+
+### Test Phase
+
+- TPD (Test Plan Document) - Test plan document
+- TCS (Test Case Specification) - Test case specification
+- TDD (Test Data Document) - Test data document
+- BR (Bug Report) - Bug report
+- TSR (Test Summary Report) - Test summary report
 
 ## Application Types and Delivery Channels
 
