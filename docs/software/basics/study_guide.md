@@ -1,96 +1,73 @@
 # Study Guide
 
-## How to start with Coding Assistant
+## 🚀 Coding Assistant Quick Guide
 
-### Project kickoff
-1. I want to start a new project follow my {design_document}, What should I do first?
+### 🚀 Starting a Project
 
-2. What is the codebase structure? Give me step by step instructions to set up the project.
+**Setup & Structure**
+- "Help me start this project: {design_doc}. Show me the folder structure and setup steps."
+- "Give me the exact commands to run this on a fresh machine"
+- "Create a minimal Dockerfile and docker-compose for local dev"
 
-3. Give me a template for the project.
+**Standards & Config**
+- "Set up linters, formatters, and pre-commit hooks with configs"
+- "What branching strategy and commit format should we use? Show examples."
 
-4. What exact commands do I run to set up the project on a fresh machine (OS, package manager, env vars)?
+---
 
-5. What minimal Dockerfile and docker-compose should I use for local development?
+### 💻 Building Features
 
-6. What branching strategy and commit message format should we follow? Provide examples.
+**Implementation**
+- "Plan out how to implement {feature_name}"
+- "Build {functionality} with tests, comments, and edge cases"
 
-7. Which linters, formatters, and pre-commit hooks should we enforce and how to configure them?
+**Debugging**
+- "Fix this error: {error_message}. Stack trace: {stack_trace}"
+- "Add logging/metrics to debug {component}. Show examples."
 
-8. How should I configure local dev environment to mirror production (secrets, DB fixtures, sample data)?
+---
 
-### Code Implementation
-9. Give me a plan to implement the project or implement the feature {feature_name}.
+### 🔍 Understanding Code
 
-10. Implement {functionality} in {language} with tests and inline comments — include edge cases.
+**Codebase Overview**
+- "What does this codebase do and how is it structured?"
+- "Show me the core components and how they connect"
+- "How does data flow through the system?"
 
-11. I see this error: {error_message} with stack trace {stack_trace} — how do I reproduce and fix it?
+**Deep Dives**
+- "Explain the architecture of {component}"
+- "What are the entry points and how do I run this locally?"
+- "Explain {concept} with code examples"
 
-12. Suggest monitoring, alerting thresholds, and runbook steps for common incidents.
+---
 
-11. What logs/metrics/traces should I add to understand failures in {component}? Provide example log lines and metric names.
+### ✅ Quality & Deployment
 
-### Code Review
-12. Give me a checklist for PR review (security, tests, docs, performance).
+**Review & Testing**
+- "Give me a PR review checklist (security, tests, performance)"
+- "What's the test coverage and strategy?"
 
-### CI/CD
-13. What CI/CD pipeline (GitHub Actions/GitLab/etc.) do you recommend — include YAML config and key steps.
+**CI/CD & Docs**
+- "Create a CI/CD pipeline config for GitHub Actions"
+- "Write onboarding docs: setup → run → test → deploy"
+- "Generate API docs (OpenAPI) for these endpoints"
 
-### Docs, learning & collaboration
+---
 
-14. Write a short onboarding doc for new devs: setup, run, test, deploy.
-15. Explain {concept} (e.g., dependency injection, event sourcing) with code examples and analogies.
-16. Produce a changelog entry or release notes for this PR.
-17. Create API documentation (OpenAPI/Swagger) for the endpoints in this repo.
+### 🏗️ Platform Questions
 
+**System Design**
+- "Explain the platform architecture and component interactions"
+- "How do components communicate and what are the dependencies?"
+- "How is auth/authorization handled across services?"
 
-## Top Level CodeBase Questions
+**Operations**
+- "What are failure points and resilience strategies?"
+- "Show me deployment order, scaling strategy, and monitoring setup"
 
-1. What is the overall purpose and functionality (features) of this codebase?
+---
 
-2. What is the architecture and high-level structure of the codebase?
-
-3. What are the core modules/components and how do they interact?
-
-4. What are the entry points to the application?
-
-5. What technologies, frameworks, and languages are used?
-
-6. What are the coding standards and patterns used throughout the project?
-
-7. How is the project configured for different environments (development, testing, production)?
-
-8. How to run the codebase locally?
-
-9. What are the data models and how is data flowing through the system?
-
-10. **Explain about the project's architecture and how it works**
-
-11. **Explain about the relationship between the code components in this sub-package**
-
-12. How is the codebase tested and what is the test coverage?
-
-## Top Level Platform Questions
-
-1. What is the overall purpose and business value of the platform?
-
-2. What are the main components of the platform and what function does each serve?
-
-3. How do the different components communicate and integrate with each other?
-
-4. What are the dependencies between components and what is the deployment order?
-
-5. What are the entry points and interfaces for each component?
-
-6. How is authentication and authorization handled across the platform?
-
-7. What are the common failure points and how is resilience built into the system?
-
-8. How is the platform monitored and what observability tools are available?
-
-9. What is the deployment and scaling strategy for each component?
-
-10. How is data shared and synchronized across platform components?
+**Pro tip**: Always be specific—include file names, error messages, or feature names. The more context you give, the better the help you get.
 
 ## Universal Learning Formula
 
