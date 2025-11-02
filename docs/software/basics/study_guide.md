@@ -1,71 +1,88 @@
 # Study Guide
 
-## 🚀 Coding Assistant Quick Guide
+## Coding Assistant Quick Guide
 
 ### 🚀 Starting a Project
 
 **Setup & Structure**
+
 - "Help me start this project: {design_doc}. Show me the folder structure and setup steps."
+
 - "Give me the exact commands to run this on a fresh machine"
+
 - "Create a minimal Dockerfile and docker-compose for local dev"
 
 **Standards & Config**
+
 - "Set up linters, formatters, and pre-commit hooks with configs"
+
 - "What branching strategy and commit format should we use? Show examples."
 
----
 
 ### 💻 Building Features
 
 **Implementation**
+
 - "Plan out how to implement {feature_name}"
+
 - "Build {functionality} with tests, comments, and edge cases"
 
 **Debugging**
+
 - "Fix this error: {error_message}. Stack trace: {stack_trace}"
+
 - "Add logging/metrics to debug {component}. Show examples."
 
----
 
 ### 🔍 Understanding Code
 
 **Codebase Overview**
+
 - "What does this codebase do and how is it structured?"
+
 - "Show me the core components and how they connect"
+
 - "How does data flow through the system?"
 
 **Deep Dives**
-- "Explain the architecture of {component}"
-- "What are the entry points and how do I run this locally?"
-- "Explain {concept} with code examples"
 
----
+- "Explain the architecture of {component}"
+
+- "What are the entry points and how do I run this locally?"
+
+- "Explain {concept} with code examples"
 
 ### ✅ Quality & Deployment
 
 **Review & Testing**
+
 - "Give me a PR review checklist (security, tests, performance)"
+
 - "What's the test coverage and strategy?"
 
 **CI/CD & Docs**
-- "Create a CI/CD pipeline config for GitHub Actions"
-- "Write onboarding docs: setup → run → test → deploy"
-- "Generate API docs (OpenAPI) for these endpoints"
 
----
+- "Create a CI/CD pipeline config for GitHub Actions"
+
+- "Write onboarding docs: setup → run → test → deploy"
+
+- "Generate API docs (OpenAPI) for these endpoints"
 
 ### 🏗️ Platform Questions
 
 **System Design**
+
 - "Explain the platform architecture and component interactions"
+
 - "How do components communicate and what are the dependencies?"
+
 - "How is auth/authorization handled across services?"
 
 **Operations**
-- "What are failure points and resilience strategies?"
-- "Show me deployment order, scaling strategy, and monitoring setup"
 
----
+- "What are failure points and resilience strategies?"
+
+- "Show me deployment order, scaling strategy, and monitoring setup"
 
 **Pro tip**: Always be specific—include file names, error messages, or feature names. The more context you give, the better the help you get.
 
