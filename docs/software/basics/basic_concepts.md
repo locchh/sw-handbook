@@ -2,59 +2,61 @@
 
 ## Chomsky Hierarchy
 
-The **Chomsky Hierarchy** is a classification of formal grammars (and the languages they generate) into four types, organized from the most general (most expressive) to the most restricted (least expressive).
+The **Chomsky Hierarchy** organizes formal languages into four levels based on their complexity. Think of it as a set of "Russian dolls": each level is a subset of the one above it.
 
-It’s a core concept in **formal language theory**, automata theory, and compiler design — originally introduced by **Noam Chomsky** in 1956 to describe the structure of natural languages but now widely used in computer science.
+* **Type 0** (Most powerful, least restricted) includes everything below it.
+* **Type 3** (Least powerful, most restricted) is the simplest.
 
-### The Four Levels of the Chomsky Hierarchy
+This hierarchy helps computer scientists decide which tools to use. For example, you don't need a full Turing Machine to parse a simple email address—a Regular Expression (Type 3) is enough.
 
-| **Type**   | **Grammar Name**               | **Language Class**               | **Equivalent Automaton**                                                        | **Rules / Restrictions**                                                                                  |
-| ---------- | ------------------------------ | -------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Type 0** | **Unrestricted grammar**       | Recursively enumerable languages | **Turing Machine**                                                              | No restrictions on productions: α → β, where α and β are any strings of terminals/nonterminals and α ≠ ε. |
-| **Type 1** | **Context-sensitive grammar**  | Context-sensitive languages      | **Linear bounded automaton** (Turing machine with tape limited to input length) | Productions of the form αAβ → αγβ, where γ ≠ ε (length of output ≥ length of input)                       |
-| **Type 2** | **Context-free grammar (CFG)** | Context-free languages           | **Pushdown Automaton (PDA)**                                                    | Productions of the form A → γ, where A is a single nonterminal                                            |
-| **Type 3** | **Regular grammar**            | Regular languages                | **Finite State Automaton (FSA)**                                                | Productions of the form A → aB or A → a (right-linear or left-linear)                                     |
+### The Four Levels
 
-### Why It Matters
+| Type | Grammar Name | Machine (Automaton) | Key Characteristic |
+| :--- | :--- | :--- | :--- |
+| **Type 0** | **Unrestricted** | **Turing Machine** | Can compute anything that is computable. Rules have no restrictions. |
+| **Type 1** | **Context-Sensitive** | **Linear Bounded Automaton** | Rules depend on the "context" (surrounding symbols). Length of the string cannot decrease. |
+| **Type 2** | **Context-Free** | **Pushdown Automaton** | Supports nesting and recursion (e.g., matching parentheses). Most programming language syntax is here. |
+| **Type 3** | **Regular** | **Finite State Automaton** | Simple patterns without nesting (e.g., keywords, identifiers). |
 
-* **Compiler design**:
+### Examples & Restrictions
 
-  * Regular languages → Lexical analysis (regex, tokenizing)
-  * Context-free languages → Syntax analysis (parsing)
-* **Theoretical computer science**: Helps in **classifying computational problems** by their complexity.
-* **Natural language processing**: Models grammatical structures of human languages.
+Moving down the hierarchy adds more restrictions to the rules.
 
-### Example of Restrictions
+#### 1. Type 0: Unrestricted
+**Rule:** $\alpha \to \beta$ (Anything goes, as long as LHS is not empty)
+* **Example:** Any computable logic.
+* **Analogy:** A whiteboard where you can erase and rewrite anything anywhere.
 
-Let’s see an example where a grammar moves down the hierarchy:
+#### 2. Type 1: Context-Sensitive
+**Rule:** $\alpha A \beta \to \alpha \gamma \beta$ (Replace $A$ with $\gamma$, but *only* if it's between $\alpha$ and $\beta$)
+* **Constraint:** You can only modify symbols based on their neighbors, and the string length generally grows or stays the same.
+* **Example:** $a^n b^n c^n$ (e.g., `abc`, `aabbcc`). You need to track three balanced counts, which Type 2 cannot do.
 
-1. **Type 0**:
+#### 3. Type 2: Context-Free
+**Rule:** $A \to \gamma$ (Replace $A$ regardless of what surrounds it)
+* **Constraint:** The left-hand side must be a *single non-terminal*.
+* **Example:** Balanced Parentheses $a^n b^n$.
+  ```text
+  S → aSb  (Nested recursion)
+  S → ε
+  ```
+  This generates: `ab`, `aabb`, `aaabbb`...
 
-   ```
-   S → aSb | ε
-   ```
+#### 4. Type 3: Regular
+**Rule:** $A \to aB$ or $A \to a$ (Strictly linear)
+* **Constraint:** You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like $n$ in $a^n b^n$).
+* **Example:** Matching an identifier like `var_1`.
+  ```text
+  S → vA
+  A → aB
+  ...
+  ```
 
-   (No restrictions — works fine in Type 0 and all below if it matches the form.)
+### Practical Applications
 
-2. **Type 1**: Must be length non-decreasing:
-
-   ```
-   AB → AC  
-   C → b
-   ```
-
-3. **Type 2**: Only single nonterminal on LHS:
-
-   ```
-   S → aSb | ε
-   ```
-
-4. **Type 3**: Only one terminal on RHS and at most one nonterminal:
-
-   ```
-   S → aA  
-   A → bS | ε
-   ```
+* **Regex (Type 3):** Used for finding patterns like emails, phone numbers, or keywords in code.
+* **Parsers (Type 2):** Used by compilers to understand code structure (if statements, nested blocks).
+* **Natural Language (Type 1/0):** Human languages are complex and often require context-sensitive rules to fully capture grammar.
 
 ## Programming Paradigms
 
@@ -63,35 +65,45 @@ Programming paradigms are fundamental styles or approaches to programming that s
 ### 1. Object-Oriented Programming (OOP)
 
 **Key Concepts:** Objects, Classes, Inheritance, Encapsulation, Polymorphism
+
 **Languages:** Java, C++, Python, C#, Ruby
+
 **Description:**
 OOP organizes code around **objects**, which are instances of **classes**—blueprints that define attributes and behaviors. It promotes code **reuse**, **modularity**, and **scalability**, making it ideal for large and complex software systems.
 
 ### 2. Functional Programming (FP)
 
 **Key Concepts:** Pure Functions, Immutability, First-Class Functions, Higher-Order Functions
+
 **Languages:** Haskell, Lisp, Elixir, Scala, JavaScript (partial)
+
 **Description:**
 FP emphasizes **declarative code** using pure functions and avoids mutable state and side effects. It’s rooted in **mathematical functions** and is well-suited for concurrent and parallel programming.
 
 ### 3. Procedural Programming (PP)
 
 **Key Concepts:** Procedures (Functions), Sequence, Selection, Iteration
+
 **Languages:** C, Pascal, Fortran, BASIC
+
 **Description:**
 Procedural programming structures programs as a series of **instructions** grouped into **procedures** or **routines**. It is a subset of imperative programming and is suitable for applications with a clear step-by-step logic.
 
 ### 4. Declarative Programming (DP)
 
 **Key Concepts:** What to Do (Not How), Abstraction, Constraints
+
 **Languages:** SQL, HTML, Prolog, Haskell
+
 **Description:**
 Declarative programming expresses the **logic of computation** without describing its control flow. The focus is on **what** the program should accomplish rather than detailing **how** to achieve it.
 
 ### 5. Logic Programming (LP)
 
 **Key Concepts:** Facts, Rules, Queries, Inference
+
 **Languages:** Prolog, Datalog
+
 **Description:**
 Logic programming is based on **formal logic**. Programs consist of a set of facts and rules, and computation is performed through **logical inference**. It is widely used in **AI**, **natural language processing**, and **expert systems**.
 
@@ -260,22 +272,22 @@ If you're interested in a more complex architecture (like enterprise systems), y
 
 ## Some Popular Software Applications
 
-### 1. Web Application
+1. Web Application
 
-### 2. Mobile Application
+2. Mobile Application
 
-### 3. Desktop Application
+3. Desktop Application
 
-### 4. Console Application
+4. Console Application
 
-### 5. Development Framework, Library
+5. Development Framework, Library
 
-### 6. Development Tool
+6. Development Tool
 
-### 7. Extension
+7. Extension
 
-### 8. Platform
+8. Platform
 
-### 9. Ecosystem
+9. Ecosystem
 
-### 10. Some codebase for research, learning, or demo purposes 
+10. Some codebase for research, learning, or demo purposes 
