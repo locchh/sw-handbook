@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/study_guide/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/philosophies_principles/">
       
       
-        <link rel="prev" href="../abbreviations/">
+        <link rel="prev" href="../devlopment_concepts/">
       
       
-        <link rel="next" href="../../tool_tip/database/">
+        <link rel="next" href="../architecture_patterns/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Study Guide - Software Handbook</title>
+        <title>Coding Philosophies - Software Handbook</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#study-guide" class="md-skip">
+        <a href="#essential-coding-philosophies-principles" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Study Guide
+              Coding Philosophies
             
           </span>
         </div>
@@ -419,10 +419,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../philosophies_principles/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Coding Philosophies
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -433,6 +455,350 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solid-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      SOLID Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SOLID Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-responsibility-principle-srp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Responsibility Principle (SRP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openclosed-principle-ocp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open/Closed Principle (OCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liskov-substitution-principle-lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Liskov Substitution Principle (LSP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-segregation-principle-isp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface Segregation Principle (ISP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-inversion-principle-dip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Inversion Principle (DIP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Design Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Design Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRY (Don't Repeat Yourself)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kiss-keep-it-simple-stupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      KISS (Keep It Simple, Stupid)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yagni-you-arent-gonna-need-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAGNI (You Aren't Gonna Need It)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-methodologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Methodologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Methodologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-driven-development-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test-Driven Development (TDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-driven-development-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behavior-Driven Development (BDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-review-culture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Review Culture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-development-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Development Approaches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Development Approaches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agile-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agile Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scrum-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scrum Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kanban
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-code-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean Code Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean Code Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meaningful-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meaningful Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-important-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Important Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Important Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns-soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns (SoC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#law-of-demeter-principle-of-least-knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Law of Demeter (Principle of Least Knowledge)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-over-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition Over Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fail Fast
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convention-over-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convention Over Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premature-optimization-is-the-root-of-all-evil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Premature Optimization is the Root of All Evil
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-application-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Application Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -511,32 +877,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Study Guide
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../study_guide/" class="md-nav__link">
         
   
   
@@ -547,320 +891,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#coding-assistant-quick-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coding Assistant Quick Guide
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Coding Assistant Quick Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-a-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Starting a Project
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      💻 Building Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#understanding-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔍 Understanding Code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quality-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Quality &amp; Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#platform-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      🏗️ Platform Questions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#universal-learning-formula" class="md-nav__link">
-    <span class="md-ellipsis">
-      Universal Learning Formula
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Universal Learning Formula">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#find-the-right-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Find the Right Resources
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rapid-learning-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rapid Learning Framework
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rapid Learning Framework">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#master-the-fundamentals-ask-coding-assisstant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Master the Fundamentals =&gt; Ask Coding Assisstant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply-the-8020-rule-ask-coding-assisstant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apply the 80/20 Rule =&gt;Ask Coding Assisstant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-projects-gradually" class="md-nav__link">
-    <span class="md-ellipsis">
-      Build Projects Gradually
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#practice-with-intention" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practice with Intention
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adopt-a-testing-mindset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adopt a Testing Mindset
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#leverage-documentation-wisely" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leverage Documentation Wisely
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#learn-from-the-community" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learn from the community
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#master-the-tooling-ecosystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Master the tooling ecosystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#maintain-a-learning-journal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Maintain a learning journal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prepare-for-interviews-specifically" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prepare for interviews specifically
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#accelerated-learning-techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      Accelerated Learning Techniques
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confidence-building-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Confidence-Building Strategies
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measuring-progress" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measuring Progress
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-aspects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional aspects
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional aspects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Considerations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-standards" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation Standards
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#onboarding-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      Onboarding Process
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-and-debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting and Debugging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-and-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community and Support
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-control-and-collaboration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version Control and Collaboration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1314,55 +1344,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#coding-assistant-quick-guide" class="md-nav__link">
+  <a href="#solid-principles" class="md-nav__link">
     <span class="md-ellipsis">
-      Coding Assistant Quick Guide
+      SOLID Principles
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Coding Assistant Quick Guide">
+    <nav class="md-nav" aria-label="SOLID Principles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#starting-a-project" class="md-nav__link">
+  <a href="#single-responsibility-principle-srp" class="md-nav__link">
     <span class="md-ellipsis">
-      🚀 Starting a Project
+      Single Responsibility Principle (SRP)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#building-features" class="md-nav__link">
+  <a href="#openclosed-principle-ocp" class="md-nav__link">
     <span class="md-ellipsis">
-      💻 Building Features
+      Open/Closed Principle (OCP)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#understanding-code" class="md-nav__link">
+  <a href="#liskov-substitution-principle-lsp" class="md-nav__link">
     <span class="md-ellipsis">
-      🔍 Understanding Code
+      Liskov Substitution Principle (LSP)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#quality-deployment" class="md-nav__link">
+  <a href="#interface-segregation-principle-isp" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Quality &amp; Deployment
+      Interface Segregation Principle (ISP)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#platform-questions" class="md-nav__link">
+  <a href="#dependency-inversion-principle-dip" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗️ Platform Questions
+      Dependency Inversion Principle (DIP)
     </span>
   </a>
   
@@ -1374,119 +1404,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#universal-learning-formula" class="md-nav__link">
+  <a href="#core-design-principles" class="md-nav__link">
     <span class="md-ellipsis">
-      Universal Learning Formula
+      Core Design Principles
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Universal Learning Formula">
+    <nav class="md-nav" aria-label="Core Design Principles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#find-the-right-resources" class="md-nav__link">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
     <span class="md-ellipsis">
-      Find the Right Resources
+      DRY (Don't Repeat Yourself)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rapid-learning-framework" class="md-nav__link">
+  <a href="#kiss-keep-it-simple-stupid" class="md-nav__link">
     <span class="md-ellipsis">
-      Rapid Learning Framework
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rapid Learning Framework">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#master-the-fundamentals-ask-coding-assisstant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Master the Fundamentals =&gt; Ask Coding Assisstant
+      KISS (Keep It Simple, Stupid)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-the-8020-rule-ask-coding-assisstant" class="md-nav__link">
+  <a href="#yagni-you-arent-gonna-need-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Apply the 80/20 Rule =&gt;Ask Coding Assisstant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-projects-gradually" class="md-nav__link">
-    <span class="md-ellipsis">
-      Build Projects Gradually
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#practice-with-intention" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practice with Intention
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adopt-a-testing-mindset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adopt a Testing Mindset
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#leverage-documentation-wisely" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leverage Documentation Wisely
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#learn-from-the-community" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learn from the community
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#master-the-tooling-ecosystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Master the tooling ecosystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#maintain-a-learning-journal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Maintain a learning journal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prepare-for-interviews-specifically" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prepare for interviews specifically
+      YAGNI (You Aren't Gonna Need It)
     </span>
   </a>
   
@@ -1496,48 +1444,39 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#accelerated-learning-techniques" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#development-methodologies" class="md-nav__link">
     <span class="md-ellipsis">
-      Accelerated Learning Techniques
+      Development Methodologies
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confidence-building-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Confidence-Building Strategies
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measuring-progress" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measuring Progress
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-aspects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional aspects
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional aspects">
+    <nav class="md-nav" aria-label="Development Methodologies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#test-driven-development-tdd" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Considerations
+      Test-Driven Development (TDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-driven-development-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behavior-Driven Development (BDD)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-review-culture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Review Culture
     </span>
   </a>
   
@@ -1547,56 +1486,39 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#software-development-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Development Approaches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Development Approaches">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#documentation-standards" class="md-nav__link">
+  <a href="#agile-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation Standards
+      Agile Development
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#onboarding-process" class="md-nav__link">
+  <a href="#scrum-framework" class="md-nav__link">
     <span class="md-ellipsis">
-      Onboarding Process
+      Scrum Framework
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-and-debugging" class="md-nav__link">
+  <a href="#kanban" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting and Debugging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#community-and-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community and Support
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-control-and-collaboration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Version Control and Collaboration
+      Kanban
     </span>
   </a>
   
@@ -1604,6 +1526,144 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-code-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean Code Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean Code Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meaningful-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meaningful Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-important-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Important Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Important Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns-soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns (SoC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#law-of-demeter-principle-of-least-knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Law of Demeter (Principle of Least Knowledge)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-over-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition Over Inheritance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fail Fast
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convention-over-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convention Over Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premature-optimization-is-the-root-of-all-evil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Premature Optimization is the Root of All Evil
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-application-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Application Tips
+    </span>
+  </a>
   
 </li>
       
@@ -1626,262 +1686,193 @@
   
 
 
-<h1 id="study-guide">Study Guide<a class="headerlink" href="#study-guide" title="Permanent link">&para;</a></h1>
-<h2 id="coding-assistant-quick-guide">Coding Assistant Quick Guide<a class="headerlink" href="#coding-assistant-quick-guide" title="Permanent link">&para;</a></h2>
-<h3 id="starting-a-project">🚀 Starting a Project<a class="headerlink" href="#starting-a-project" title="Permanent link">&para;</a></h3>
-<p><strong>Setup &amp; Structure</strong></p>
+<h1 id="essential-coding-philosophies-principles">Essential Coding Philosophies &amp; Principles<a class="headerlink" href="#essential-coding-philosophies-principles" title="Permanent link">&para;</a></h1>
+<h2 id="solid-principles">SOLID Principles<a class="headerlink" href="#solid-principles" title="Permanent link">&para;</a></h2>
+<p>The foundation of object-oriented design, ensuring maintainable and scalable code.</p>
+<h3 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)<a class="headerlink" href="#single-responsibility-principle-srp" title="Permanent link">&para;</a></h3>
+<p>Each class or module should have one, and only one, reason to change. A class should do one thing well.</p>
+<p><strong>Example:</strong> A <code>User</code> class should handle user data, not also handle email sending or database operations.</p>
+<p><strong>Benefits:</strong> Easier testing, reduced coupling, clearer purpose</p>
+<h3 id="openclosed-principle-ocp">Open/Closed Principle (OCP)<a class="headerlink" href="#openclosed-principle-ocp" title="Permanent link">&para;</a></h3>
+<p>Software entities should be open for extension but closed for modification. Add new functionality without changing existing code.</p>
+<p><strong>Implementation:</strong> Use inheritance, interfaces, or composition patterns</p>
+<p><strong>Benefits:</strong> Reduces risk of breaking existing functionality, promotes code reuse</p>
+<h3 id="liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)<a class="headerlink" href="#liskov-substitution-principle-lsp" title="Permanent link">&para;</a></h3>
+<p>Objects of a superclass should be replaceable with objects of its subclasses without breaking the application. Subtypes must honor the contract of their base types.</p>
+<p><strong>Example:</strong> If <code>Bird</code> has a <code>fly()</code> method, <code>Penguin</code> shouldn't inherit from <code>Bird</code> since penguins can't fly.</p>
+<p><strong>Benefits:</strong> Ensures proper inheritance hierarchies, prevents unexpected behaviors</p>
+<h3 id="interface-segregation-principle-isp">Interface Segregation Principle (ISP)<a class="headerlink" href="#interface-segregation-principle-isp" title="Permanent link">&para;</a></h3>
+<p>Clients should not be forced to depend on interfaces they don't use. Many small, specific interfaces are better than one large, general-purpose interface.</p>
+<p><strong>Example:</strong> Instead of one <code>IWorker</code> interface with <code>work()</code>, <code>eat()</code>, <code>sleep()</code>, create separate <code>IWorkable</code>, <code>IFeedable</code>, <code>IRestable</code> interfaces.</p>
+<p><strong>Benefits:</strong> Reduces dependencies, increases flexibility, clearer contracts</p>
+<h3 id="dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)<a class="headerlink" href="#dependency-inversion-principle-dip" title="Permanent link">&para;</a></h3>
+<p>High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.</p>
+<p><strong>Implementation:</strong> Use dependency injection, depend on interfaces rather than concrete implementations</p>
+<p><strong>Benefits:</strong> Loose coupling, easier testing with mocks, more flexible architecture</p>
+<hr />
+<h2 id="core-design-principles">Core Design Principles<a class="headerlink" href="#core-design-principles" title="Permanent link">&para;</a></h2>
+<h3 id="dry-dont-repeat-yourself">DRY (Don't Repeat Yourself)<a class="headerlink" href="#dry-dont-repeat-yourself" title="Permanent link">&para;</a></h3>
+<p>Every piece of knowledge should have a single, unambiguous representation in the system. Avoid code duplication by abstracting common functionality.</p>
+<p><strong>How to apply:</strong>
+- Extract repeated code into functions or classes
+- Use inheritance or composition for shared behavior
+- Create utility libraries for common operations
+- Use configuration files for repeated values</p>
+<p><strong>Warning:</strong> Don't over-DRY. Sometimes a little duplication is better than the wrong abstraction.</p>
+<h3 id="kiss-keep-it-simple-stupid">KISS (Keep It Simple, Stupid)<a class="headerlink" href="#kiss-keep-it-simple-stupid" title="Permanent link">&para;</a></h3>
+<p>Simplicity should be a key design goal. Most systems work best if kept simple rather than made complex.</p>
+<p><strong>Guidelines:</strong>
+- Write code that's easy to understand, not just clever
+- Avoid premature optimization
+- Use straightforward algorithms unless complexity is justified
+- Prefer clear naming over comments
+- Break complex problems into simpler sub-problems</p>
+<p><strong>Remember:</strong> Simple doesn't mean simplistic or feature-poor; it means elegant and understandable.</p>
+<h3 id="yagni-you-arent-gonna-need-it">YAGNI (You Aren't Gonna Need It)<a class="headerlink" href="#yagni-you-arent-gonna-need-it" title="Permanent link">&para;</a></h3>
+<p>Don't implement functionality until it's actually needed. Avoid building features based on speculation about future requirements.</p>
+<p><strong>Why it matters:</strong>
+- Reduces code bloat and maintenance burden
+- Saves development time
+- Prevents over-engineering
+- Requirements often change anyway</p>
+<p><strong>When to ignore:</strong> Infrastructure decisions that would be expensive to change later (e.g., database choice, major architectural patterns).</p>
+<hr />
+<h2 id="development-methodologies">Development Methodologies<a class="headerlink" href="#development-methodologies" title="Permanent link">&para;</a></h2>
+<h3 id="test-driven-development-tdd">Test-Driven Development (TDD)<a class="headerlink" href="#test-driven-development-tdd" title="Permanent link">&para;</a></h3>
+<p>Write tests before writing the actual code. Follow the Red-Green-Refactor cycle.</p>
+<p><strong>Process:</strong>
+1. <strong>Red:</strong> Write a failing test for new functionality
+2. <strong>Green:</strong> Write minimal code to make the test pass
+3. <strong>Refactor:</strong> Clean up code while keeping tests green</p>
+<p><strong>Benefits:</strong>
+- Better test coverage
+- Forces you to think about design upfront
+- Tests serve as documentation
+- Easier refactoring with confidence
+- Fewer bugs in production</p>
+<h3 id="behavior-driven-development-bdd">Behavior-Driven Development (BDD)<a class="headerlink" href="#behavior-driven-development-bdd" title="Permanent link">&para;</a></h3>
+<p>Extension of TDD that focuses on the behavior of the application from the end user's perspective.</p>
+<p><strong>Key aspects:</strong>
+- Uses natural language descriptions (Given-When-Then)
+- Bridges communication between developers, testers, and business stakeholders
+- Tests describe what the system does, not how it does it</p>
+<h3 id="code-review-culture">Code Review Culture<a class="headerlink" href="#code-review-culture" title="Permanent link">&para;</a></h3>
+<p>Systematic examination of code by peers before merging to the main branch.</p>
+<p><strong>Best practices:</strong>
+- Keep reviews small (under 400 lines)
+- Review promptly (within 24 hours)
+- Focus on logic, not style (use linters for style)
+- Be respectful and constructive
+- Ask questions rather than making demands
+- Explain the "why" behind suggestions</p>
+<p><strong>Benefits:</strong> Knowledge sharing, bug detection, consistent code quality, team learning</p>
+<hr />
+<h2 id="software-development-approaches">Software Development Approaches<a class="headerlink" href="#software-development-approaches" title="Permanent link">&para;</a></h2>
+<h3 id="agile-development">Agile Development<a class="headerlink" href="#agile-development" title="Permanent link">&para;</a></h3>
+<p>Iterative approach that emphasizes flexibility, collaboration, and customer feedback.</p>
+<p><strong>Core values:</strong>
+- Individuals and interactions over processes and tools
+- Working software over comprehensive documentation
+- Customer collaboration over contract negotiation
+- Responding to change over following a plan</p>
+<h3 id="scrum-framework">Scrum Framework<a class="headerlink" href="#scrum-framework" title="Permanent link">&para;</a></h3>
+<p>Agile framework with defined roles, events, and artifacts.</p>
+<p><strong>Key components:</strong>
+- <strong>Sprints:</strong> Fixed time-boxes (1-4 weeks) for development
+- <strong>Roles:</strong> Product Owner, Scrum Master, Development Team
+- <strong>Ceremonies:</strong> Sprint Planning, Daily Standups, Sprint Review, Retrospective
+- <strong>Artifacts:</strong> Product Backlog, Sprint Backlog, Increment</p>
+<p><strong>Benefits:</strong> Faster delivery, adaptability, transparency, continuous improvement</p>
+<h3 id="kanban">Kanban<a class="headerlink" href="#kanban" title="Permanent link">&para;</a></h3>
+<p>Visual workflow management method focusing on continuous delivery.</p>
+<p><strong>Principles:</strong>
+- Visualize work on a board
+- Limit work in progress (WIP)
+- Manage flow
+- Make policies explicit
+- Continuous improvement</p>
+<hr />
+<h2 id="clean-code-principles">Clean Code Principles<a class="headerlink" href="#clean-code-principles" title="Permanent link">&para;</a></h2>
+<p>Guidelines for writing readable, maintainable code (from Robert C. Martin's "Clean Code").</p>
+<h3 id="meaningful-names">Meaningful Names<a class="headerlink" href="#meaningful-names" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>"Help me start this project: {design_doc}. Show me the folder structure and setup steps."</p>
-</li>
-<li>
-<p>"Give me the exact commands to run this on a fresh machine"</p>
-</li>
-<li>
-<p>"Create a minimal Dockerfile and docker-compose for local dev"</p>
-</li>
+<li>Use intention-revealing names</li>
+<li>Avoid disinformation</li>
+<li>Make meaningful distinctions</li>
+<li>Use pronounceable and searchable names</li>
+<li>Avoid mental mapping</li>
 </ul>
-<p><strong>Standards &amp; Config</strong></p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>Bad:  int d; // elapsed time in days
+Good: int elapsedTimeInDays;
+</code></pre></div></p>
+<h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>"Set up linters, formatters, and pre-commit hooks with configs"</p>
-</li>
-<li>
-<p>"What branching strategy and commit format should we use? Show examples."</p>
-</li>
+<li>Should be small (typically under 20 lines)</li>
+<li>Do one thing well</li>
+<li>Use descriptive names</li>
+<li>Prefer fewer arguments (0-2 ideal, 3+ questionable)</li>
+<li>No side effects</li>
+<li>Command-Query Separation</li>
 </ul>
-<h3 id="building-features">💻 Building Features<a class="headerlink" href="#building-features" title="Permanent link">&para;</a></h3>
-<p><strong>Implementation</strong></p>
+<h3 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>"Plan out how to implement {feature_name}"</p>
-</li>
-<li>
-<p>"Build {functionality} with tests, comments, and edge cases"</p>
-</li>
+<li>Code should be self-explanatory</li>
+<li>Use comments for "why," not "what"</li>
+<li>Avoid redundant comments</li>
+<li>Explain intent and rationale</li>
+<li>TODO comments for temporary solutions</li>
 </ul>
-<p><strong>Debugging</strong></p>
+<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>"Fix this error: {error_message}. Stack trace: {stack_trace}"</p>
-</li>
-<li>
-<p>"Add logging/metrics to debug {component}. Show examples."</p>
-</li>
+<li>Use exceptions rather than return codes</li>
+<li>Provide context with exceptions</li>
+<li>Don't return null (use Optional/Maybe patterns)</li>
+<li>Don't pass null</li>
 </ul>
-<h3 id="understanding-code">🔍 Understanding Code<a class="headerlink" href="#understanding-code" title="Permanent link">&para;</a></h3>
-<p><strong>Codebase Overview</strong></p>
+<h3 id="formatting">Formatting<a class="headerlink" href="#formatting" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>"What does this codebase do and how is it structured?"</p>
-</li>
-<li>
-<p>"Show me the core components and how they connect"</p>
-</li>
-<li>
-<p>"How does data flow through the system?"</p>
-</li>
+<li>Consistent indentation and spacing</li>
+<li>Vertical openness (separate concepts with blank lines)</li>
+<li>Related code should be vertically close</li>
+<li>Keep files and classes small</li>
 </ul>
-<p><strong>Deep Dives</strong></p>
-<ul>
-<li>
-<p>"Explain the architecture of {component}"</p>
-</li>
-<li>
-<p>"What are the entry points and how do I run this locally?"</p>
-</li>
-<li>
-<p>"Explain {concept} with code examples"</p>
-</li>
-</ul>
-<h3 id="quality-deployment">✅ Quality &amp; Deployment<a class="headerlink" href="#quality-deployment" title="Permanent link">&para;</a></h3>
-<p><strong>Review &amp; Testing</strong></p>
-<ul>
-<li>
-<p>"Give me a PR review checklist (security, tests, performance)"</p>
-</li>
-<li>
-<p>"What's the test coverage and strategy?"</p>
-</li>
-</ul>
-<p><strong>CI/CD &amp; Docs</strong></p>
-<ul>
-<li>
-<p>"Create a CI/CD pipeline config for GitHub Actions"</p>
-</li>
-<li>
-<p>"Write onboarding docs: setup → run → test → deploy"</p>
-</li>
-<li>
-<p>"Generate API docs (OpenAPI) for these endpoints"</p>
-</li>
-</ul>
-<h3 id="platform-questions">🏗️ Platform Questions<a class="headerlink" href="#platform-questions" title="Permanent link">&para;</a></h3>
-<p><strong>System Design</strong></p>
-<ul>
-<li>
-<p>"Explain the platform architecture and component interactions"</p>
-</li>
-<li>
-<p>"How do components communicate and what are the dependencies?"</p>
-</li>
-<li>
-<p>"How is auth/authorization handled across services?"</p>
-</li>
-</ul>
-<p><strong>Operations</strong></p>
-<ul>
-<li>
-<p>"What are failure points and resilience strategies?"</p>
-</li>
-<li>
-<p>"Show me deployment order, scaling strategy, and monitoring setup"</p>
-</li>
-</ul>
-<p><strong>Pro tip</strong>: Always be specific—include file names, error messages, or feature names. The more context you give, the better the help you get.</p>
-<h2 id="universal-learning-formula">Universal Learning Formula<a class="headerlink" href="#universal-learning-formula" title="Permanent link">&para;</a></h2>
-<h3 id="find-the-right-resources">Find the Right Resources<a class="headerlink" href="#find-the-right-resources" title="Permanent link">&para;</a></h3>
-<p>To learn any new technology effectively, focus on these three key resources:</p>
-<ul>
-<li><strong>Official Documentation:</strong> Builds a solid foundation by explaining concepts, features, and usage as intended by the creators.</li>
-<li><strong>Example Codebases:</strong> Helps you see how others use the technology in real-world scenarios and exposes you to best practices.</li>
-<li><strong>Open Source Implementations:</strong> Allows you to dive deeper into the internals, core concepts, and underlying patterns.</li>
-</ul>
-<h3 id="rapid-learning-framework">Rapid Learning Framework<a class="headerlink" href="#rapid-learning-framework" title="Permanent link">&para;</a></h3>
-<h4 id="master-the-fundamentals-ask-coding-assisstant">Master the Fundamentals =&gt; Ask Coding Assisstant<a class="headerlink" href="#master-the-fundamentals-ask-coding-assisstant" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Grasp the core concepts before tackling advanced topics.</li>
-<li>Understand the problem the technology aims to solve.</li>
-<li>Learn essential mental models and paradigms (OOP, functional, reactive, etc.).</li>
-</ul>
-<h4 id="apply-the-8020-rule-ask-coding-assisstant">Apply the 80/20 Rule =&gt;Ask Coding Assisstant<a class="headerlink" href="#apply-the-8020-rule-ask-coding-assisstant" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Focus on the 20% of features that deliver 80% of the value.</li>
-<li>Prioritize high-impact concepts: data structures, algorithms, and design patterns.</li>
-<li>Leave rare or edge-case features for later, when necessary.</li>
-</ul>
-<h4 id="build-projects-gradually">Build Projects Gradually<a class="headerlink" href="#build-projects-gradually" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Start small, using core features in simple projects.</li>
-<li>Increase project complexity as your confidence grows.</li>
-<li>Rebuild features from apps you admire to deepen understanding.</li>
-</ul>
-<h4 id="practice-with-intention">Practice with Intention<a class="headerlink" href="#practice-with-intention" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Set clear learning goals with measurable outcomes.</li>
-<li>Use time management techniques like Pomodoro to stay focused.</li>
-<li>Regularly review and reinforce what you’ve learned.</li>
-</ul>
-<h4 id="adopt-a-testing-mindset">Adopt a Testing Mindset<a class="headerlink" href="#adopt-a-testing-mindset" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Learn to write effective tests for your code.</li>
-<li>Understand testing frameworks and methodologies.</li>
-<li>Practice Test-Driven Development (TDD) when suitable.</li>
-</ul>
-<h4 id="leverage-documentation-wisely">Leverage Documentation Wisely<a class="headerlink" href="#leverage-documentation-wisely" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Start with official tutorials and beginner guides.</li>
-<li>Use API references regularly during practice.</li>
-<li>Explore sections on architecture and design philosophy for deeper insights.</li>
-</ul>
-<h4 id="learn-from-the-community">Learn from the community<a class="headerlink" href="#learn-from-the-community" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Analyze open-source projects that use the technology</li>
-<li>Follow thought leaders and contributors on social media</li>
-<li>Participate in forums, Discord channels, and Stack Overflow</li>
-</ul>
-<h4 id="master-the-tooling-ecosystem">Master the tooling ecosystem<a class="headerlink" href="#master-the-tooling-ecosystem" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Learn the build tools, package managers, and deployment pipelines</li>
-<li>Understand debugging and profiling tools</li>
-<li>Get comfortable with the IDE/editor features specific to the technology</li>
-</ul>
-<h4 id="maintain-a-learning-journal">Maintain a learning journal<a class="headerlink" href="#maintain-a-learning-journal" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Document challenges, solutions, and insights</li>
-<li>Create cheat sheets for quick reference</li>
-<li>Build a personal knowledge base of patterns and anti-patterns</li>
-</ul>
-<h4 id="prepare-for-interviews-specifically">Prepare for interviews specifically<a class="headerlink" href="#prepare-for-interviews-specifically" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Study common interview questions for the technology</li>
-<li>Practice explaining complex concepts in simple terms</li>
-<li>Prepare code samples demonstrating your proficiency</li>
-</ul>
-<h3 id="accelerated-learning-techniques">Accelerated Learning Techniques<a class="headerlink" href="#accelerated-learning-techniques" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Spaced repetition</strong>: Review concepts at increasing intervals</li>
-<li><strong>Teaching others</strong>: Explain concepts to reinforce your understanding</li>
-<li><strong>Pair programming</strong>: Work with more experienced developers</li>
-<li><strong>Code reviews</strong>: Have your code reviewed and review others' code</li>
-<li><strong>Timeboxed exploration</strong>: Set a time limit for solving problems before seeking help</li>
-</ul>
-<h3 id="confidence-building-strategies">Confidence-Building Strategies<a class="headerlink" href="#confidence-building-strategies" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Start contributing to open-source projects</li>
-<li>Build and deploy a complete application using the technology</li>
-<li>Create technical content (blog posts, videos) explaining concepts</li>
-<li>Participate in hackathons or coding competitions</li>
-<li>Conduct mock interviews with peers</li>
-</ul>
-<h3 id="measuring-progress">Measuring Progress<a class="headerlink" href="#measuring-progress" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Track the complexity of problems you can solve independently</li>
-<li>Monitor how quickly you can implement new features</li>
-<li>Note how often you need to reference documentation</li>
-<li>Gauge your ability to debug issues efficiently</li>
-<li>Assess how well you can explain the technology to others</li>
-</ul>
-<h3 id="additional-aspects">Additional aspects<a class="headerlink" href="#additional-aspects" title="Permanent link">&para;</a></h3>
-<h4 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h4>
-<p>Neither the CodeBase nor Platform sections address security concerns specifically. You might want to add questions about:</p>
-<ul>
-<li>What are the security measures implemented in the codebase/platform?</li>
-<li>How are vulnerabilities identified and addressed?</li>
-<li>What is the process for security reviews and audits?</li>
-</ul>
-<h3 id="documentation-standards">Documentation Standards<a class="headerlink" href="#documentation-standards" title="Permanent link">&para;</a></h3>
-<p>While coding standards are mentioned, documentation standards are equally important:</p>
-<ul>
-<li>How is the codebase/platform documented?</li>
-<li>What documentation tools and formats are used?</li>
-<li>Where can I find up-to-date documentation?</li>
-</ul>
-<h3 id="onboarding-process">Onboarding Process<a class="headerlink" href="#onboarding-process" title="Permanent link">&para;</a></h3>
-<p>A section on onboarding could be valuable:</p>
-<ul>
-<li>What's the recommended path for new developers to get familiar with the codebase/platform?</li>
-<li>Are there any mentorship or buddy systems in place?</li>
-<li>What resources are available for newcomers?</li>
-</ul>
-<h3 id="troubleshooting-and-debugging">Troubleshooting and Debugging<a class="headerlink" href="#troubleshooting-and-debugging" title="Permanent link">&para;</a></h3>
-<p>Consider adding specific questions about:</p>
-<ul>
-<li>What are common issues and their solutions?</li>
-<li>What debugging tools and techniques are recommended?</li>
-<li>Where to look for logs and how to interpret them?</li>
-</ul>
-<h3 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link">&para;</a></h3>
-<p>Questions about:</p>
-<ul>
-<li>What are the performance bottlenecks?</li>
-<li>How is performance measured and monitored?</li>
-<li>What optimization techniques are used?</li>
-</ul>
-<h3 id="community-and-support">Community and Support<a class="headerlink" href="#community-and-support" title="Permanent link">&para;</a></h3>
-<p>While community learning is mentioned in the learning framework, you might want to add specific questions about:</p>
-<ul>
-<li>Where to get help when stuck?</li>
-<li>What are the active community channels?</li>
-<li>Who are the key maintainers or experts to follow? </li>
-</ul>
-<h3 id="version-control-and-collaboration">Version Control and Collaboration<a class="headerlink" href="#version-control-and-collaboration" title="Permanent link">&para;</a></h3>
-<p>Consider adding questions about:</p>
-<ul>
-<li>What version control system is used and how?</li>
-<li>What is the branching strategy?</li>
-<li>How are code reviews conducted? </li>
-</ul>
+<hr />
+<h2 id="additional-important-principles">Additional Important Principles<a class="headerlink" href="#additional-important-principles" title="Permanent link">&para;</a></h2>
+<h3 id="separation-of-concerns-soc">Separation of Concerns (SoC)<a class="headerlink" href="#separation-of-concerns-soc" title="Permanent link">&para;</a></h3>
+<p>Divide a program into distinct sections, each addressing a separate concern. Related to Single Responsibility but applied at a higher level (modules, layers, systems).</p>
+<p><strong>Examples:</strong> MVC pattern, microservices architecture, layered architecture</p>
+<h3 id="law-of-demeter-principle-of-least-knowledge">Law of Demeter (Principle of Least Knowledge)<a class="headerlink" href="#law-of-demeter-principle-of-least-knowledge" title="Permanent link">&para;</a></h3>
+<p>A module should not know about the internal workings of the objects it manipulates. Only talk to immediate friends.</p>
+<p><strong>Rule:</strong> An object's method should only call methods on:
+- The object itself
+- Objects passed as parameters
+- Objects it creates
+- Its direct properties</p>
+<h3 id="composition-over-inheritance">Composition Over Inheritance<a class="headerlink" href="#composition-over-inheritance" title="Permanent link">&para;</a></h3>
+<p>Favor object composition over class inheritance to achieve code reuse and flexibility.</p>
+<p><strong>Why:</strong> Inheritance creates tight coupling and can lead to fragile base class problems. Composition is more flexible.</p>
+<h3 id="fail-fast">Fail Fast<a class="headerlink" href="#fail-fast" title="Permanent link">&para;</a></h3>
+<p>Detect and report errors as early as possible. Validate inputs immediately, throw exceptions early, use assertions.</p>
+<p><strong>Benefits:</strong> Easier debugging, prevents error propagation, clearer error messages</p>
+<h3 id="convention-over-configuration">Convention Over Configuration<a class="headerlink" href="#convention-over-configuration" title="Permanent link">&para;</a></h3>
+<p>Provide sensible defaults and follow common conventions to reduce the number of decisions developers need to make.</p>
+<p><strong>Examples:</strong> Ruby on Rails, Spring Boot</p>
+<h3 id="premature-optimization-is-the-root-of-all-evil">Premature Optimization is the Root of All Evil<a class="headerlink" href="#premature-optimization-is-the-root-of-all-evil" title="Permanent link">&para;</a></h3>
+<p>Don't optimize code before you have evidence it's a bottleneck. Write clear code first, then profile and optimize only what matters.</p>
+<p><strong>Process:</strong> Make it work → Make it right → Make it fast</p>
+<hr />
+<h2 id="practical-application-tips">Practical Application Tips<a class="headerlink" href="#practical-application-tips" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Start small:</strong> Don't try to apply all principles at once</li>
+<li><strong>Context matters:</strong> Not every principle applies to every situation</li>
+<li><strong>Balance:</strong> Sometimes principles conflict; use judgment</li>
+<li><strong>Refactor regularly:</strong> Apply principles when touching existing code</li>
+<li><strong>Team alignment:</strong> Discuss and agree on which principles to emphasize</li>
+<li><strong>Continuous learning:</strong> These principles evolve with experience</li>
+<li><strong>Pragmatism over dogmatism:</strong> Break rules when you have good reasons</li>
+</ol>
+<p>Remember: These principles are guidelines, not laws. The goal is writing maintainable, understandable, and robust software that delivers value.</p>
 
 
 

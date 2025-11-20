@@ -18,7 +18,7 @@
         <link rel="prev" href="../basic_concepts/">
       
       
-        <link rel="next" href="../architecture_patterns/">
+        <link rel="next" href="../philosophies_principles/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -321,6 +321,8 @@
   
     
     
+      
+        
       
         
       
@@ -810,6 +812,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philosophies_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coding Philosophies
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2119,36 +2144,76 @@ Note: As the article states, this seems neat but hides conceptual relationships 
 </ul>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Unit Testing</strong>: Testing individual units of code in isolation to ensure they function correctly.</li>
-<li><strong>Functional Testing</strong>: Testing the code to ensure it performs its intended functions correctly.</li>
-<li><strong>Non-Functional Testing</strong>: Testing the code to ensure it performs its intended functions correctly.</li>
-<li><strong>Integration Testing</strong>: Testing how individual units or components interact with each other to ensure they work together properly. It focuses on verifying that different parts of the application integrate correctly and data flows appropriately between components.</li>
-<li><strong>Stress Testing</strong>: Testing the code with high load to ensure it works as expected</li>
-<li><strong>System Testing</strong>: Testing the entire system as a whole to ensure all components work together as expected</li>
-<li><strong>Acceptance Testing</strong>: Testing performed to determine if the requirements of a specification or contract are met. It's the final verification before the software is delivered to the customer.</li>
+<li>
+<p><strong>Unit Testing (UT)</strong>: Testing individual units of code in isolation to ensure they function correctly.</p>
+</li>
+<li>
+<p><strong>Functional Testing (FT)</strong>: Testing the code to ensure it performs its intended functions correctly.</p>
+</li>
+<li>
+<p><strong>Non-Functional Testing (NFT)</strong>: Testing the code to ensure it performs its intended functions correctly.</p>
+</li>
+<li>
+<p><strong>Integration Testing</strong>: Testing how individual units or components interact with each other to ensure they work together properly. It focuses on verifying that different parts of the application integrate correctly and data flows appropriately between components.</p>
+</li>
+<li>
+<p><strong>Stress Testing</strong>: Testing the code with high load to ensure it works as expected</p>
+</li>
+<li>
+<p><strong>System Testing</strong>: Testing the entire system as a whole to ensure all components work together as expected</p>
+</li>
+<li>
+<p><strong>Acceptance Testing</strong>: Testing performed to determine if the requirements of a specification or contract are met. It's the final verification before the software is delivered to the customer.</p>
+</li>
 </ul>
 <h2 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>CI</strong>: Continuous Integration</li>
-<li><strong>CD</strong>: Continuous Deployment</li>
+<li>
+<p><strong>CI</strong>: Continuous Integration</p>
+</li>
+<li>
+<p><strong>CD</strong>: Continuous Deployment</p>
+</li>
 </ul>
 <h2 id="resource-attributes">Resource Attributes<a class="headerlink" href="#resource-attributes" title="Permanent link">&para;</a></h2>
 <p><strong>Host System Information:</strong></p>
 <ul>
-<li>Host Name: Machine hostname</li>
-<li>Host System: Operating system (Windows, macOS, Linux)</li>
-<li>Host Version: OS version details</li>
-<li>Host Processor: CPU architecture information</li>
-<li>Host Machine: Machine type identifier</li>
+<li>
+<p>Host Name: Machine hostname</p>
+</li>
+<li>
+<p>Host System: Operating system (Windows, macOS, Linux)</p>
+</li>
+<li>
+<p>Host Version: OS version details</p>
+</li>
+<li>
+<p>Host Processor: CPU architecture information</p>
+</li>
+<li>
+<p>Host Machine: Machine type identifier</p>
+</li>
 </ul>
 <p><strong>Performance Metrics:</strong></p>
 <ul>
-<li>CPU Count: Number of available CPU cores</li>
-<li>CPU Percent: CPU utilization at trace start</li>
-<li>Memory Total: Total system memory</li>
-<li>Memory Available: Available system memory</li>
-<li>Memory Used: Currently used memory</li>
-<li>Memory Percent: Memory utilization percentage</li>
+<li>
+<p>CPU Count: Number of available CPU cores</p>
+</li>
+<li>
+<p>CPU Percent: CPU utilization at trace start</p>
+</li>
+<li>
+<p>Memory Total: Total system memory</p>
+</li>
+<li>
+<p>Memory Available: Available system memory</p>
+</li>
+<li>
+<p>Memory Used: Currently used memory</p>
+</li>
+<li>
+<p>Memory Percent: Memory utilization percentage</p>
+</li>
 </ul>
 <p><strong>Dependencies:</strong></p>
 <ul>
@@ -2157,24 +2222,48 @@ Note: As the article states, this seems neat but hides conceptual relationships 
 <h2 id="implementation-patterns">Implementation Patterns<a class="headerlink" href="#implementation-patterns" title="Permanent link">&para;</a></h2>
 <p>1) SSR</p>
 <ul>
-<li>Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app</li>
-<li>When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint</li>
-<li>Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns</li>
-<li>Cons: Limited rich interactivity, backend tightly coupled to UI</li>
+<li>
+<p>Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app</p>
+</li>
+<li>
+<p>When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint</p>
+</li>
+<li>
+<p>Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns</p>
+</li>
+<li>
+<p>Cons: Limited rich interactivity, backend tightly coupled to UI</p>
+</li>
 </ul>
 <p>2) Decoupled</p>
 <ul>
-<li>Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend</li>
-<li>When to use: Rich UX, complex state, team separation, mobile + web reuse</li>
-<li>Pros: Independent scaling/deploy, modern DX, reusable API</li>
-<li>Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity</li>
+<li>
+<p>Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend</p>
+</li>
+<li>
+<p>When to use: Rich UX, complex state, team separation, mobile + web reuse</p>
+</li>
+<li>
+<p>Pros: Independent scaling/deploy, modern DX, reusable API</p>
+</li>
+<li>
+<p>Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity</p>
+</li>
 </ul>
 <p>3) MPA (Multi-Page Application)</p>
 <ul>
-<li>Common names: Multi-page application (MPA), Client-side routing, Static site generation (SSG). Hybrid approach using server-side routing with client-side rendering. Each page is a separate mini-application with its own entry point.</li>
-<li>When to use: Large applications, complex state, team separation, mobile + web reuse</li>
-<li>Pros: Better initial load performance than SPAs for large applications, Easier code-splitting as each page loads only what it needs, SEO-friendly without extra complexity (each route has its own HTML), Progressive enhancement - pages can work even before JS loads.</li>
-<li>Cons: Page transitions require full reloads (slower than SPA navigation), More complex routing setup (need both server and client routes), Potential code duplication across pages, Session/state management more complex across page boundaries.</li>
+<li>
+<p>Common names: Multi-page application (MPA), Client-side routing, Static site generation (SSG). Hybrid approach using server-side routing with client-side rendering. Each page is a separate mini-application with its own entry point.</p>
+</li>
+<li>
+<p>When to use: Large applications, complex state, team separation, mobile + web reuse</p>
+</li>
+<li>
+<p>Pros: Better initial load performance than SPAs for large applications, Easier code-splitting as each page loads only what it needs, SEO-friendly without extra complexity (each route has its own HTML), Progressive enhancement - pages can work even before JS loads.</p>
+</li>
+<li>
+<p>Cons: Page transitions require full reloads (slower than SPA navigation), More complex routing setup (need both server and client routes), Potential code duplication across pages, Session/state management more complex across page boundaries.</p>
+</li>
 </ul>
 <h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
 <p>Deployment architecture determines how your application components are distributed across infrastructure. The choice affects scalability, maintainability, cost, and operational complexity.</p>
@@ -2584,71 +2673,119 @@ services:
 <h2 id="performance-bottleneck-classification">Performance Bottleneck Classification<a class="headerlink" href="#performance-bottleneck-classification" title="Permanent link">&para;</a></h2>
 <h3 id="types-of-performance-limitations">Types of Performance Limitations<a class="headerlink" href="#types-of-performance-limitations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>CPU-bound</strong>: Tasks limited by computational power</li>
-<li>Characteristics: High CPU usage, low I/O wait, processor at/near 100%</li>
-<li>Examples: Complex calculations, data processing, rendering, compression</li>
+<li>
+<p><strong>CPU-bound</strong>: Tasks limited by computational power</p>
+</li>
+<li>
+<p>Characteristics: High CPU usage, low I/O wait, processor at/near 100%</p>
+</li>
+<li>
+<p>Examples: Complex calculations, data processing, rendering, compression</p>
+</li>
 <li>
 <p>Solutions: Optimize algorithms, parallelize work, use compiled languages, scale vertically (more CPU power)</p>
 </li>
 <li>
 <p><strong>Memory-bound</strong>: Tasks limited by memory capacity or bandwidth</p>
 </li>
-<li>Characteristics: High memory usage, swapping, garbage collection pauses</li>
-<li>Examples: Large data structures, caching, in-memory databases</li>
+<li>
+<p>Characteristics: High memory usage, swapping, garbage collection pauses</p>
+</li>
+<li>
+<p>Examples: Large data structures, caching, in-memory databases</p>
+</li>
 <li>
 <p>Solutions: Optimize data structures, reduce memory footprint, memory profiling, vertical scaling (more RAM)</p>
 </li>
 <li>
 <p><strong>I/O-bound</strong>: Tasks limited by input/output operations</p>
 </li>
-<li>Characteristics: Low CPU usage, high wait time, processes blocked on I/O</li>
-<li>Examples: Database queries, file operations, network requests, API calls</li>
+<li>
+<p>Characteristics: Low CPU usage, high wait time, processes blocked on I/O</p>
+</li>
+<li>
+<p>Examples: Database queries, file operations, network requests, API calls</p>
+</li>
 <li>
 <p>Solutions: Asynchronous I/O, connection pooling, caching, batching requests</p>
 </li>
 <li>
 <p><strong>Network-bound</strong>: Tasks limited by network throughput or latency</p>
 </li>
-<li>Characteristics: Waiting on remote services, bandwidth saturation</li>
-<li>Examples: Downloading/uploading large files, microservice communication</li>
+<li>
+<p>Characteristics: Waiting on remote services, bandwidth saturation</p>
+</li>
+<li>
+<p>Examples: Downloading/uploading large files, microservice communication</p>
+</li>
 <li>
 <p>Solutions: Compression, CDNs, edge computing, protocol optimization, connection reuse</p>
 </li>
 <li>
 <p><strong>Disk-bound</strong>: Tasks limited by storage read/write speeds</p>
 </li>
-<li>Characteristics: High disk utilization, processes waiting on disk operations</li>
-<li>Examples: Database writes, log processing, file system operations</li>
-<li>Solutions: SSDs, RAID configurations, write batching, appropriate file systems</li>
+<li>
+<p>Characteristics: High disk utilization, processes waiting on disk operations</p>
+</li>
+<li>
+<p>Examples: Database writes, log processing, file system operations</p>
+</li>
+<li>
+<p>Solutions: SSDs, RAID configurations, write batching, appropriate file systems</p>
+</li>
 </ul>
 <h3 id="identifying-performance-bottlenecks">Identifying Performance Bottlenecks<a class="headerlink" href="#identifying-performance-bottlenecks" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Observe → Measure → Analyze → Optimize → Verify
 </code></pre></div>
 <ol>
-<li><strong>Observation Tools</strong>:</li>
-<li>CPU: <code>top</code>, <code>htop</code>, <code>mpstat</code></li>
-<li>Memory: <code>free</code>, <code>vmstat</code></li>
-<li>I/O: <code>iostat</code>, <code>iotop</code></li>
-<li>Network: <code>netstat</code>, <code>iftop</code></li>
+<li>
+<p><strong>Observation Tools</strong>:</p>
+</li>
+<li>
+<p>CPU: <code>top</code>, <code>htop</code>, <code>mpstat</code></p>
+</li>
+<li>
+<p>Memory: <code>free</code>, <code>vmstat</code></p>
+</li>
+<li>
+<p>I/O: <code>iostat</code>, <code>iotop</code></p>
+</li>
+<li>
+<p>Network: <code>netstat</code>, <code>iftop</code></p>
+</li>
 <li>
 <p>Comprehensive: <code>dstat</code>, <code>glances</code></p>
 </li>
 <li>
 <p><strong>Profiling Techniques</strong>:</p>
 </li>
-<li>Sampling profilers: Capture stack traces at intervals</li>
-<li>Tracing profilers: Instrument code to track execution</li>
-<li>Distributed tracing: Track requests across services (Jaeger, Zipkin)</li>
+<li>
+<p>Sampling profilers: Capture stack traces at intervals</p>
+</li>
+<li>
+<p>Tracing profilers: Instrument code to track execution</p>
+</li>
+<li>
+<p>Distributed tracing: Track requests across services (Jaeger, Zipkin)</p>
+</li>
 <li>
 <p>Flame graphs: Visualize CPU/memory usage hierarchically</p>
 </li>
 <li>
 <p><strong>Performance Testing</strong>:</p>
 </li>
-<li>Load testing: Simulate expected load (JMeter, Locust)</li>
-<li>Stress testing: Find breaking points</li>
-<li>Soak testing: Verify stability under sustained load</li>
-<li>Spike testing: Test response to sudden load increases</li>
+<li>
+<p>Load testing: Simulate expected load (JMeter, Locust)</p>
+</li>
+<li>
+<p>Stress testing: Find breaking points</p>
+</li>
+<li>
+<p>Soak testing: Verify stability under sustained load</p>
+</li>
+<li>
+<p>Spike testing: Test response to sudden load increases</p>
+</li>
 </ol>
 
 
@@ -2706,6 +2843,12 @@ services:
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
         <script src="../../../javascripts/mermaid-init.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
