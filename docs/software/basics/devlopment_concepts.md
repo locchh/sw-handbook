@@ -387,17 +387,24 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 
 ## Testing
 
-- **Unit Testing**: Testing individual units of code in isolation to ensure they function correctly.
-- **Functional Testing**: Testing the code to ensure it performs its intended functions correctly.
-- **Non-Functional Testing**: Testing the code to ensure it performs its intended functions correctly.
+- **Unit Testing (UT)**: Testing individual units of code in isolation to ensure they function correctly.
+
+- **Functional Testing (FT)**: Testing the code to ensure it performs its intended functions correctly.
+
+- **Non-Functional Testing (NFT)**: Testing the code to ensure it performs its intended functions correctly.
+
 - **Integration Testing**: Testing how individual units or components interact with each other to ensure they work together properly. It focuses on verifying that different parts of the application integrate correctly and data flows appropriately between components.
+
 - **Stress Testing**: Testing the code with high load to ensure it works as expected
+
 - **System Testing**: Testing the entire system as a whole to ensure all components work together as expected
+
 - **Acceptance Testing**: Testing performed to determine if the requirements of a specification or contract are met. It's the final verification before the software is delivered to the customer.
 
 ## CI/CD
 
 - **CI**: Continuous Integration
+
 - **CD**: Continuous Deployment
 
 ## Resource Attributes
@@ -405,18 +412,27 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 **Host System Information:**
 
 - Host Name: Machine hostname
+
 - Host System: Operating system (Windows, macOS, Linux)
+
 - Host Version: OS version details
+
 - Host Processor: CPU architecture information
+
 - Host Machine: Machine type identifier
 
 **Performance Metrics:**
 
 - CPU Count: Number of available CPU cores
+
 - CPU Percent: CPU utilization at trace start
+
 - Memory Total: Total system memory
+
 - Memory Available: Available system memory
+
 - Memory Used: Currently used memory
+
 - Memory Percent: Memory utilization percentage
 
 **Dependencies:**
@@ -428,22 +444,31 @@ Alpha -> Beta -> RC1 -> RC2 -> ... -> RCn -> Release
 1) SSR
 
 - Common names: Server-side rendering (SSR), Backend-rendered UI, Monolithic web app
+
 - When to use: Simple flows, SEO-friendly pages, minimal interactivity, faster first paint
+
 - Pros: Simple deploy, fewer moving parts, great SEO, no CORS concerns
+
 - Cons: Limited rich interactivity, backend tightly coupled to UI
 
 2) Decoupled
 
 - Common names: Decoupled architecture, Frontend–backend separation, SPA + API, Headless backend
+
 - When to use: Rich UX, complex state, team separation, mobile + web reuse
+
 - Pros: Independent scaling/deploy, modern DX, reusable API
+
 - Cons: More infra (CORS, versioning), SEO needs SSR/SSG, higher complexity
 
 3) MPA (Multi-Page Application)
 
 - Common names: Multi-page application (MPA), Client-side routing, Static site generation (SSG). Hybrid approach using server-side routing with client-side rendering. Each page is a separate mini-application with its own entry point.
+
 - When to use: Large applications, complex state, team separation, mobile + web reuse
+
 - Pros: Better initial load performance than SPAs for large applications, Easier code-splitting as each page loads only what it needs, SEO-friendly without extra complexity (each route has its own HTML), Progressive enhancement - pages can work even before JS loads.
+
 - Cons: Page transitions require full reloads (slower than SPA navigation), More complex routing setup (need both server and client routes), Potential code duplication across pages, Session/state management more complex across page boundaries.
 
 ## Deployment Options
@@ -780,28 +805,43 @@ All-in-One → Split DB → Service Separation → Full Microservices
 ### Types of Performance Limitations
 
 - **CPU-bound**: Tasks limited by computational power
+
   - Characteristics: High CPU usage, low I/O wait, processor at/near 100%
+  
   - Examples: Complex calculations, data processing, rendering, compression
+  
   - Solutions: Optimize algorithms, parallelize work, use compiled languages, scale vertically (more CPU power)
 
 - **Memory-bound**: Tasks limited by memory capacity or bandwidth
+  
   - Characteristics: High memory usage, swapping, garbage collection pauses
+  
   - Examples: Large data structures, caching, in-memory databases
+  
   - Solutions: Optimize data structures, reduce memory footprint, memory profiling, vertical scaling (more RAM)
 
 - **I/O-bound**: Tasks limited by input/output operations
+  
   - Characteristics: Low CPU usage, high wait time, processes blocked on I/O
+  
   - Examples: Database queries, file operations, network requests, API calls
+  
   - Solutions: Asynchronous I/O, connection pooling, caching, batching requests
 
 - **Network-bound**: Tasks limited by network throughput or latency
+  
   - Characteristics: Waiting on remote services, bandwidth saturation
+  
   - Examples: Downloading/uploading large files, microservice communication
+  
   - Solutions: Compression, CDNs, edge computing, protocol optimization, connection reuse
 
 - **Disk-bound**: Tasks limited by storage read/write speeds
+  
   - Characteristics: High disk utilization, processes waiting on disk operations
+  
   - Examples: Database writes, log processing, file system operations
+  
   - Solutions: SSDs, RAID configurations, write batching, appropriate file systems
 
 ### Identifying Performance Bottlenecks
@@ -811,20 +851,33 @@ Observe → Measure → Analyze → Optimize → Verify
 ```
 
 1. **Observation Tools**:
+   
    - CPU: `top`, `htop`, `mpstat`
+   
    - Memory: `free`, `vmstat`
+   
    - I/O: `iostat`, `iotop`
+   
    - Network: `netstat`, `iftop`
+   
    - Comprehensive: `dstat`, `glances`
 
 2. **Profiling Techniques**:
+   
    - Sampling profilers: Capture stack traces at intervals
+   
    - Tracing profilers: Instrument code to track execution
+   
    - Distributed tracing: Track requests across services (Jaeger, Zipkin)
+   
    - Flame graphs: Visualize CPU/memory usage hierarchically
 
 3. **Performance Testing**:
+   
    - Load testing: Simulate expected load (JMeter, Locust)
+   
    - Stress testing: Find breaking points
+   
    - Soak testing: Verify stability under sustained load
+   
    - Spike testing: Test response to sudden load increases
