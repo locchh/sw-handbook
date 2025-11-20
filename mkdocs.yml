@@ -56,6 +56,7 @@ nav:
       - Fundamentals:
         - Basic Concepts: software/basics/basic_concepts.md
         - Development Concepts: software/basics/devlopment_concepts.md
+        - Coding Philosophies: software/basics/philosophies_principles.md
         - Architecture Patterns: software/basics/architecture_patterns.md
         - Styles: software/basics/styles.md
         - Abbreviations: software/basics/abbreviations.md
