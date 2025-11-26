@@ -72,4 +72,5 @@ nav:
       - Overview: ai/index.md
       - Fundamentals:
           - Concepts: ai/basics/concepts.md
+          - Posts: ai/basics/posts.md
   - About: about.md
