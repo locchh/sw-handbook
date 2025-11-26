@@ -130,3 +130,11 @@
 **SDLC**: Software Development Life Cycle
 
 **SRS**: Software Requirements Specification
+
+**WAL**: Write-Ahead Log
+
+**JIT**: Just-in-time
+
+**OLAP**: Online Analytical Processing
+
+**OLTP**: Online Transaction Processing
