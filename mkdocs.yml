@@ -62,8 +62,8 @@ nav:
         - Abbreviations: software/basics/abbreviations.md
         - Study Guide: software/basics/study_guide.md
       - Tool/Tip:
-        - Database: software/tool_tip/database.md
-        - Prompting: software/tool_tip/prompting.md
+        - Tools: software/tool_tip/tools.md
+        - Tips: software/tool_tip/tips.md
   - Data:
       - Overview: data/index.md
       - Fundamentals:
