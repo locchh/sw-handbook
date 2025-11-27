@@ -2,7 +2,7 @@
 
 *A collection of notes about Software Engineering, Data and AI*
 
-Welcome to my personal handbook where I document my learnings, insights, and references about software engineering, data science, and artificial intelligence. This handbook serves as both a personal reference and a resource for others interested in these fields.
+👋 Welcome to my personal handbook where I document my learnings, insights, and references about software engineering, data science, and artificial intelligence. This handbook serves as both a personal reference and a resource for others interested in these fields.
 
 ## What's Inside
 
@@ -13,3 +13,9 @@ Welcome to my personal handbook where I document my learnings, insights, and ref
 ## How to Use This Handbook
 
 This handbook is organized in a hierarchical structure. You can navigate through the sections using the navigation menu on the left. Each section contains multiple articles on specific topics.
+
+## References
+
+- [Tech Interview Handbook](https://www.techinterviewhandbook.org/) - A comprehensive guide for software engineering interview preparation that provides valuable insights and structured learning approaches.
+
+- [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge/tree/master) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, and CLI/web tools for System and Network administrators, DevOps, and Security Researchers.

@@ -16,7 +16,6 @@
 
 - *I don't think this codebase/component/feature works as expected, do you have any idea?* => Make AI defend its answer
 
-
 ## Testing Tips
 
 - *Write tests before implementation (TDD with AI): Describe the expected behavior to AI, let it generate test cases first, then implement the code to pass those tests. This ensures you have clear requirements and prevents over-engineering*
