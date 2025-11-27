@@ -6,9 +6,9 @@
 
 [😅 SDLC is basically the human life cycle in disguise](https://www.linkedin.com/posts/chuong-loc_lately-ive-been-thinking-sdlc-is-basically-activity-7397644978006605826-Z-1i?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)
 
-[🚀 Context is the new compute in Modern AI](https://www.linkedin.com/posts/chuong-loc_ai-contextengineering-llm-activity-7396016343533334528--TmW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)
-
 [🚀 Why Online Knowledge Is the Backbone of Modern Software and AI Development](https://www.linkedin.com/posts/chuong-loc_%F0%9D%90%96%F0%9D%90%A1%F0%9D%90%B2-%F0%9D%90%8E%F0%9D%90%A7%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E-%F0%9D%90%8A%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%B0%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%9D%F0%9D%90%A0%F0%9D%90%9E-activity-7397655062623416320-876z?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)
+
+[🚀 Context is the new compute in Modern AI](https://www.linkedin.com/posts/chuong-loc_ai-contextengineering-llm-activity-7396016343533334528--TmW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)
 
 [🚀 Three distinct paradigms for software development in the GenAI era](https://www.linkedin.com/posts/chuong-loc_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%9E%F0%9D%90%9E-%F0%9D%90%9D%F0%9D%90%A2%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9C%F0%9D%90%AD-%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%9D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A6%F0%9D%90%AC-activity-7391317087580844032-s_qW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY) 21/11/2025
 
