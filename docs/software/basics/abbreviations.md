@@ -23,6 +23,10 @@
 
 **DNS**: Domain Name System
 
+**UI**: User Interface
+
+**UX**: User Experience
+
 **URL**: Uniform Resource Locator
 
 **URI**: Uniform Resource Identifier
