@@ -499,6 +499,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-design-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Design Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Design Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-concepts-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts Explained
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system-level-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       System-Level Architecture Patterns
@@ -1294,6 +1327,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-design-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Design Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Design Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-concepts-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts Explained
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system-level-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       System-Level Architecture Patterns
@@ -1487,6 +1553,176 @@
 
 
 <h1 id="architecture-patterns">Architecture patterns<a class="headerlink" href="#architecture-patterns" title="Permanent link">&para;</a></h1>
+<h3 id="system-design-concepts">System Design Concepts<a class="headerlink" href="#system-design-concepts" title="Permanent link">&para;</a></h3>
+<p>System design encompasses the fundamental concepts and patterns used to build scalable, reliable, and maintainable distributed systems. These concepts are essential for architects designing large-scale applications.</p>
+<p><img alt="System Design Concepts" src="../../../assets/system-design-concepts.jpeg" /></p>
+<h4 id="core-concepts-explained">Core Concepts Explained<a class="headerlink" href="#core-concepts-explained" title="Permanent link">&para;</a></h4>
+<p><strong>1. Scalability</strong></p>
+<p>The ability of a system to handle increased load by adding resources.</p>
+<ul>
+<li><strong>Vertical Scaling (Scale Up)</strong>: Adding more power (CPU, RAM) to existing machines</li>
+<li><strong>Horizontal Scaling (Scale Out)</strong>: Adding more machines to the pool</li>
+<li><strong>Key Metrics</strong>: Requests per second, concurrent users, data volume</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Vertical:   [Small Server] → [Large Server]
+Horizontal: [Server] → [Server] + [Server] + [Server]
+</code></pre></div>
+<p><strong>2. Load Balancers</strong></p>
+<p>Distribute incoming traffic across multiple servers to ensure no single server is overwhelmed.</p>
+<ul>
+<li><strong>Algorithms</strong>: Round Robin, Least Connections, IP Hash, Weighted</li>
+<li><strong>Types</strong>: Layer 4 (Transport) vs Layer 7 (Application)</li>
+<li><strong>Examples</strong>: NGINX, HAProxy, AWS ALB/NLB</li>
+</ul>
+<p><strong>3. Object Storage</strong></p>
+<p>Scalable storage for unstructured data like images, videos, and backups.</p>
+<ul>
+<li><strong>Characteristics</strong>: Flat namespace, metadata-rich, highly durable</li>
+<li><strong>Use Cases</strong>: Static assets, backups, data lakes</li>
+<li><strong>Examples</strong>: AWS S3, Google Cloud Storage, Azure Blob</li>
+</ul>
+<p><strong>4. Message Queues</strong></p>
+<p>Asynchronous communication mechanism that decouples producers from consumers.</p>
+<ul>
+<li><strong>Benefits</strong>: Decoupling, buffering, load leveling</li>
+<li><strong>Patterns</strong>: Point-to-point, Publish-Subscribe</li>
+<li><strong>Examples</strong>: RabbitMQ, Amazon SQS, Apache Kafka</li>
+</ul>
+<p><strong>5. Microservices</strong></p>
+<p>Architectural style where applications are composed of small, independent services.</p>
+<ul>
+<li><strong>Principles</strong>: Single responsibility, loose coupling, independent deployment</li>
+<li><strong>Communication</strong>: REST, gRPC, message queues</li>
+<li><strong>Challenges</strong>: Distributed tracing, data consistency, service discovery</li>
+</ul>
+<p><strong>6. Caching</strong></p>
+<p>Storing frequently accessed data in fast storage to reduce latency and database load.</p>
+<ul>
+<li><strong>Levels</strong>: Browser, CDN, Application, Database</li>
+<li><strong>Strategies</strong>: Cache-aside, Write-through, Write-behind</li>
+<li><strong>Invalidation</strong>: TTL, Event-based, Manual</li>
+<li><strong>Examples</strong>: Redis, Memcached, Varnish</li>
+</ul>
+<p><strong>7. Database</strong></p>
+<p>Persistent storage systems optimized for different data models and access patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational</strong></td>
+<td>PostgreSQL, MySQL</td>
+<td>Structured data, ACID transactions</td>
+</tr>
+<tr>
+<td><strong>Document</strong></td>
+<td>MongoDB, CouchDB</td>
+<td>Flexible schemas, JSON data</td>
+</tr>
+<tr>
+<td><strong>Key-Value</strong></td>
+<td>Redis, DynamoDB</td>
+<td>Simple lookups, caching</td>
+</tr>
+<tr>
+<td><strong>Wide-Column</strong></td>
+<td>Cassandra, HBase</td>
+<td>Time-series, write-heavy workloads</td>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>Neo4j, Neptune</td>
+<td>Relationships, social networks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>8. CAP Theorem</strong></p>
+<p>States that a distributed system can only guarantee two of three properties simultaneously:</p>
+<ul>
+<li><strong>Consistency (C)</strong>: All nodes see the same data at the same time</li>
+<li><strong>Availability (A)</strong>: Every request receives a response</li>
+<li><strong>Partition Tolerance (P)</strong>: System continues despite network failures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Guarantees</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CP</strong></td>
+<td>Consistency + Partition Tolerance</td>
+<td>MongoDB, HBase</td>
+</tr>
+<tr>
+<td><strong>AP</strong></td>
+<td>Availability + Partition Tolerance</td>
+<td>Cassandra, DynamoDB</td>
+</tr>
+<tr>
+<td><strong>CA</strong></td>
+<td>Consistency + Availability</td>
+<td>Traditional RDBMS (single node)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>9. Rate Limiting</strong></p>
+<p>Controls the number of requests a client can make in a given time period.</p>
+<ul>
+<li><strong>Algorithms</strong>: Token Bucket, Leaky Bucket, Fixed Window, Sliding Window</li>
+<li><strong>Purpose</strong>: Prevent abuse, ensure fair usage, protect resources</li>
+<li><strong>Implementation</strong>: API Gateway, Application middleware</li>
+</ul>
+<p><strong>10. Partitioning (Sharding)</strong></p>
+<p>Dividing data across multiple databases to improve performance and scalability.</p>
+<ul>
+<li><strong>Horizontal Partitioning</strong>: Rows distributed across shards</li>
+<li><strong>Vertical Partitioning</strong>: Columns split into different tables</li>
+<li><strong>Strategies</strong>: Range-based, Hash-based, Directory-based</li>
+</ul>
+<p><strong>11. CDN (Content Delivery Network)</strong></p>
+<p>Geographically distributed servers that cache content closer to users.</p>
+<ul>
+<li><strong>Benefits</strong>: Reduced latency, decreased origin load, DDoS protection</li>
+<li><strong>Content Types</strong>: Static assets, streaming media, API responses</li>
+<li><strong>Examples</strong>: Cloudflare, Akamai, AWS CloudFront</li>
+</ul>
+<p><strong>12. Stream Processing</strong></p>
+<p>Real-time processing of continuous data streams.</p>
+<ul>
+<li><strong>Use Cases</strong>: Real-time analytics, fraud detection, IoT data</li>
+<li><strong>Patterns</strong>: Event sourcing, CQRS</li>
+<li><strong>Examples</strong>: Apache Kafka Streams, Apache Flink, AWS Kinesis</li>
+</ul>
+<h4 id="putting-it-all-together">Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">&para;</a></h4>
+<p>When designing a system, these concepts work together:</p>
+<pre class="mermaid"><code>flowchart TB
+    Users[Users] --&gt; CDN[CDN]
+    CDN --&gt; LB[Load Balancer]
+    LB --&gt; API[API Gateway]
+    API --&gt; RL[Rate Limiter]
+    RL --&gt; MS1[Microservice 1]
+    RL --&gt; MS2[Microservice 2]
+    MS1 --&gt; Cache[Cache Layer]
+    MS2 --&gt; Cache
+    Cache --&gt; DB[(Database)]
+    MS1 --&gt; MQ[Message Queue]
+    MQ --&gt; MS2
+    DB --&gt; Shard1[(Shard 1)]
+    DB --&gt; Shard2[(Shard 2)]
+
+    style CDN fill:#90EE90
+    style LB fill:#FFD700
+    style Cache fill:#ADD8E6
+    style MQ fill:#FFB6C1</code></pre>
 <h2 id="system-level-architecture-patterns">System-Level Architecture Patterns<a class="headerlink" href="#system-level-architecture-patterns" title="Permanent link">&para;</a></h2>
 <p>System-level architecture patterns define how entire systems, services, and components are organized and communicate with each other. These patterns address concerns like scalability, reliability, maintainability, and distributed system challenges.</p>
 <h3 id="1-event-driven-architecture">1. Event-Driven Architecture<a class="headerlink" href="#1-event-driven-architecture" title="Permanent link">&para;</a></h3>

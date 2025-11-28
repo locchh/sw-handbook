@@ -522,6 +522,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-modern-software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Modern Software Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Modern Software Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-backend-tech-stack-pyramid" class="md-nav__link">
     <span class="md-ellipsis">
       The Backend Tech Stack Pyramid
@@ -1888,6 +1912,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-modern-software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Modern Software Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Modern Software Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-backend-tech-stack-pyramid" class="md-nav__link">
     <span class="md-ellipsis">
       The Backend Tech Stack Pyramid
@@ -2676,6 +2724,346 @@
 
 <h1 id="tech-stacks">Tech Stacks<a class="headerlink" href="#tech-stacks" title="Permanent link">&para;</a></h1>
 <p>A tech stack is a combination of technologies, frameworks, libraries, and tools used to build and run applications. Understanding different tech stacks helps you choose the right tools for your project and understand how different technologies work together.</p>
+<h2 id="the-modern-software-stack">The Modern Software Stack<a class="headerlink" href="#the-modern-software-stack" title="Permanent link">&para;</a></h2>
+<p>The modern software stack represents a layered architecture where each layer has specific responsibilities and technology choices. Understanding this stack helps architects and developers make informed decisions about technology selection.</p>
+<p><img alt="Modern Software Stack" src="../../../assets/modern-software-stack.gif" /></p>
+<h3 id="layer-breakdown">Layer Breakdown<a class="headerlink" href="#layer-breakdown" title="Permanent link">&para;</a></h3>
+<p><strong>1. Presentation Layer (UI/UX)</strong></p>
+<p>The user-facing layer responsible for rendering interfaces and handling user interactions.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Type</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>React</strong></td>
+<td>JavaScript Library</td>
+<td>Single-page applications, component-based UIs</td>
+</tr>
+<tr>
+<td><strong>Angular</strong></td>
+<td>Framework</td>
+<td>Enterprise applications, full-featured SPAs</td>
+</tr>
+<tr>
+<td><strong>Vue.js</strong></td>
+<td>Framework</td>
+<td>Progressive web apps, lightweight applications</td>
+</tr>
+<tr>
+<td><strong>Flutter</strong></td>
+<td>Cross-platform</td>
+<td>Mobile apps with single codebase</td>
+</tr>
+<tr>
+<td><strong>Tailwind CSS</strong></td>
+<td>CSS Framework</td>
+<td>Utility-first styling, rapid prototyping</td>
+</tr>
+<tr>
+<td><strong>Swift</strong></td>
+<td>Language</td>
+<td>Native iOS applications</td>
+</tr>
+<tr>
+<td><strong>Kotlin</strong></td>
+<td>Language</td>
+<td>Native Android applications</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Edge and Delivery Layer (Optional)</strong></p>
+<p>Handles content delivery, caching, and DDoS protection at the network edge.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cloudflare</strong></td>
+<td>CDN, DDoS protection, DNS</td>
+</tr>
+<tr>
+<td><strong>Akamai</strong></td>
+<td>Enterprise CDN, security</td>
+</tr>
+<tr>
+<td><strong>Fastly</strong></td>
+<td>Edge computing, real-time CDN</td>
+</tr>
+<tr>
+<td><strong>CloudFront</strong></td>
+<td>AWS CDN integration</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Integration Layer (API)</strong></p>
+<p>Manages communication between services and external systems.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Protocol</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Postman</strong></td>
+<td>Testing</td>
+<td>API development and testing</td>
+</tr>
+<tr>
+<td><strong>gRPC</strong></td>
+<td>Binary</td>
+<td>High-performance microservices</td>
+</tr>
+<tr>
+<td><strong>GraphQL</strong></td>
+<td>Query</td>
+<td>Flexible data fetching</td>
+</tr>
+<tr>
+<td><strong>WebSocket</strong></td>
+<td>Bidirectional</td>
+<td>Real-time communication</td>
+</tr>
+<tr>
+<td><strong>API Gateway</strong></td>
+<td>HTTP</td>
+<td>Request routing, rate limiting</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. Messaging &amp; Async Processing (Optional)</strong></p>
+<p>Enables asynchronous communication and event-driven architectures.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Type</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kafka</strong></td>
+<td>Event Streaming</td>
+<td>High-throughput, event sourcing</td>
+</tr>
+<tr>
+<td><strong>RabbitMQ</strong></td>
+<td>Message Broker</td>
+<td>Task queues, pub/sub</td>
+</tr>
+<tr>
+<td><strong>SQS</strong></td>
+<td>Cloud Queue</td>
+<td>AWS-native messaging</td>
+</tr>
+<tr>
+<td><strong>Celery</strong></td>
+<td>Task Queue</td>
+<td>Python async tasks</td>
+</tr>
+<tr>
+<td><strong>Sidekiq</strong></td>
+<td>Task Queue</td>
+<td>Ruby background jobs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. Business Logic Layer</strong></p>
+<p>Contains the core application logic and business rules.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Language</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spring</strong></td>
+<td>Java</td>
+<td>Enterprise features, dependency injection</td>
+</tr>
+<tr>
+<td><strong>Laravel</strong></td>
+<td>PHP</td>
+<td>Elegant syntax, rapid development</td>
+</tr>
+<tr>
+<td><strong>Express.js</strong></td>
+<td>JavaScript</td>
+<td>Minimalist, flexible</td>
+</tr>
+<tr>
+<td><strong>Django</strong></td>
+<td>Python</td>
+<td>Batteries-included, admin panel</td>
+</tr>
+<tr>
+<td><strong>.NET Core</strong></td>
+<td>C#</td>
+<td>Cross-platform, high performance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6. Data Access Layer</strong></p>
+<p>Abstracts database operations and provides caching mechanisms.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Redis</strong></td>
+<td>In-memory</td>
+<td>Caching, session storage</td>
+</tr>
+<tr>
+<td><strong>Elasticsearch</strong></td>
+<td>Search Engine</td>
+<td>Full-text search, analytics</td>
+</tr>
+<tr>
+<td><strong>Hibernate</strong></td>
+<td>ORM</td>
+<td>Java object-relational mapping</td>
+</tr>
+<tr>
+<td><strong>Sequelize</strong></td>
+<td>ORM</td>
+<td>Node.js database abstraction</td>
+</tr>
+<tr>
+<td><strong>SQLAlchemy</strong></td>
+<td>ORM</td>
+<td>Python database toolkit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7. Data Storage Layer</strong></p>
+<p>Persistent storage for application data.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Type</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>Relational</td>
+<td>Complex queries, ACID compliance</td>
+</tr>
+<tr>
+<td><strong>MySQL</strong></td>
+<td>Relational</td>
+<td>Web applications, read-heavy workloads</td>
+</tr>
+<tr>
+<td><strong>MongoDB</strong></td>
+<td>Document</td>
+<td>Flexible schemas, JSON data</td>
+</tr>
+<tr>
+<td><strong>BigQuery</strong></td>
+<td>Data Warehouse</td>
+<td>Analytics, large-scale queries</td>
+</tr>
+<tr>
+<td><strong>Snowflake</strong></td>
+<td>Data Warehouse</td>
+<td>Cloud-native analytics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>8. Analytics &amp; ML (Optional)</strong></p>
+<p>Data processing, machine learning, and business intelligence.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spark</strong></td>
+<td>Distributed data processing</td>
+</tr>
+<tr>
+<td><strong>PyTorch</strong></td>
+<td>Deep learning framework</td>
+</tr>
+<tr>
+<td><strong>Databricks</strong></td>
+<td>Unified analytics platform</td>
+</tr>
+<tr>
+<td><strong>Looker</strong></td>
+<td>Business intelligence</td>
+</tr>
+<tr>
+<td><strong>TensorFlow</strong></td>
+<td>Machine learning at scale</td>
+</tr>
+</tbody>
+</table>
+<p><strong>9. Infrastructure Layer (Hosting/Runtime)</strong></p>
+<p>The foundation that hosts and runs all other layers.</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Type</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS</strong></td>
+<td>Cloud Provider</td>
+<td>Comprehensive services, market leader</td>
+</tr>
+<tr>
+<td><strong>Azure</strong></td>
+<td>Cloud Provider</td>
+<td>Microsoft integration, enterprise</td>
+</tr>
+<tr>
+<td><strong>Google Cloud</strong></td>
+<td>Cloud Provider</td>
+<td>Data/ML services, Kubernetes</td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>Containerization</td>
+<td>Consistent environments, portability</td>
+</tr>
+<tr>
+<td><strong>Kubernetes</strong></td>
+<td>Orchestration</td>
+<td>Container management, auto-scaling</td>
+</tr>
+</tbody>
+</table>
 <h2 id="the-backend-tech-stack-pyramid">The Backend Tech Stack Pyramid<a class="headerlink" href="#the-backend-tech-stack-pyramid" title="Permanent link">&para;</a></h2>
 <p>The backend tech stack can be visualized as a pyramid, with each layer building upon the foundation below it:</p>
 <p><img alt="Backend Tech Stack Pyramid" src="../../../assets/backend-tech-stack.jpeg" /></p>
