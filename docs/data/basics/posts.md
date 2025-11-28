@@ -1,0 +1,1 @@
+[🚀 The Embedded Database Revolution: Why "Serverless" Databases Are Changing How We Build](https://www.linkedin.com/posts/chuong-loc_kuzu-embedded-scalable-blazing-fast-graph-activity-7385510305218400256-FqIt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)

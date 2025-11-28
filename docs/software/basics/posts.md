@@ -1,0 +1,1 @@
+[😅 SDLC is basically the human life cycle in disguise](https://www.linkedin.com/posts/chuong-loc_lately-ive-been-thinking-sdlc-is-basically-activity-7397644978006605826-Z-1i?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY)

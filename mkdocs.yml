@@ -62,6 +62,7 @@ nav:
         - Styles: software/basics/styles.md
         - Abbreviations: software/basics/abbreviations.md
         - Study Guide: software/basics/study_guide.md
+        - Posts: software/basics/posts.md
       - Tool/Tip:
         - Tools: software/tool_tip/tools.md
         - Tips: software/tool_tip/tips.md
@@ -69,6 +70,7 @@ nav:
       - Overview: data/index.md
       - Fundamentals:
           - Introduction to Data: data/basics/introduction_to_data.md
+          - Posts: data/basics/posts.md
   - AI:
       - Overview: ai/index.md
       - Fundamentals:
