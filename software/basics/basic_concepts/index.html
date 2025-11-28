@@ -338,6 +338,8 @@
       
         
       
+        
+      
     
     
     
@@ -897,6 +899,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Posts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1083,6 +1108,8 @@
       
         
       
+        
+      
     
     
     
@@ -1129,6 +1156,29 @@
   
   <span class="md-ellipsis">
     Introduction to Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Posts
     
   </span>
   
@@ -1736,24 +1786,24 @@
 <h3 id="examples-restrictions">Examples &amp; Restrictions<a class="headerlink" href="#examples-restrictions" title="Permanent link">&para;</a></h3>
 <p>Moving down the hierarchy adds more restrictions to the rules.</p>
 <h4 id="1-type-0-unrestricted">1. Type 0: Unrestricted<a class="headerlink" href="#1-type-0-unrestricted" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> $\alpha \to \beta$ (Anything goes, as long as LHS is not empty)
+<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha \to \beta\)</span> (Anything goes, as long as LHS is not empty)
 * <strong>Example:</strong> Any computable logic.
 * <strong>Analogy:</strong> A whiteboard where you can erase and rewrite anything anywhere.</p>
 <h4 id="2-type-1-context-sensitive">2. Type 1: Context-Sensitive<a class="headerlink" href="#2-type-1-context-sensitive" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> $\alpha A \beta \to \alpha \gamma \beta$ (Replace $A$ with $\gamma$, but <em>only</em> if it's between $\alpha$ and $\beta$)
+<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha A \beta \to \alpha \gamma \beta\)</span> (Replace <span class="arithmatex">\(A\)</span> with <span class="arithmatex">\(\gamma\)</span>, but <em>only</em> if it's between <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>)
 * <strong>Constraint:</strong> You can only modify symbols based on their neighbors, and the string length generally grows or stays the same.
-* <strong>Example:</strong> $a^n b^n c^n$ (e.g., <code>abc</code>, <code>aabbcc</code>). You need to track three balanced counts, which Type 2 cannot do.</p>
+* <strong>Example:</strong> <span class="arithmatex">\(a^n b^n c^n\)</span> (e.g., <code>abc</code>, <code>aabbcc</code>). You need to track three balanced counts, which Type 2 cannot do.</p>
 <h4 id="3-type-2-context-free">3. Type 2: Context-Free<a class="headerlink" href="#3-type-2-context-free" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> $A \to \gamma$ (Replace $A$ regardless of what surrounds it)
+<p><strong>Rule:</strong> <span class="arithmatex">\(A \to \gamma\)</span> (Replace <span class="arithmatex">\(A\)</span> regardless of what surrounds it)
 * <strong>Constraint:</strong> The left-hand side must be a <em>single non-terminal</em>.
-* <strong>Example:</strong> Balanced Parentheses $a^n b^n$.
+* <strong>Example:</strong> Balanced Parentheses <span class="arithmatex">\(a^n b^n\)</span>.
   <div class="highlight"><pre><span></span><code>S → aSb  (Nested recursion)
 S → ε
 </code></pre></div>
   This generates: <code>ab</code>, <code>aabb</code>, <code>aaabbb</code>...</p>
 <h4 id="4-type-3-regular">4. Type 3: Regular<a class="headerlink" href="#4-type-3-regular" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> $A \to aB$ or $A \to a$ (Strictly linear)
-* <strong>Constraint:</strong> You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like $n$ in $a^n b^n$).
+<p><strong>Rule:</strong> <span class="arithmatex">\(A \to aB\)</span> or <span class="arithmatex">\(A \to a\)</span> (Strictly linear)
+* <strong>Constraint:</strong> You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like <span class="arithmatex">\(n\)</span> in <span class="arithmatex">\(a^n b^n\)</span>).
 * <strong>Example:</strong> Matching an identifier like <code>var_1</code>.
   <div class="highlight"><pre><span></span><code>S → vA
 A → aB
@@ -2000,8 +2050,6 @@ Handles <strong>user interaction</strong> and displays output. This layer commun
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
         <script src="../../../javascripts/mermaid-init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       
