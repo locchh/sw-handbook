@@ -1,5 +1,151 @@
 # Architecture patterns
 
+### System Design Concepts
+
+System design encompasses the fundamental concepts and patterns used to build scalable, reliable, and maintainable distributed systems. These concepts are essential for architects designing large-scale applications.
+
+![System Design Concepts](../../assets/system-design-concepts.jpeg)
+
+#### Core Concepts Explained
+
+**1. Scalability**
+
+The ability of a system to handle increased load by adding resources.
+
+- **Vertical Scaling (Scale Up)**: Adding more power (CPU, RAM) to existing machines
+- **Horizontal Scaling (Scale Out)**: Adding more machines to the pool
+- **Key Metrics**: Requests per second, concurrent users, data volume
+
+```
+Vertical:   [Small Server] → [Large Server]
+Horizontal: [Server] → [Server] + [Server] + [Server]
+```
+
+**2. Load Balancers**
+
+Distribute incoming traffic across multiple servers to ensure no single server is overwhelmed.
+
+- **Algorithms**: Round Robin, Least Connections, IP Hash, Weighted
+- **Types**: Layer 4 (Transport) vs Layer 7 (Application)
+- **Examples**: NGINX, HAProxy, AWS ALB/NLB
+
+**3. Object Storage**
+
+Scalable storage for unstructured data like images, videos, and backups.
+
+- **Characteristics**: Flat namespace, metadata-rich, highly durable
+- **Use Cases**: Static assets, backups, data lakes
+- **Examples**: AWS S3, Google Cloud Storage, Azure Blob
+
+**4. Message Queues**
+
+Asynchronous communication mechanism that decouples producers from consumers.
+
+- **Benefits**: Decoupling, buffering, load leveling
+- **Patterns**: Point-to-point, Publish-Subscribe
+- **Examples**: RabbitMQ, Amazon SQS, Apache Kafka
+
+**5. Microservices**
+
+Architectural style where applications are composed of small, independent services.
+
+- **Principles**: Single responsibility, loose coupling, independent deployment
+- **Communication**: REST, gRPC, message queues
+- **Challenges**: Distributed tracing, data consistency, service discovery
+
+**6. Caching**
+
+Storing frequently accessed data in fast storage to reduce latency and database load.
+
+- **Levels**: Browser, CDN, Application, Database
+- **Strategies**: Cache-aside, Write-through, Write-behind
+- **Invalidation**: TTL, Event-based, Manual
+- **Examples**: Redis, Memcached, Varnish
+
+**7. Database**
+
+Persistent storage systems optimized for different data models and access patterns.
+
+| Type | Examples | Best For |
+|------|----------|----------|
+| **Relational** | PostgreSQL, MySQL | Structured data, ACID transactions |
+| **Document** | MongoDB, CouchDB | Flexible schemas, JSON data |
+| **Key-Value** | Redis, DynamoDB | Simple lookups, caching |
+| **Wide-Column** | Cassandra, HBase | Time-series, write-heavy workloads |
+| **Graph** | Neo4j, Neptune | Relationships, social networks |
+
+**8. CAP Theorem**
+
+States that a distributed system can only guarantee two of three properties simultaneously:
+
+- **Consistency (C)**: All nodes see the same data at the same time
+- **Availability (A)**: Every request receives a response
+- **Partition Tolerance (P)**: System continues despite network failures
+
+| System Type | Guarantees | Examples |
+|-------------|------------|----------|
+| **CP** | Consistency + Partition Tolerance | MongoDB, HBase |
+| **AP** | Availability + Partition Tolerance | Cassandra, DynamoDB |
+| **CA** | Consistency + Availability | Traditional RDBMS (single node) |
+
+**9. Rate Limiting**
+
+Controls the number of requests a client can make in a given time period.
+
+- **Algorithms**: Token Bucket, Leaky Bucket, Fixed Window, Sliding Window
+- **Purpose**: Prevent abuse, ensure fair usage, protect resources
+- **Implementation**: API Gateway, Application middleware
+
+**10. Partitioning (Sharding)**
+
+Dividing data across multiple databases to improve performance and scalability.
+
+- **Horizontal Partitioning**: Rows distributed across shards
+- **Vertical Partitioning**: Columns split into different tables
+- **Strategies**: Range-based, Hash-based, Directory-based
+
+**11. CDN (Content Delivery Network)**
+
+Geographically distributed servers that cache content closer to users.
+
+- **Benefits**: Reduced latency, decreased origin load, DDoS protection
+- **Content Types**: Static assets, streaming media, API responses
+- **Examples**: Cloudflare, Akamai, AWS CloudFront
+
+**12. Stream Processing**
+
+Real-time processing of continuous data streams.
+
+- **Use Cases**: Real-time analytics, fraud detection, IoT data
+- **Patterns**: Event sourcing, CQRS
+- **Examples**: Apache Kafka Streams, Apache Flink, AWS Kinesis
+
+#### Putting It All Together
+
+When designing a system, these concepts work together:
+
+```mermaid
+flowchart TB
+    Users[Users] --> CDN[CDN]
+    CDN --> LB[Load Balancer]
+    LB --> API[API Gateway]
+    API --> RL[Rate Limiter]
+    RL --> MS1[Microservice 1]
+    RL --> MS2[Microservice 2]
+    MS1 --> Cache[Cache Layer]
+    MS2 --> Cache
+    Cache --> DB[(Database)]
+    MS1 --> MQ[Message Queue]
+    MQ --> MS2
+    DB --> Shard1[(Shard 1)]
+    DB --> Shard2[(Shard 2)]
+    
+    style CDN fill:#90EE90
+    style LB fill:#FFD700
+    style Cache fill:#ADD8E6
+    style MQ fill:#FFB6C1
+```
+
 ## System-Level Architecture Patterns
 
 System-level architecture patterns define how entire systems, services, and components are organized and communicate with each other. These patterns address concerns like scalability, reliability, maintainability, and distributed system challenges.

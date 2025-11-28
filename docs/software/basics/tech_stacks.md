@@ -2,6 +2,124 @@
 
 A tech stack is a combination of technologies, frameworks, libraries, and tools used to build and run applications. Understanding different tech stacks helps you choose the right tools for your project and understand how different technologies work together.
 
+## The Modern Software Stack
+
+The modern software stack represents a layered architecture where each layer has specific responsibilities and technology choices. Understanding this stack helps architects and developers make informed decisions about technology selection.
+
+![Modern Software Stack](../../assets/modern-software-stack.gif)
+
+### Layer Breakdown
+
+**1. Presentation Layer (UI/UX)**
+
+The user-facing layer responsible for rendering interfaces and handling user interactions.
+
+| Technology | Type | Best For |
+|------------|------|----------|
+| **React** | JavaScript Library | Single-page applications, component-based UIs |
+| **Angular** | Framework | Enterprise applications, full-featured SPAs |
+| **Vue.js** | Framework | Progressive web apps, lightweight applications |
+| **Flutter** | Cross-platform | Mobile apps with single codebase |
+| **Tailwind CSS** | CSS Framework | Utility-first styling, rapid prototyping |
+| **Swift** | Language | Native iOS applications |
+| **Kotlin** | Language | Native Android applications |
+
+**2. Edge and Delivery Layer (Optional)**
+
+Handles content delivery, caching, and DDoS protection at the network edge.
+
+| Technology | Purpose |
+|------------|---------|
+| **Cloudflare** | CDN, DDoS protection, DNS |
+| **Akamai** | Enterprise CDN, security |
+| **Fastly** | Edge computing, real-time CDN |
+| **CloudFront** | AWS CDN integration |
+
+**3. Integration Layer (API)**
+
+Manages communication between services and external systems.
+
+| Technology | Protocol | Use Case |
+|------------|----------|----------|
+| **Postman** | Testing | API development and testing |
+| **gRPC** | Binary | High-performance microservices |
+| **GraphQL** | Query | Flexible data fetching |
+| **WebSocket** | Bidirectional | Real-time communication |
+| **API Gateway** | HTTP | Request routing, rate limiting |
+
+**4. Messaging & Async Processing (Optional)**
+
+Enables asynchronous communication and event-driven architectures.
+
+| Technology | Type | Best For |
+|------------|------|----------|
+| **Kafka** | Event Streaming | High-throughput, event sourcing |
+| **RabbitMQ** | Message Broker | Task queues, pub/sub |
+| **SQS** | Cloud Queue | AWS-native messaging |
+| **Celery** | Task Queue | Python async tasks |
+| **Sidekiq** | Task Queue | Ruby background jobs |
+
+**5. Business Logic Layer**
+
+Contains the core application logic and business rules.
+
+| Technology | Language | Strengths |
+|------------|----------|-----------|
+| **Spring** | Java | Enterprise features, dependency injection |
+| **Laravel** | PHP | Elegant syntax, rapid development |
+| **Express.js** | JavaScript | Minimalist, flexible |
+| **Django** | Python | Batteries-included, admin panel |
+| **.NET Core** | C# | Cross-platform, high performance |
+
+**6. Data Access Layer**
+
+Abstracts database operations and provides caching mechanisms.
+
+| Technology | Type | Purpose |
+|------------|------|---------|
+| **Redis** | In-memory | Caching, session storage |
+| **Elasticsearch** | Search Engine | Full-text search, analytics |
+| **Hibernate** | ORM | Java object-relational mapping |
+| **Sequelize** | ORM | Node.js database abstraction |
+| **SQLAlchemy** | ORM | Python database toolkit |
+
+**7. Data Storage Layer**
+
+Persistent storage for application data.
+
+| Technology | Type | Best For |
+|------------|------|----------|
+| **PostgreSQL** | Relational | Complex queries, ACID compliance |
+| **MySQL** | Relational | Web applications, read-heavy workloads |
+| **MongoDB** | Document | Flexible schemas, JSON data |
+| **BigQuery** | Data Warehouse | Analytics, large-scale queries |
+| **Snowflake** | Data Warehouse | Cloud-native analytics |
+
+**8. Analytics & ML (Optional)**
+
+Data processing, machine learning, and business intelligence.
+
+| Technology | Purpose |
+|------------|---------|
+| **Spark** | Distributed data processing |
+| **PyTorch** | Deep learning framework |
+| **Databricks** | Unified analytics platform |
+| **Looker** | Business intelligence |
+| **TensorFlow** | Machine learning at scale |
+
+**9. Infrastructure Layer (Hosting/Runtime)**
+
+The foundation that hosts and runs all other layers.
+
+| Technology | Type | Strengths |
+|------------|------|-----------|
+| **AWS** | Cloud Provider | Comprehensive services, market leader |
+| **Azure** | Cloud Provider | Microsoft integration, enterprise |
+| **Google Cloud** | Cloud Provider | Data/ML services, Kubernetes |
+| **Docker** | Containerization | Consistent environments, portability |
+| **Kubernetes** | Orchestration | Container management, auto-scaling |
+
+
 ## The Backend Tech Stack Pyramid
 
 The backend tech stack can be visualized as a pyramid, with each layer building upon the foundation below it:
