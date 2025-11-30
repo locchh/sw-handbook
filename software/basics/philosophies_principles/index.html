@@ -802,6 +802,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#principle-of-least-astonishment-pola-principle-of-least-surprise-pols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principle of Least Astonishment (POLA) / Principle of Least Surprise (POLS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#premature-optimization-is-the-root-of-all-evil" class="md-nav__link">
     <span class="md-ellipsis">
       Premature Optimization is the Root of All Evil
@@ -1770,6 +1779,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#principle-of-least-astonishment-pola-principle-of-least-surprise-pols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principle of Least Astonishment (POLA) / Principle of Least Surprise (POLS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#premature-optimization-is-the-root-of-all-evil" class="md-nav__link">
     <span class="md-ellipsis">
       Premature Optimization is the Root of All Evil
@@ -1983,6 +2001,21 @@ Good: int elapsedTimeInDays;
 <h3 id="convention-over-configuration">Convention Over Configuration<a class="headerlink" href="#convention-over-configuration" title="Permanent link">&para;</a></h3>
 <p>Provide sensible defaults and follow common conventions to reduce the number of decisions developers need to make.</p>
 <p><strong>Examples:</strong> Ruby on Rails, Spring Boot</p>
+<h3 id="principle-of-least-astonishment-pola-principle-of-least-surprise-pols">Principle of Least Astonishment (POLA) / Principle of Least Surprise (POLS)<a class="headerlink" href="#principle-of-least-astonishment-pola-principle-of-least-surprise-pols" title="Permanent link">&para;</a></h3>
+<p>A component should behave in a way that most users expect it to behave, minimizing surprise and confusion.</p>
+<p><strong>Core idea:</strong> Design should match the user's experience, expectations, and mental models. Leverage existing knowledge to minimize the learning curve.</p>
+<p><strong>Guidelines:</strong>
+- Function/method names should intuitively match their behavior
+- Follow platform conventions (keyboard shortcuts, UI patterns)
+- Apply sensible defaults
+- Borrow from functionally similar programs users are familiar with
+- When behavior is ambiguous, choose what will least surprise the user</p>
+<p><strong>Examples:</strong>
+- F1 key opens help in most applications
+- API methods named <code>getUserById()</code> should return a user, not delete one
+- JavaScript's <code>parseInt("08")</code> originally parsed as octal (base 8), violating POLA—fixed in later versions
+- Keyboard shortcuts like <code>?</code> for help on websites (Gmail, YouTube)</p>
+<p><strong>Benefits:</strong> Reduced learning curve, fewer bugs from misunderstanding, better user experience, intuitive interfaces</p>
 <h3 id="premature-optimization-is-the-root-of-all-evil">Premature Optimization is the Root of All Evil<a class="headerlink" href="#premature-optimization-is-the-root-of-all-evil" title="Permanent link">&para;</a></h3>
 <p>Don't optimize code before you have evidence it's a bottleneck. Write clear code first, then profile and optimize only what matters.</p>
 <p><strong>Process:</strong> Make it work → Make it right → Make it fast</p>
