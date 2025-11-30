@@ -57,6 +57,7 @@ nav:
       - Fundamentals:
         - Basic Concepts: software/basics/basic_concepts.md
         - Development Concepts: software/basics/devlopment_concepts.md
+        - Error Handling: software/basics/error_handling.md
         - Coding Philosophies: software/basics/philosophies_principles.md
         - Architecture Patterns: software/basics/architecture_patterns.md
         - Tech Stacks: software/basics/tech_stacks.md
