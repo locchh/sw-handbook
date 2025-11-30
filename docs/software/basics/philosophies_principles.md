@@ -228,6 +228,26 @@ Provide sensible defaults and follow common conventions to reduce the number of 
 
 **Examples:** Ruby on Rails, Spring Boot
 
+### Principle of Least Astonishment (POLA) / Principle of Least Surprise (POLS)
+A component should behave in a way that most users expect it to behave, minimizing surprise and confusion.
+
+**Core idea:** Design should match the user's experience, expectations, and mental models. Leverage existing knowledge to minimize the learning curve.
+
+**Guidelines:**
+- Function/method names should intuitively match their behavior
+- Follow platform conventions (keyboard shortcuts, UI patterns)
+- Apply sensible defaults
+- Borrow from functionally similar programs users are familiar with
+- When behavior is ambiguous, choose what will least surprise the user
+
+**Examples:**
+- F1 key opens help in most applications
+- API methods named `getUserById()` should return a user, not delete one
+- JavaScript's `parseInt("08")` originally parsed as octal (base 8), violating POLA—fixed in later versions
+- Keyboard shortcuts like `?` for help on websites (Gmail, YouTube)
+
+**Benefits:** Reduced learning curve, fewer bugs from misunderstanding, better user experience, intuitive interfaces
+
 ### Premature Optimization is the Root of All Evil
 Don't optimize code before you have evidence it's a bottleneck. Write clear code first, then profile and optimize only what matters.
 
