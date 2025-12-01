@@ -14,7 +14,7 @@
 
 - *You can also create a backbone (structure of folder, the comments inside a empty file, some first few lines of code,etc.) the ask AI to complete the backbone* 
 
-- *Another tip to reduce cost is using a top-tier AI to generate code until i work, backup code, then use another cheper AI to iterate with you for explain, review, refactor, etc.*
+- *Another tip to reduce cost is using a top-tier AI to generate code until it work, backup code, then use another cheper AI to iterate with you for explain, review, refactor, etc.*
 
 - *It would be better to create a runtime environment where the AI can execute code, receive feedback, and iteratively improve through a generate-test-refine loop* 
 
