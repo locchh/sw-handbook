@@ -1767,8 +1767,12 @@
 <h2 id="chomsky-hierarchy">Chomsky Hierarchy<a class="headerlink" href="#chomsky-hierarchy" title="Permanent link">&para;</a></h2>
 <p>The <strong>Chomsky Hierarchy</strong> organizes formal languages into four levels based on their complexity. Think of it as a set of "Russian dolls": each level is a subset of the one above it.</p>
 <ul>
-<li><strong>Type 0</strong> (Most powerful, least restricted) includes everything below it.</li>
-<li><strong>Type 3</strong> (Least powerful, most restricted) is the simplest.</li>
+<li>
+<p><strong>Type 0</strong> (Most powerful, least restricted) includes everything below it.</p>
+</li>
+<li>
+<p><strong>Type 3</strong> (Least powerful, most restricted) is the simplest.</p>
+</li>
 </ul>
 <p>This hierarchy helps computer scientists decide which tools to use. For example, you don't need a full Turing Machine to parse a simple email address—a Regular Expression (Type 3) is enough.</p>
 <h3 id="the-four-levels">The Four Levels<a class="headerlink" href="#the-four-levels" title="Permanent link">&para;</a></h3>
@@ -1811,34 +1815,67 @@
 <h3 id="examples-restrictions">Examples &amp; Restrictions<a class="headerlink" href="#examples-restrictions" title="Permanent link">&para;</a></h3>
 <p>Moving down the hierarchy adds more restrictions to the rules.</p>
 <h4 id="1-type-0-unrestricted">1. Type 0: Unrestricted<a class="headerlink" href="#1-type-0-unrestricted" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha \to \beta\)</span> (Anything goes, as long as LHS is not empty)
-* <strong>Example:</strong> Any computable logic.
-* <strong>Analogy:</strong> A whiteboard where you can erase and rewrite anything anywhere.</p>
+<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha \to \beta\)</span> (Anything goes, as long as LHS is not empty)</p>
+<ul>
+<li>
+<p><strong>Example:</strong> Any computable logic.</p>
+</li>
+<li>
+<p><strong>Analogy:</strong> A whiteboard where you can erase and rewrite anything anywhere.</p>
+</li>
+</ul>
 <h4 id="2-type-1-context-sensitive">2. Type 1: Context-Sensitive<a class="headerlink" href="#2-type-1-context-sensitive" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha A \beta \to \alpha \gamma \beta\)</span> (Replace <span class="arithmatex">\(A\)</span> with <span class="arithmatex">\(\gamma\)</span>, but <em>only</em> if it's between <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>)
-* <strong>Constraint:</strong> You can only modify symbols based on their neighbors, and the string length generally grows or stays the same.
-* <strong>Example:</strong> <span class="arithmatex">\(a^n b^n c^n\)</span> (e.g., <code>abc</code>, <code>aabbcc</code>). You need to track three balanced counts, which Type 2 cannot do.</p>
+<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha A \beta \to \alpha \gamma \beta\)</span> (Replace <span class="arithmatex">\(A\)</span> with <span class="arithmatex">\(\gamma\)</span>, but <em>only</em> if it's between 
+<span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>)</p>
+<ul>
+<li>
+<p><strong>Constraint:</strong> You can only modify symbols based on their neighbors, and the string length generally grows or 
+stays the same.</p>
+</li>
+<li>
+<p><strong>Example:</strong> <span class="arithmatex">\(a^n b^n c^n\)</span> (e.g., <code>abc</code>, <code>aabbcc</code>). You need to track three balanced counts, which Type 2 
+cannot do.</p>
+</li>
+</ul>
 <h4 id="3-type-2-context-free">3. Type 2: Context-Free<a class="headerlink" href="#3-type-2-context-free" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(A \to \gamma\)</span> (Replace <span class="arithmatex">\(A\)</span> regardless of what surrounds it)
-* <strong>Constraint:</strong> The left-hand side must be a <em>single non-terminal</em>.
-* <strong>Example:</strong> Balanced Parentheses <span class="arithmatex">\(a^n b^n\)</span>.
+<p><strong>Rule:</strong> <span class="arithmatex">\(A \to \gamma\)</span> (Replace <span class="arithmatex">\(A\)</span> regardless of what surrounds it)</p>
+<ul>
+<li>
+<p><strong>Constraint:</strong> The left-hand side must be a <em>single non-terminal</em>.</p>
+</li>
+<li>
+<p><strong>Example:</strong> Balanced Parentheses <span class="arithmatex">\(a^n b^n\)</span>.
   <div class="highlight"><pre><span></span><code>S → aSb  (Nested recursion)
 S → ε
 </code></pre></div>
   This generates: <code>ab</code>, <code>aabb</code>, <code>aaabbb</code>...</p>
+</li>
+</ul>
 <h4 id="4-type-3-regular">4. Type 3: Regular<a class="headerlink" href="#4-type-3-regular" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(A \to aB\)</span> or <span class="arithmatex">\(A \to a\)</span> (Strictly linear)
-* <strong>Constraint:</strong> You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like <span class="arithmatex">\(n\)</span> in <span class="arithmatex">\(a^n b^n\)</span>).
-* <strong>Example:</strong> Matching an identifier like <code>var_1</code>.
+<p><strong>Rule:</strong> <span class="arithmatex">\(A \to aB\)</span> or <span class="arithmatex">\(A \to a\)</span> (Strictly linear)</p>
+<ul>
+<li>
+<p><strong>Constraint:</strong> You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like <span class="arithmatex">\(n\)</span> in <span class="arithmatex">\(a^n b^n\)</span>).</p>
+</li>
+<li>
+<p><strong>Example:</strong> Matching an identifier like <code>var_1</code>.
   <div class="highlight"><pre><span></span><code>S → vA
 A → aB
 ...
 </code></pre></div></p>
+</li>
+</ul>
 <h3 id="practical-applications">Practical Applications<a class="headerlink" href="#practical-applications" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Regex (Type 3):</strong> Used for finding patterns like emails, phone numbers, or keywords in code.</li>
-<li><strong>Parsers (Type 2):</strong> Used by compilers to understand code structure (if statements, nested blocks).</li>
-<li><strong>Natural Language (Type 1/0):</strong> Human languages are complex and often require context-sensitive rules to fully capture grammar.</li>
+<li>
+<p><strong>Regex (Type 3):</strong> Used for finding patterns like emails, phone numbers, or keywords in code.</p>
+</li>
+<li>
+<p><strong>Parsers (Type 2):</strong> Used by compilers to understand code structure (if statements, nested blocks).</p>
+</li>
+<li>
+<p><strong>Natural Language (Type 1/0):</strong> Human languages are complex and often require context-sensitive rules to fully capture grammar.</p>
+</li>
 </ul>
 <h2 id="programming-paradigms">Programming Paradigms<a class="headerlink" href="#programming-paradigms" title="Permanent link">&para;</a></h2>
 <p>Programming paradigms are fundamental styles or approaches to programming that shape how solutions are designed and implemented. Below are some of the major paradigms:</p>
