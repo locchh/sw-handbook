@@ -5,6 +5,7 @@
 The **Chomsky Hierarchy** organizes formal languages into four levels based on their complexity. Think of it as a set of "Russian dolls": each level is a subset of the one above it.
 
 * **Type 0** (Most powerful, least restricted) includes everything below it.
+
 * **Type 3** (Least powerful, most restricted) is the simplest.
 
 This hierarchy helps computer scientists decide which tools to use. For example, you don't need a full Turing Machine to parse a simple email address—a Regular Expression (Type 3) is enough.
@@ -23,18 +24,30 @@ This hierarchy helps computer scientists decide which tools to use. For example,
 Moving down the hierarchy adds more restrictions to the rules.
 
 #### 1. Type 0: Unrestricted
+
 **Rule:** $\alpha \to \beta$ (Anything goes, as long as LHS is not empty)
+
 * **Example:** Any computable logic.
+
 * **Analogy:** A whiteboard where you can erase and rewrite anything anywhere.
 
 #### 2. Type 1: Context-Sensitive
-**Rule:** $\alpha A \beta \to \alpha \gamma \beta$ (Replace $A$ with $\gamma$, but *only* if it's between $\alpha$ and $\beta$)
-* **Constraint:** You can only modify symbols based on their neighbors, and the string length generally grows or stays the same.
-* **Example:** $a^n b^n c^n$ (e.g., `abc`, `aabbcc`). You need to track three balanced counts, which Type 2 cannot do.
+
+**Rule:** $\alpha A \beta \to \alpha \gamma \beta$ (Replace $A$ with $\gamma$, but *only* if it's between 
+$\alpha$ and $\beta$)
+
+* **Constraint:** You can only modify symbols based on their neighbors, and the string length generally grows or 
+stays the same.
+
+* **Example:** $a^n b^n c^n$ (e.g., `abc`, `aabbcc`). You need to track three balanced counts, which Type 2 
+cannot do.
 
 #### 3. Type 2: Context-Free
+
 **Rule:** $A \to \gamma$ (Replace $A$ regardless of what surrounds it)
+
 * **Constraint:** The left-hand side must be a *single non-terminal*.
+
 * **Example:** Balanced Parentheses $a^n b^n$.
   ```text
   S → aSb  (Nested recursion)
@@ -43,8 +56,11 @@ Moving down the hierarchy adds more restrictions to the rules.
   This generates: `ab`, `aabb`, `aaabbb`...
 
 #### 4. Type 3: Regular
+
 **Rule:** $A \to aB$ or $A \to a$ (Strictly linear)
+
 * **Constraint:** You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like $n$ in $a^n b^n$).
+
 * **Example:** Matching an identifier like `var_1`.
   ```text
   S → vA
@@ -55,7 +71,9 @@ Moving down the hierarchy adds more restrictions to the rules.
 ### Practical Applications
 
 * **Regex (Type 3):** Used for finding patterns like emails, phone numbers, or keywords in code.
+
 * **Parsers (Type 2):** Used by compilers to understand code structure (if statements, nested blocks).
+
 * **Natural Language (Type 1/0):** Human languages are complex and often require context-sensitive rules to fully capture grammar.
 
 ## Programming Paradigms
