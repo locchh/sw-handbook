@@ -1,0 +1,33 @@
+# Software Handbook > A comprehensive collection of notes about Software Engineering, Data Science, and Artificial Intelligence
+
+This handbook contains curated knowledge and practical insights across three core technology domains. Content is organized hierarchically with detailed fundamentals, practical examples, and reference materials. Each section builds from basic concepts to advanced applications.
+
+## Software Engineering
+- [Software Engineering Overview](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/index.md): Introduction to software development practices, patterns, and methodologies
+- [Basic Concepts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/basic_concepts.md): Fundamental software engineering principles and terminology
+- [Development Concepts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/devlopment_concepts.md): Comprehensive coverage of development methodologies, practices, and workflows
+- [Architecture Patterns](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/architecture_patterns.md): Detailed analysis of system design patterns, architectural styles, and design decisions
+- [Error Handling](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/error_handling.md): Best practices for error management, debugging, and fault tolerance
+- [Coding Philosophies](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/philosophies_principles.md): Programming paradigms, design principles, and development philosophies
+- [Tech Stacks](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/tech_stacks.md): Analysis of technology stacks, frameworks, and tool selection criteria
+- [Development Tools](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/tool_tip/tools.md): Practical tools and utilities for software development
+- [Development Tips](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/tool_tip/tips.md): Practical tips, tricks, and best practices for developers
+
+## Data Science
+- [Data Science Overview](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/data/index.md): Introduction to data engineering, analytics, and visualization
+- [Introduction to Data](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/data/basics/introduction_to_data.md): Fundamental concepts in data types, quality, privacy, and data engineering
+
+## Artificial Intelligence
+- [AI Overview](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/index.md): Introduction to machine learning, deep learning, and AI applications
+- [AI Concepts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/basics/concepts.md): Core artificial intelligence concepts and terminology
+- [AI Posts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/basics/posts.md): Practical insights and discussions on AI implementation and applications
+
+## Reference Materials
+- [About This Handbook](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/about.md): Project background, methodology, and usage guidelines
+- [Study Guide](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/study_guide.md): Structured learning path for software engineering concepts
+- [Abbreviations](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/abbreviations.md): Comprehensive glossary of technical abbreviations and acronyms
+
+## Optional
+- [Coding Styles](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/styles.md): Detailed style guides and formatting conventions
+- [Software Posts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/software/basics/posts.md): Additional articles and discussions on software engineering topics
+- [Data Posts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/data/basics/posts.md): Additional articles and discussions on data science topics
