@@ -652,95 +652,151 @@ flowchart LR
 ### Structure
 
 #### Monorepo Structure
+
 A monorepo (monolithic repository) contains multiple projects in a single repository. Benefits include:
+
 - **Shared Dependencies**: Easier to manage common libraries and dependencies
+
 - **Atomic Changes**: Changes across multiple projects can be made in a single commit
+
 - **Unified Tooling**: Consistent build tools, linting, and testing across all projects
+
 - **Simplified Dependency Management**: No version conflicts between projects
 
 **Best Practices:**
+
 - Use workspace tools (Lerna, Nx, Rush, or built-in workspace support)
+
 - Establish clear project boundaries and ownership
+
 - Implement consistent coding standards and tooling
+
 - Use automated dependency graph analysis
 
 #### Polyrepo Structure
 Multiple repositories, each containing a single project or small set of related projects.
 
 **Benefits:**
+
 - **Independent Releases**: Each project can be versioned and released separately
+
 - **Clear Ownership**: Specific teams own specific repositories
+
 - **Reduced Repository Size**: Smaller, more focused repositories
+
 - **Access Control**: Granular permissions per repository
 
 ### Layers
 
 #### Core Layer
+
 Base abstractions, interfaces, and protocols.
 
 **Contents:**
+
 - Domain models and entities
+
 - Business logic interfaces
+
 - Data access abstractions
+
 - Common utilities and helpers
+
 - Configuration interfaces
+
 - Event definitions and contracts
 
 **Characteristics:**
+
 - No external dependencies
+
 - Framework-agnostic
+
 - Highly testable
+
 - Contains business rules and domain logic
 
 #### Implementation Layer
+
 Concrete implementations and high-level public utilities.
 
 **Contents:**
+
 - Service implementations
+
 - Repository implementations
+
 - Data transfer objects (DTOs)
+
 - Utility classes and functions
+
 - Business logic implementations
+
 - Event handlers and processors
 
 **Characteristics:**
+
 - Depends on core layer only
+
 - Contains framework-specific code
+
 - Implements interfaces defined in core
+
 - Orchestrates business workflows
 
 #### Integration Layer
+
 Third-party service integrations.
 
 **Contents:**
+
 - External API clients
+
 - Database implementations
+
 - Message queue integrations
+
 - Cloud service connectors
+
 - Third-party library wrappers
+
 - Infrastructure adapters
 
 **Characteristics:**
+
 - Isolates external dependencies
+
 - Provides consistent interfaces to external services
+
 - Handles authentication and authorization
+
 - Manages connection pooling and retries
 
 #### Testing Layer
 Test implementations and testing utilities.
 
 **Contents:**
+
 - Unit tests for all layers
+
 - Integration tests
+
 - End-to-end tests
+
 - Test doubles and mocks
+
 - Test utilities and fixtures
+
 - Performance and load tests
 
 **Testing Pyramid:**
+
 - **Unit Tests**: Fast, isolated, test single components
+
 - **Integration Tests**: Test interactions between components
+
 - **End-to-End Tests**: Test complete user workflows
+
 - **Contract Tests**: Verify API compatibility between services
 
 **Best Practices:**
