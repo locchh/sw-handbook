@@ -2459,80 +2459,206 @@ Horizontal: [Server] → [Server] + [Server] + [Server]
 <h2 id="coding-project-architecture-patterns">Coding Project Architecture Patterns<a class="headerlink" href="#coding-project-architecture-patterns" title="Permanent link">&para;</a></h2>
 <h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
 <h4 id="monorepo-structure">Monorepo Structure<a class="headerlink" href="#monorepo-structure" title="Permanent link">&para;</a></h4>
-<p>A monorepo (monolithic repository) contains multiple projects in a single repository. Benefits include:
-- <strong>Shared Dependencies</strong>: Easier to manage common libraries and dependencies
-- <strong>Atomic Changes</strong>: Changes across multiple projects can be made in a single commit
-- <strong>Unified Tooling</strong>: Consistent build tools, linting, and testing across all projects
-- <strong>Simplified Dependency Management</strong>: No version conflicts between projects</p>
-<p><strong>Best Practices:</strong>
-- Use workspace tools (Lerna, Nx, Rush, or built-in workspace support)
-- Establish clear project boundaries and ownership
-- Implement consistent coding standards and tooling
-- Use automated dependency graph analysis</p>
+<p>A monorepo (monolithic repository) contains multiple projects in a single repository. Benefits include:</p>
+<ul>
+<li>
+<p><strong>Shared Dependencies</strong>: Easier to manage common libraries and dependencies</p>
+</li>
+<li>
+<p><strong>Atomic Changes</strong>: Changes across multiple projects can be made in a single commit</p>
+</li>
+<li>
+<p><strong>Unified Tooling</strong>: Consistent build tools, linting, and testing across all projects</p>
+</li>
+<li>
+<p><strong>Simplified Dependency Management</strong>: No version conflicts between projects</p>
+</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>
+<p>Use workspace tools (Lerna, Nx, Rush, or built-in workspace support)</p>
+</li>
+<li>
+<p>Establish clear project boundaries and ownership</p>
+</li>
+<li>
+<p>Implement consistent coding standards and tooling</p>
+</li>
+<li>
+<p>Use automated dependency graph analysis</p>
+</li>
+</ul>
 <h4 id="polyrepo-structure">Polyrepo Structure<a class="headerlink" href="#polyrepo-structure" title="Permanent link">&para;</a></h4>
 <p>Multiple repositories, each containing a single project or small set of related projects.</p>
-<p><strong>Benefits:</strong>
-- <strong>Independent Releases</strong>: Each project can be versioned and released separately
-- <strong>Clear Ownership</strong>: Specific teams own specific repositories
-- <strong>Reduced Repository Size</strong>: Smaller, more focused repositories
-- <strong>Access Control</strong>: Granular permissions per repository</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>
+<p><strong>Independent Releases</strong>: Each project can be versioned and released separately</p>
+</li>
+<li>
+<p><strong>Clear Ownership</strong>: Specific teams own specific repositories</p>
+</li>
+<li>
+<p><strong>Reduced Repository Size</strong>: Smaller, more focused repositories</p>
+</li>
+<li>
+<p><strong>Access Control</strong>: Granular permissions per repository</p>
+</li>
+</ul>
 <h3 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h3>
 <h4 id="core-layer">Core Layer<a class="headerlink" href="#core-layer" title="Permanent link">&para;</a></h4>
 <p>Base abstractions, interfaces, and protocols.</p>
-<p><strong>Contents:</strong>
-- Domain models and entities
-- Business logic interfaces
-- Data access abstractions
-- Common utilities and helpers
-- Configuration interfaces
-- Event definitions and contracts</p>
-<p><strong>Characteristics:</strong>
-- No external dependencies
-- Framework-agnostic
-- Highly testable
-- Contains business rules and domain logic</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li>
+<p>Domain models and entities</p>
+</li>
+<li>
+<p>Business logic interfaces</p>
+</li>
+<li>
+<p>Data access abstractions</p>
+</li>
+<li>
+<p>Common utilities and helpers</p>
+</li>
+<li>
+<p>Configuration interfaces</p>
+</li>
+<li>
+<p>Event definitions and contracts</p>
+</li>
+</ul>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>No external dependencies</p>
+</li>
+<li>
+<p>Framework-agnostic</p>
+</li>
+<li>
+<p>Highly testable</p>
+</li>
+<li>
+<p>Contains business rules and domain logic</p>
+</li>
+</ul>
 <h4 id="implementation-layer">Implementation Layer<a class="headerlink" href="#implementation-layer" title="Permanent link">&para;</a></h4>
 <p>Concrete implementations and high-level public utilities.</p>
-<p><strong>Contents:</strong>
-- Service implementations
-- Repository implementations
-- Data transfer objects (DTOs)
-- Utility classes and functions
-- Business logic implementations
-- Event handlers and processors</p>
-<p><strong>Characteristics:</strong>
-- Depends on core layer only
-- Contains framework-specific code
-- Implements interfaces defined in core
-- Orchestrates business workflows</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li>
+<p>Service implementations</p>
+</li>
+<li>
+<p>Repository implementations</p>
+</li>
+<li>
+<p>Data transfer objects (DTOs)</p>
+</li>
+<li>
+<p>Utility classes and functions</p>
+</li>
+<li>
+<p>Business logic implementations</p>
+</li>
+<li>
+<p>Event handlers and processors</p>
+</li>
+</ul>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>Depends on core layer only</p>
+</li>
+<li>
+<p>Contains framework-specific code</p>
+</li>
+<li>
+<p>Implements interfaces defined in core</p>
+</li>
+<li>
+<p>Orchestrates business workflows</p>
+</li>
+</ul>
 <h4 id="integration-layer">Integration Layer<a class="headerlink" href="#integration-layer" title="Permanent link">&para;</a></h4>
 <p>Third-party service integrations.</p>
-<p><strong>Contents:</strong>
-- External API clients
-- Database implementations
-- Message queue integrations
-- Cloud service connectors
-- Third-party library wrappers
-- Infrastructure adapters</p>
-<p><strong>Characteristics:</strong>
-- Isolates external dependencies
-- Provides consistent interfaces to external services
-- Handles authentication and authorization
-- Manages connection pooling and retries</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li>
+<p>External API clients</p>
+</li>
+<li>
+<p>Database implementations</p>
+</li>
+<li>
+<p>Message queue integrations</p>
+</li>
+<li>
+<p>Cloud service connectors</p>
+</li>
+<li>
+<p>Third-party library wrappers</p>
+</li>
+<li>
+<p>Infrastructure adapters</p>
+</li>
+</ul>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>
+<p>Isolates external dependencies</p>
+</li>
+<li>
+<p>Provides consistent interfaces to external services</p>
+</li>
+<li>
+<p>Handles authentication and authorization</p>
+</li>
+<li>
+<p>Manages connection pooling and retries</p>
+</li>
+</ul>
 <h4 id="testing-layer">Testing Layer<a class="headerlink" href="#testing-layer" title="Permanent link">&para;</a></h4>
 <p>Test implementations and testing utilities.</p>
-<p><strong>Contents:</strong>
-- Unit tests for all layers
-- Integration tests
-- End-to-end tests
-- Test doubles and mocks
-- Test utilities and fixtures
-- Performance and load tests</p>
-<p><strong>Testing Pyramid:</strong>
-- <strong>Unit Tests</strong>: Fast, isolated, test single components
-- <strong>Integration Tests</strong>: Test interactions between components
-- <strong>End-to-End Tests</strong>: Test complete user workflows
-- <strong>Contract Tests</strong>: Verify API compatibility between services</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li>
+<p>Unit tests for all layers</p>
+</li>
+<li>
+<p>Integration tests</p>
+</li>
+<li>
+<p>End-to-end tests</p>
+</li>
+<li>
+<p>Test doubles and mocks</p>
+</li>
+<li>
+<p>Test utilities and fixtures</p>
+</li>
+<li>
+<p>Performance and load tests</p>
+</li>
+</ul>
+<p><strong>Testing Pyramid:</strong></p>
+<ul>
+<li>
+<p><strong>Unit Tests</strong>: Fast, isolated, test single components</p>
+</li>
+<li>
+<p><strong>Integration Tests</strong>: Test interactions between components</p>
+</li>
+<li>
+<p><strong>End-to-End Tests</strong>: Test complete user workflows</p>
+</li>
+<li>
+<p><strong>Contract Tests</strong>: Verify API compatibility between services</p>
+</li>
+</ul>
 <p><strong>Best Practices:</strong>
 - Maintain high test coverage for core business logic
 - Use test doubles for external dependencies
