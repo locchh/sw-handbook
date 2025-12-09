@@ -19,3 +19,7 @@ This handbook is organized in a hierarchical structure. You can navigate through
 - [Tech Interview Handbook](https://www.techinterviewhandbook.org/) - A comprehensive guide for software engineering interview preparation that provides valuable insights and structured learning approaches.
 
 - [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge/tree/master) - A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, and CLI/web tools for System and Network administrators, DevOps, and Security Researchers.
+
+- [Baeldung](https://www.baeldung.com/) - It's a popular Java and Spring tutorial website that provides comprehensive guides, articles, and courses on Java programming, Spring framework, and related technologies.
+
+- [roadmap.sh](https://roadmap.sh/) - Is a community effort to create roadmaps, guides and other educational content to help guide developers in picking up a path and guide their learnings.
