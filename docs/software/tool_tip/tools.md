@@ -32,3 +32,15 @@ Static type checking
 ### pytest
 Testing framework
 - [pytest Documentation](https://docs.pytest.org/)
+
+## Documentation
+
+### Context7
+Generate context with up-to-date documentation for LLMs and AI code editors
+- [Context7 Website](https://context7.com/)
+- [GitHub Repository](https://github.com/upstash/context7)
+
+### llms.txt directories
+Directories for finding and exploring llms.txt files from various products and services
+- [llms.txt sites directory](https://llmstxt.site/)
+- [llms.txt directory](https://directory.llmstxt.cloud/)
