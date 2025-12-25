@@ -26,5 +26,5 @@ Open-source AI model hub and tools
 
 ### MLflow
 Open-source platform for machine learning lifecycle
-- [MLflow Documentation](https://mlflow.org/docs/)
+- [MLflow](https://mlflow.org/)
 - [GitHub Repository](https://github.com/mlflow/mlflow)
