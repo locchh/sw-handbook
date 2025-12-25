@@ -55,3 +55,8 @@ Directories for finding and exploring llms.txt files from various products and s
 - [llms.txt sites directory](https://llmstxt.site/)
 - [llms.txt directory](https://directory.llmstxt.cloud/)
 
+## Utility
+
+### petname
+Generate memorable, random names for projects, containers, and other resources
+- [GitHub Repository](https://github.com/dustinkirkland/petname) 
