@@ -33,6 +33,16 @@ Static type checking
 Testing framework
 - [pytest Documentation](https://docs.pytest.org/)
 
+## Diagramming & Design
+
+### Lucidchart
+Professional diagramming and flowchart software for visual communication
+- [Lucidchart](https://www.lucidchart.com)
+
+### Excalidraw
+Virtual whiteboard for sketching hand-drawn like diagrams
+- [Excalidraw](https://excalidraw.com/)
+
 ## Documentation
 
 ### Context7
@@ -44,3 +54,4 @@ Generate context with up-to-date documentation for LLMs and AI code editors
 Directories for finding and exploring llms.txt files from various products and services
 - [llms.txt sites directory](https://llmstxt.site/)
 - [llms.txt directory](https://directory.llmstxt.cloud/)
+

@@ -21,6 +21,7 @@ This handbook contains curated knowledge and practical insights across three cor
 - [AI Overview](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/index.md): Introduction to machine learning, deep learning, and AI applications
 - [AI Concepts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/basics/concepts.md): Core artificial intelligence concepts and terminology
 - [AI Posts](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/basics/posts.md): Practical insights and discussions on AI implementation and applications
+- [AI Development Tools](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/ai/tool_tip/tools.md): AI tools, frameworks, and platforms for development and deployment
 
 ## Reference Materials
 - [About This Handbook](https://raw.githubusercontent.com/locchh/sw-handbook/main/docs/about.md): Project background, methodology, and usage guidelines

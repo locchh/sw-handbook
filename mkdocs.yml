@@ -78,4 +78,6 @@ nav:
       - Fundamentals:
           - Concepts: ai/basics/concepts.md
           - Posts: ai/basics/posts.md
+      - Tool/Tip:
+        - Tools: ai/tool_tip/tools.md
   - About: about.md
