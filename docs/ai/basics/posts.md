@@ -1,6 +1,6 @@
 [🚀 How to evaluate AI impact?]() *Comming soon*
 
-[🚀 LLM-A Well-Kind Naive Expert](https://locchh.github.io/blogs/blog/why_model_hallucinate/) 26/11/2026
+[🚀 LLM-A Well-Kind Naive Expert](https://locchh.github.io/blogs/blog/why_model_hallucinate/) 26/1/2026
 
 [🚀 The Real Trade-Offs of Building with AI](https://www.linkedin.com/posts/chuong-loc_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%9E-%F0%9D%90%91%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%A5-%F0%9D%90%93%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%9D%F0%9D%90%9E-%F0%9D%90%8E%F0%9D%90%9F%F0%9D%90%9F%F0%9D%90%AC-%F0%9D%90%A8%F0%9D%90%9F-activity-7399785870104641536-q_Mn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9laxkBsmkcAipJMc2HAVrKjjkg5sWujiY) 27/11/2025
 
