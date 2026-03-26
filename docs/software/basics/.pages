@@ -1,0 +1,11 @@
+nav:
+  - Basic Concepts: basic_concepts.md
+  - Development Concepts: devlopment_concepts.md
+  - Error Handling: error_handling.md
+  - Coding Philosophies: philosophies_principles.md
+  - Architecture Patterns: architecture_patterns.md
+  - Tech Stacks: tech_stacks.md
+  - Styles: styles.md
+  - Abbreviations: abbreviations.md
+  - Study Guide: study_guide.md
+  - Posts: posts.md

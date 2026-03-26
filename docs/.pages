@@ -1,0 +1,6 @@
+nav:
+  - Home: index.md
+  - Software: software
+  - Data: data
+  - AI: ai
+  - About: about.md

@@ -49,35 +49,24 @@ extra_javascript:
   - javascripts/mathjax-init.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-# Navigation
-nav:
-  - Home: index.md
-  - Software:
-      - Overview: software/index.md
-      - Fundamentals:
-        - Basic Concepts: software/basics/basic_concepts.md
-        - Development Concepts: software/basics/devlopment_concepts.md
-        - Error Handling: software/basics/error_handling.md
-        - Coding Philosophies: software/basics/philosophies_principles.md
-        - Architecture Patterns: software/basics/architecture_patterns.md
-        - Tech Stacks: software/basics/tech_stacks.md
-        - Styles: software/basics/styles.md
-        - Abbreviations: software/basics/abbreviations.md
-        - Study Guide: software/basics/study_guide.md
-        - Posts: software/basics/posts.md
-      - Tool/Tip:
-        - Tools: software/tool_tip/tools.md
-        - Tips: software/tool_tip/tips.md
-  - Data:
-      - Overview: data/index.md
-      - Fundamentals:
-          - Introduction to Data: data/basics/introduction_to_data.md
-          - Posts: data/basics/posts.md
-  - AI:
-      - Overview: ai/index.md
-      - Fundamentals:
-          - Concepts: ai/basics/concepts.md
-          - Posts: ai/basics/posts.md
-      - Tool/Tip:
-        - Tools: ai/tool_tip/tools.md
-  - About: about.md
+# Plugins
+plugins:
+  - search
+  - awesome-pages
+  - llmstxt:
+      markdown_description: |
+        A comprehensive collection of notes about Software Engineering, Data Science, and Artificial Intelligence.
+      sections:
+        Software Engineering:
+          - software/index.md
+          - software/basics/*.md
+          - software/tool_tip/*.md
+        Data Science:
+          - data/index.md
+          - data/basics/*.md
+        Artificial Intelligence:
+          - ai/index.md
+          - ai/basics/*.md
+          - ai/tool_tip/*.md
+        Reference:
+          - about.md
