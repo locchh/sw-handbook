@@ -1,0 +1,40 @@
+# Software Handbook
+
+> A handbook about Software Engineering, Data and AI
+
+A comprehensive collection of notes about Software Engineering, Data Science, and Artificial Intelligence.
+
+
+## Software Engineering
+
+- [Overview](https://locchh.github.io/sw-handbook/software/index.md)
+- [Abbreviations](https://locchh.github.io/sw-handbook/software/basics/abbreviations/index.md)
+- [Architecture Patterns](https://locchh.github.io/sw-handbook/software/basics/architecture_patterns/index.md)
+- [Basic Concepts](https://locchh.github.io/sw-handbook/software/basics/basic_concepts/index.md)
+- [Development Concepts](https://locchh.github.io/sw-handbook/software/basics/devlopment_concepts/index.md)
+- [Error Handling](https://locchh.github.io/sw-handbook/software/basics/error_handling/index.md)
+- [Coding Philosophies](https://locchh.github.io/sw-handbook/software/basics/philosophies_principles/index.md)
+- [Posts](https://locchh.github.io/sw-handbook/software/basics/posts/index.md)
+- [Study Guide](https://locchh.github.io/sw-handbook/software/basics/study_guide/index.md)
+- [Styles](https://locchh.github.io/sw-handbook/software/basics/styles/index.md)
+- [Tech Stacks](https://locchh.github.io/sw-handbook/software/basics/tech_stacks/index.md)
+- [Tips](https://locchh.github.io/sw-handbook/software/tool_tip/tips/index.md)
+- [Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md)
+
+## Data Science
+
+- [Overview](https://locchh.github.io/sw-handbook/data/index.md)
+- [Introduction to Data](https://locchh.github.io/sw-handbook/data/basics/introduction_to_data/index.md)
+- [Posts](https://locchh.github.io/sw-handbook/data/basics/posts/index.md)
+
+## Artificial Intelligence
+
+- [Overview](https://locchh.github.io/sw-handbook/ai/index.md)
+- [Concepts](https://locchh.github.io/sw-handbook/ai/basics/concepts/index.md)
+- [Posts](https://locchh.github.io/sw-handbook/ai/basics/posts/index.md)
+- [Tools](https://locchh.github.io/sw-handbook/ai/tool_tip/tools/index.md)
+
+## Reference
+
+- [About](https://locchh.github.io/sw-handbook/about/index.md)
+
