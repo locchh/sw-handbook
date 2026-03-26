@@ -13,6 +13,7 @@ This repository contains a web-based handbook with my notes and insights about S
 - Retro-style design with modern functionality
 - Automatic navigation based on folder structure
 - Hosted on GitHub Pages
+- Support [llms.txt](https://llmstxt.org/)
 
 ## Getting Started
 
