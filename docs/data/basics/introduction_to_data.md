@@ -1,242 +1,123 @@
 # Introduction to Data
 
-*Data is everywhere.*
-
 ## What is Data?
 
-- Derived from `datum`: given, fact.
-- Valuable resource in this digital era.
+From the Latin *datum* — "given, fact." Data is raw, uninterpreted facts about the world, captured so they can be stored, processed, and reasoned about later.
 
-## Data context
+## Metadata: The Context Around Data
 
-*Everything can be the context, but which ones are prior?*
+Metadata is data *about* data. Without it, a number is just a number. The five questions that define a dataset's context:
 
-Information that provides meaning to data
+- **When** was it collected?
+- **Where** was it collected?
+- **How** was it collected?
+- **Who** collected it?
+- **Why** was it collected?
 
-- When the data was collected?
+Answering these up front prevents misinterpretation later.
 
-- Where the data was collected?
+## Types of Data
 
-- How the data was collected?
+**By structure:**
 
-- Who collected the data?
+| Type | Description | Examples |
+|---|---|---|
+| **Structured** | Fits a fixed schema, usually tabular. | SQL tables, CSVs |
+| **Semi-structured** | Self-describing, flexible schema. | JSON, XML, YAML |
+| **Unstructured** | No predefined schema. | Text, images, audio, video |
 
-- Why the data was collected?
+**By nature:**
 
-These characteristics of data are called the **metadata**.
+- **Quantitative** — measurable numeric values (age, temperature, revenue).
+- **Qualitative** — descriptive, categorical (color, opinion, label).
 
-## Type of data
+## The DIKW Pyramid
 
-Classification of data based on their structure:
-
-- Structured data (*If there are rules, then there must be some form of structure*)
-
-- Semi-structured data
-
-- Unstructured data
-
-Classification of data based on their nature: 
-
-- Quantitative data
-
-- Qualitative data
-
-## Data storage is changing
-
-**Historical data storage**
-- Genetic information in DNA.
-- Cave and wall paintings.
-- Scroll and books of papyrus/parchment.
-
-**19th and 20th century**
-- Punch cards.
-- Magnetic tape, floppy disks.
-
-**20th and 21st century**
-- More data on smaller media.
-- CDs and hard/solid state drives(local).
-- Data centers (cloud).
-
-## The DIKW pyramid
+How raw data becomes decisions:
 
 ```
-Data -> Information -> Knowledge -> Wisdom
+Data → Information → Knowledge → Wisdom
 ```
 
-**Raw data**
-- unprocessed data.
+- **Data** — raw, unprocessed facts.
+- **Information** — data *with context*. Organized, meaningful.
+- **Knowledge** — information connected into patterns that support decisions.
+- **Wisdom** — the ability to apply knowledge well. The hardest, most valuable layer.
 
-**Creating information**
-- Information is (organized) data with **context**.
-
-**Knowledge is power**:
-- Information alone doesn't lead to decisions.
-- Connecting all the dots of information.
-- Knowledge is information with **meaning**.
-
-**Archiving wisdom**
-- The hardest part
-- Insights: add more meaning to information by linking pieces.
-- Apply the knowledge for better decisions.
-
-## From data to decision
+## From Data to Decision
 
 ```
-Ask questions -> Gather data -> Prepare data -> Conduct Analysis -> Make decision
+Ask → Gather → Prepare → Analyze → Decide
 ```
 
-## Data as a resource
+A clear question before collection saves hours of rework. Most data projects fail not because of bad algorithms but because the goal was fuzzy.
 
-**Overwhelming data**
+## Core Concepts
 
-- Data is often too large in its raw form. Even "simple" analysis require large amount of data.
+| Concept | What it means |
+|---|---|
+| **Ingestion** | Collecting data from sources into your system (aka *population*). |
+| **Transformation** | Reshaping raw data into a form suitable for analysis. |
+| **Storage** | Keeping data accessible and durable. |
+| **Analysis** | Extracting insight via statistics or ML. |
+| **Visualization** | Communicating findings through charts and dashboards. |
+| **Normalization** | Splitting data into related tables (1NF, 2NF, 3NF, BCNF) to avoid redundancy. |
+| **Aggregation** | Summarizing many records into fewer (mean, sum, min, max, KPIs). |
+| **Management** | Unifying data across multiple flows. |
+| **Governance** | Ensuring data is consistent, trustworthy, and used appropriately. |
 
-- More complex analysis can leverage even million or billion of records.
+## Data Quality Dimensions
 
-**Data aggregation**
+When you receive or produce a dataset, check it against these five criteria:
 
-Aggregation is the process to summarize a dataset into a smaller pieces (easier to understand) is required to make informed decisions.
+| Dimension | Question to ask |
+|---|---|
+| **Accuracy** | Is it correct? Does it match reliable sources? |
+| **Validity** | Does it fit the intended use? |
+| **Completeness** | Are required fields missing? |
+| **Reliability** | Is the source credible? |
+| **Consistency** | Does it agree with itself over time and across datasets? |
 
-Common aggregation:
-- Simple average (mean)
-- Sum (totals)
-- Minimum or Maximum
-- Modes
+## Ethics of Data
 
-Aggregation appear in many ways throughout organizations.
-- Metrics
-- Benchmarks
-- Key performance indicators (KPIs)
+Five principles, one question each:
 
-Understanding how these aggregations are created is extremely helpful for many investigations.
+- **Permission** — do subjects consent to this use?
+- **Transparency** — is the plan visible to them?
+- **Privacy** — is personal data protected?
+- **Intent** — are the goals legitimate?
+- **Outcome** — have you considered the downstream effects?
 
-## Key concepts
-
-**Data flow**
-
-Data flow within organizations is often  highly complex.
-
-- Data from many different sources systems
-- Processed through other systems
-- Displayed and manipulated in other systems.
-
-**Data ingestion**
-
-Data ingestion is the process of collecting data from various sources and loading it into a data storage system. The same process is also called **data population**.
-
-**Data transformation**
-
-Data transformation is the process of converting raw data into a format that is useful for analysis.
-
-**Data storage**
-
-Data storage is the process of storing data in a way that is accessible and secure.
-
-**Data analysis**
-
-Data analysis is the process of using statistical and machine learning techniques to extract insights from data.
-
-**Data visualization**
-
-Data visualization is the process of representing data in a way that is easy to understand.
-
-**Data normalization**
-
-Avoid data redundancy and maintain integrity. Organize data into multiple related tables using normal forms (1NF, 2NF, 3NF, BCNF, etc.).
-
-**Data management**
-Data management is responsible trying to unify and standardize data from many different data flows. These 
-
-**Data governance**
-Ensure data is consistent, trustworthy, and isn't misused.
-
-**Data quality**
-
-You should assess the source data for accuracy, validity, completeness, reliability, and consistency:
-
-- Accuracy - verify that the data is correct and error-free by cross-referencing with reliable sources.
-
-- Validity - Ensure the data is applicable and suitable for the intended use or context.
-
-- Completeness - Check that you included all necessary data and there are no missing elements.
-
-- Reliability - Ascertain that the data comes from a credible and dependable source.
-
-- Consistency - Confirm that the data does not show discrepancies when compared over time or with similar datasets.
-
-**Data Privacy and Security**
-Ensure proper data access, use, and protection.
-
-## Principles of data ethics
-
-- Permission for 
-- Transparency about the plan
-- Privacy of data
-- Good intentions
-- Consider the outcome
-
-## Data lifecycle
+## Data Lifecycle
 
 ```
-Planning -> Collection -> Storage -> Management -> Cleaning and processing -> Analysis and Visualization -> Sharing -> Archiving/destroying
+Plan → Collect → Store → Manage → Clean & Process → Analyze & Visualize → Share → Archive / Destroy
 ```
 
-## Approaches for Importing Data
+Every stage has compliance and quality implications. Skipping "Plan" is the most common mistake.
 
-When we say importing data, it means the process of moving data from one system into database. The import could be a one-time operation, or it could be a regular process that you need to automate. Typically, the source system would have a different data model than database, and by importing data, you would transform the data into a model that is more appropriate for your use case.
+## Importing Data
 
-The source may expose data in different ways, for example:
+"Importing" means moving data from a source into your storage system, usually reshaping it along the way. Common sources:
 
-- Relational Database Management Systems (RDBMS)
-
-- Web APIs
-
+- Relational databases (RDBMS)
+- Web / REST APIs
+- Flat files (CSV, JSON, XML)
+- Excel workbooks, BI tool exports
 - Public data directories
 
-- BI tools
+**Choose the import strategy based on:**
 
-- Excel
+- Volume of data
+- Frequency of updates (one-off, scheduled, continuous, real-time)
+- Required transformations
+- Source model vs. target model mismatch
 
-- Flat files (CSV, JSON, XML)
+Typical approaches, from simplest to most complex: *one-off batch → scheduled batch → continuous pipeline → real-time streaming*. Start simple and upgrade when a real constraint forces the change.
 
-The method by which you import data into database will depend on several factors, including:
+## Common Mistakes
 
-- The source of the data
-
-- The volume of data
-
-- The frequency of the import
-
-- The complexity of the data model
-
-- The transformation required
-
-The options available to you are numerous, and include:
-
-- One-off batch import of all data
-
-- One-off load with a regular update
-
-- Continuous import of data
-
-- Real-time application updates
-
-- ETL (Extract, Transform, Load) pipelines
-
-Before you start importing data, you should take time to understand the data you are working with, including:
-
-- The data format and structure
-
-- The frequency of updates
-
-- Data quality
-
-- Uniquely identifying data
-
-These factors will influence the process you take to import the data into database.
-
-## Common mistakes about data
-- Not having a clear goal or question
-- Insufficient or wrong data (data bias, dirty data,etc.)
-- Lack of appropriate analysis (lack of context, wrong metrics,etc.)
-- No clear communication of results
+- **No clear question.** Data projects without a goal produce reports nobody uses.
+- **Wrong or biased data.** Garbage in, garbage out — no amount of modeling fixes bad sources.
+- **Inappropriate analysis.** Right numbers, wrong metric, wrong conclusion.
+- **No communication plan.** An insight that isn't shared clearly might as well not exist.

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(/home/locch/.claude/plugins/cache/claude-plugins-official/ralph-loop/1.0.0/scripts/setup-ralph-loop.sh *)",
+      "Bash(\"/home/locch/.claude/plugins/cache/claude-plugins-official/ralph-loop/1.0.0/scripts/setup-ralph-loop.sh\" *)"
     ]
   }
 }

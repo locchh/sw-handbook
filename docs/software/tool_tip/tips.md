@@ -1,105 +1,130 @@
 # Tips
 
-## Pair-coding Tips
+Practical tips for working effectively, especially when collaborating with AI coding assistants.
 
-1. *Configure AI assistants for collaborative development using [rules](https://docs.windsurf.com/windsurf/cascade/memories) or memory systems in agentic coding tools, for example* 
+## Pair-Coding with AI
 
-> 1. If you don't sure about something, use MCP servers (tavily, context7, github-mcp-server, etc.) to search for information and code before answering questions.
-> 2. You MUST collaborate with the developer through active discussion and brainstorming, guiding them through problem-solving and exploration.
-> 3. Don't just agree with developer ideas — push back when necessary. Challenge my assumptions and offer thoughtful counterarguments.
-> 4. Generate code ONLY when the developer explicitly requests it.
-> 5. When generating code, follow industry best practices. Ensure it is clean, readable, and includes type hints, docstrings, and meaningful comments.
+1. **Configure the assistant with rules or memory** so it behaves consistently across sessions. A minimal set of rules worth having:
+   > - When unsure, use MCP servers (tavily, context7, github-mcp-server) to look up real information before answering.
+   > - Collaborate through active discussion — push back on ideas when there's a reason to.
+   > - Generate code only when explicitly asked for it.
+   > - Follow industry practice: clean, typed, documented code with meaningful comments.
 
+2. **Use the right tool for the right level.** High-level agents (Claude Code) are good for architectural and team-lead thinking; editor-integrated tools (Windsurf) are good for tight code-level collaboration. A hybrid of both often beats either alone.
 
-2. *Using [claude code](https://www.claude.com/product/claude-code) which is optimized for execution, you have to think at a high level, like a Team Lead or a Senior Software Engineer, while using [windsurf](https://windsurf.com/) with optimized collaborative flow having the feature [codemap](https://cognition.ai/blog/codemaps) can create a map of logic flow allowing you to navigate through codebase quickly and efficiently/ I think hybrid of this two tools is the best way to level-up your engineering skills*
+3. **Ask the assistant to explore the codebase for you.** Have it map subpackages, modules, and key components. You'll understand the code faster than by reading docs linearly.
 
+4. **Keep a sandbox environment** where you can try ideas before touching the main codebase.
 
-3. *Use AI to inspect the codebase you're working on, including packages you're using, the role of each subpackage, module, and usage of specific code components. For example, given a LangChain quickstart, ask AI to explore the LangChain package and explain the logic behind each component. This tip lead to a better understanding of the codebase than only reading documentation or hand-on examples*
+5. **Start each feature small.** When unsure, write a short markdown spec describing what you want and brainstorm with the assistant until the plan is clear. Then implement.
 
+6. **Scope changes to something reviewable** — a function, a class, a file. Smaller scope makes it easier for humans and AIs to follow the reasoning.
 
-4. *You can create a sanbox evironment where you freely to try your idea before implement it in the main codebase*
+7. **Build scaffolding first.** Create the folder structure, empty files with intent comments, maybe the first few lines — then ask the assistant to fill it in.
 
+8. **Tier your models by task.** Use a top-tier model to get code working, then switch to a cheaper model to explain, review, and iterate.
 
-5. *When starting a new feature or codebase, keep it small, clear, and focused. When unsure where to begin, create a markdown documentation file to describe about what you want to implement, then brainstorm with AI until you have a clear implementation plan*
+9. **Give the assistant a runtime environment** where it can execute code and see feedback. Generate-test-refine loops are more reliable than one-shot code generation.
 
+## Review & Defend Prompts
 
-6. *Controlling the impact by scoping your feature or idea to an appropriate size (such as a function, class, or file) helps the reader easily understand how the codebase is organized and enables them to switch to alternative solutions.*
+Short prompts that change how the assistant behaves:
 
-
-7. *You can also create a backbone (structure of folder, the comments inside a empty file, some first few lines of code,etc.) the ask AI to complete the backbone* 
-
-
-8. *Another tip to reduce cost is using a top-tier AI to generate code until it work, backup code, then use another cheper AI to iterate with you for explain, review, refactor, etc.*
-
-
-9. *It would be better to create a runtime environment where the AI can execute code, receive feedback, and iteratively improve through a generate-test-refine loop* 
-
-
-## Review Tips
-
-- *Let review this codbase/component/feature in strict mode* => Be strict
-
-- *I don't think this codebase/component/feature works as expected, do you have any idea?* => Make AI defend its answer
-
-- Use custom command or worfklow `/make-commit-message` to help agent generate atomic commit
-
-```
----
-auto_execution_mode: 0
-description: Generate a commit message based on the staged changes and related files
----
-
-You are a senior software engineer generating a commit message based on the staged changes and related files.
-
-1. Run `git diff --staged` to see the changes, then generate a commit message based on the changes.
-2. Review recent history - `git log --oneline -5` to understand commit patterns
-3. Check branch context - `git branch --show-current` and `git remote -v` for project context
-4. Analyze related files - Check files that might be affected by changes:
-   - Package files (`package.json`, `requirements.txt`, `Cargo.toml`, etc.)
-   - Configuration files (`.env`, `config/`, etc.)
-   - Documentation files (`README.md`, `CHANGELOG.md`, etc.)
-   - Test files that might need updates
-5. Generate semantic message - Create commit message following conventional commits format:
-   - `feat:` for new features
-   - `fix:` for bug fixes  
-   - `docs:` for documentation changes
-   - `style:` for formatting changes
-   - `refactor:` for code refactoring
-   - `test:` for test additions/changes
-   - `chore:` for maintenance tasks
-   - etc.
-```
-
-- Use `/review` to let agent review code:
-
-```
----
-auto_execution_mode: 0
-description: Review code changes for bugs, security issues, and improvements
----
-You are a senior software engineer performing a thorough code review to identify potential bugs.
-
-Your task is to find all potential bugs and code improvements in the code changes. Focus on:
-1. Logic errors and incorrect behavior
-2. Edge cases that aren't handled
-3. Null/undefined reference issues
-4. Race conditions or concurrency issues
-5. Security vulnerabilities
-6. Improper resource management or resource leaks
-7. API contract violations
-8. Incorrect caching behavior, including cache staleness issues, cache key-related bugs, incorrect cache invalidation, and ineffective caching
-9. Violations of existing code patterns or conventions
-
-Make sure to:
-1. If exploring the codebase, call multiple tools in parallel for increased efficiency. Do not spend too much time exploring.
-2. If you find any pre-existing bugs in the code, you should also report those since it's important for us to maintain general code quality for the user.
-3. Do NOT report issues that are speculative or low-confidence. All your conclusions should be based on a complete understanding of the codebase.
-4. Remember that if you were given a specific git commit, it may not be checked out and local code states may be different.
-```
-
+- *"Review this codebase/component in strict mode"* — raises the bar.
+- *"I don't think this works as expected — do you see the issue?"* — forces the assistant to defend its answer instead of agreeing.
 
 ## Testing Tips
 
-- *Write tests before implementation (TDD with AI): Describe the expected behavior to AI, let it generate test cases first, then implement the code to pass those tests. This ensures you have clear requirements and prevents over-engineering*
+- **TDD with AI.** Describe the expected behavior, have the assistant generate tests first, then implement against them. Prevents over-engineering by pinning down requirements up front.
+- **Ask for edge cases.** After your initial tests, ask the assistant to identify missing cases: nulls, boundaries, concurrency, error paths. AIs are good at systematic coverage.
 
-- *Ask AI to generate edge cases: After writing your initial tests, ask AI to identify edge cases you might have missed—null values, boundary conditions, concurrent access, error handling paths, etc. AI excels at systematic coverage analysis*
+## Custom Commands
+
+### `/make-commit-message`
+
+```
+---
+description: Generate a commit message based on staged changes
+---
+
+You are a senior engineer writing a commit message for the staged changes.
+
+1. Run `git diff --staged` to see the changes.
+2. Review recent history — `git log --oneline -5` — to match commit patterns.
+3. Check branch context — `git branch --show-current` and `git remote -v`.
+4. Analyze related files (package files, configs, docs, tests that may need updates).
+5. Write a conventional-commits message:
+   - feat: new features
+   - fix: bug fixes
+   - docs: documentation
+   - refactor: code restructuring
+   - test: test changes
+   - chore: tooling / maintenance
+```
+
+### `/review`
+
+```
+---
+description: Review code changes for bugs, security issues, and improvements
+---
+
+You are a senior engineer doing a careful code review. Find bugs and improvements. Focus on:
+
+1. Logic errors and incorrect behavior
+2. Unhandled edge cases
+3. Null / undefined references
+4. Race conditions and concurrency bugs
+5. Security vulnerabilities
+6. Resource leaks
+7. API contract violations
+8. Caching bugs (staleness, bad keys, bad invalidation)
+9. Violations of existing codebase patterns
+
+Rules:
+1. Explore the codebase in parallel. Don't over-explore.
+2. Report pre-existing bugs too — they matter for quality.
+3. Don't speculate. Only report issues you're confident about.
+4. Remember: the commit may not be checked out; local state may differ.
+```
+
+## Prompt Bank for Exploring a Codebase
+
+When the assistant doesn't know the project, give it specific starting points. Always include file paths, error messages, or feature names — the more context, the better the output.
+
+**Starting a project**
+
+- "Help me start this project from `{design_doc}`. Show the folder structure and setup steps."
+- "Give me the exact commands to run this on a fresh machine."
+- "Create a minimal `Dockerfile` and `docker-compose.yml` for local development."
+- "Set up linters, formatters, and pre-commit hooks with configs."
+
+**Building features**
+
+- "Plan how to implement `{feature_name}`."
+- "Build `{functionality}` with tests and edge-case handling."
+- "Fix this error: `{error_message}`. Stack trace: `{stack_trace}`."
+- "Add logging and metrics to debug `{component}`."
+
+**Understanding code**
+
+- "What does this codebase do and how is it structured?"
+- "Show me the core components and how they connect."
+- "How does data flow through the system?"
+- "Explain the architecture of `{component}`."
+- "What are the entry points and how do I run this locally?"
+
+**Quality and deployment**
+
+- "Give me a PR review checklist (security, tests, performance)."
+- "What's the test coverage and strategy?"
+- "Create a CI/CD pipeline for GitHub Actions."
+- "Write onboarding docs: setup → run → test → deploy."
+- "Generate OpenAPI docs for these endpoints."
+
+**System design and operations**
+
+- "Explain the platform architecture and component interactions."
+- "How is auth handled across services?"
+- "Where are the failure points, and what resilience strategies are in place?"
+- "Show me the deployment order, scaling strategy, and monitoring setup."
