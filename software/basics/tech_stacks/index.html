@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/tech_stacks/">
       
       
-        <link rel="prev" href="../architecture_patterns/">
+        <link rel="prev" href="../lifecycle/">
       
       
         <link rel="next" href="../styles/">
@@ -407,14 +407,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic_concepts/" class="md-nav__link">
+      <a href="../fundamentals/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Basic Concepts
+    Fundamentals
   
 
     
@@ -435,14 +435,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../devlopment_concepts/" class="md-nav__link">
+      <a href="../principles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Development Concepts
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
   
 
     
@@ -491,42 +519,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../philosophies_principles/" class="md-nav__link">
+      <a href="../lifecycle/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coding Philosophies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture_patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture Patterns
+    Lifecycle
   
 
     
@@ -607,38 +607,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-modern-software-stack" class="md-nav__link">
+  <a href="#the-layered-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Modern Software Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Modern Software Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#layer-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer Breakdown
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-backend-tech-stack-pyramid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Backend Tech Stack Pyramid
+        The Layered View
       
     </span>
   </a>
@@ -646,903 +618,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-languages-foundation-layer" class="md-nav__link">
+  <a href="#languages-at-a-glance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programming Languages (Foundation Layer)
+        Languages at a Glance
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Programming Languages (Foundation Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javascript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JavaScript
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C#
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-golang" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Go (Golang)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rust
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ruby" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ruby
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PHP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#databases-data-layer" class="md-nav__link">
+  <a href="#databases-at-a-glance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Databases (Data Layer)
+        Databases at a Glance
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Databases (Data Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#relational-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Relational Databases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Relational Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MySQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oracle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Oracle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nosql-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        NoSQL Databases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="NoSQL Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MongoDB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DynamoDB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apache-cassandra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Apache Cassandra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#frameworks-application-layer" class="md-nav__link">
+  <a href="#classic-stack-combinations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frameworks (Application Layer)
+        Classic Stack Combinations
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Frameworks (Application Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backend-frameworks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backend Frameworks
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backend Frameworks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Boot (Java)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nodejs-javascript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node.js (JavaScript)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django (Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fastapi-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FastAPI (Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ruby-on-rails-ruby" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ruby on Rails (Ruby)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#langchain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Langchain
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-infrastructure-layer" class="md-nav__link">
+  <a href="#how-to-pick-a-stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deployment &amp; Infrastructure Layer
+        How to Pick a Stack
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Deployment &amp; Infrastructure Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloud-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cloud Providers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cloud Providers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#amazon-web-services-aws" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Amazon Web Services (AWS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microsoft-azure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microsoft Azure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google-cloud-platform-gcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Google Cloud Platform (GCP)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerization-orchestration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Containerization &amp; Orchestration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Containerization &amp; Orchestration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#platform-as-a-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Platform-as-a-Service
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Platform-as-a-Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vercel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vercel
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cicd-version-control-layer" class="md-nav__link">
+  <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD &amp; Version Control Layer
+        Further Reading
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="CI/CD &amp; Version Control Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitLab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bitbucket" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bitbucket
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cicd-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CI/CD Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jenkins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Jenkins
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#circleci" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CircleCI
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caching-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caching Layer
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Caching Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#content-delivery-networks-cdn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Delivery Networks (CDN)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#in-memory-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        In-Memory Caching
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="In-Memory Caching">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memcached" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memcached
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architectural-patterns-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architectural Patterns Layer
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architectural Patterns Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#microservices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microservices
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Serverless
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monolithic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monolithic
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apis-layer-top-of-the-pyramid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        APIs Layer (Top of the Pyramid)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="APIs Layer (Top of the Pyramid)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rest-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REST APIs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GraphQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JSON
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popular-tech-stack-combinations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Popular Tech Stack Combinations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Popular Tech Stack Combinations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lamp-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LAMP Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mean-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MEAN Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mern-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MERN Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-postgresql-redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django + PostgreSQL + Redis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-mysql-docker-aws" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Boot + MySQL + Docker + AWS
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-your-tech-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Choosing Your Tech Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Choosing Your Tech Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consider-these-factors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consider These Factors:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decision-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decision Framework:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stack-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stack Selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#technology-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technology Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continuous-evolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Continuous Evolution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2336,38 +1462,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-modern-software-stack" class="md-nav__link">
+  <a href="#the-layered-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Modern Software Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Modern Software Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#layer-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer Breakdown
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-backend-tech-stack-pyramid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Backend Tech Stack Pyramid
+        The Layered View
       
     </span>
   </a>
@@ -2375,903 +1473,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-languages-foundation-layer" class="md-nav__link">
+  <a href="#languages-at-a-glance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programming Languages (Foundation Layer)
+        Languages at a Glance
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Programming Languages (Foundation Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javascript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JavaScript
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C#
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-golang" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Go (Golang)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rust
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ruby" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ruby
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PHP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#databases-data-layer" class="md-nav__link">
+  <a href="#databases-at-a-glance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Databases (Data Layer)
+        Databases at a Glance
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Databases (Data Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#relational-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Relational Databases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Relational Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MySQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oracle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Oracle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nosql-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        NoSQL Databases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="NoSQL Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MongoDB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DynamoDB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apache-cassandra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Apache Cassandra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#frameworks-application-layer" class="md-nav__link">
+  <a href="#classic-stack-combinations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frameworks (Application Layer)
+        Classic Stack Combinations
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Frameworks (Application Layer)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backend-frameworks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backend Frameworks
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backend Frameworks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Boot (Java)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nodejs-javascript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node.js (JavaScript)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django (Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fastapi-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FastAPI (Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ruby-on-rails-ruby" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ruby on Rails (Ruby)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#langchain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Langchain
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-infrastructure-layer" class="md-nav__link">
+  <a href="#how-to-pick-a-stack" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deployment &amp; Infrastructure Layer
+        How to Pick a Stack
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Deployment &amp; Infrastructure Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloud-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cloud Providers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cloud Providers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#amazon-web-services-aws" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Amazon Web Services (AWS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microsoft-azure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microsoft Azure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google-cloud-platform-gcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Google Cloud Platform (GCP)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerization-orchestration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Containerization &amp; Orchestration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Containerization &amp; Orchestration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#platform-as-a-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Platform-as-a-Service
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Platform-as-a-Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vercel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vercel
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cicd-version-control-layer" class="md-nav__link">
+  <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD &amp; Version Control Layer
+        Further Reading
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="CI/CD &amp; Version Control Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitLab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bitbucket" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bitbucket
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cicd-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CI/CD Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jenkins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Jenkins
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#circleci" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CircleCI
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caching-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caching Layer
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Caching Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#content-delivery-networks-cdn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Delivery Networks (CDN)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#in-memory-caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        In-Memory Caching
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="In-Memory Caching">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memcached" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memcached
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architectural-patterns-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architectural Patterns Layer
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architectural Patterns Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#microservices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microservices
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Serverless
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monolithic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monolithic
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apis-layer-top-of-the-pyramid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        APIs Layer (Top of the Pyramid)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="APIs Layer (Top of the Pyramid)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rest-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REST APIs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GraphQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JSON
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popular-tech-stack-combinations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Popular Tech Stack Combinations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Popular Tech Stack Combinations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lamp-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LAMP Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mean-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MEAN Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mern-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MERN Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-postgresql-redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django + PostgreSQL + Redis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-mysql-docker-aws" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Boot + MySQL + Docker + AWS
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-your-tech-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Choosing Your Tech Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Choosing Your Tech Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consider-these-factors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consider These Factors:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decision-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decision Framework:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stack-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stack Selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#technology-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technology Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continuous-evolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Continuous Evolution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3296,708 +1548,178 @@
 
 
 <h1 id="tech-stacks">Tech Stacks<a class="headerlink" href="#tech-stacks" title="Permanent link">&para;</a></h1>
-<p>A tech stack is a combination of technologies, frameworks, libraries, and tools used to build and run applications. Understanding different tech stacks helps you choose the right tools for your project and understand how different technologies work together.</p>
-<h2 id="the-modern-software-stack">The Modern Software Stack<a class="headerlink" href="#the-modern-software-stack" title="Permanent link">&para;</a></h2>
-<p>The modern software stack represents a layered architecture where each layer has specific responsibilities and technology choices. Understanding this stack helps architects and developers make informed decisions about technology selection.</p>
-<p><img alt="Modern Software Stack" src="../../../assets/modern-software-stack.gif" /></p>
-<h3 id="layer-breakdown">Layer Breakdown<a class="headerlink" href="#layer-breakdown" title="Permanent link">&para;</a></h3>
-<p><strong>1. Presentation Layer (UI/UX)</strong></p>
-<p>The user-facing layer responsible for rendering interfaces and handling user interactions.</p>
+<p>A tech stack is the set of languages, frameworks, databases, and infrastructure used to build a system. This page is a compact reference — for architectural patterns and layering, see <a href="../architecture/">Architecture</a>.</p>
+<h2 id="the-layered-view">The Layered View<a class="headerlink" href="#the-layered-view" title="Permanent link">&para;</a></h2>
+<p>A modern web system is usually composed of these layers. Each layer has many viable choices; the list below is representative, not exhaustive.</p>
 <table>
 <thead>
 <tr>
-<th>Technology</th>
-<th>Type</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>React</strong></td>
-<td>JavaScript Library</td>
-<td>Single-page applications, component-based UIs</td>
-</tr>
-<tr>
-<td><strong>Angular</strong></td>
-<td>Framework</td>
-<td>Enterprise applications, full-featured SPAs</td>
-</tr>
-<tr>
-<td><strong>Vue.js</strong></td>
-<td>Framework</td>
-<td>Progressive web apps, lightweight applications</td>
-</tr>
-<tr>
-<td><strong>Flutter</strong></td>
-<td>Cross-platform</td>
-<td>Mobile apps with single codebase</td>
-</tr>
-<tr>
-<td><strong>Tailwind CSS</strong></td>
-<td>CSS Framework</td>
-<td>Utility-first styling, rapid prototyping</td>
-</tr>
-<tr>
-<td><strong>Swift</strong></td>
-<td>Language</td>
-<td>Native iOS applications</td>
-</tr>
-<tr>
-<td><strong>Kotlin</strong></td>
-<td>Language</td>
-<td>Native Android applications</td>
-</tr>
-</tbody>
-</table>
-<p><strong>2. Edge and Delivery Layer (Optional)</strong></p>
-<p>Handles content delivery, caching, and DDoS protection at the network edge.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
+<th>Layer</th>
 <th>Purpose</th>
+<th>Common choices</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Cloudflare</strong></td>
+<td><strong>Edge</strong></td>
 <td>CDN, DDoS protection, DNS</td>
+<td>Cloudflare, CloudFront, Akamai, Fastly</td>
 </tr>
 <tr>
-<td><strong>Akamai</strong></td>
-<td>Enterprise CDN, security</td>
+<td><strong>Presentation</strong></td>
+<td>User interface</td>
+<td>React, Vue, Angular, Svelte, Flutter, Swift, Kotlin</td>
 </tr>
 <tr>
-<td><strong>Fastly</strong></td>
-<td>Edge computing, real-time CDN</td>
+<td><strong>API / Integration</strong></td>
+<td>Service contracts</td>
+<td>REST, GraphQL, gRPC, WebSocket</td>
 </tr>
 <tr>
-<td><strong>CloudFront</strong></td>
-<td>AWS CDN integration</td>
-</tr>
-</tbody>
-</table>
-<p><strong>3. Integration Layer (API)</strong></p>
-<p>Manages communication between services and external systems.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
-<th>Protocol</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Postman</strong></td>
-<td>Testing</td>
-<td>API development and testing</td>
+<td><strong>Business Logic</strong></td>
+<td>Application frameworks</td>
+<td>Spring Boot, Django, FastAPI, Express, Rails, .NET</td>
 </tr>
 <tr>
-<td><strong>gRPC</strong></td>
-<td>Binary</td>
-<td>High-performance microservices</td>
+<td><strong>Messaging</strong></td>
+<td>Async communication</td>
+<td>Kafka, RabbitMQ, SQS, Celery</td>
 </tr>
 <tr>
-<td><strong>GraphQL</strong></td>
-<td>Query</td>
-<td>Flexible data fetching</td>
+<td><strong>Data Access</strong></td>
+<td>ORMs, search, cache</td>
+<td>SQLAlchemy, Hibernate, Sequelize, Elasticsearch</td>
 </tr>
 <tr>
-<td><strong>WebSocket</strong></td>
-<td>Bidirectional</td>
-<td>Real-time communication</td>
+<td><strong>Storage</strong></td>
+<td>Persistent state</td>
+<td>PostgreSQL, MySQL, MongoDB, Redis, S3</td>
 </tr>
 <tr>
-<td><strong>API Gateway</strong></td>
-<td>HTTP</td>
-<td>Request routing, rate limiting</td>
+<td><strong>Infrastructure</strong></td>
+<td>Runtime and orchestration</td>
+<td>AWS, GCP, Azure, Docker, Kubernetes</td>
 </tr>
 </tbody>
 </table>
-<p><strong>4. Messaging &amp; Async Processing (Optional)</strong></p>
-<p>Enables asynchronous communication and event-driven architectures.</p>
+<h2 id="languages-at-a-glance">Languages at a Glance<a class="headerlink" href="#languages-at-a-glance" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Technology</th>
-<th>Type</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Kafka</strong></td>
-<td>Event Streaming</td>
-<td>High-throughput, event sourcing</td>
-</tr>
-<tr>
-<td><strong>RabbitMQ</strong></td>
-<td>Message Broker</td>
-<td>Task queues, pub/sub</td>
-</tr>
-<tr>
-<td><strong>SQS</strong></td>
-<td>Cloud Queue</td>
-<td>AWS-native messaging</td>
-</tr>
-<tr>
-<td><strong>Celery</strong></td>
-<td>Task Queue</td>
-<td>Python async tasks</td>
-</tr>
-<tr>
-<td><strong>Sidekiq</strong></td>
-<td>Task Queue</td>
-<td>Ruby background jobs</td>
-</tr>
-</tbody>
-</table>
-<p><strong>5. Business Logic Layer</strong></p>
-<p>Contains the core application logic and business rules.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
 <th>Language</th>
-<th>Strengths</th>
+<th>Sweet spot</th>
+<th>Notable frameworks</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Spring</strong></td>
-<td>Java</td>
-<td>Enterprise features, dependency injection</td>
+<td><strong>Python</strong></td>
+<td>Data, ML, scripting, web APIs</td>
+<td>Django, FastAPI, Flask</td>
 </tr>
 <tr>
-<td><strong>Laravel</strong></td>
-<td>PHP</td>
-<td>Elegant syntax, rapid development</td>
+<td><strong>JavaScript / TypeScript</strong></td>
+<td>Frontend, full-stack, Node backends</td>
+<td>React, Vue, Next.js, Express, NestJS</td>
 </tr>
 <tr>
-<td><strong>Express.js</strong></td>
-<td>JavaScript</td>
-<td>Minimalist, flexible</td>
+<td><strong>Java</strong></td>
+<td>Enterprise, Android, high-scale services</td>
+<td>Spring Boot, Quarkus</td>
 </tr>
 <tr>
-<td><strong>Django</strong></td>
-<td>Python</td>
-<td>Batteries-included, admin panel</td>
+<td><strong>C#</strong></td>
+<td>Windows, enterprise, game dev (Unity)</td>
+<td>.NET, ASP.NET Core</td>
 </tr>
 <tr>
-<td><strong>.NET Core</strong></td>
-<td>C#</td>
-<td>Cross-platform, high performance</td>
+<td><strong>Go</strong></td>
+<td>Cloud infrastructure, microservices, CLI</td>
+<td>Gin, Echo</td>
+</tr>
+<tr>
+<td><strong>Rust</strong></td>
+<td>Systems, performance-critical services</td>
+<td>Actix, Axum</td>
+</tr>
+<tr>
+<td><strong>Ruby</strong></td>
+<td>Rapid web development, scripting</td>
+<td>Rails, Sinatra</td>
+</tr>
+<tr>
+<td><strong>PHP</strong></td>
+<td>Traditional web, CMS</td>
+<td>Laravel, Symfony</td>
 </tr>
 </tbody>
 </table>
-<p><strong>6. Data Access Layer</strong></p>
-<p>Abstracts database operations and provides caching mechanisms.</p>
+<h2 id="databases-at-a-glance">Databases at a Glance<a class="headerlink" href="#databases-at-a-glance" title="Permanent link">&para;</a></h2>
+<p>See <a href="../architecture/#databases">Architecture § Databases</a> for the full breakdown. Quick picks:</p>
+<ul>
+<li><strong>Default choice:</strong> PostgreSQL. Relational, ACID, JSON support, mature.</li>
+<li><strong>Document store:</strong> MongoDB for flexible schemas; DynamoDB for serverless AWS.</li>
+<li><strong>Cache / queue:</strong> Redis — in-memory, versatile.</li>
+<li><strong>Analytics:</strong> BigQuery, Snowflake, ClickHouse.</li>
+<li><strong>Wide-column at scale:</strong> Cassandra, Bigtable.</li>
+</ul>
+<h2 id="classic-stack-combinations">Classic Stack Combinations<a class="headerlink" href="#classic-stack-combinations" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Technology</th>
-<th>Type</th>
-<th>Purpose</th>
+<th>Stack</th>
+<th>Components</th>
+<th>Typical use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Redis</strong></td>
-<td>In-memory</td>
-<td>Caching, session storage</td>
+<td><strong>LAMP</strong></td>
+<td>Linux + Apache + MySQL + PHP</td>
+<td>Traditional web apps, CMS</td>
 </tr>
 <tr>
-<td><strong>Elasticsearch</strong></td>
-<td>Search Engine</td>
-<td>Full-text search, analytics</td>
+<td><strong>MEAN</strong></td>
+<td>MongoDB + Express + Angular + Node</td>
+<td>SPAs, real-time apps</td>
 </tr>
 <tr>
-<td><strong>Hibernate</strong></td>
-<td>ORM</td>
-<td>Java object-relational mapping</td>
+<td><strong>MERN</strong></td>
+<td>MongoDB + Express + React + Node</td>
+<td>Modern SPAs</td>
 </tr>
 <tr>
-<td><strong>Sequelize</strong></td>
-<td>ORM</td>
-<td>Node.js database abstraction</td>
+<td><strong>JAMstack</strong></td>
+<td>JavaScript + APIs + Markup</td>
+<td>Static sites, blogs, JAMstack apps</td>
 </tr>
 <tr>
-<td><strong>SQLAlchemy</strong></td>
-<td>ORM</td>
-<td>Python database toolkit</td>
+<td><strong>Django + PostgreSQL + Redis</strong></td>
+<td>Python web + relational + cache</td>
+<td>Content and data-driven apps</td>
+</tr>
+<tr>
+<td><strong>Spring Boot + PostgreSQL + Kubernetes</strong></td>
+<td>Java + relational + orchestration</td>
+<td>Enterprise microservices</td>
 </tr>
 </tbody>
 </table>
-<p><strong>7. Data Storage Layer</strong></p>
-<p>Persistent storage for application data.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
-<th>Type</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>PostgreSQL</strong></td>
-<td>Relational</td>
-<td>Complex queries, ACID compliance</td>
-</tr>
-<tr>
-<td><strong>MySQL</strong></td>
-<td>Relational</td>
-<td>Web applications, read-heavy workloads</td>
-</tr>
-<tr>
-<td><strong>MongoDB</strong></td>
-<td>Document</td>
-<td>Flexible schemas, JSON data</td>
-</tr>
-<tr>
-<td><strong>BigQuery</strong></td>
-<td>Data Warehouse</td>
-<td>Analytics, large-scale queries</td>
-</tr>
-<tr>
-<td><strong>Snowflake</strong></td>
-<td>Data Warehouse</td>
-<td>Cloud-native analytics</td>
-</tr>
-</tbody>
-</table>
-<p><strong>8. Analytics &amp; ML (Optional)</strong></p>
-<p>Data processing, machine learning, and business intelligence.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Spark</strong></td>
-<td>Distributed data processing</td>
-</tr>
-<tr>
-<td><strong>PyTorch</strong></td>
-<td>Deep learning framework</td>
-</tr>
-<tr>
-<td><strong>Databricks</strong></td>
-<td>Unified analytics platform</td>
-</tr>
-<tr>
-<td><strong>Looker</strong></td>
-<td>Business intelligence</td>
-</tr>
-<tr>
-<td><strong>TensorFlow</strong></td>
-<td>Machine learning at scale</td>
-</tr>
-</tbody>
-</table>
-<p><strong>9. Infrastructure Layer (Hosting/Runtime)</strong></p>
-<p>The foundation that hosts and runs all other layers.</p>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
-<th>Type</th>
-<th>Strengths</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>AWS</strong></td>
-<td>Cloud Provider</td>
-<td>Comprehensive services, market leader</td>
-</tr>
-<tr>
-<td><strong>Azure</strong></td>
-<td>Cloud Provider</td>
-<td>Microsoft integration, enterprise</td>
-</tr>
-<tr>
-<td><strong>Google Cloud</strong></td>
-<td>Cloud Provider</td>
-<td>Data/ML services, Kubernetes</td>
-</tr>
-<tr>
-<td><strong>Docker</strong></td>
-<td>Containerization</td>
-<td>Consistent environments, portability</td>
-</tr>
-<tr>
-<td><strong>Kubernetes</strong></td>
-<td>Orchestration</td>
-<td>Container management, auto-scaling</td>
-</tr>
-</tbody>
-</table>
-<h2 id="the-backend-tech-stack-pyramid">The Backend Tech Stack Pyramid<a class="headerlink" href="#the-backend-tech-stack-pyramid" title="Permanent link">&para;</a></h2>
-<p>The backend tech stack can be visualized as a pyramid, with each layer building upon the foundation below it:</p>
-<p><img alt="Backend Tech Stack Pyramid" src="../../../assets/backend-tech-stack.jpeg" /></p>
-<p><em>The Backend Tech Stack - A comprehensive view of modern backend technologies organized by layers</em></p>
-<h2 id="programming-languages-foundation-layer">Programming Languages (Foundation Layer)<a class="headerlink" href="#programming-languages-foundation-layer" title="Permanent link">&para;</a></h2>
-<p>The foundation of any tech stack starts with programming languages:</p>
-<h3 id="java"><strong>Java</strong><a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Enterprise applications, Android development, web backends</li>
-<li><strong>Strengths</strong>: Platform independence, strong typing, extensive ecosystem</li>
-<li><strong>Popular Frameworks</strong>: Spring Boot, Hibernate</li>
-</ul>
-<h3 id="python"><strong>Python</strong><a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Data science, AI/ML, web development, automation</li>
-<li><strong>Strengths</strong>: Simple syntax, extensive libraries, versatility</li>
-<li><strong>Popular Frameworks</strong>: Django, FastAPI, Flask</li>
-</ul>
-<h3 id="javascript"><strong>JavaScript</strong><a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Full-stack development, frontend, Node.js backends</li>
-<li><strong>Strengths</strong>: Ubiquitous, event-driven, large community</li>
-<li><strong>Popular Frameworks</strong>: Node.js, Express, React</li>
-</ul>
-<h3 id="c"><strong>C#</strong><a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Windows applications, web development, enterprise software</li>
-<li><strong>Strengths</strong>: Strong typing, .NET ecosystem, Microsoft integration</li>
-<li><strong>Popular Frameworks</strong>: .NET Core, ASP.NET</li>
-</ul>
-<h3 id="go-golang"><strong>Go (Golang)</strong><a class="headerlink" href="#go-golang" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Microservices, cloud infrastructure, system programming</li>
-<li><strong>Strengths</strong>: Fast compilation, concurrency, simple deployment</li>
-<li><strong>Popular Frameworks</strong>: Gin, Echo</li>
-</ul>
-<h3 id="rust"><strong>Rust</strong><a class="headerlink" href="#rust" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: System programming, web backends, blockchain</li>
-<li><strong>Strengths</strong>: Memory safety, performance, concurrency</li>
-<li><strong>Popular Frameworks</strong>: Actix, Rocket</li>
-</ul>
-<h3 id="ruby"><strong>Ruby</strong><a class="headerlink" href="#ruby" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Web development, scripting, prototyping</li>
-<li><strong>Strengths</strong>: Developer productivity, elegant syntax</li>
-<li><strong>Popular Frameworks</strong>: Ruby on Rails, Sinatra</li>
-</ul>
-<h3 id="php"><strong>PHP</strong><a class="headerlink" href="#php" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Web development, content management systems</li>
-<li><strong>Strengths</strong>: Easy deployment, large ecosystem</li>
-<li><strong>Popular Frameworks</strong>: Laravel, Symfony</li>
-</ul>
-<h2 id="databases-data-layer">Databases (Data Layer)<a class="headerlink" href="#databases-data-layer" title="Permanent link">&para;</a></h2>
-<h3 id="relational-databases"><strong>Relational Databases</strong><a class="headerlink" href="#relational-databases" title="Permanent link">&para;</a></h3>
-<h4 id="postgresql"><strong>PostgreSQL</strong><a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Open-source relational database</li>
-<li><strong>Strengths</strong>: ACID compliance, extensibility, JSON support</li>
-<li><strong>Use Cases</strong>: Complex queries, data integrity, analytics</li>
-</ul>
-<h4 id="mysql"><strong>MySQL</strong><a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Popular open-source relational database</li>
-<li><strong>Strengths</strong>: Fast, reliable, widely supported</li>
-<li><strong>Use Cases</strong>: Web applications, e-commerce, content management</li>
-</ul>
-<h4 id="oracle"><strong>Oracle</strong><a class="headerlink" href="#oracle" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Enterprise relational database</li>
-<li><strong>Strengths</strong>: Advanced features, scalability, security</li>
-<li><strong>Use Cases</strong>: Large enterprises, mission-critical applications</li>
-</ul>
-<h4 id="sqlite"><strong>SQLite</strong><a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Lightweight embedded database</li>
-<li><strong>Strengths</strong>: Serverless, zero-configuration, portable</li>
-<li><strong>Use Cases</strong>: Mobile apps, desktop applications, prototyping</li>
-</ul>
-<h3 id="nosql-databases"><strong>NoSQL Databases</strong><a class="headerlink" href="#nosql-databases" title="Permanent link">&para;</a></h3>
-<h4 id="mongodb"><strong>MongoDB</strong><a class="headerlink" href="#mongodb" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Document-oriented database</li>
-<li><strong>Strengths</strong>: Flexible schema, horizontal scaling, JSON-like documents</li>
-<li><strong>Use Cases</strong>: Content management, real-time analytics, IoT</li>
-</ul>
-<h4 id="dynamodb"><strong>DynamoDB</strong><a class="headerlink" href="#dynamodb" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: AWS managed NoSQL database</li>
-<li><strong>Strengths</strong>: Serverless, auto-scaling, low latency</li>
-<li><strong>Use Cases</strong>: Gaming, mobile backends, serverless applications</li>
-</ul>
-<h4 id="apache-cassandra"><strong>Apache Cassandra</strong><a class="headerlink" href="#apache-cassandra" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Wide-column distributed database</li>
-<li><strong>Strengths</strong>: High availability, linear scalability, fault tolerance</li>
-<li><strong>Use Cases</strong>: Time-series data, IoT, real-time analytics</li>
-</ul>
-<h2 id="frameworks-application-layer">Frameworks (Application Layer)<a class="headerlink" href="#frameworks-application-layer" title="Permanent link">&para;</a></h2>
-<h3 id="backend-frameworks"><strong>Backend Frameworks</strong><a class="headerlink" href="#backend-frameworks" title="Permanent link">&para;</a></h3>
-<h4 id="spring-boot-java"><strong>Spring Boot (Java)</strong><a class="headerlink" href="#spring-boot-java" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: Auto-configuration, production-ready, extensive ecosystem</li>
-<li><strong>Use Cases</strong>: Enterprise applications, microservices, REST APIs</li>
-</ul>
-<h4 id="nodejs-javascript"><strong>Node.js (JavaScript)</strong><a class="headerlink" href="#nodejs-javascript" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: Event-driven, non-blocking I/O, JavaScript everywhere</li>
-<li><strong>Use Cases</strong>: Real-time applications, APIs, microservices</li>
-</ul>
-<h4 id="django-python"><strong>Django (Python)</strong><a class="headerlink" href="#django-python" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: "Batteries included", ORM, admin interface</li>
-<li><strong>Use Cases</strong>: Web applications, content management, rapid prototyping</li>
-</ul>
-<h4 id="fastapi-python"><strong>FastAPI (Python)</strong><a class="headerlink" href="#fastapi-python" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: Fast performance, automatic API documentation, type hints</li>
-<li><strong>Use Cases</strong>: APIs, microservices, data science applications</li>
-</ul>
-<h4 id="ruby-on-rails-ruby"><strong>Ruby on Rails (Ruby)</strong><a class="headerlink" href="#ruby-on-rails-ruby" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: Convention over configuration, rapid development, MVC pattern</li>
-<li><strong>Use Cases</strong>: Web applications, startups, rapid prototyping</li>
-</ul>
-<h4 id="langchain"><strong>Langchain</strong><a class="headerlink" href="#langchain" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: LLM integration, AI application development</li>
-<li><strong>Use Cases</strong>: AI-powered applications, chatbots, document processing</li>
-</ul>
-<h2 id="deployment-infrastructure-layer">Deployment &amp; Infrastructure Layer<a class="headerlink" href="#deployment-infrastructure-layer" title="Permanent link">&para;</a></h2>
-<h3 id="cloud-providers"><strong>Cloud Providers</strong><a class="headerlink" href="#cloud-providers" title="Permanent link">&para;</a></h3>
-<h4 id="amazon-web-services-aws"><strong>Amazon Web Services (AWS)</strong><a class="headerlink" href="#amazon-web-services-aws" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Services</strong>: EC2, Lambda, RDS, S3, EKS</li>
-<li><strong>Strengths</strong>: Comprehensive services, global reach, mature ecosystem</li>
-<li><strong>Use Cases</strong>: Enterprise applications, startups, any scale</li>
-</ul>
-<h4 id="microsoft-azure"><strong>Microsoft Azure</strong><a class="headerlink" href="#microsoft-azure" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Services</strong>: Virtual Machines, Functions, SQL Database, Blob Storage</li>
-<li><strong>Strengths</strong>: Enterprise integration, hybrid cloud, Microsoft ecosystem</li>
-<li><strong>Use Cases</strong>: Enterprise applications, .NET applications, hybrid deployments</li>
-</ul>
-<h4 id="google-cloud-platform-gcp"><strong>Google Cloud Platform (GCP)</strong><a class="headerlink" href="#google-cloud-platform-gcp" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Services</strong>: Compute Engine, Cloud Functions, Cloud SQL, BigQuery</li>
-<li><strong>Strengths</strong>: Data analytics, machine learning, Kubernetes</li>
-<li><strong>Use Cases</strong>: Data-heavy applications, ML/AI workloads, modern applications</li>
-</ul>
-<h3 id="containerization-orchestration"><strong>Containerization &amp; Orchestration</strong><a class="headerlink" href="#containerization-orchestration" title="Permanent link">&para;</a></h3>
-<h4 id="docker"><strong>Docker</strong><a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Purpose</strong>: Application containerization</li>
-<li><strong>Benefits</strong>: Consistent environments, easy deployment, resource efficiency</li>
-<li><strong>Use Cases</strong>: Development, testing, microservices deployment</li>
-</ul>
-<h4 id="kubernetes"><strong>Kubernetes</strong><a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Purpose</strong>: Container orchestration</li>
-<li><strong>Benefits</strong>: Auto-scaling, service discovery, rolling deployments</li>
-<li><strong>Use Cases</strong>: Microservices, cloud-native applications, enterprise deployments</li>
-</ul>
-<h3 id="platform-as-a-service"><strong>Platform-as-a-Service</strong><a class="headerlink" href="#platform-as-a-service" title="Permanent link">&para;</a></h3>
-<h4 id="vercel"><strong>Vercel</strong><a class="headerlink" href="#vercel" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Strengths</strong>: Frontend-focused, serverless, excellent DX</li>
-<li><strong>Use Cases</strong>: JAMstack applications, Next.js deployments, static sites</li>
-</ul>
-<h2 id="cicd-version-control-layer">CI/CD &amp; Version Control Layer<a class="headerlink" href="#cicd-version-control-layer" title="Permanent link">&para;</a></h2>
-<h3 id="version-control"><strong>Version Control</strong><a class="headerlink" href="#version-control" title="Permanent link">&para;</a></h3>
-<h4 id="github"><strong>GitHub</strong><a class="headerlink" href="#github" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Features</strong>: Git hosting, Actions (CI/CD), project management</li>
-<li><strong>Strengths</strong>: Large community, integrations, collaboration tools</li>
-<li><strong>Use Cases</strong>: Open source projects, team collaboration, CI/CD</li>
-</ul>
-<h4 id="gitlab"><strong>GitLab</strong><a class="headerlink" href="#gitlab" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Features</strong>: Git hosting, built-in CI/CD, DevOps platform</li>
-<li><strong>Strengths</strong>: All-in-one platform, self-hosted options</li>
-<li><strong>Use Cases</strong>: Enterprise DevOps, complete software lifecycle management</li>
-</ul>
-<h4 id="bitbucket"><strong>Bitbucket</strong><a class="headerlink" href="#bitbucket" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Features</strong>: Git hosting, Pipelines (CI/CD), Atlassian integration</li>
-<li><strong>Strengths</strong>: Atlassian ecosystem integration, enterprise features</li>
-<li><strong>Use Cases</strong>: Teams using Atlassian tools, enterprise development</li>
-</ul>
-<h3 id="cicd-tools"><strong>CI/CD Tools</strong><a class="headerlink" href="#cicd-tools" title="Permanent link">&para;</a></h3>
-<h4 id="jenkins"><strong>Jenkins</strong><a class="headerlink" href="#jenkins" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Self-hosted automation server</li>
-<li><strong>Strengths</strong>: Highly customizable, extensive plugin ecosystem</li>
-<li><strong>Use Cases</strong>: Complex pipelines, enterprise environments, custom workflows</li>
-</ul>
-<h4 id="circleci"><strong>CircleCI</strong><a class="headerlink" href="#circleci" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Cloud-based CI/CD platform</li>
-<li><strong>Strengths</strong>: Fast builds, Docker support, easy configuration</li>
-<li><strong>Use Cases</strong>: Modern applications, Docker-based workflows, fast iteration</li>
-</ul>
-<h2 id="caching-layer">Caching Layer<a class="headerlink" href="#caching-layer" title="Permanent link">&para;</a></h2>
-<h3 id="content-delivery-networks-cdn"><strong>Content Delivery Networks (CDN)</strong><a class="headerlink" href="#content-delivery-networks-cdn" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Purpose</strong>: Distribute static content globally</li>
-<li><strong>Benefits</strong>: Reduced latency, improved performance, reduced server load</li>
-<li><strong>Popular Services</strong>: CloudFlare, AWS CloudFront, Azure CDN</li>
-</ul>
-<h3 id="in-memory-caching"><strong>In-Memory Caching</strong><a class="headerlink" href="#in-memory-caching" title="Permanent link">&para;</a></h3>
-<h4 id="redis"><strong>Redis</strong><a class="headerlink" href="#redis" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: In-memory data structure store</li>
-<li><strong>Features</strong>: Pub/sub, persistence, clustering</li>
-<li><strong>Use Cases</strong>: Session storage, real-time analytics, message queuing</li>
-</ul>
-<h4 id="memcached"><strong>Memcached</strong><a class="headerlink" href="#memcached" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Type</strong>: Distributed memory caching system</li>
-<li><strong>Features</strong>: Simple key-value store, high performance</li>
-<li><strong>Use Cases</strong>: Database query caching, session storage, object caching</li>
-</ul>
-<h2 id="architectural-patterns-layer">Architectural Patterns Layer<a class="headerlink" href="#architectural-patterns-layer" title="Permanent link">&para;</a></h2>
-<h3 id="microservices"><strong>Microservices</strong><a class="headerlink" href="#microservices" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Approach</strong>: Decompose application into small, independent services</li>
-<li><strong>Benefits</strong>: Scalability, technology diversity, team autonomy</li>
-<li><strong>Challenges</strong>: Complexity, network overhead, data consistency</li>
-</ul>
-<h3 id="serverless"><strong>Serverless</strong><a class="headerlink" href="#serverless" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Approach</strong>: Run code without managing servers</li>
-<li><strong>Benefits</strong>: Auto-scaling, pay-per-use, reduced operational overhead</li>
-<li><strong>Challenges</strong>: Vendor lock-in, cold starts, debugging complexity</li>
-</ul>
-<h3 id="monolithic"><strong>Monolithic</strong><a class="headerlink" href="#monolithic" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Approach</strong>: Single deployable unit containing all functionality</li>
-<li><strong>Benefits</strong>: Simple deployment, easy debugging, better performance</li>
-<li><strong>Challenges</strong>: Scaling limitations, technology lock-in, large codebase</li>
-</ul>
-<h2 id="apis-layer-top-of-the-pyramid">APIs Layer (Top of the Pyramid)<a class="headerlink" href="#apis-layer-top-of-the-pyramid" title="Permanent link">&para;</a></h2>
-<h3 id="rest-apis"><strong>REST APIs</strong><a class="headerlink" href="#rest-apis" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Style</strong>: Representational State Transfer</li>
-<li><strong>Characteristics</strong>: Stateless, cacheable, uniform interface</li>
-<li><strong>Use Cases</strong>: Web services, mobile backends, third-party integrations</li>
-</ul>
-<h3 id="graphql"><strong>GraphQL</strong><a class="headerlink" href="#graphql" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Style</strong>: Query language and runtime</li>
-<li><strong>Benefits</strong>: Single endpoint, flexible queries, strong typing</li>
-<li><strong>Use Cases</strong>: Complex data requirements, mobile applications, real-time updates</li>
-</ul>
-<h3 id="json"><strong>JSON</strong><a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Format</strong>: JavaScript Object Notation</li>
-<li><strong>Benefits</strong>: Lightweight, human-readable, language-independent</li>
-<li><strong>Use Cases</strong>: API responses, configuration files, data exchange</li>
-</ul>
-<h2 id="popular-tech-stack-combinations">Popular Tech Stack Combinations<a class="headerlink" href="#popular-tech-stack-combinations" title="Permanent link">&para;</a></h2>
-<h3 id="lamp-stack"><strong>LAMP Stack</strong><a class="headerlink" href="#lamp-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>L</strong>inux + <strong>A</strong>pache + <strong>M</strong>ySQL + <strong>P</strong>HP</li>
-<li><strong>Use Cases</strong>: Traditional web applications, content management systems</li>
-</ul>
-<h3 id="mean-stack"><strong>MEAN Stack</strong><a class="headerlink" href="#mean-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>M</strong>ongoDB + <strong>E</strong>xpress.js + <strong>A</strong>ngular + <strong>N</strong>ode.js</li>
-<li><strong>Use Cases</strong>: Single-page applications, real-time applications</li>
-</ul>
-<h3 id="mern-stack"><strong>MERN Stack</strong><a class="headerlink" href="#mern-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>M</strong>ongoDB + <strong>E</strong>xpress.js + <strong>R</strong>eact + <strong>N</strong>ode.js</li>
-<li><strong>Use Cases</strong>: Modern web applications, social media platforms</li>
-</ul>
-<h3 id="django-postgresql-redis"><strong>Django + PostgreSQL + Redis</strong><a class="headerlink" href="#django-postgresql-redis" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Content-heavy applications, data-driven applications</li>
-</ul>
-<h3 id="spring-boot-mysql-docker-aws"><strong>Spring Boot + MySQL + Docker + AWS</strong><a class="headerlink" href="#spring-boot-mysql-docker-aws" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Use Cases</strong>: Enterprise applications, microservices architectures</li>
-</ul>
-<h2 id="choosing-your-tech-stack">Choosing Your Tech Stack<a class="headerlink" href="#choosing-your-tech-stack" title="Permanent link">&para;</a></h2>
-<h3 id="consider-these-factors"><strong>Consider These Factors:</strong><a class="headerlink" href="#consider-these-factors" title="Permanent link">&para;</a></h3>
+<h2 id="how-to-pick-a-stack">How to Pick a Stack<a class="headerlink" href="#how-to-pick-a-stack" title="Permanent link">&para;</a></h2>
+<p>Order of considerations, roughly in this priority:</p>
 <ol>
-<li><strong>Project Requirements</strong></li>
-<li>Performance needs</li>
-<li>Scalability requirements</li>
-<li>Security considerations</li>
-<li>
-<p>Integration requirements</p>
-</li>
-<li>
-<p><strong>Team Expertise</strong></p>
-</li>
-<li>Existing knowledge</li>
-<li>Learning curve</li>
-<li>Available resources</li>
-<li>
-<p>Hiring considerations</p>
-</li>
-<li>
-<p><strong>Business Constraints</strong></p>
-</li>
-<li>Budget limitations</li>
-<li>Time to market</li>
-<li>Maintenance costs</li>
-<li>
-<p>Vendor preferences</p>
-</li>
-<li>
-<p><strong>Technical Considerations</strong></p>
-</li>
-<li>Community support</li>
-<li>Documentation quality</li>
-<li>Long-term viability</li>
-<li>Ecosystem maturity</li>
+<li><strong>Team expertise.</strong> A familiar stack ships faster than a theoretically better one.</li>
+<li><strong>Problem fit.</strong> ML-heavy? Python. High-throughput trading? Rust, C++, or Java. Real-time collab? Node or Elixir.</li>
+<li><strong>Ecosystem maturity.</strong> Libraries, hiring pool, Stack Overflow answers, long-term viability.</li>
+<li><strong>Operational cost.</strong> Managed services (RDS, Cloud Run) beat self-hosting when you can afford them.</li>
+<li><strong>Future-proofing, carefully.</strong> Don't adopt yesterday's fad; don't chase tomorrow's either.</li>
 </ol>
-<h3 id="decision-framework"><strong>Decision Framework:</strong><a class="headerlink" href="#decision-framework" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TD
-    Start[Project Requirements] --&gt; TeamSize{Team Size}
-    TeamSize --&gt;|Small| Simple[Simple Stack]
-    TeamSize --&gt;|Large| Complex[Complex Stack]
-
-    Simple --&gt; WebApp{Web App?}
-    WebApp --&gt;|Yes| LAMP[LAMP/Django]
-    WebApp --&gt;|No| Mobile[Mobile Backend]
-    Mobile --&gt; NodeJS[Node.js + MongoDB]
-
-    Complex --&gt; Enterprise{Enterprise?}
-    Enterprise --&gt;|Yes| JavaSpring[Java + Spring Boot]
-    Enterprise --&gt;|No| Microservices[Microservices Architecture]
-
-    Microservices --&gt; Cloud[Cloud Native Stack]
-    Cloud --&gt; Kubernetes[Kubernetes + Docker]</code></pre>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="stack-selection"><strong>Stack Selection</strong><a class="headerlink" href="#stack-selection" title="Permanent link">&para;</a></h3>
+<p><strong>Common mistake:</strong> picking the stack before understanding the problem. Write the one-page problem statement first.</p>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Start simple and evolve</li>
-<li>Consider team expertise</li>
-<li>Evaluate long-term maintenance</li>
-<li>Plan for scalability early</li>
+<li>The <a href="../architecture/">Architecture</a> page covers the patterns these stacks implement.</li>
+<li>The <a href="../lifecycle/">Lifecycle</a> page covers how teams ship software built on any stack, including version control practices.</li>
 </ul>
-<h3 id="technology-integration"><strong>Technology Integration</strong><a class="headerlink" href="#technology-integration" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Ensure compatibility between components</li>
-<li>Consider data flow and communication patterns</li>
-<li>Plan for monitoring and observability</li>
-<li>Design for failure and recovery</li>
-</ul>
-<h3 id="continuous-evolution"><strong>Continuous Evolution</strong><a class="headerlink" href="#continuous-evolution" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Regularly evaluate and update technologies</li>
-<li>Stay informed about industry trends</li>
-<li>Balance innovation with stability</li>
-<li>Document architectural decisions</li>
-</ul>
-<p>The key to a successful tech stack is not just choosing the right technologies, but understanding how they work together to solve your specific problems and support your business goals.</p>
 
 
 

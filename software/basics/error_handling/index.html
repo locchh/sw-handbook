@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/error_handling/">
       
       
-        <link rel="prev" href="../devlopment_concepts/">
+        <link rel="prev" href="../architecture/">
       
       
-        <link rel="next" href="../philosophies_principles/">
+        <link rel="next" href="../lifecycle/">
       
       
         
@@ -407,14 +407,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic_concepts/" class="md-nav__link">
+      <a href="../fundamentals/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Basic Concepts
+    Fundamentals
   
 
     
@@ -435,14 +435,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../devlopment_concepts/" class="md-nav__link">
+      <a href="../principles/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Development Concepts
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
   
 
     
@@ -523,10 +551,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-error-handling-matters" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Error Handling Matters
+        Why It Matters
       
     </span>
   </a>
@@ -534,72 +562,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-of-errors" class="md-nav__link">
+  <a href="#kinds-of-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Types of Errors
+        Kinds of Errors
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Types of Errors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-syntax-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Syntax Errors
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-runtime-errors-exceptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Runtime Errors (Exceptions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-logic-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Logic Errors
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling-strategies" class="md-nav__link">
+  <a href="#handling-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Handling Strategies
+        Handling Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Error Handling Strategies">
+    <nav class="md-nav" aria-label="Handling Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-fail-fast" class="md-nav__link">
+  <a href="#fail-fast" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Fail-Fast
+        Fail Fast
       
     </span>
   </a>
@@ -607,10 +596,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-graceful-degradation" class="md-nav__link">
+  <a href="#graceful-degradation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Graceful Degradation
+        Graceful Degradation
       
     </span>
   </a>
@@ -618,10 +607,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-retry-with-backoff" class="md-nav__link">
+  <a href="#retry-with-backoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Retry with Backoff
+        Retry with Backoff
       
     </span>
   </a>
@@ -629,10 +618,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-circuit-breaker" class="md-nav__link">
+  <a href="#circuit-breaker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Circuit Breaker
+        Circuit Breaker
       
     </span>
   </a>
@@ -653,86 +642,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-catch-specific-exceptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Catch Specific Exceptions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-dont-swallow-exceptions-silently" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Don't Swallow Exceptions Silently
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-use-finally-for-cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use Finally for Cleanup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-provide-context-in-error-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Provide Context in Error Messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-fail-at-the-right-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Fail at the Right Level
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-exception-handling" class="md-nav__link">
+  <a href="#python-specifics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Python Exception Handling
+        Python Specifics
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Python Exception Handling">
+    <nav class="md-nav" aria-label="Python Specifics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exception-hierarchy" class="md-nav__link">
+  <a href="#try-except-else-finally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exception Hierarchy
+        try / except / else / finally
       
     </span>
   </a>
@@ -740,10 +668,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tryexceptelsefinally" class="md-nav__link">
+  <a href="#exception-hierarchy-the-shape-not-the-full-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        try/except/else/finally
+        Exception Hierarchy (the shape, not the full tree)
       
     </span>
   </a>
@@ -751,10 +679,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#raising-exceptions" class="md-nav__link">
+  <a href="#raising-and-chaining" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raising Exceptions
+        Raising and Chaining
       
     </span>
   </a>
@@ -773,10 +701,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#context-managers-with-statement" class="md-nav__link">
+  <a href="#context-managers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Managers (with statement)
+        Context Managers
       
     </span>
   </a>
@@ -784,60 +712,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
+  <a href="#eafp-vs-lbyl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pattern-1-eafp-vs-lbyl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 1: EAFP vs LBYL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-2-exception-as-control-flow-use-sparingly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 2: Exception as Control Flow (use sparingly)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-3-null-object-default-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 3: Null Object / Default Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anti-patterns-to-avoid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anti-Patterns to Avoid
+        EAFP vs LBYL
       
     </span>
   </a>
@@ -850,52 +728,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-with-other-languages" class="md-nav__link">
+  <a href="#anti-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comparison with Other Languages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparison with Other Languages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java-try-catch-finally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java: try-catch-finally
+        Anti-Patterns
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#go-error-returns" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#comparison-across-languages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Go: Error Returns
+        Comparison Across Languages
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust-result-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rust: Result Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -915,42 +765,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../philosophies_principles/" class="md-nav__link">
+      <a href="../lifecycle/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coding Philosophies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture_patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture Patterns
+    Lifecycle
   
 
     
@@ -1773,10 +1595,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-error-handling-matters" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Error Handling Matters
+        Why It Matters
       
     </span>
   </a>
@@ -1784,72 +1606,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-of-errors" class="md-nav__link">
+  <a href="#kinds-of-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Types of Errors
+        Kinds of Errors
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Types of Errors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-syntax-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Syntax Errors
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-runtime-errors-exceptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Runtime Errors (Exceptions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-logic-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Logic Errors
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling-strategies" class="md-nav__link">
+  <a href="#handling-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Handling Strategies
+        Handling Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Error Handling Strategies">
+    <nav class="md-nav" aria-label="Handling Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-fail-fast" class="md-nav__link">
+  <a href="#fail-fast" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Fail-Fast
+        Fail Fast
       
     </span>
   </a>
@@ -1857,10 +1640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-graceful-degradation" class="md-nav__link">
+  <a href="#graceful-degradation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Graceful Degradation
+        Graceful Degradation
       
     </span>
   </a>
@@ -1868,10 +1651,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-retry-with-backoff" class="md-nav__link">
+  <a href="#retry-with-backoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Retry with Backoff
+        Retry with Backoff
       
     </span>
   </a>
@@ -1879,10 +1662,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-circuit-breaker" class="md-nav__link">
+  <a href="#circuit-breaker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Circuit Breaker
+        Circuit Breaker
       
     </span>
   </a>
@@ -1903,86 +1686,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-catch-specific-exceptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Catch Specific Exceptions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-dont-swallow-exceptions-silently" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Don't Swallow Exceptions Silently
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-use-finally-for-cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use Finally for Cleanup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-provide-context-in-error-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Provide Context in Error Messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-fail-at-the-right-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Fail at the Right Level
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-exception-handling" class="md-nav__link">
+  <a href="#python-specifics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Python Exception Handling
+        Python Specifics
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Python Exception Handling">
+    <nav class="md-nav" aria-label="Python Specifics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exception-hierarchy" class="md-nav__link">
+  <a href="#try-except-else-finally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exception Hierarchy
+        try / except / else / finally
       
     </span>
   </a>
@@ -1990,10 +1712,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tryexceptelsefinally" class="md-nav__link">
+  <a href="#exception-hierarchy-the-shape-not-the-full-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        try/except/else/finally
+        Exception Hierarchy (the shape, not the full tree)
       
     </span>
   </a>
@@ -2001,10 +1723,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#raising-exceptions" class="md-nav__link">
+  <a href="#raising-and-chaining" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raising Exceptions
+        Raising and Chaining
       
     </span>
   </a>
@@ -2023,10 +1745,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#context-managers-with-statement" class="md-nav__link">
+  <a href="#context-managers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Managers (with statement)
+        Context Managers
       
     </span>
   </a>
@@ -2034,60 +1756,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
+  <a href="#eafp-vs-lbyl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pattern-1-eafp-vs-lbyl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 1: EAFP vs LBYL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-2-exception-as-control-flow-use-sparingly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 2: Exception as Control Flow (use sparingly)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-3-null-object-default-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 3: Null Object / Default Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anti-patterns-to-avoid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anti-Patterns to Avoid
+        EAFP vs LBYL
       
     </span>
   </a>
@@ -2100,52 +1772,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-with-other-languages" class="md-nav__link">
+  <a href="#anti-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comparison with Other Languages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparison with Other Languages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java-try-catch-finally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java: try-catch-finally
+        Anti-Patterns
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#go-error-returns" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#comparison-across-languages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Go: Error Returns
+        Comparison Across Languages
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rust-result-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rust: Result Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2170,143 +1814,94 @@
 
 
 <h1 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h1>
-<p>Error handling is a critical aspect of software development that deals with anticipating, detecting, and resolving errors that occur during program execution. Proper error handling makes software more robust, maintainable, and user-friendly.</p>
-<h2 id="why-error-handling-matters">Why Error Handling Matters<a class="headerlink" href="#why-error-handling-matters" title="Permanent link">&para;</a></h2>
+<p>Anticipate what can go wrong, detect it early, report it clearly. Good error handling makes the difference between a crash that corrupts data and a failure that is logged, contained, and recoverable.</p>
+<h2 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Reliability:</strong> Prevents unexpected crashes and data corruption</li>
-<li><strong>User Experience:</strong> Provides meaningful feedback instead of cryptic failures</li>
-<li><strong>Debugging:</strong> Makes it easier to identify and fix issues</li>
-<li><strong>Security:</strong> Prevents information leakage through unhandled exceptions</li>
-<li><strong>Maintainability:</strong> Clear error paths make code easier to understand and modify</li>
+<li><strong>Reliability</strong> — avoid crashes and data corruption.</li>
+<li><strong>User experience</strong> — meaningful feedback beats cryptic failures.</li>
+<li><strong>Debuggability</strong> — good error messages point straight at the problem.</li>
+<li><strong>Security</strong> — unhandled exceptions leak internals (stack traces, query text).</li>
 </ul>
-<h2 id="types-of-errors">Types of Errors<a class="headerlink" href="#types-of-errors" title="Permanent link">&para;</a></h2>
-<h3 id="1-syntax-errors">1. Syntax Errors<a class="headerlink" href="#1-syntax-errors" title="Permanent link">&para;</a></h3>
-<p>Errors detected during parsing/compilation before the program runs. These violate the language's grammar rules.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Missing colon</span>
-<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="2-runtime-errors-exceptions">2. Runtime Errors (Exceptions)<a class="headerlink" href="#2-runtime-errors-exceptions" title="Permanent link">&para;</a></h3>
-<p>Errors that occur during program execution. The code is syntactically correct but encounters an unexpected condition.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Division by zero</span>
-<span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
-
-<span class="c1"># File not found</span>
-<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;nonexistent.txt&quot;</span><span class="p">)</span>
-
-<span class="c1"># Index out of bounds</span>
-<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
-</code></pre></div>
-<h3 id="3-logic-errors">3. Logic Errors<a class="headerlink" href="#3-logic-errors" title="Permanent link">&para;</a></h3>
-<p>The program runs without crashing but produces incorrect results. These are the hardest to detect.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Incorrect calculation (should be width * height)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_area</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">width</span> <span class="o">+</span> <span class="n">height</span>  <span class="c1"># Bug: using + instead of *</span>
-</code></pre></div>
-<h2 id="error-handling-strategies">Error Handling Strategies<a class="headerlink" href="#error-handling-strategies" title="Permanent link">&para;</a></h2>
-<h3 id="1-fail-fast">1. Fail-Fast<a class="headerlink" href="#1-fail-fast" title="Permanent link">&para;</a></h3>
-<p>Stop execution immediately when an error is detected. This prevents cascading failures and makes debugging easier.</p>
-<p><strong>When to use:</strong> Development, critical systems where partial results are dangerous.</p>
+<h2 id="kinds-of-errors">Kinds of Errors<a class="headerlink" href="#kinds-of-errors" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>When it happens</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syntax</strong></td>
+<td>Parse / compile time, before the program runs.</td>
+<td><code>if x == 5</code> (missing colon in Python).</td>
+</tr>
+<tr>
+<td><strong>Runtime (exceptions)</strong></td>
+<td>During execution. Code is valid but something unexpected occurred.</td>
+<td>Dividing by zero, file not found, index out of range.</td>
+</tr>
+<tr>
+<td><strong>Logic</strong></td>
+<td>Program runs without crashing but produces the wrong answer. Hardest to find.</td>
+<td><code>def area(w, h): return w + h</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="handling-strategies">Handling Strategies<a class="headerlink" href="#handling-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="fail-fast">Fail Fast<a class="headerlink" href="#fail-fast" title="Permanent link">&para;</a></h3>
+<p>Stop as soon as an invariant is violated. Prevents cascading failures and makes the root cause easy to find.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">process_payment</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Payment amount must be positive&quot;</span><span class="p">)</span>
-    <span class="c1"># Continue processing...</span>
+    <span class="o">...</span>
 </code></pre></div>
-<h3 id="2-graceful-degradation">2. Graceful Degradation<a class="headerlink" href="#2-graceful-degradation" title="Permanent link">&para;</a></h3>
-<p>Continue operating with reduced functionality when errors occur.</p>
-<p><strong>When to use:</strong> User-facing applications, non-critical features.</p>
+<p>Use when a partial result would be dangerous or misleading.</p>
+<h3 id="graceful-degradation">Graceful Degradation<a class="headerlink" href="#graceful-degradation" title="Permanent link">&para;</a></h3>
+<p>Continue with reduced functionality when non-critical subsystems fail.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_user_avatar</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fetch_avatar_from_server</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fetch_avatar</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">DEFAULT_AVATAR</span>  <span class="c1"># Fallback to default</span>
+        <span class="k">return</span> <span class="n">DEFAULT_AVATAR</span>
 </code></pre></div>
-<h3 id="3-retry-with-backoff">3. Retry with Backoff<a class="headerlink" href="#3-retry-with-backoff" title="Permanent link">&para;</a></h3>
-<p>Automatically retry failed operations with increasing delays.</p>
-<p><strong>When to use:</strong> Transient failures (network issues, temporary unavailability).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">fetch_with_retry</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<p>Use for user-facing features where some answer is better than none.</p>
+<h3 id="retry-with-backoff">Retry with Backoff<a class="headerlink" href="#retry-with-backoff" title="Permanent link">&para;</a></h3>
+<p>For transient failures — flaky networks, rate limits, temporary unavailability.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_with_retry</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">attempt</span> <span class="o">==</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>  <span class="c1"># Exponential backoff: 1s, 2s, 4s</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>   <span class="c1"># 1s, 2s, 4s</span>
 </code></pre></div>
-<h3 id="4-circuit-breaker">4. Circuit Breaker<a class="headerlink" href="#4-circuit-breaker" title="Permanent link">&para;</a></h3>
-<p>Stop calling a failing service temporarily to prevent resource exhaustion and allow recovery.</p>
-<p><strong>When to use:</strong> Distributed systems, external service calls.</p>
-<div class="highlight"><pre><span></span><code>States: CLOSED → OPEN → HALF-OPEN → CLOSED
-
-CLOSED: Normal operation, requests pass through
-OPEN: Failures exceeded threshold, requests fail immediately
-HALF-OPEN: After timeout, allow limited requests to test recovery
+<p>Only retry idempotent operations; add jitter in production to avoid thundering herds.</p>
+<h3 id="circuit-breaker">Circuit Breaker<a class="headerlink" href="#circuit-breaker" title="Permanent link">&para;</a></h3>
+<p>Stop calling a failing dependency for a while so it can recover and so you don't waste resources waiting on it.</p>
+<div class="highlight"><pre><span></span><code>CLOSED    — normal, requests pass through
+OPEN      — failures exceeded threshold; fail fast
+HALF-OPEN — after a cooldown, try a few requests to test recovery
 </code></pre></div>
+<p>Essential for calls to external services in a distributed system.</p>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="1-catch-specific-exceptions">1. Catch Specific Exceptions<a class="headerlink" href="#1-catch-specific-exceptions" title="Permanent link">&para;</a></h3>
-<p>Avoid catching generic exceptions; be specific about what you're handling.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">process_data</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Good</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">process_data</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid data format: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File operation failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="2-dont-swallow-exceptions-silently">2. Don't Swallow Exceptions Silently<a class="headerlink" href="#2-dont-swallow-exceptions-silently" title="Permanent link">&para;</a></h3>
-<p>Always log or handle exceptions meaningfully.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Bad - silent failure</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">save_to_database</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">DatabaseError</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Good - log and handle</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">save_to_database</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database save failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">notify_admin</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="k">raise</span>  <span class="c1"># Re-raise if caller needs to know</span>
-</code></pre></div>
-<h3 id="3-use-finally-for-cleanup">3. Use Finally for Cleanup<a class="headerlink" href="#3-use-finally-for-cleanup" title="Permanent link">&para;</a></h3>
-<p>Ensure resources are released regardless of success or failure.</p>
-<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">)</span>
-    <span class="n">process</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">finally</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
-        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
-<h3 id="4-provide-context-in-error-messages">4. Provide Context in Error Messages<a class="headerlink" href="#4-provide-context-in-error-messages" title="Permanent link">&para;</a></h3>
-<p>Include relevant information for debugging.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
-<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid input&quot;</span><span class="p">)</span>
-
-<span class="c1"># Good</span>
-<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid user ID &#39;</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&#39;: must be a positive integer&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="5-fail-at-the-right-level">5. Fail at the Right Level<a class="headerlink" href="#5-fail-at-the-right-level" title="Permanent link">&para;</a></h3>
-<p>Handle errors at the level where you have enough context to deal with them appropriately.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Low-level function: raise exception</span>
+<ol>
+<li><strong>Catch specific exceptions</strong>, not <code>Exception</code> or bare <code>except</code>. You should know exactly what you are handling.</li>
+<li><strong>Never swallow errors silently.</strong> At minimum, log them. If you can't handle an error here, let it propagate.</li>
+<li><strong>Always clean up resources</strong> — <code>finally</code>, context managers, or RAII depending on the language.</li>
+<li><strong>Put context in messages.</strong> <code>Invalid user ID 'abc': must be a positive integer</code> beats <code>Invalid input</code>.</li>
+<li><strong>Handle errors at the right level.</strong> Low-level code <em>raises</em>; high-level code <em>decides</em> what to do about it.</li>
+<li><strong>Prefer exceptions over sentinel values</strong> (<code>None</code>, <code>-1</code>). Sentinels are easy to ignore.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fail fast, with context</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_config</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config file not found: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1"># ...</span>
+    <span class="o">...</span>
 
-<span class="c1"># High-level function: handle and provide fallback</span>
+<span class="c1"># Decide at the top level</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">initialize_app</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">parse_config</span><span class="p">(</span><span class="s2">&quot;config.yaml&quot;</span><span class="p">)</span>
@@ -2314,201 +1909,55 @@ HALF-OPEN: After timeout, allow limited requests to test recovery
         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Config not found, using defaults&quot;</span><span class="p">)</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">DEFAULT_CONFIG</span>
 </code></pre></div>
-<hr />
-<h2 id="python-exception-handling">Python Exception Handling<a class="headerlink" href="#python-exception-handling" title="Permanent link">&para;</a></h2>
-<p>Python uses exceptions as the primary mechanism for error handling. Understanding Python's exception system is essential for writing robust code.</p>
-<h3 id="exception-hierarchy">Exception Hierarchy<a class="headerlink" href="#exception-hierarchy" title="Permanent link">&para;</a></h3>
-<p>Python's built-in exceptions form a hierarchy. All exceptions inherit from <code>BaseException</code>.</p>
-<div class="highlight"><pre><span></span><code>BaseException
-├── SystemExit
-├── KeyboardInterrupt
-├── GeneratorExit
-└── Exception
-    ├── StopIteration
-    ├── ArithmeticError
-    │   ├── ZeroDivisionError
-    │   ├── OverflowError
-    │   └── FloatingPointError
-    ├── AssertionError
-    ├── AttributeError
-    ├── BufferError
-    ├── EOFError
-    ├── ImportError
-    │   └── ModuleNotFoundError
-    ├── LookupError
-    │   ├── IndexError
-    │   └── KeyError
-    ├── MemoryError
-    ├── NameError
-    │   └── UnboundLocalError
-    ├── OSError
-    │   ├── FileNotFoundError
-    │   ├── PermissionError
-    │   ├── TimeoutError
-    │   └── ...
-    ├── RuntimeError
-    │   ├── NotImplementedError
-    │   └── RecursionError
-    ├── TypeError
-    ├── ValueError
-    │   └── UnicodeError
-    └── Warning
-        ├── DeprecationWarning
-        ├── UserWarning
-        └── ...
-</code></pre></div>
-<p><strong>Key points:</strong>
-- Catch <code>Exception</code> to handle most errors (excludes <code>SystemExit</code>, <code>KeyboardInterrupt</code>)
-- Catch <code>BaseException</code> only if you need to handle everything (rarely needed)
-- More specific exceptions are subclasses of general ones</p>
-<h3 id="tryexceptelsefinally">try/except/else/finally<a class="headerlink" href="#tryexceptelsefinally" title="Permanent link">&para;</a></h3>
-<p>The complete syntax for exception handling in Python:</p>
+<h2 id="python-specifics">Python Specifics<a class="headerlink" href="#python-specifics" title="Permanent link">&para;</a></h2>
+<h3 id="try-except-else-finally"><code>try / except / else / finally</code><a class="headerlink" href="#try-except-else-finally" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="c1"># Code that might raise an exception</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">risky_operation</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="c1"># Handle specific exception</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;bad value: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="c1"># Handle multiple exception types</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type or key error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="c1"># Catch-all for other exceptions</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">raise</span>  <span class="c1"># Re-raise the exception</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;type or key: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># Executed only if no exception occurred</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;success: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>   <span class="c1"># only if no exception</span>
 <span class="k">finally</span><span class="p">:</span>
-    <span class="c1"># Always executed (cleanup)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup complete&quot;</span><span class="p">)</span>
+    <span class="n">cleanup</span><span class="p">()</span>                          <span class="c1"># always runs</span>
 </code></pre></div>
-<p><strong>Execution flow:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">try</th>
-<th style="text-align: center;">except</th>
-<th style="text-align: center;">else</th>
-<th style="text-align: center;">finally</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">No exception</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✗</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✓</td>
-</tr>
-<tr>
-<td style="text-align: left;">Exception caught</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✗</td>
-<td style="text-align: center;">✓</td>
-</tr>
-<tr>
-<td style="text-align: left;">Exception not caught</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✗</td>
-<td style="text-align: center;">✗</td>
-<td style="text-align: center;">✓</td>
-</tr>
-</tbody>
-</table>
-<h3 id="raising-exceptions">Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Permanent link">&para;</a></h3>
-<p>Use <code>raise</code> to throw exceptions explicitly.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Raise a built-in exception</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-
-<span class="c1"># Raise with cause (exception chaining)</span>
+<h3 id="exception-hierarchy-the-shape-not-the-full-tree">Exception Hierarchy (the shape, not the full tree)<a class="headerlink" href="#exception-hierarchy-the-shape-not-the-full-tree" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>BaseException
+├── SystemExit, KeyboardInterrupt, GeneratorExit   ← rarely catch these
+└── Exception                                      ← catch this or a subclass
+    ├── ArithmeticError (ZeroDivisionError, …)
+    ├── LookupError (IndexError, KeyError)
+    ├── OSError (FileNotFoundError, PermissionError, …)
+    ├── TypeError, ValueError, AttributeError
+    └── ...
+</code></pre></div>
+<p>Catch <code>Exception</code> for a catch-all at a boundary. Catch specific subclasses everywhere else.</p>
+<h3 id="raising-and-chaining">Raising and Chaining<a class="headerlink" href="#raising-and-chaining" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Raise with cause — preserves the original traceback</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw_input</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid configuration format&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
-<span class="c1"># Re-raise current exception</span>
+<span class="c1"># Re-raise while adding a log</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">process</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Processing failed&quot;</span><span class="p">)</span>
-    <span class="k">raise</span>  <span class="c1"># Preserves original traceback</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;processing failed&quot;</span><span class="p">)</span>
+    <span class="k">raise</span>
 </code></pre></div>
 <h3 id="custom-exceptions">Custom Exceptions<a class="headerlink" href="#custom-exceptions" title="Permanent link">&para;</a></h3>
-<p>Create custom exceptions for domain-specific errors.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Simple custom exception</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when data validation fails.&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Custom exception with additional attributes</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">APIError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when an API call fails.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">status_code</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Exception hierarchy for a module</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">DatabaseError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base exception for database operations.&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">ConnectionError</span><span class="p">(</span><span class="n">DatabaseError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Failed to connect to database.&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">QueryError</span><span class="p">(</span><span class="n">DatabaseError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Query execution failed.&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Usage</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">connect_to_database</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>Domain-specific exceptions make callers more precise.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DatabaseError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> <span class="o">...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConnectionError</span><span class="p">(</span><span class="n">DatabaseError</span><span class="p">):</span> <span class="o">...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">QueryError</span><span class="p">(</span><span class="n">DatabaseError</span><span class="p">):</span> <span class="o">...</span>
 </code></pre></div>
-<h3 id="context-managers-with-statement">Context Managers (with statement)<a class="headerlink" href="#context-managers-with-statement" title="Permanent link">&para;</a></h3>
-<p>Context managers ensure proper resource cleanup using <code>__enter__</code> and <code>__exit__</code> methods.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Using built-in context manager</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="c1"># File is automatically closed, even if an exception occurs</span>
+<h3 id="context-managers">Context Managers<a class="headerlink" href="#context-managers" title="Permanent link">&para;</a></h3>
+<p>Context managers guarantee cleanup even on errors.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>   <span class="c1"># f.close() runs even if read() raises</span>
 
-<span class="c1"># Multiple context managers</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;input.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
-    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-
-<span class="c1"># Custom context manager using class</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">DatabaseConnection</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_string</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span> <span class="o">=</span> <span class="n">connection_string</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="c1"># Return True to suppress exception, False to propagate</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-<span class="c1"># Custom context manager using contextlib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
@@ -2517,167 +1966,91 @@ HALF-OPEN: After timeout, allow limited requests to test recovery
     <span class="k">try</span><span class="p">:</span>
         <span class="k">yield</span>
     <span class="k">finally</span><span class="p">:</span>
-        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
-
-<span class="c1"># Usage</span>
-<span class="k">with</span> <span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Data processing&quot;</span><span class="p">):</span>
-    <span class="n">process_large_dataset</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="common-patterns">Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">&para;</a></h3>
-<h4 id="pattern-1-eafp-vs-lbyl">Pattern 1: EAFP vs LBYL<a class="headerlink" href="#pattern-1-eafp-vs-lbyl" title="Permanent link">&para;</a></h4>
-<p><strong>EAFP</strong> (Easier to Ask Forgiveness than Permission) - Pythonic style:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># EAFP - try and handle exception</span>
+<h3 id="eafp-vs-lbyl">EAFP vs LBYL<a class="headerlink" href="#eafp-vs-lbyl" title="Permanent link">&para;</a></h3>
+<p>Python favors <strong>EAFP</strong> — <em>Easier to Ask Forgiveness than Permission</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># EAFP — Pythonic</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">default_value</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
 </code></pre></div>
-<p><strong>LBYL</strong> (Look Before You Leap) - check first:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># LBYL - check before accessing</span>
-<span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">default_value</span>
+<p>vs <strong>LBYL</strong> — <em>Look Before You Leap</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># LBYL — also fine for simple cases</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">else</span> <span class="n">default</span>
 </code></pre></div>
-<p>EAFP is preferred in Python when the exceptional case is rare.</p>
-<h4 id="pattern-2-exception-as-control-flow-use-sparingly">Pattern 2: Exception as Control Flow (use sparingly)<a class="headerlink" href="#pattern-2-exception-as-control-flow-use-sparingly" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Using StopIteration in iterators</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_count</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">max_count</span> <span class="o">=</span> <span class="n">max_count</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_count</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span>
-</code></pre></div>
-<h4 id="pattern-3-null-object-default-value">Pattern 3: Null Object / Default Value<a class="headerlink" href="#pattern-3-null-object-default-value" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Using dict.get() instead of try/except</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-
-<span class="c1"># Using getattr with default</span>
-<span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="anti-patterns-to-avoid">Anti-Patterns to Avoid<a class="headerlink" href="#anti-patterns-to-avoid" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># ❌ Bare except (catches everything including KeyboardInterrupt)</span>
+<p>EAFP wins when the exceptional case is rare. For trivial checks, <code>dict.get(key, default)</code> or <code>getattr(obj, "x", default)</code> is cleaner than either.</p>
+<h2 id="anti-patterns">Anti-Patterns<a class="headerlink" href="#anti-patterns" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ Bare except — catches KeyboardInterrupt, SystemExit too</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
+    <span class="o">...</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">pass</span>
 
-<span class="c1"># ❌ Catching too broad</span>
+<span class="c1"># ❌ Too broad</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># Catches more than intended</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>   <span class="c1"># catches way more than ValueError</span>
+    <span class="o">...</span>
 
-<span class="c1"># ❌ Using exceptions for expected conditions</span>
+<span class="c1"># ❌ Exceptions as control flow for expected conditions</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">items</span><span class="p">:</span>
-        <span class="n">process</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-    <span class="k">pass</span>  <span class="c1"># Should just check if items is non-empty</span>
+    <span class="k">pass</span>            <span class="c1"># just check `if items:`</span>
 
-<span class="c1"># ❌ Losing exception context</span>
+<span class="c1"># ❌ Losing the original cause</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">parse_config</span><span class="p">()</span>
 <span class="k">except</span> <span class="n">ConfigError</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Config failed&quot;</span><span class="p">)</span>  <span class="c1"># Lost original cause</span>
-<span class="c1"># ✓ Use: raise RuntimeError(&quot;Config failed&quot;) from e</span>
-
-<span class="c1"># ❌ Returning None to indicate error</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">find_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># Caller might forget to check</span>
-<span class="c1"># ✓ Raise an exception instead</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;config failed&quot;</span><span class="p">)</span>   <span class="c1"># lost the cause</span>
+<span class="c1"># ✓ raise RuntimeError(&quot;config failed&quot;) from e</span>
 </code></pre></div>
-<hr />
-<h2 id="comparison-with-other-languages">Comparison with Other Languages<a class="headerlink" href="#comparison-with-other-languages" title="Permanent link">&para;</a></h2>
-<h3 id="java-try-catch-finally">Java: try-catch-finally<a class="headerlink" href="#java-try-catch-finally" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">FileReader</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// Process file</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;File not found: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;IO error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Cleanup</span>
-<span class="p">}</span>
-
-<span class="c1">// Try-with-resources (like Python&#39;s with)</span>
-<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">FileReader</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Process file</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Key difference:</strong> Java has checked exceptions (must be declared or caught).</p>
-<h3 id="go-error-returns">Go: Error Returns<a class="headerlink" href="#go-error-returns" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">doSomething</span><span class="p">()</span>
-<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;operation failed: %w&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// Use result</span>
-</code></pre></div>
-<p><strong>Key difference:</strong> Errors are values, not exceptions. Explicit error checking required.</p>
-<h3 id="rust-result-type">Rust: Result Type<a class="headerlink" href="#rust-result-type" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;Cannot divide by zero&quot;</span><span class="p">))</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Usage with pattern matching</span>
-<span class="k">match</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Result: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">),</span>
-<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Error: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span>
-<span class="p">}</span>
-
-<span class="c1">// Or with ? operator for propagation</span>
-<span class="k">fn</span><span class="w"> </span><span class="nf">calculate</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
-<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Key difference:</strong> Errors must be handled explicitly; compiler enforces error handling.</p>
+<h2 id="comparison-across-languages">Comparison Across Languages<a class="headerlink" href="#comparison-across-languages" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Language</th>
-<th style="text-align: left;">Mechanism</th>
-<th style="text-align: left;">Error Handling Style</th>
+<th>Language</th>
+<th>Mechanism</th>
+<th>Style</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Python</td>
-<td style="text-align: left;">Exceptions</td>
-<td style="text-align: left;">EAFP, try/except</td>
+<td><strong>Python</strong></td>
+<td>Exceptions</td>
+<td>EAFP, <code>try / except</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">Java</td>
-<td style="text-align: left;">Exceptions (checked/unchecked)</td>
-<td style="text-align: left;">try-catch, throws</td>
+<td><strong>Java</strong></td>
+<td>Exceptions (checked + unchecked)</td>
+<td><code>try / catch</code>, explicit <code>throws</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">Go</td>
-<td style="text-align: left;">Error values</td>
-<td style="text-align: left;">Explicit if err != nil</td>
+<td><strong>Go</strong></td>
+<td>Error values</td>
+<td><code>if err != nil { return err }</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">Rust</td>
-<td style="text-align: left;">Result<T, E> type</td>
-<td style="text-align: left;">Pattern matching, ? operator</td>
+<td><strong>Rust</strong></td>
+<td><code>Result&lt;T, E&gt;</code></td>
+<td>Pattern match or <code>?</code> operator</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">doSomething</span><span class="p">()</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;operation failed: %w&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">&quot;divide by zero&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">())</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w">   </span><span class="c1">// propagate with ?</span>
+</code></pre></div>
+<p><strong>Big picture:</strong> Python and Java use exceptions as the default; Go and Rust make errors values in the type system. The trade-off is between terser happy paths (exceptions) and explicit handling at every call site (values). Both approaches, used well, produce reliable software.</p>
 
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/basic_concepts/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/architecture/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../principles/">
       
       
-        <link rel="next" href="../devlopment_concepts/">
+        <link rel="next" href="../error_handling/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Basic Concepts - Software Handbook</title>
+        <title>Architecture - Software Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-software-engineering-concepts" class="md-skip">
+        <a href="#architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic Concepts
+              Architecture
             
           </span>
         </div>
@@ -404,6 +404,62 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -423,7 +479,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Concepts
+    Architecture
   
 
     
@@ -441,7 +497,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Concepts
+    Architecture
   
 
     
@@ -467,22 +523,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#chomsky-hierarchy" class="md-nav__link">
+  <a href="#1-application-layers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chomsky Hierarchy
+        1. Application Layers
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Chomsky Hierarchy">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-code-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Code Organization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Code Organization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-four-levels" class="md-nav__link">
+  <a href="#by-component-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Four Levels
+        By Component (recommended)
       
     </span>
   </a>
@@ -490,22 +557,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples-restrictions" class="md-nav__link">
+  <a href="#by-layer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples &amp; Restrictions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples &amp; Restrictions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-type-0-unrestricted" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Type 0: Unrestricted
+        By Layer
       
     </span>
   </a>
@@ -513,10 +568,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-type-1-context-sensitive" class="md-nav__link">
+  <a href="#by-toolbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Type 1: Context-Sensitive
+        By Toolbox
       
     </span>
   </a>
@@ -524,37 +579,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-type-2-context-free" class="md-nav__link">
+  <a href="#by-kind-anti-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Type 2: Context-Free
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-type-3-regular" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Type 3: Regular
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#practical-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Applications
+        By Kind (anti-pattern)
       
     </span>
   </a>
@@ -567,22 +595,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-paradigms" class="md-nav__link">
+  <a href="#3-system-level-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programming Paradigms
+        3. System-Level Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Programming Paradigms">
+    <nav class="md-nav" aria-label="3. System-Level Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-object-oriented-programming-oop" class="md-nav__link">
+  <a href="#monolithic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Object-Oriented Programming (OOP)
+        Monolithic
       
     </span>
   </a>
@@ -590,10 +618,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-functional-programming-fp" class="md-nav__link">
+  <a href="#client-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Functional Programming (FP)
+        Client-Server
       
     </span>
   </a>
@@ -601,10 +629,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-procedural-programming-pp" class="md-nav__link">
+  <a href="#microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Procedural Programming (PP)
+        Microservices
       
     </span>
   </a>
@@ -612,10 +640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-declarative-programming-dp" class="md-nav__link">
+  <a href="#service-oriented-architecture-soa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Declarative Programming (DP)
+        Service-Oriented Architecture (SOA)
       
     </span>
   </a>
@@ -623,10 +651,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-logic-programming-lp" class="md-nav__link">
+  <a href="#event-driven" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Logic Programming (LP)
+        Event-Driven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverless-faas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serverless / FaaS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe-and-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipe and Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peer-to-peer-p2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peer-to-Peer (P2P)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison
       
     </span>
   </a>
@@ -639,22 +711,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-component-levels" class="md-nav__link">
+  <a href="#4-deployment-topologies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Component Levels
+        4. Deployment Topologies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Code Component Levels">
+    <nav class="md-nav" aria-label="4. Deployment Topologies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-expression-statement" class="md-nav__link">
+  <a href="#all-in-one" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Expression / Statement
+        All-in-One
       
     </span>
   </a>
@@ -662,10 +734,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-function" class="md-nav__link">
+  <a href="#split-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Function
+        Split Database
       
     </span>
   </a>
@@ -673,10 +745,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-class" class="md-nav__link">
+  <a href="#microservices-many-services-many-machines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Class
+        Microservices (many services, many machines)
       
     </span>
   </a>
@@ -684,10 +756,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-file" class="md-nav__link">
+  <a href="#serverless" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. File
+        Serverless
       
     </span>
   </a>
@@ -695,10 +767,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-module" class="md-nav__link">
+  <a href="#container-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Module
+        Container Orchestration
       
     </span>
   </a>
@@ -706,43 +778,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-sub-package-name-space-package" class="md-nav__link">
+  <a href="#evolution-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Sub-package, Name-space package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Platform
+        Evolution Path
       
     </span>
   </a>
@@ -755,22 +794,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layers-in-software-architecture" class="md-nav__link">
+  <a href="#5-system-design-building-blocks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layers in Software Architecture
+        5. System Design Building Blocks
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layers in Software Architecture">
+    <nav class="md-nav" aria-label="5. System Design Building Blocks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-data-layer-persistence-layer" class="md-nav__link">
+  <a href="#scalability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Data Layer (Persistence Layer)
+        Scalability
       
     </span>
   </a>
@@ -778,10 +817,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-application-business-layer-service-layer" class="md-nav__link">
+  <a href="#load-balancers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Application / Business Layer (Service Layer)
+        Load Balancers
       
     </span>
   </a>
@@ -789,10 +828,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-presentation-layer-ui-layer" class="md-nav__link">
+  <a href="#caching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Presentation Layer (UI Layer)
+        Caching
       
     </span>
   </a>
@@ -800,10 +839,98 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optional-extensions" class="md-nav__link">
+  <a href="#cdn-content-delivery-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Optional Extensions
+        CDN (Content Delivery Network)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-sharding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning (Sharding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Queues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cap-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAP Theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Bottlenecks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
       
     </span>
   </a>
@@ -816,10 +943,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#some-popular-software-applications" class="md-nav__link">
+  <a href="#6-ui-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some Popular Software Applications
+        6. UI Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-an-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an Architecture
       
     </span>
   </a>
@@ -830,34 +968,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../devlopment_concepts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Development Concepts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -898,42 +1008,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../philosophies_principles/" class="md-nav__link">
+      <a href="../lifecycle/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Coding Philosophies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture_patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture Patterns
+    Lifecycle
   
 
     
@@ -1756,22 +1838,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#chomsky-hierarchy" class="md-nav__link">
+  <a href="#1-application-layers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chomsky Hierarchy
+        1. Application Layers
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Chomsky Hierarchy">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-code-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Code Organization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Code Organization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-four-levels" class="md-nav__link">
+  <a href="#by-component-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Four Levels
+        By Component (recommended)
       
     </span>
   </a>
@@ -1779,22 +1872,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples-restrictions" class="md-nav__link">
+  <a href="#by-layer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples &amp; Restrictions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples &amp; Restrictions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-type-0-unrestricted" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Type 0: Unrestricted
+        By Layer
       
     </span>
   </a>
@@ -1802,10 +1883,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-type-1-context-sensitive" class="md-nav__link">
+  <a href="#by-toolbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Type 1: Context-Sensitive
+        By Toolbox
       
     </span>
   </a>
@@ -1813,37 +1894,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-type-2-context-free" class="md-nav__link">
+  <a href="#by-kind-anti-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Type 2: Context-Free
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-type-3-regular" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Type 3: Regular
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#practical-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Applications
+        By Kind (anti-pattern)
       
     </span>
   </a>
@@ -1856,22 +1910,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-paradigms" class="md-nav__link">
+  <a href="#3-system-level-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programming Paradigms
+        3. System-Level Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Programming Paradigms">
+    <nav class="md-nav" aria-label="3. System-Level Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-object-oriented-programming-oop" class="md-nav__link">
+  <a href="#monolithic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Object-Oriented Programming (OOP)
+        Monolithic
       
     </span>
   </a>
@@ -1879,10 +1933,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-functional-programming-fp" class="md-nav__link">
+  <a href="#client-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Functional Programming (FP)
+        Client-Server
       
     </span>
   </a>
@@ -1890,10 +1944,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-procedural-programming-pp" class="md-nav__link">
+  <a href="#microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Procedural Programming (PP)
+        Microservices
       
     </span>
   </a>
@@ -1901,10 +1955,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-declarative-programming-dp" class="md-nav__link">
+  <a href="#service-oriented-architecture-soa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Declarative Programming (DP)
+        Service-Oriented Architecture (SOA)
       
     </span>
   </a>
@@ -1912,10 +1966,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-logic-programming-lp" class="md-nav__link">
+  <a href="#event-driven" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Logic Programming (LP)
+        Event-Driven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverless-faas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serverless / FaaS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe-and-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipe and Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peer-to-peer-p2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peer-to-Peer (P2P)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison
       
     </span>
   </a>
@@ -1928,22 +2026,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-component-levels" class="md-nav__link">
+  <a href="#4-deployment-topologies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Component Levels
+        4. Deployment Topologies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Code Component Levels">
+    <nav class="md-nav" aria-label="4. Deployment Topologies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-expression-statement" class="md-nav__link">
+  <a href="#all-in-one" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Expression / Statement
+        All-in-One
       
     </span>
   </a>
@@ -1951,10 +2049,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-function" class="md-nav__link">
+  <a href="#split-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Function
+        Split Database
       
     </span>
   </a>
@@ -1962,10 +2060,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-class" class="md-nav__link">
+  <a href="#microservices-many-services-many-machines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Class
+        Microservices (many services, many machines)
       
     </span>
   </a>
@@ -1973,10 +2071,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-file" class="md-nav__link">
+  <a href="#serverless" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. File
+        Serverless
       
     </span>
   </a>
@@ -1984,10 +2082,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-module" class="md-nav__link">
+  <a href="#container-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Module
+        Container Orchestration
       
     </span>
   </a>
@@ -1995,43 +2093,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-sub-package-name-space-package" class="md-nav__link">
+  <a href="#evolution-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Sub-package, Name-space package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Platform
+        Evolution Path
       
     </span>
   </a>
@@ -2044,22 +2109,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layers-in-software-architecture" class="md-nav__link">
+  <a href="#5-system-design-building-blocks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layers in Software Architecture
+        5. System Design Building Blocks
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layers in Software Architecture">
+    <nav class="md-nav" aria-label="5. System Design Building Blocks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-data-layer-persistence-layer" class="md-nav__link">
+  <a href="#scalability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Data Layer (Persistence Layer)
+        Scalability
       
     </span>
   </a>
@@ -2067,10 +2132,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-application-business-layer-service-layer" class="md-nav__link">
+  <a href="#load-balancers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Application / Business Layer (Service Layer)
+        Load Balancers
       
     </span>
   </a>
@@ -2078,10 +2143,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-presentation-layer-ui-layer" class="md-nav__link">
+  <a href="#caching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Presentation Layer (UI Layer)
+        Caching
       
     </span>
   </a>
@@ -2089,10 +2154,98 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optional-extensions" class="md-nav__link">
+  <a href="#cdn-content-delivery-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Optional Extensions
+        CDN (Content Delivery Network)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-sharding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning (Sharding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Queues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cap-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAP Theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Bottlenecks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
       
     </span>
   </a>
@@ -2105,10 +2258,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#some-popular-software-applications" class="md-nav__link">
+  <a href="#6-ui-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some Popular Software Applications
+        6. UI Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-an-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an Architecture
       
     </span>
   </a>
@@ -2135,298 +2299,395 @@
   
 
 
-<h1 id="basic-software-engineering-concepts">Basic Software Engineering Concepts<a class="headerlink" href="#basic-software-engineering-concepts" title="Permanent link">&para;</a></h1>
-<h2 id="chomsky-hierarchy">Chomsky Hierarchy<a class="headerlink" href="#chomsky-hierarchy" title="Permanent link">&para;</a></h2>
-<p>The <strong>Chomsky Hierarchy</strong> organizes formal languages into four levels based on their complexity. Think of it as a set of "Russian dolls": each level is a subset of the one above it.</p>
-<ul>
-<li>
-<p><strong>Type 0</strong> (Most powerful, least restricted) includes everything below it.</p>
-</li>
-<li>
-<p><strong>Type 3</strong> (Least powerful, most restricted) is the simplest.</p>
-</li>
-</ul>
-<p>This hierarchy helps computer scientists decide which tools to use. For example, you don't need a full Turing Machine to parse a simple email address—a Regular Expression (Type 3) is enough.</p>
-<h3 id="the-four-levels">The Four Levels<a class="headerlink" href="#the-four-levels" title="Permanent link">&para;</a></h3>
+<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<p>How to structure software, from the shape of a single codebase to the topology of a distributed system. This page consolidates four related concerns:</p>
+<ol>
+<li><strong>Layers</strong> inside a single application</li>
+<li><strong>Code organization</strong> in a repository</li>
+<li><strong>System-level patterns</strong> (how services are deployed and communicate)</li>
+<li><strong>UI patterns</strong> for interactive apps</li>
+<li><strong>System design building blocks</strong> (scalability, caching, databases…)</li>
+</ol>
+<hr />
+<h2 id="1-application-layers">1. Application Layers<a class="headerlink" href="#1-application-layers" title="Permanent link">&para;</a></h2>
+<p>Most applications separate responsibilities into horizontal layers. A request flows top-down; data flows bottom-up.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Grammar Name</th>
-<th style="text-align: left;">Machine (Automaton)</th>
-<th style="text-align: left;">Key Characteristic</th>
+<th>Layer</th>
+<th>Responsibility</th>
+<th>Typical components</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Type 0</strong></td>
-<td style="text-align: left;"><strong>Unrestricted</strong></td>
-<td style="text-align: left;"><strong>Turing Machine</strong></td>
-<td style="text-align: left;">Can compute anything that is computable. Rules have no restrictions.</td>
+<td><strong>Presentation (UI)</strong></td>
+<td>User interaction, rendering, input handling.</td>
+<td>Web/mobile UI, controllers, view models</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Type 1</strong></td>
-<td style="text-align: left;"><strong>Context-Sensitive</strong></td>
-<td style="text-align: left;"><strong>Linear Bounded Automaton</strong></td>
-<td style="text-align: left;">Rules depend on the "context" (surrounding symbols). Length of the string cannot decrease.</td>
+<td><strong>Application / Business</strong></td>
+<td>Core logic, use cases, coordination.</td>
+<td>Services, domain objects, workflows</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Type 2</strong></td>
-<td style="text-align: left;"><strong>Context-Free</strong></td>
-<td style="text-align: left;"><strong>Pushdown Automaton</strong></td>
-<td style="text-align: left;">Supports nesting and recursion (e.g., matching parentheses). Most programming language syntax is here.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Type 3</strong></td>
-<td style="text-align: left;"><strong>Regular</strong></td>
-<td style="text-align: left;"><strong>Finite State Automaton</strong></td>
-<td style="text-align: left;">Simple patterns without nesting (e.g., keywords, identifiers).</td>
+<td><strong>Data (Persistence)</strong></td>
+<td>Storage and retrieval of data.</td>
+<td>Repositories, DAOs, ORM models</td>
 </tr>
 </tbody>
 </table>
-<h3 id="examples-restrictions">Examples &amp; Restrictions<a class="headerlink" href="#examples-restrictions" title="Permanent link">&para;</a></h3>
-<p>Moving down the hierarchy adds more restrictions to the rules.</p>
-<h4 id="1-type-0-unrestricted">1. Type 0: Unrestricted<a class="headerlink" href="#1-type-0-unrestricted" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha \to \beta\)</span> (Anything goes, as long as LHS is not empty)</p>
+<p>Optional additions as systems grow:</p>
 <ul>
-<li>
-<p><strong>Example:</strong> Any computable logic.</p>
-</li>
-<li>
-<p><strong>Analogy:</strong> A whiteboard where you can erase and rewrite anything anywhere.</p>
-</li>
+<li><strong>API Layer</strong> — exposes services to external clients via REST/GraphQL/gRPC.</li>
+<li><strong>Integration Layer</strong> — adapters to third-party services and external systems.</li>
+<li><strong>Security Layer</strong> — authentication, authorization, encryption, auditing.</li>
 </ul>
-<h4 id="2-type-1-context-sensitive">2. Type 1: Context-Sensitive<a class="headerlink" href="#2-type-1-context-sensitive" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(\alpha A \beta \to \alpha \gamma \beta\)</span> (Replace <span class="arithmatex">\(A\)</span> with <span class="arithmatex">\(\gamma\)</span>, but <em>only</em> if it's between 
-<span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>)</p>
+<p><strong>Rule of thumb:</strong> dependencies point inward — UI depends on business, business depends on data abstractions. Data never calls up into the UI.</p>
+<hr />
+<h2 id="2-code-organization">2. Code Organization<a class="headerlink" href="#2-code-organization" title="Permanent link">&para;</a></h2>
+<p>How you group files in a repository matters as much as how you design the runtime. Four common strategies:</p>
+<h3 id="by-component-recommended">By Component (recommended)<a class="headerlink" href="#by-component-recommended" title="Permanent link">&para;</a></h3>
+<p>Group by <strong>business feature</strong> (<code>user-management/</code>, <code>order-processing/</code>). Each component is self-contained with a minimal public interface. Dependencies between components are explicit and few.</p>
+<div class="highlight"><pre><span></span><code>src/
+├── graph/
+│   ├── Graph.java
+│   ├── GraphService.java
+│   └── GraphPersister.java     # interface
+├── graph-storage/
+│   └── FileGraphPersister.java # implements GraphPersister
+└── app/
+    └── AppModule.java          # wires them together
+</code></pre></div>
+<h3 id="by-layer">By Layer<a class="headerlink" href="#by-layer" title="Permanent link">&para;</a></h3>
+<p>Group by <strong>technical role</strong> (<code>presentation/</code>, <code>application/</code>, <code>domain/</code>, <code>infrastructure/</code>). Easy to understand at a glance but a single feature change often touches every layer, increasing coupling.</p>
+<div class="highlight"><pre><span></span><code>src/
+├── presentation/ UserController.java
+├── application/  PlaceOrderUseCase.java
+├── domain/       Order.java, OrderService.java
+└── infrastructure/ JdbcOrderRepository.java
+</code></pre></div>
+<h3 id="by-toolbox">By Toolbox<a class="headerlink" href="#by-toolbox" title="Permanent link">&para;</a></h3>
+<p>Group <strong>interchangeable implementations</strong> that share an interface — good for collections, loggers, or codecs where consumers pick one at a time.</p>
+<div class="highlight"><pre><span></span><code>collections/
+├── List.java           # interface
+├── ArrayList.java
+└── LinkedList.java
+</code></pre></div>
+<h3 id="by-kind-anti-pattern">By Kind (anti-pattern)<a class="headerlink" href="#by-kind-anti-pattern" title="Permanent link">&para;</a></h3>
+<p>Do <strong>not</strong> group by technical type (<code>interfaces/</code>, <code>managers/</code>, <code>helpers/</code>, <code>exceptions/</code>). It looks tidy but hides the real relationships — a single feature change requires editing files in every bucket.</p>
+<p><strong>Repository layouts:</strong></p>
 <ul>
-<li>
-<p><strong>Constraint:</strong> You can only modify symbols based on their neighbors, and the string length generally grows or 
-stays the same.</p>
-</li>
-<li>
-<p><strong>Example:</strong> <span class="arithmatex">\(a^n b^n c^n\)</span> (e.g., <code>abc</code>, <code>aabbcc</code>). You need to track three balanced counts, which Type 2 
-cannot do.</p>
-</li>
+<li><strong>Monorepo</strong> — all projects in one repo. Shared tooling, atomic cross-project changes, simpler dependency management. Requires workspace tooling at scale (Nx, Bazel, Lerna).</li>
+<li><strong>Polyrepo</strong> — one project per repo. Independent releases, clear ownership, per-repo access control. Cross-project changes are more expensive.</li>
 </ul>
-<h4 id="3-type-2-context-free">3. Type 2: Context-Free<a class="headerlink" href="#3-type-2-context-free" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(A \to \gamma\)</span> (Replace <span class="arithmatex">\(A\)</span> regardless of what surrounds it)</p>
+<hr />
+<h2 id="3-system-level-patterns">3. System-Level Patterns<a class="headerlink" href="#3-system-level-patterns" title="Permanent link">&para;</a></h2>
+<p>How you arrange services and their communication. Each pattern solves a different scaling problem.</p>
+<h3 id="monolithic">Monolithic<a class="headerlink" href="#monolithic" title="Permanent link">&para;</a></h3>
+<p>All code ships as a single deployable unit.</p>
 <ul>
-<li>
-<p><strong>Constraint:</strong> The left-hand side must be a <em>single non-terminal</em>.</p>
-</li>
-<li>
-<p><strong>Example:</strong> Balanced Parentheses <span class="arithmatex">\(a^n b^n\)</span>.
-  <div class="highlight"><pre><span></span><code>S → aSb  (Nested recursion)
-S → ε
-</code></pre></div>
-  This generates: <code>ab</code>, <code>aabb</code>, <code>aaabbb</code>...</p>
-</li>
+<li><strong>Use when:</strong> early-stage products, small teams, simple domains.</li>
+<li><strong>Pros:</strong> easy deploy, simple debugging, no network overhead, one tech stack.</li>
+<li><strong>Cons:</strong> must scale the whole app as one unit; large codebases get unwieldy; any deploy affects everything.</li>
 </ul>
-<h4 id="4-type-3-regular">4. Type 3: Regular<a class="headerlink" href="#4-type-3-regular" title="Permanent link">&para;</a></h4>
-<p><strong>Rule:</strong> <span class="arithmatex">\(A \to aB\)</span> or <span class="arithmatex">\(A \to a\)</span> (Strictly linear)</p>
+<h3 id="client-server">Client-Server<a class="headerlink" href="#client-server" title="Permanent link">&para;</a></h3>
+<p>Clients request services from a server. The classic 2-tier / 3-tier / N-tier web app.</p>
 <ul>
-<li>
-<p><strong>Constraint:</strong> You can only emit a terminal and move to the next state (or stop). No "memory" of previous counts (like <span class="arithmatex">\(n\)</span> in <span class="arithmatex">\(a^n b^n\)</span>).</p>
-</li>
-<li>
-<p><strong>Example:</strong> Matching an identifier like <code>var_1</code>.
-  <div class="highlight"><pre><span></span><code>S → vA
-A → aB
-...
-</code></pre></div></p>
-</li>
+<li><strong>Use when:</strong> traditional database-driven applications.</li>
 </ul>
-<h3 id="practical-applications">Practical Applications<a class="headerlink" href="#practical-applications" title="Permanent link">&para;</a></h3>
+<h3 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">&para;</a></h3>
+<p>Decompose the system into small, independently deployable services, each owning its data.</p>
 <ul>
-<li>
-<p><strong>Regex (Type 3):</strong> Used for finding patterns like emails, phone numbers, or keywords in code.</p>
-</li>
-<li>
-<p><strong>Parsers (Type 2):</strong> Used by compilers to understand code structure (if statements, nested blocks).</p>
-</li>
-<li>
-<p><strong>Natural Language (Type 1/0):</strong> Human languages are complex and often require context-sensitive rules to fully capture grammar.</p>
-</li>
+<li><strong>Use when:</strong> large systems, multiple teams, services scale differently.</li>
+<li><strong>Pros:</strong> independent deploys, tech diversity per service, team autonomy, fault isolation.</li>
+<li><strong>Cons:</strong> operational complexity, network latency, distributed data consistency, harder testing and debugging.</li>
 </ul>
-<h2 id="programming-paradigms">Programming Paradigms<a class="headerlink" href="#programming-paradigms" title="Permanent link">&para;</a></h2>
-<p>Programming paradigms are fundamental styles or approaches to programming that shape how solutions are designed and implemented. Below are some of the major paradigms:</p>
-<h3 id="1-object-oriented-programming-oop">1. Object-Oriented Programming (OOP)<a class="headerlink" href="#1-object-oriented-programming-oop" title="Permanent link">&para;</a></h3>
-<p><strong>Key Concepts:</strong> Objects, Classes, Inheritance, Encapsulation, Polymorphism</p>
-<p><strong>Languages:</strong> Java, C++, Python, C#, Ruby</p>
-<p><strong>Description:</strong>
-OOP organizes code around <strong>objects</strong>, which are instances of <strong>classes</strong>—blueprints that define attributes and behaviors. It promotes code <strong>reuse</strong>, <strong>modularity</strong>, and <strong>scalability</strong>, making it ideal for large and complex software systems.</p>
-<h3 id="2-functional-programming-fp">2. Functional Programming (FP)<a class="headerlink" href="#2-functional-programming-fp" title="Permanent link">&para;</a></h3>
-<p><strong>Key Concepts:</strong> Pure Functions, Immutability, First-Class Functions, Higher-Order Functions</p>
-<p><strong>Languages:</strong> Haskell, Lisp, Elixir, Scala, JavaScript (partial)</p>
-<p><strong>Description:</strong>
-FP emphasizes <strong>declarative code</strong> using pure functions and avoids mutable state and side effects. It’s rooted in <strong>mathematical functions</strong> and is well-suited for concurrent and parallel programming.</p>
-<h3 id="3-procedural-programming-pp">3. Procedural Programming (PP)<a class="headerlink" href="#3-procedural-programming-pp" title="Permanent link">&para;</a></h3>
-<p><strong>Key Concepts:</strong> Procedures (Functions), Sequence, Selection, Iteration</p>
-<p><strong>Languages:</strong> C, Pascal, Fortran, BASIC</p>
-<p><strong>Description:</strong>
-Procedural programming structures programs as a series of <strong>instructions</strong> grouped into <strong>procedures</strong> or <strong>routines</strong>. It is a subset of imperative programming and is suitable for applications with a clear step-by-step logic.</p>
-<h3 id="4-declarative-programming-dp">4. Declarative Programming (DP)<a class="headerlink" href="#4-declarative-programming-dp" title="Permanent link">&para;</a></h3>
-<p><strong>Key Concepts:</strong> What to Do (Not How), Abstraction, Constraints</p>
-<p><strong>Languages:</strong> SQL, HTML, Prolog, Haskell</p>
-<p><strong>Description:</strong>
-Declarative programming expresses the <strong>logic of computation</strong> without describing its control flow. The focus is on <strong>what</strong> the program should accomplish rather than detailing <strong>how</strong> to achieve it.</p>
-<h3 id="5-logic-programming-lp">5. Logic Programming (LP)<a class="headerlink" href="#5-logic-programming-lp" title="Permanent link">&para;</a></h3>
-<p><strong>Key Concepts:</strong> Facts, Rules, Queries, Inference</p>
-<p><strong>Languages:</strong> Prolog, Datalog</p>
-<p><strong>Description:</strong>
-Logic programming is based on <strong>formal logic</strong>. Programs consist of a set of facts and rules, and computation is performed through <strong>logical inference</strong>. It is widely used in <strong>AI</strong>, <strong>natural language processing</strong>, and <strong>expert systems</strong>.</p>
-<h2 id="code-component-levels">Code Component Levels<a class="headerlink" href="#code-component-levels" title="Permanent link">&para;</a></h2>
-<h3 id="1-expression-statement">1. Expression / Statement<a class="headerlink" href="#1-expression-statement" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-The most basic unit of code that performs an action or produces a value.
-<strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>         <span class="c1"># Statement  </span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>     <span class="c1"># Expression within a statement</span>
-</code></pre></div>
-<h3 id="2-function">2. Function<a class="headerlink" href="#2-function" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A reusable block of code designed to perform a specific task, often with inputs (parameters) and outputs (return values).
-<strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</code></pre></div>
-<h3 id="3-class">3. Class<a class="headerlink" href="#3-class" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A blueprint for creating objects. Classes group related data and methods (functions) together, supporting object-oriented design.
-<strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</code></pre></div>
-<h3 id="4-file">4. File<a class="headerlink" href="#4-file" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A physical file (e.g., <code>.py</code>, <code>.js</code>) containing source code, which may include multiple functions, classes, or even runnable scripts.
-<strong>Example:</strong>
-<code>calculator.py</code> might contain all calculator-related classes and functions.</p>
-<h3 id="5-module">5. Module<a class="headerlink" href="#5-module" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A file or collection of files that define a namespace and can be imported into other files. Modules allow encapsulation and reuse.
-<strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">add</span>
-</code></pre></div>
-<h3 id="6-sub-package-name-space-package">6. Sub-package, Name-space package<a class="headerlink" href="#6-sub-package-name-space-package" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A sub-package is a package contained within another package (a nested directory structure). It helps organize larger packages into logical groups, e.g., <code>utils/text/</code> under <code>utils/</code>.</p>
-<p>A namespace package is a logical package that can be spread across multiple directories on <code>sys.path</code> (in Python, enabled by PEP 420). Unlike regular packages, a namespace package may not have a single <code>__init__.py</code> file and can be extended by separate distributions.
-<strong>Examples:</strong></p>
-<p>Regular package with sub-packages:</p>
-<div class="highlight"><pre><span></span><code>myapp/
-  utils/
-    __init__.py
-    text/
-      __init__.py
-      tokenize.py
-    math/
-      __init__.py
-      stats.py
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">myapp.utils.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">tokenize</span>
-</code></pre></div>
-<p>Namespace package (pieces located in multiple roots on sys.path):</p>
-<div class="highlight"><pre><span></span><code>/src/pkg_a/acme/plugins/foo.py
-/src/pkg_b/acme/plugins/bar.py
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># When both /src/pkg_a and /src/pkg_b are on sys.path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">acme.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">foo</span><span class="p">,</span> <span class="n">bar</span>
-</code></pre></div>
-<h3 id="7-package">7. Package<a class="headerlink" href="#7-package" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A collection of related modules organized in a directory with an optional <code>__init__.py</code> file. Packages help group functionality logically.
-<strong>Example:</strong>
-<code>numpy</code>, <code>scikit-learn</code>, or your own directory like <code>myutils/</code></p>
-<h3 id="8-project">8. Project<a class="headerlink" href="#8-project" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A complete application or system that may consist of multiple packages, configurations, tests, and documentation.
-<strong>Example:</strong>
-A Django web app or a machine learning pipeline.</p>
-<h3 id="9-platform">9. Platform<a class="headerlink" href="#9-platform" title="Permanent link">&para;</a></h3>
-<p><strong>Description:</strong>
-A larger ecosystem or environment where projects are deployed, integrated, or distributed. May include OS, runtime environments, SDKs, or cloud infrastructure.</p>
-<h2 id="layers-in-software-architecture">Layers in Software Architecture<a class="headerlink" href="#layers-in-software-architecture" title="Permanent link">&para;</a></h2>
-<p>Software systems are often organized into logical layers, each responsible for a specific concern. This separation helps manage complexity, supports scalability, and improves testability.</p>
-<h3 id="1-data-layer-persistence-layer">1. Data Layer (Persistence Layer)<a class="headerlink" href="#1-data-layer-persistence-layer" title="Permanent link">&para;</a></h3>
-<p><strong>Responsibility:</strong>
-Manages <strong>storage</strong>, <strong>retrieval</strong>, and <strong>manipulation</strong> of data from databases, file systems, or external APIs.
-<strong>Key Components:</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    Client --&gt; Gateway[API Gateway]
+    Gateway --&gt; UserSvc[User Service]
+    Gateway --&gt; OrderSvc[Order Service]
+    Gateway --&gt; PaySvc[Payment Service]
+    UserSvc --&gt; UserDB[(User DB)]
+    OrderSvc --&gt; OrderDB[(Order DB)]
+    PaySvc --&gt; PayDB[(Payment DB)]</code></pre>
+<h3 id="service-oriented-architecture-soa">Service-Oriented Architecture (SOA)<a class="headerlink" href="#service-oriented-architecture-soa" title="Permanent link">&para;</a></h3>
+<p>Coarser-grained than microservices, often with an Enterprise Service Bus routing messages. Common in enterprise environments for integrating legacy systems.</p>
+<h3 id="event-driven">Event-Driven<a class="headerlink" href="#event-driven" title="Permanent link">&para;</a></h3>
+<p>Components communicate by publishing and subscribing to events on a bus — no direct calls.</p>
 <ul>
-<li>Database access (SQL, ORM)</li>
-<li>Data models / entities</li>
-<li>Repositories / DAOs
-  <strong>Examples:</strong></li>
-<li>PostgreSQL, MongoDB</li>
-<li>SQLAlchemy, Hibernate</li>
-<li><code>UserRepository</code>, <code>ProductDAO</code></li>
+<li><strong>Use when:</strong> real-time workflows, systems needing audit trails, loosely coupled services.</li>
+<li><strong>Pros:</strong> loose coupling, easy to add new consumers, natural audit log.</li>
+<li><strong>Cons:</strong> async flows are hard to debug; event ordering and delivery guarantees are tricky.</li>
 </ul>
-<h3 id="2-application-business-layer-service-layer">2. Application / Business Layer (Service Layer)<a class="headerlink" href="#2-application-business-layer-service-layer" title="Permanent link">&para;</a></h3>
-<p><strong>Responsibility:</strong>
-Implements <strong>business logic</strong> and rules. It coordinates between the data and presentation layers, encapsulating core operations of the application.
-<strong>Key Components:</strong></p>
+<h3 id="serverless-faas">Serverless / FaaS<a class="headerlink" href="#serverless-faas" title="Permanent link">&para;</a></h3>
+<p>Code runs in managed, stateless functions triggered by events (<code>AWS Lambda</code>, <code>Cloud Functions</code>).</p>
 <ul>
-<li>Services</li>
-<li>Use cases</li>
-<li>Domain logic
-  <strong>Examples:</strong></li>
-<li><code>OrderService</code>, <code>AuthManager</code></li>
-<li>Validating input, calculating discounts, enforcing rules</li>
+<li><strong>Use when:</strong> sporadic traffic, event-driven workloads, pay-per-use workloads.</li>
+<li><strong>Pros:</strong> no servers to manage, auto-scales to zero.</li>
+<li><strong>Cons:</strong> vendor lock-in, cold starts, short execution windows, debugging is harder.</li>
 </ul>
-<h3 id="3-presentation-layer-ui-layer">3. Presentation Layer (UI Layer)<a class="headerlink" href="#3-presentation-layer-ui-layer" title="Permanent link">&para;</a></h3>
-<p><strong>Responsibility:</strong>
-Handles <strong>user interaction</strong> and displays output. This layer communicates with the application layer to send input and present results.
-<strong>Key Components:</strong></p>
+<h3 id="pipe-and-filter">Pipe and Filter<a class="headerlink" href="#pipe-and-filter" title="Permanent link">&para;</a></h3>
+<p>Data flows through a sequence of independent processing stages.</p>
 <ul>
-<li>Web or mobile UI</li>
-<li>Controllers / ViewModels</li>
-<li>Frontend frameworks
-  <strong>Examples:</strong></li>
-<li>HTML, React, Flutter</li>
-<li><code>LoginController</code>, <code>DashboardPage</code></li>
+<li><strong>Use when:</strong> ETL, stream processing, batch data pipelines.</li>
 </ul>
-<h3 id="optional-extensions">Optional Extensions<a class="headerlink" href="#optional-extensions" title="Permanent link">&para;</a></h3>
-<p>If you're interested in a more complex architecture (like enterprise systems), you might also include:</p>
+<h3 id="peer-to-peer-p2p">Peer-to-Peer (P2P)<a class="headerlink" href="#peer-to-peer-p2p" title="Permanent link">&para;</a></h3>
+<p>Every node is both client and server. No central coordinator.</p>
 <ul>
-<li><strong>API Layer:</strong> For REST/GraphQL endpoints that expose services to clients.</li>
-<li><strong>Integration Layer:</strong> Manages communication with external systems and services (e.g., third-party APIs).</li>
-<li><strong>Security Layer:</strong> Handles authentication, authorization, and encryption across layers.</li>
+<li><strong>Use when:</strong> file sharing, blockchain, distributed systems that must avoid a single point of failure.</li>
 </ul>
-<h2 id="some-popular-software-applications">Some Popular Software Applications<a class="headerlink" href="#some-popular-software-applications" title="Permanent link">&para;</a></h2>
+<h3 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Scalability</th>
+<th>Complexity</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monolithic</td>
+<td>Low</td>
+<td>Low</td>
+<td>Small apps, prototypes</td>
+</tr>
+<tr>
+<td>Client-Server</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Traditional web apps</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>High</td>
+<td>High</td>
+<td>Large, complex systems</td>
+</tr>
+<tr>
+<td>SOA</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Enterprise integration</td>
+</tr>
+<tr>
+<td>Event-Driven</td>
+<td>High</td>
+<td>Medium</td>
+<td>Real-time, async workflows</td>
+</tr>
+<tr>
+<td>Serverless</td>
+<td>Auto</td>
+<td>Low</td>
+<td>Sporadic, event-driven loads</td>
+</tr>
+<tr>
+<td>Pipe &amp; Filter</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Data pipelines</td>
+</tr>
+<tr>
+<td>P2P</td>
+<td>High</td>
+<td>High</td>
+<td>Decentralized systems</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-deployment-topologies">4. Deployment Topologies<a class="headerlink" href="#4-deployment-topologies" title="Permanent link">&para;</a></h2>
+<p>How patterns land on infrastructure. Most systems evolve through these stages as they grow.</p>
+<h3 id="all-in-one">All-in-One<a class="headerlink" href="#all-in-one" title="Permanent link">&para;</a></h3>
+<p>A single server runs the web server, application, and database. Cheap and simple — right for MVPs and side projects. Single point of failure; can only scale vertically.</p>
+<h3 id="split-database">Split Database<a class="headerlink" href="#split-database" title="Permanent link">&para;</a></h3>
+<p>Application server and database are separate machines. Lets each scale and be tuned independently. Adds network latency and a second machine to manage.</p>
+<h3 id="microservices-many-services-many-machines">Microservices (many services, many machines)<a class="headerlink" href="#microservices-many-services-many-machines" title="Permanent link">&para;</a></h3>
+<p>Each service has its own deploy, its own database, and often its own team. An API gateway or service mesh coordinates traffic.</p>
+<h3 id="serverless">Serverless<a class="headerlink" href="#serverless" title="Permanent link">&para;</a></h3>
+<p>Functions on demand behind an API gateway, backed by managed databases and storage.</p>
+<h3 id="container-orchestration">Container Orchestration<a class="headerlink" href="#container-orchestration" title="Permanent link">&para;</a></h3>
+<p>Docker + Kubernetes (or similar) schedules containers across a cluster of nodes. The standard way to run microservices in production today.</p>
+<h3 id="evolution-path">Evolution Path<a class="headerlink" href="#evolution-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>All-in-One → Split DB → Extract Services → Full Microservices
+</code></pre></div>
+<p>Start simple. Move to the next stage only when a real constraint (scale, team size, release coupling) forces the change — not because the next step sounds more modern.</p>
+<hr />
+<h2 id="5-system-design-building-blocks">5. System Design Building Blocks<a class="headerlink" href="#5-system-design-building-blocks" title="Permanent link">&para;</a></h2>
+<p>The primitives you assemble distributed systems from.</p>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Vertical (scale up):</strong> bigger machine — more CPU, RAM, disk.</li>
+<li><strong>Horizontal (scale out):</strong> more machines behind a load balancer.</li>
+</ul>
+<p>Horizontal is more fault-tolerant but requires stateless services or sticky sessions.</p>
+<h3 id="load-balancers">Load Balancers<a class="headerlink" href="#load-balancers" title="Permanent link">&para;</a></h3>
+<p>Distribute traffic across instances. Algorithms: round robin, least connections, IP hash, weighted. Layer 4 (TCP/UDP) vs Layer 7 (HTTP). Examples: NGINX, HAProxy, AWS ALB.</p>
+<h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h3>
+<p>Store frequently accessed data in fast storage to reduce latency and backend load.</p>
+<ul>
+<li><strong>Levels:</strong> browser → CDN → application → database.</li>
+<li><strong>Strategies:</strong> cache-aside, write-through, write-behind.</li>
+<li><strong>Invalidation:</strong> TTL, event-based, manual. (Cache invalidation is one of the two hard problems in CS.)</li>
+<li><strong>Examples:</strong> Redis, Memcached, Varnish.</li>
+</ul>
+<h3 id="cdn-content-delivery-network">CDN (Content Delivery Network)<a class="headerlink" href="#cdn-content-delivery-network" title="Permanent link">&para;</a></h3>
+<p>Geographically distributed cache for static assets. Reduces latency, offloads origin, provides DDoS protection. Examples: Cloudflare, CloudFront, Akamai.</p>
+<h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational</strong></td>
+<td>PostgreSQL, MySQL</td>
+<td>Structured data, ACID transactions</td>
+</tr>
+<tr>
+<td><strong>Document</strong></td>
+<td>MongoDB, CouchDB</td>
+<td>Flexible schemas, JSON payloads</td>
+</tr>
+<tr>
+<td><strong>Key-Value</strong></td>
+<td>Redis, DynamoDB</td>
+<td>Lookups, caching, sessions</td>
+</tr>
+<tr>
+<td><strong>Wide-Column</strong></td>
+<td>Cassandra, HBase</td>
+<td>Time-series, write-heavy workloads</td>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>Neo4j, Neptune</td>
+<td>Relationship-heavy data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="partitioning-sharding">Partitioning (Sharding)<a class="headerlink" href="#partitioning-sharding" title="Permanent link">&para;</a></h3>
+<p>Split data across nodes by <strong>range</strong>, <strong>hash</strong>, or <strong>directory</strong>. Horizontal partitioning splits rows; vertical partitioning splits columns.</p>
+<h3 id="message-queues">Message Queues<a class="headerlink" href="#message-queues" title="Permanent link">&para;</a></h3>
+<p>Asynchronous communication that decouples producers from consumers. Adds buffering and load-leveling.</p>
+<ul>
+<li><strong>Patterns:</strong> point-to-point, pub/sub.</li>
+<li><strong>Examples:</strong> Kafka, RabbitMQ, SQS.</li>
+</ul>
+<h3 id="stream-processing">Stream Processing<a class="headerlink" href="#stream-processing" title="Permanent link">&para;</a></h3>
+<p>Continuous processing of event streams. Used for real-time analytics, fraud detection, IoT pipelines. Examples: Kafka Streams, Flink, Kinesis.</p>
+<h3 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
+<p>Cap how many requests a client can make. Algorithms: token bucket, leaky bucket, fixed window, sliding window. Typically enforced at the API gateway.</p>
+<h3 id="cap-theorem">CAP Theorem<a class="headerlink" href="#cap-theorem" title="Permanent link">&para;</a></h3>
+<p>In a distributed system you can pick two of three: <strong>Consistency, Availability, Partition tolerance</strong>. Since network partitions are a fact of life, real systems are either <strong>CP</strong> (MongoDB, HBase) or <strong>AP</strong> (Cassandra, DynamoDB).</p>
+<h3 id="performance-bottlenecks">Performance Bottlenecks<a class="headerlink" href="#performance-bottlenecks" title="Permanent link">&para;</a></h3>
+<p>When a system is slow, diagnose <em>what</em> it is bound by:</p>
+<table>
+<thead>
+<tr>
+<th>Bound by</th>
+<th>Symptoms</th>
+<th>Typical fixes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPU</strong></td>
+<td>High CPU, low wait</td>
+<td>Optimize algorithms, parallelize, scale vertically</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Swapping, GC pauses</td>
+<td>Smaller data structures, pooling, more RAM</td>
+</tr>
+<tr>
+<td><strong>I/O</strong></td>
+<td>Low CPU, high wait</td>
+<td>Async I/O, connection pooling, batching</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>Waiting on remote calls</td>
+<td>Compression, CDN, batching, protocol tuning</td>
+</tr>
+<tr>
+<td><strong>Disk</strong></td>
+<td>High disk util</td>
+<td>SSDs, write batching, different file system</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Loop:</strong> <code>Observe → Measure → Analyze → Optimize → Verify</code>. Tools: <code>top</code>, <code>htop</code>, <code>iostat</code>, <code>iotop</code>, <code>netstat</code>, profilers, flame graphs, distributed traces (Jaeger, Zipkin).</p>
+<h3 id="putting-it-together">Putting It Together<a class="headerlink" href="#putting-it-together" title="Permanent link">&para;</a></h3>
+<p>A typical request path through a modern system:</p>
+<pre class="mermaid"><code>flowchart TB
+    Users --&gt; CDN
+    CDN --&gt; LB[Load Balancer]
+    LB --&gt; Gateway[API Gateway]
+    Gateway --&gt; RL[Rate Limiter]
+    RL --&gt; S1[Service A]
+    RL --&gt; S2[Service B]
+    S1 --&gt; Cache
+    S2 --&gt; Cache
+    Cache --&gt; DB[(Database)]
+    S1 --&gt; MQ[Message Queue]
+    MQ --&gt; S2</code></pre>
+<hr />
+<h2 id="6-ui-architecture-patterns">6. UI Architecture Patterns<a class="headerlink" href="#6-ui-architecture-patterns" title="Permanent link">&para;</a></h2>
+<p>For interactive client applications. Each pattern improves testability and separation of concerns relative to the last.</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Components</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MVC</strong></td>
+<td>Model, View, Controller</td>
+<td>Simple apps; the classic baseline.</td>
+</tr>
+<tr>
+<td><strong>MVP</strong></td>
+<td>Model, View, Presenter</td>
+<td>High-testability apps; the View is passive.</td>
+</tr>
+<tr>
+<td><strong>MVVM</strong></td>
+<td>Model, View, ViewModel</td>
+<td>UIs with rich data binding (WPF, SwiftUI, Jetpack Compose).</td>
+</tr>
+<tr>
+<td><strong>MVVM-C</strong></td>
+<td>MVVM + Coordinator</td>
+<td>Apps with complex navigation flows.</td>
+</tr>
+<tr>
+<td><strong>VIPER</strong></td>
+<td>View, Interactor, Presenter, Entity, Router</td>
+<td>Enterprise iOS apps with strict separation.</td>
+</tr>
+</tbody>
+</table>
+<p>The translators between view and model (Controller / Presenter / ViewModel) exist to keep the view dumb and the model pure. Testability rises from MVC to VIPER — so does the amount of ceremony. Match the pattern to the app's complexity.</p>
+<hr />
+<h2 id="choosing-an-architecture">Choosing an Architecture<a class="headerlink" href="#choosing-an-architecture" title="Permanent link">&para;</a></h2>
+<p>Architecture is a series of trade-offs. When in doubt:</p>
 <ol>
-<li>
-<p>Web Application</p>
-</li>
-<li>
-<p>Mobile Application</p>
-</li>
-<li>
-<p>Desktop Application</p>
-</li>
-<li>
-<p>Console Application</p>
-</li>
-<li>
-<p>Development Framework, Library</p>
-</li>
-<li>
-<p>Development Tool</p>
-</li>
-<li>
-<p>Extension</p>
-</li>
-<li>
-<p>Platform</p>
-</li>
-<li>
-<p>Ecosystem</p>
-</li>
-<li>
-<p>Some codebase for research, learning, or demo purposes </p>
-</li>
+<li><strong>Start simple.</strong> Monolith + single database handles more load than you'd think.</li>
+<li><strong>Split when you have evidence.</strong> Scale, team size, or release coupling should force the split — not a blog post.</li>
+<li><strong>Match complexity to team size.</strong> Microservices without DevOps discipline is chaos.</li>
+<li><strong>Optimize for change.</strong> The best architecture is the one you can evolve without rewriting.</li>
 </ol>
 
 
