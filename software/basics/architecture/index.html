@@ -569,6 +569,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Application Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#talking-to-the-data-layer-dto-dao-orm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Talking to the Data Layer: DTO, DAO, ORM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2146,6 +2163,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Application Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#talking-to-the-data-layer-dto-dao-orm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Talking to the Data Layer: DTO, DAO, ORM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2644,6 +2678,46 @@
 <li><strong>Security Layer</strong> — authentication, authorization, encryption, auditing.</li>
 </ul>
 <p><strong>Rule of thumb:</strong> dependencies point inward — UI depends on business, business depends on data abstractions. Data never calls up into the UI.</p>
+<h3 id="talking-to-the-data-layer-dto-dao-orm">Talking to the Data Layer: DTO, DAO, ORM<a class="headerlink" href="#talking-to-the-data-layer-dto-dao-orm" title="Permanent link">&para;</a></h3>
+<p>Often confused, but they sit at <em>different levels</em> and are used <strong>together</strong>, not as alternatives:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>What it is</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTO</strong></td>
+<td>Data Transfer Object — a plain data holder that carries fields across a boundary</td>
+<td>the <em>shape</em> of data in transit</td>
+</tr>
+<tr>
+<td><strong>DAO</strong></td>
+<td>Data Access Object — wraps all reads/writes for an entity behind methods like <code>find</code> / <code>save</code>, hiding the SQL</td>
+<td>the <em>boundary</em> to storage</td>
+</tr>
+<tr>
+<td><strong>ORM</strong></td>
+<td>Object-Relational Mapping — a tool that maps classes ↔ tables and generates SQL (SQLAlchemy, Hibernate, Django ORM)</td>
+<td>the <em>tooling</em></td>
+</tr>
+</tbody>
+</table>
+<p>The ORM usually lives <em>behind</em> the DAO; the DTO is what crosses the edges.</p>
+<pre class="mermaid"><code>flowchart LR
+    C[Controller] --&gt;|DTO| S[Service]
+    S --&gt; R[DAO / Repository]
+    R --&gt;|uses| O[ORM]
+    O --&gt; DB[(Database)]</code></pre>
+<ul>
+<li><strong>DTO</strong> — use at real boundaries to avoid leaking internal fields and to decouple your schema from your public <a href="../apis/">API</a> contract. Don't mirror every entity with a DTO in a small app.</li>
+<li><strong>DAO / Repository</strong> — keeps SQL out of business logic, so you can test with fakes and swap stores (<a href="../principles/">Dependency Inversion</a>). <em>Repository</em> is the more domain-oriented sibling; the terms are often used interchangeably.</li>
+<li><strong>ORM</strong> — a big win for CRUD, but watch the <strong>N+1 query</strong> trap and leaky abstractions. Use it for the 90%; drop to raw SQL for the complex 10%.</li>
+<li><strong>Anti-pattern:</strong> returning ORM entities straight from your API welds your database schema to your public contract — exactly what DTOs prevent.</li>
+</ul>
 <hr />
 <h2 id="2-code-organization">2. Code Organization<a class="headerlink" href="#2-code-organization" title="Permanent link">&para;</a></h2>
 <p>How you group files in a repository matters as much as how you design the runtime. Four common strategies:</p>
