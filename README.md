@@ -25,7 +25,7 @@ This repository contains a web-based handbook with my notes and insights about S
 
 ```bash
 # Clone the repository
-git clone https://github.com/locch/sw-handbook.git
+git clone https://github.com/locchh/sw-handbook.git
 cd sw-handbook
 
 # Create a virtual environment

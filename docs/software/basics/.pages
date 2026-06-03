@@ -1,8 +1,13 @@
 nav:
   - Fundamentals: fundamentals.md
+  - Data Structures & Algorithms: algorithms.md
   - Design Principles: principles.md
   - Architecture: architecture.md
+  - Concurrency: concurrency.md
   - Error Handling: error_handling.md
+  - Networking: networking.md
+  - APIs: apis.md
+  - Security: security.md
   - Lifecycle: lifecycle.md
   - Tech Stacks: tech_stacks.md
   - Styles: styles.md

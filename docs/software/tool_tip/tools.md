@@ -13,7 +13,7 @@ Fast Python package installer and resolver (replaces pip/poetry)
 ## Build Tools
 
 ### make
-Task runner for common development commands. Feel free to look at the Makefile for available commands and usage patterns.
+Task runner for common development commands. Define build, test, lint, and run steps as `make` targets so the project has one consistent entry point.
 - [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html)
 - [Makefile Tutorial](https://makefiletutorial.com/)
 

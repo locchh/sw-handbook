@@ -1,3 +1,8 @@
 nav:
   - Introduction to Data: introduction_to_data.md
+  - Databases: databases.md
+  - Data Engineering: data_engineering.md
+  - Data Analytics: analytics.md
+  - Data Visualization: visualization.md
+  - Big Data: big_data.md
   - Posts: posts.md
