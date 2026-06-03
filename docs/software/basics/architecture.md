@@ -28,6 +28,31 @@ Optional additions as systems grow:
 
 **Rule of thumb:** dependencies point inward — UI depends on business, business depends on data abstractions. Data never calls up into the UI.
 
+### Talking to the Data Layer: DTO, DAO, ORM
+
+Often confused, but they sit at *different levels* and are used **together**, not as alternatives:
+
+| | What it is | Level |
+|---|---|---|
+| **DTO** | Data Transfer Object — a plain data holder that carries fields across a boundary | the *shape* of data in transit |
+| **DAO** | Data Access Object — wraps all reads/writes for an entity behind methods like `find` / `save`, hiding the SQL | the *boundary* to storage |
+| **ORM** | Object-Relational Mapping — a tool that maps classes ↔ tables and generates SQL (SQLAlchemy, Hibernate, Django ORM) | the *tooling* |
+
+The ORM usually lives *behind* the DAO; the DTO is what crosses the edges.
+
+```mermaid
+flowchart LR
+    C[Controller] -->|DTO| S[Service]
+    S --> R[DAO / Repository]
+    R -->|uses| O[ORM]
+    O --> DB[(Database)]
+```
+
+- **DTO** — use at real boundaries to avoid leaking internal fields and to decouple your schema from your public [API](apis.md) contract. Don't mirror every entity with a DTO in a small app.
+- **DAO / Repository** — keeps SQL out of business logic, so you can test with fakes and swap stores ([Dependency Inversion](principles.md)). *Repository* is the more domain-oriented sibling; the terms are often used interchangeably.
+- **ORM** — a big win for CRUD, but watch the **N+1 query** trap and leaky abstractions. Use it for the 90%; drop to raw SQL for the complex 10%.
+- **Anti-pattern:** returning ORM entities straight from your API welds your database schema to your public contract — exactly what DTOs prevent.
+
 ---
 
 ## 2. Code Organization
