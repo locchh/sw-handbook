@@ -9,12 +9,17 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 
 - [Overview](https://locchh.github.io/sw-handbook/software/index.md)
 - [Abbreviations](https://locchh.github.io/sw-handbook/software/basics/abbreviations/index.md)
+- [Data Structures & Algorithms](https://locchh.github.io/sw-handbook/software/basics/algorithms/index.md)
+- [APIs](https://locchh.github.io/sw-handbook/software/basics/apis/index.md)
 - [Architecture](https://locchh.github.io/sw-handbook/software/basics/architecture/index.md)
+- [Concurrency](https://locchh.github.io/sw-handbook/software/basics/concurrency/index.md)
 - [Error Handling](https://locchh.github.io/sw-handbook/software/basics/error_handling/index.md)
 - [Fundamentals](https://locchh.github.io/sw-handbook/software/basics/fundamentals/index.md)
 - [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/lifecycle/index.md)
+- [Networking](https://locchh.github.io/sw-handbook/software/basics/networking/index.md)
 - [Posts](https://locchh.github.io/sw-handbook/software/basics/posts/index.md)
 - [Design Principles](https://locchh.github.io/sw-handbook/software/basics/principles/index.md)
+- [Security](https://locchh.github.io/sw-handbook/software/basics/security/index.md)
 - [Study Guide](https://locchh.github.io/sw-handbook/software/basics/study_guide/index.md)
 - [Styles](https://locchh.github.io/sw-handbook/software/basics/styles/index.md)
 - [Tech Stacks](https://locchh.github.io/sw-handbook/software/basics/tech_stacks/index.md)
@@ -24,8 +29,13 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 ## Data Science
 
 - [Overview](https://locchh.github.io/sw-handbook/data/index.md)
+- [Data Analytics](https://locchh.github.io/sw-handbook/data/basics/analytics/index.md)
+- [Big Data](https://locchh.github.io/sw-handbook/data/basics/big_data/index.md)
+- [Data Engineering](https://locchh.github.io/sw-handbook/data/basics/data_engineering/index.md)
+- [Databases](https://locchh.github.io/sw-handbook/data/basics/databases/index.md)
 - [Introduction to Data](https://locchh.github.io/sw-handbook/data/basics/introduction_to_data/index.md)
 - [Posts](https://locchh.github.io/sw-handbook/data/basics/posts/index.md)
+- [Data Visualization](https://locchh.github.io/sw-handbook/data/basics/visualization/index.md)
 
 ## Artificial Intelligence
 

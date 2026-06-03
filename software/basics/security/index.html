@@ -12,31 +12,31 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/ai/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/security/">
       
       
-        <link rel="prev" href="../data/basics/posts/">
+        <link rel="prev" href="../apis/">
       
       
-        <link rel="next" href="basics/concepts/">
+        <link rel="next" href="../lifecycle/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Overview - Software Handbook</title>
+        <title>Security - Software Handbook</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#artificial-intelligence" class="md-skip">
+        <a href="#security" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Security
             
           </span>
         </div>
@@ -204,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -258,6 +258,8 @@
       
   
   
+    
+  
   
   
     
@@ -280,15 +282,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../software/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -312,7 +314,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -329,8 +331,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -370,11 +374,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -395,7 +399,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -413,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/fundamentals/" class="md-nav__link">
+      <a href="../fundamentals/" class="md-nav__link">
         
   
   
@@ -441,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/algorithms/" class="md-nav__link">
+      <a href="../algorithms/" class="md-nav__link">
         
   
   
@@ -469,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/principles/" class="md-nav__link">
+      <a href="../principles/" class="md-nav__link">
         
   
   
@@ -497,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -525,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/concurrency/" class="md-nav__link">
+      <a href="../concurrency/" class="md-nav__link">
         
   
   
@@ -553,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/error_handling/" class="md-nav__link">
+      <a href="../error_handling/" class="md-nav__link">
         
   
   
@@ -581,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/networking/" class="md-nav__link">
+      <a href="../networking/" class="md-nav__link">
         
   
   
@@ -609,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/apis/" class="md-nav__link">
+      <a href="../apis/" class="md-nav__link">
         
   
   
@@ -634,10 +638,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../software/basics/security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -653,6 +684,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication vs Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-risks-owasp-condensed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Risks (OWASP, condensed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crypto Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -665,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/lifecycle/" class="md-nav__link">
+      <a href="../lifecycle/" class="md-nav__link">
         
   
   
@@ -693,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/tech_stacks/" class="md-nav__link">
+      <a href="../tech_stacks/" class="md-nav__link">
         
   
   
@@ -721,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/styles/" class="md-nav__link">
+      <a href="../styles/" class="md-nav__link">
         
   
   
@@ -749,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/abbreviations/" class="md-nav__link">
+      <a href="../abbreviations/" class="md-nav__link">
         
   
   
@@ -777,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/study_guide/" class="md-nav__link">
+      <a href="../study_guide/" class="md-nav__link">
         
   
   
@@ -805,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/posts/" class="md-nav__link">
+      <a href="../posts/" class="md-nav__link">
         
   
   
@@ -896,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/tool_tip/tools/" class="md-nav__link">
+      <a href="../../tool_tip/tools/" class="md-nav__link">
         
   
   
@@ -924,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/tool_tip/tips/" class="md-nav__link">
+      <a href="../../tool_tip/tips/" class="md-nav__link">
         
   
   
@@ -992,7 +1087,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../data/" class="md-nav__link ">
+            <a href="../../../data/" class="md-nav__link ">
               
   
   
@@ -1101,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/introduction_to_data/" class="md-nav__link">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
         
   
   
@@ -1129,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/databases/" class="md-nav__link">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
         
   
   
@@ -1157,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/data_engineering/" class="md-nav__link">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
         
   
   
@@ -1185,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/analytics/" class="md-nav__link">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
         
   
   
@@ -1213,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/visualization/" class="md-nav__link">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
         
   
   
@@ -1241,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/big_data/" class="md-nav__link">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
         
   
   
@@ -1269,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/posts/" class="md-nav__link">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
         
   
   
@@ -1309,8 +1404,6 @@
       
   
   
-    
-  
   
   
     
@@ -1333,15 +1426,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../ai/" class="md-nav__link ">
               
   
   
@@ -1359,13 +1452,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1440,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/concepts/" class="md-nav__link">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
         
   
   
@@ -1468,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/posts/" class="md-nav__link">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
         
   
   
@@ -1557,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tool_tip/tools/" class="md-nav__link">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
         
   
   
@@ -1600,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -1647,10 +1740,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#topics" class="md-nav__link">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Topics
+        Authentication vs Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-risks-owasp-condensed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Risks (OWASP, condensed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crypto Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
       
     </span>
   </a>
@@ -1677,15 +1803,144 @@
   
 
 
-<h1 id="artificial-intelligence">Artificial Intelligence<a class="headerlink" href="#artificial-intelligence" title="Permanent link">&para;</a></h1>
-<p>Welcome to the AI section of my handbook. This section covers various aspects of artificial intelligence, machine learning, deep learning, and their applications.</p>
-<h2 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">&para;</a></h2>
+<h1 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h1>
+<p>Security is a cross-cutting concern, not a feature bolted on at the end. The goal is the <strong>CIA triad</strong>: <strong>Confidentiality</strong> (only the right people read it), <strong>Integrity</strong> (no one tampers with it), <strong>Availability</strong> (it stays up). This page is the application view; for the security <em>layer</em> in a system see <a href="../architecture/">Architecture</a>.</p>
+<h2 id="authentication-vs-authorization">Authentication vs Authorization<a class="headerlink" href="#authentication-vs-authorization" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Authentication (AuthN)</strong></th>
+<th><strong>Authorization (AuthZ)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question</td>
+<td><em>Who are you?</em></td>
+<td><em>What may you do?</em></td>
+</tr>
+<tr>
+<td>Mechanism</td>
+<td>passwords, MFA, tokens, SSO</td>
+<td>roles, permissions, ACLs</td>
+</tr>
+<tr>
+<td>HTTP failure</td>
+<td>401</td>
+<td>403</td>
+</tr>
+</tbody>
+</table>
+<p>Modern web auth usually means a token (a <a href="../abbreviations/">JWT</a>) or session issued after login, often via <strong>OAuth 2.0 / OIDC</strong> for delegated access:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as User
+    participant A as App
+    participant Auth as Auth Server
+    participant API as Resource API
+    U-&gt;&gt;A: log in
+    A-&gt;&gt;Auth: redirect for consent
+    Auth--&gt;&gt;A: authorization code
+    A-&gt;&gt;Auth: code + client secret
+    Auth--&gt;&gt;A: access token
+    A-&gt;&gt;API: request + access token
+    API--&gt;&gt;A: protected data</code></pre>
+<h2 id="common-risks-owasp-condensed">Common Risks (OWASP, condensed)<a class="headerlink" href="#common-risks-owasp-condensed" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>What</th>
+<th>Defense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Broken access control</strong></td>
+<td>acting beyond your permissions</td>
+<td>check authz on every request, server-side</td>
+</tr>
+<tr>
+<td><strong>Injection</strong> (SQL, command)</td>
+<td>untrusted input runs as code</td>
+<td>parameterized queries; never concatenate input</td>
+</tr>
+<tr>
+<td><strong>XSS</strong></td>
+<td>injected script runs in a page</td>
+<td>escape output; Content-Security-Policy</td>
+</tr>
+<tr>
+<td><strong>CSRF</strong></td>
+<td>forged request from a logged-in user</td>
+<td>CSRF tokens, <code>SameSite</code> cookies</td>
+</tr>
+<tr>
+<td><strong>SSRF</strong></td>
+<td>server tricked into making requests</td>
+<td>allowlist outbound calls; block internal IPs</td>
+</tr>
+<tr>
+<td><strong>Auth failures</strong></td>
+<td>weak or leaked credentials</td>
+<td>MFA, hashed passwords, rate-limit logins</td>
+</tr>
+<tr>
+<td><strong>Misconfiguration</strong></td>
+<td>defaults, verbose errors</td>
+<td>harden settings, hide internals, least privilege</td>
+</tr>
+<tr>
+<td><strong>Vulnerable dependencies</strong></td>
+<td>known CVEs in libraries</td>
+<td>scan and patch (Dependabot, <code>audit</code> tools)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="crypto-basics">Crypto Basics<a class="headerlink" href="#crypto-basics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hashing</strong> (one-way)</td>
+<td>passwords, integrity checks</td>
+<td>bcrypt, argon2 (passwords); SHA-256 (integrity)</td>
+</tr>
+<tr>
+<td><strong>Symmetric encryption</strong></td>
+<td>fast confidentiality</td>
+<td>AES</td>
+</tr>
+<tr>
+<td><strong>Asymmetric encryption</strong></td>
+<td>key exchange, identity</td>
+<td>RSA, ECC</td>
+</tr>
+<tr>
+<td><strong>Signing</strong></td>
+<td>authenticity + integrity</td>
+<td>HMAC, digital signatures</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><strong>Machine Learning</strong> - Supervised, unsupervised, and reinforcement learning, traditional AI.</li>
-<li><strong>Deep Learning</strong> - Neural networks, CNN, RNN, transformers, and more.</li>
-<li><strong>Natural Language Processing</strong> - Text analysis, sentiment analysis, and language models.</li>
-<li><strong>Computer Vision</strong> - Image recognition, object detection, and image generation.</li>
-<li><strong>AI Applications</strong> - Real-world applications and case studies.</li>
+<li><strong>Passwords</strong> → always a <em>slow, salted</em> hash (bcrypt/argon2), never plain MD5/SHA.</li>
+<li><strong>Encrypt in transit</strong> (TLS) <strong>and at rest</strong> (sensitive data, secrets).</li>
+<li><strong>Never roll your own crypto</strong> — use vetted libraries.</li>
+</ul>
+<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Least privilege</strong> — grant the minimum access needed.</li>
+<li><strong>Defense in depth</strong> — no single control is enough.</li>
+<li><strong>Validate every input; never trust the client.</strong> Fail closed (deny by default).</li>
+<li><strong>Manage secrets properly</strong> — never commit them to git; use environment variables or a secret manager, and rotate them.</li>
+<li><strong>Patch dependencies</strong> — most breaches exploit a known, already-fixed hole.</li>
 </ul>
 
 
@@ -1736,16 +1991,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../javascripts/mermaid-init.js"></script>
+        <script src="../../../javascripts/mermaid-init.js"></script>
       
-        <script src="../javascripts/mathjax-init.js"></script>
+        <script src="../../../javascripts/mathjax-init.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

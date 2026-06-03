@@ -90,7 +90,7 @@ I follow the same principles in file naming as I do with folders: **short**, **p
 
 - Constants are in **UPPERCASE**
 - Use **snake_case** for variable names
-- Use **camelCase** for function names
+- Use **snake_case** for function names
 - Use **PascalCase** for class names
 - Use `_` at the start of a function name to annotate a internal function
-- The Lenght of a line of code should be less than 88 characters
+- A line of code should be at most 88 characters (Black/ruff default)

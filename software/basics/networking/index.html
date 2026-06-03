@@ -12,31 +12,31 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/ai/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/networking/">
       
       
-        <link rel="prev" href="../data/basics/posts/">
+        <link rel="prev" href="../error_handling/">
       
       
-        <link rel="next" href="basics/concepts/">
+        <link rel="next" href="../apis/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Overview - Software Handbook</title>
+        <title>Networking - Software Handbook</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#artificial-intelligence" class="md-skip">
+        <a href="#networking-the-web" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Networking
             
           </span>
         </div>
@@ -204,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -258,6 +258,8 @@
       
   
   
+    
+  
   
   
     
@@ -280,15 +282,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../software/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -312,7 +314,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -329,8 +331,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -370,11 +374,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -395,7 +399,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -413,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/fundamentals/" class="md-nav__link">
+      <a href="../fundamentals/" class="md-nav__link">
         
   
   
@@ -441,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/algorithms/" class="md-nav__link">
+      <a href="../algorithms/" class="md-nav__link">
         
   
   
@@ -469,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/principles/" class="md-nav__link">
+      <a href="../principles/" class="md-nav__link">
         
   
   
@@ -497,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -525,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/concurrency/" class="md-nav__link">
+      <a href="../concurrency/" class="md-nav__link">
         
   
   
@@ -553,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/error_handling/" class="md-nav__link">
+      <a href="../error_handling/" class="md-nav__link">
         
   
   
@@ -578,10 +582,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../software/basics/networking/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -597,6 +628,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-tcpip-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The TCP/IP Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp-vs-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs UDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-when-you-open-a-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens When You Open a URL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -609,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/apis/" class="md-nav__link">
+      <a href="../apis/" class="md-nav__link">
         
   
   
@@ -637,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -665,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/lifecycle/" class="md-nav__link">
+      <a href="../lifecycle/" class="md-nav__link">
         
   
   
@@ -693,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/tech_stacks/" class="md-nav__link">
+      <a href="../tech_stacks/" class="md-nav__link">
         
   
   
@@ -721,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/styles/" class="md-nav__link">
+      <a href="../styles/" class="md-nav__link">
         
   
   
@@ -749,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/abbreviations/" class="md-nav__link">
+      <a href="../abbreviations/" class="md-nav__link">
         
   
   
@@ -777,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/study_guide/" class="md-nav__link">
+      <a href="../study_guide/" class="md-nav__link">
         
   
   
@@ -805,7 +911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/basics/posts/" class="md-nav__link">
+      <a href="../posts/" class="md-nav__link">
         
   
   
@@ -896,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/tool_tip/tools/" class="md-nav__link">
+      <a href="../../tool_tip/tools/" class="md-nav__link">
         
   
   
@@ -924,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/tool_tip/tips/" class="md-nav__link">
+      <a href="../../tool_tip/tips/" class="md-nav__link">
         
   
   
@@ -992,7 +1098,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../data/" class="md-nav__link ">
+            <a href="../../../data/" class="md-nav__link ">
               
   
   
@@ -1101,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/introduction_to_data/" class="md-nav__link">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
         
   
   
@@ -1129,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/databases/" class="md-nav__link">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
         
   
   
@@ -1157,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/data_engineering/" class="md-nav__link">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
         
   
   
@@ -1185,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/analytics/" class="md-nav__link">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
         
   
   
@@ -1213,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/visualization/" class="md-nav__link">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
         
   
   
@@ -1241,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/big_data/" class="md-nav__link">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
         
   
   
@@ -1269,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/basics/posts/" class="md-nav__link">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
         
   
   
@@ -1309,8 +1415,6 @@
       
   
   
-    
-  
   
   
     
@@ -1333,15 +1437,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../ai/" class="md-nav__link ">
               
   
   
@@ -1359,13 +1463,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1440,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/concepts/" class="md-nav__link">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
         
   
   
@@ -1468,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/posts/" class="md-nav__link">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
         
   
   
@@ -1557,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tool_tip/tools/" class="md-nav__link">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
         
   
   
@@ -1600,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -1647,10 +1751,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#topics" class="md-nav__link">
+  <a href="#the-tcpip-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Topics
+        The TCP/IP Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp-vs-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs UDP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-when-you-open-a-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens When You Open a URL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
       
     </span>
   </a>
@@ -1677,15 +1825,141 @@
   
 
 
-<h1 id="artificial-intelligence">Artificial Intelligence<a class="headerlink" href="#artificial-intelligence" title="Permanent link">&para;</a></h1>
-<p>Welcome to the AI section of my handbook. This section covers various aspects of artificial intelligence, machine learning, deep learning, and their applications.</p>
-<h2 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">&para;</a></h2>
+<h1 id="networking-the-web">Networking &amp; the Web<a class="headerlink" href="#networking-the-web" title="Permanent link">&para;</a></h1>
+<p>How bytes get from one machine to another — and what actually happens between typing a URL and seeing the page.</p>
+<blockquote>
+<p>Load balancers, CDNs, and rate limiting build on these basics — see <a href="../architecture/">Architecture</a>. For the contract layer on top of HTTP, see <a href="../apis/">APIs</a>.</p>
+</blockquote>
+<h2 id="the-tcpip-model">The TCP/IP Model<a class="headerlink" href="#the-tcpip-model" title="Permanent link">&para;</a></h2>
+<p>Networking is layered; each layer talks to its peer and ignores the rest.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Job</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application</strong></td>
+<td>app-level protocols</td>
+<td>HTTP, DNS, SSH, SMTP</td>
+</tr>
+<tr>
+<td><strong>Transport</strong></td>
+<td>host-to-host channels</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td><strong>Internet</strong></td>
+<td>routing across networks</td>
+<td>IP, ICMP</td>
+</tr>
+<tr>
+<td><strong>Link</strong></td>
+<td>local physical delivery</td>
+<td>Ethernet, Wi-Fi</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tcp-vs-udp">TCP vs UDP<a class="headerlink" href="#tcp-vs-udp" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>TCP</strong></th>
+<th><strong>UDP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>yes (handshake)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>ordered, retransmits lost data</td>
+<td>best-effort</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>higher</td>
+<td>low</td>
+</tr>
+<tr>
+<td>Use</td>
+<td>web, APIs, file transfer</td>
+<td>video, games, DNS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-happens-when-you-open-a-url">What Happens When You Open a URL<a class="headerlink" href="#what-happens-when-you-open-a-url" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant B as Browser
+    participant D as DNS
+    participant S as Server
+    B-&gt;&gt;D: resolve example.com
+    D--&gt;&gt;B: 93.184.x.x
+    B-&gt;&gt;S: TCP handshake (SYN / SYN-ACK / ACK)
+    B-&gt;&gt;S: TLS handshake (certificate + keys)
+    B-&gt;&gt;S: GET / HTTP/2
+    S--&gt;&gt;B: 200 OK + HTML
+    Note over B: parse HTML, fetch CSS/JS/images, render</code></pre>
 <ul>
-<li><strong>Machine Learning</strong> - Supervised, unsupervised, and reinforcement learning, traditional AI.</li>
-<li><strong>Deep Learning</strong> - Neural networks, CNN, RNN, transformers, and more.</li>
-<li><strong>Natural Language Processing</strong> - Text analysis, sentiment analysis, and language models.</li>
-<li><strong>Computer Vision</strong> - Image recognition, object detection, and image generation.</li>
-<li><strong>AI Applications</strong> - Real-world applications and case studies.</li>
+<li><strong>DNS</strong> resolves a name to an IP by walking resolver → root → TLD → authoritative server (results are cached).</li>
+<li><strong>TCP handshake</strong> establishes the connection. <strong>TLS handshake</strong> then proves the server's identity (its certificate) and negotiates encryption keys.</li>
+<li><strong>TLS</strong> gives <strong>confidentiality</strong> (eavesdroppers see nothing), <strong>integrity</strong> (tampering is detected), and <strong>authentication</strong> (you're talking to the real server). HTTPS = HTTP over TLS.</li>
+</ul>
+<h2 id="http-methods">HTTP Methods<a class="headerlink" href="#http-methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use</th>
+<th style="text-align: center;">Safe</th>
+<th style="text-align: center;">Idempotent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td>read</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td>create / action</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td>replace</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><strong>PATCH</strong></td>
+<td>partial update</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>remove</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<p><em>Safe</em> = no side effects; <em>idempotent</em> = repeating it has the same effect as doing it once (this is what makes retries safe — see <a href="../apis/">APIs</a>). HTTP/2 and /3 add multiplexing so many requests share one connection; status codes live in <a href="../apis/">APIs</a>.</p>
+<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Latency is dominated by round trips, not bandwidth.</strong> Cut them: keep-alive, HTTP/2 multiplexing, CDNs near users, fewer requests.</li>
+<li><strong>The public internet is hostile.</strong> Treat every connection as untrusted until TLS proves otherwise, and never send secrets over plain HTTP.</li>
 </ul>
 
 
@@ -1736,16 +2010,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../javascripts/mermaid-init.js"></script>
+        <script src="../../../javascripts/mermaid-init.js"></script>
       
-        <script src="../javascripts/mathjax-init.js"></script>
+        <script src="../../../javascripts/mathjax-init.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
