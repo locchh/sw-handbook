@@ -26,10 +26,35 @@ Answering these up front prevents misinterpretation later.
 | **Semi-structured** | Self-describing, flexible schema.     | JSON, XML, YAML            |
 | **Unstructured**    | No predefined schema.                 | Text, images, audio, video |
 
-**By nature:**
+**By nature:** every variable is either a measured quantity or a label.
 
-- **Quantitative** — measurable numeric values (age, temperature, revenue).
-- **Qualitative** — descriptive, categorical (color, opinion, label).
+- **Quantitative (numerical)** — measurable numeric values.
+  - **Discrete** — countable, whole units; no values in between. *(number of orders, page views, defects)*
+  - **Continuous** — measurable on an unbroken scale; any value within a range. *(temperature, height, revenue, elapsed time)*
+- **Qualitative (categorical)** — labels that place a record into a group.
+  - **Nominal** — named categories with no inherent order. *(color, country, payment method)*
+  - **Ordinal** — categories with a meaningful order, but unequal/unknown gaps between them. *(satisfaction: low/medium/high, T-shirt size: S/M/L)*
+
+A quick test: if averaging the values is meaningful, it's quantitative; if it only makes sense to count or rank them, it's categorical.
+
+### Levels of Measurement
+
+Statisticians refine the two-way split into four levels, each unlocking more operations:
+
+| Level        | Order? | Equal intervals? | True zero? | Examples                                  |
+| ------------ | ------ | ---------------- | ---------- | ----------------------------------------- |
+| **Nominal**  | ✗      | ✗                | ✗          | gender, ZIP code, brand                   |
+| **Ordinal**  | ✓      | ✗                | ✗          | survey ratings, rankings, education level |
+| **Interval** | ✓      | ✓                | ✗          | temperature in °C/°F, calendar year       |
+| **Ratio**    | ✓      | ✓                | ✓          | weight, age, income, count                |
+
+The level dictates what you can legitimately do: nominal allows only mode and counts; ordinal adds median and rank; interval adds addition/subtraction and the mean; ratio adds multiplication/ratios ("twice as heavy"). A *true zero* means zero denotes the absence of the quantity — 0 kg is no weight, but 0 °C is not "no temperature," which is why you can't say 20 °C is twice as warm as 10 °C.
+
+**Special cases worth naming:**
+
+- **Binary / dichotomous** — exactly two categories *(true/false, churned/retained)*; a nominal variable that many models treat specially.
+- **Time-series** — values indexed by time; order carries information and rows are not independent.
+- **Text / free-form** — unstructured qualitative data that usually needs encoding (tokenizing, embeddings) before analysis.
 
 ## The DIKW Pyramid
 

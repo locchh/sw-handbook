@@ -1195,6 +1195,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Types of Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#levels-of-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Levels of Measurement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1847,6 +1864,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Types of Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#levels-of-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Levels of Measurement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1998,10 +2032,69 @@
 </tr>
 </tbody>
 </table>
-<p><strong>By nature:</strong></p>
+<p><strong>By nature:</strong> every variable is either a measured quantity or a label.</p>
 <ul>
-<li><strong>Quantitative</strong> — measurable numeric values (age, temperature, revenue).</li>
-<li><strong>Qualitative</strong> — descriptive, categorical (color, opinion, label).</li>
+<li><strong>Quantitative (numerical)</strong> — measurable numeric values.<ul>
+<li><strong>Discrete</strong> — countable, whole units; no values in between. <em>(number of orders, page views, defects)</em></li>
+<li><strong>Continuous</strong> — measurable on an unbroken scale; any value within a range. <em>(temperature, height, revenue, elapsed time)</em></li>
+</ul>
+</li>
+<li><strong>Qualitative (categorical)</strong> — labels that place a record into a group.<ul>
+<li><strong>Nominal</strong> — named categories with no inherent order. <em>(color, country, payment method)</em></li>
+<li><strong>Ordinal</strong> — categories with a meaningful order, but unequal/unknown gaps between them. <em>(satisfaction: low/medium/high, T-shirt size: S/M/L)</em></li>
+</ul>
+</li>
+</ul>
+<p>A quick test: if averaging the values is meaningful, it's quantitative; if it only makes sense to count or rank them, it's categorical.</p>
+<h3 id="levels-of-measurement">Levels of Measurement<a class="headerlink" href="#levels-of-measurement" title="Permanent link">&para;</a></h3>
+<p>Statisticians refine the two-way split into four levels, each unlocking more operations:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th style="text-align: center;">Order?</th>
+<th style="text-align: center;">Equal intervals?</th>
+<th style="text-align: center;">True zero?</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nominal</strong></td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td>gender, ZIP code, brand</td>
+</tr>
+<tr>
+<td><strong>Ordinal</strong></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td>survey ratings, rankings, education level</td>
+</tr>
+<tr>
+<td><strong>Interval</strong></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td>temperature in °C/°F, calendar year</td>
+</tr>
+<tr>
+<td><strong>Ratio</strong></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td>weight, age, income, count</td>
+</tr>
+</tbody>
+</table>
+<p>The level dictates what you can legitimately do: nominal allows only mode and counts; ordinal adds median and rank; interval adds addition/subtraction and the mean; ratio adds multiplication/ratios ("twice as heavy"). A <em>true zero</em> means zero denotes the absence of the quantity — 0 kg is no weight, but 0 °C is not "no temperature," which is why you can't say 20 °C is twice as warm as 10 °C.</p>
+<p><strong>Special cases worth naming:</strong></p>
+<ul>
+<li><strong>Binary / dichotomous</strong> — exactly two categories <em>(true/false, churned/retained)</em>; a nominal variable that many models treat specially.</li>
+<li><strong>Time-series</strong> — values indexed by time; order carries information and rows are not independent.</li>
+<li><strong>Text / free-form</strong> — unstructured qualitative data that usually needs encoding (tokenizing, embeddings) before analysis.</li>
 </ul>
 <h2 id="the-dikw-pyramid">The DIKW Pyramid<a class="headerlink" href="#the-dikw-pyramid" title="Permanent link">&para;</a></h2>
 <p>How raw data becomes decisions:</p>
