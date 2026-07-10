@@ -1,7 +1,11 @@
 nav:
   - Introduction to Data: introduction_to_data.md
+  - Data Modelling & Architecture: data_modeling.md
   - Databases: databases.md
   - Data Engineering: data_engineering.md
+  - Data Quality & Cleansing: data_quality.md
+  - Data Governance & Management: data_governance.md
+  - Data Classification & Security: data_security.md
   - Data Analytics: analytics.md
   - Data Visualization: visualization.md
   - Big Data: big_data.md
