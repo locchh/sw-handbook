@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/databases/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/data_security/">
       
       
-        <link rel="prev" href="../data_modeling/">
+        <link rel="prev" href="../data_governance/">
       
       
-        <link rel="next" href="../data_engineering/">
+        <link rel="next" href="../analytics/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Databases - Software Handbook</title>
+        <title>Data Classification & Security - Software Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#databases" class="md-skip">
+        <a href="#data-classification-security" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Databases
+              Data Classification & Security
             
           </span>
         </div>
@@ -1166,37 +1166,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Databases
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
         
   
   
@@ -1212,109 +1185,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Relational vs NoSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQL in One Breath
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Indexing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rule of Thumb
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1408,10 +1278,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../data_security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1427,6 +1324,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks-that-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks That Apply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#golden-lesson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Golden Lesson
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1899,10 +1860,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Relational vs NoSQL
+        What It Is
       
     </span>
   </a>
@@ -1910,10 +1871,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
+  <a href="#frameworks-that-apply" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL in One Breath
+        Frameworks That Apply
       
     </span>
   </a>
@@ -1921,10 +1882,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
+  <a href="#golden-lesson" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indexing
+        Golden Lesson
       
     </span>
   </a>
@@ -1932,49 +1893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
+  <a href="#learn-more" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rule of Thumb
+        Learn More
       
     </span>
   </a>
@@ -2001,99 +1923,67 @@
   
 
 
-<h1 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h1>
-<p>Where state lives. <a href="../introduction_to_data/">Introduction to Data</a> covered data types and normalization (1NF→BCNF); this page goes deeper into how a database stores, finds, and protects data. For the full menu of database <em>types</em> (document, key-value, wide-column, graph), see <a href="../../../software/basics/architecture/">Architecture</a> under <em>Databases</em> — here we focus on the relational core and when to leave it.</p>
-<h2 id="relational-vs-nosql">Relational vs NoSQL<a class="headerlink" href="#relational-vs-nosql" title="Permanent link">&para;</a></h2>
+<h1 id="data-classification-security">Data Classification &amp; Security<a class="headerlink" href="#data-classification-security" title="Permanent link">&para;</a></h1>
+<p><strong>Classification</strong> labels data by how sensitive it is; <strong>security</strong> applies controls proportional to that label. The two are inseparable — the label is what tells you how hard to protect something. Sits under <a href="../data_governance/">governance</a>, which sets the policy this page enforces. For app-level security see <a href="../../../software/basics/security/">Security</a>.</p>
+<h2 id="what-it-is">What It Is<a class="headerlink" href="#what-it-is" title="Permanent link">&para;</a></h2>
+<p>Classification sorts data into sensitivity tiers so protection can be proportionate:</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th><strong>Relational (SQL)</strong></th>
-<th><strong>NoSQL</strong></th>
+<th>Tier</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>If leaked</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Schema</td>
-<td>fixed, enforced</td>
-<td>flexible / none</td>
+<td><strong>Public</strong></td>
+<td>intended for anyone</td>
+<td>marketing page</td>
+<td>no harm</td>
 </tr>
 <tr>
-<td>Strength</td>
-<td>joins, transactions, integrity</td>
-<td>scale-out, varied shapes</td>
+<td><strong>Internal</strong></td>
+<td>staff only</td>
+<td>org chart</td>
+<td>minor</td>
 </tr>
 <tr>
-<td>Scales by</td>
-<td>mostly up (one strong node)</td>
-<td>mostly out (many nodes)</td>
+<td><strong>Confidential</strong></td>
+<td>need-to-know</td>
+<td>contracts, salaries</td>
+<td>serious</td>
 </tr>
 <tr>
-<td>Default for</td>
-<td>most apps</td>
-<td>a specific, known access pattern</td>
+<td><strong>Restricted</strong></td>
+<td>regulated / PII / PHI / PCI</td>
+<td>health, card numbers</td>
+<td>legal + reputational</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Start relational</strong> (PostgreSQL) unless you have a measured reason — extreme write scale, a schema that genuinely varies per record, or a pure key-value access pattern.</p>
-<h2 id="sql-in-one-breath">SQL in One Breath<a class="headerlink" href="#sql-in-one-breath" title="Permanent link">&para;</a></h2>
-<p>SQL has sub-languages: <strong>DDL</strong> defines structure (<code>CREATE</code>, <code>ALTER</code>), <strong>DML</strong> changes rows (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), and queries read them:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">orders</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">u</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">id</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">&para;</a></h2>
-<p>An index is a sorted lookup structure (usually a B-tree — a balanced tree, see <a href="../../../software/basics/algorithms/">Algorithms</a>) that turns an O(n) table scan into an O(log n) lookup.</p>
+<p>Controls then follow the label, layered defence-in-depth:</p>
 <ul>
-<li><strong>Index the columns you filter, join, and sort on.</strong></li>
-<li>Every index <strong>speeds reads but slows writes</strong> and costs space — don't index everything.</li>
-<li>A query that filters on an unindexed column scans the whole table; check the query plan (<code>EXPLAIN</code>).</li>
+<li><strong>Encryption</strong> — at rest and in transit, by default.</li>
+<li><strong>Access control</strong> — RBAC/ABAC and <strong>least privilege</strong>: grant the minimum, review it.</li>
+<li><strong>De-identification</strong> — masking, tokenization, anonymization, pseudonymization for non-prod and analytics.</li>
+<li><strong>Audit &amp; DLP</strong> — log who touched what; detect exfiltration.</li>
 </ul>
-<h2 id="transactions-acid">Transactions &amp; ACID<a class="headerlink" href="#transactions-acid" title="Permanent link">&para;</a></h2>
-<p>A <strong>transaction</strong> groups operations so they succeed or fail as one unit. The guarantees are <strong>ACID</strong>:</p>
+<h2 id="frameworks-that-apply">Frameworks That Apply<a class="headerlink" href="#frameworks-that-apply" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Atomicity</strong> — all or nothing; a failure rolls everything back.</li>
-<li><strong>Consistency</strong> — every transaction moves the DB from one valid state to another.</li>
-<li><strong>Isolation</strong> — concurrent transactions don't corrupt each other.</li>
-<li><strong>Durability</strong> — once committed, it survives a crash, persisted via a write-ahead log.</li>
+<li><strong>ISO/IEC 27001</strong> — the ISMS standard for managing information security end to end.</li>
+<li><strong>NIST</strong> — Cybersecurity Framework (Identify-Protect-Detect-Respond-Recover) and SP 800-60 for mapping data to categories.</li>
+<li><strong>Regulations</strong> — GDPR (EU personal data), HIPAA (US health), PCI-DSS (card data), CCPA. These often <em>mandate</em> classification and specific controls.</li>
 </ul>
-<h3 id="isolation-levels">Isolation Levels<a class="headerlink" href="#isolation-levels" title="Permanent link">&para;</a></h3>
-<p>Stronger isolation prevents more anomalies but allows less concurrency:</p>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Allows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Read Uncommitted</strong></td>
-<td>dirty reads (seeing uncommitted data)</td>
-</tr>
-<tr>
-<td><strong>Read Committed</strong></td>
-<td>non-repeatable reads (a row changes mid-transaction)</td>
-</tr>
-<tr>
-<td><strong>Repeatable Read</strong></td>
-<td>phantom reads (new rows appear)</td>
-</tr>
-<tr>
-<td><strong>Serializable</strong></td>
-<td>nothing — behaves as if transactions ran one at a time</td>
-</tr>
-</tbody>
-</table>
-<h2 id="consistency-at-scale">Consistency at Scale<a class="headerlink" href="#consistency-at-scale" title="Permanent link">&para;</a></h2>
-<p>ACID describes guarantees <strong>within one database</strong>. Spread data across machines and you hit the <strong>CAP trade-off</strong> (see <a href="../../../software/basics/architecture/">Architecture</a>) — many distributed stores relax strict consistency for availability. This looser model is called <strong>BASE</strong>: <em>Basically Available, Soft state, Eventually consistent</em>.</p>
-<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<h2 id="golden-lesson">Golden Lesson<a class="headerlink" href="#golden-lesson" title="Permanent link">&para;</a></h2>
+<p><strong>You can't protect what you haven't classified.</strong> Label first, then let the label drive the controls — automatically, not by memory. Default to encrypted and least-privilege; opening access later is easy, un-leaking data is impossible.</p>
+<h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>PostgreSQL until proven otherwise.</strong> It scales further than you'd expect.</li>
-<li><strong>Model for your queries</strong>, not just your nouns.</li>
-<li><strong>Wrap any multi-step change in a transaction</strong>, and index deliberately — measure, don't guess.</li>
+<li><a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a> — the Identify–Protect–Detect–Respond–Recover model.</li>
+<li><a href="https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final">NIST SP 800-60 — Mapping Information to Security Categories</a> — a concrete method for classifying data.</li>
+<li><a href="https://www.iso.org/standard/27001">ISO/IEC 27001</a> — the international standard for information security management.</li>
+<li><a href="https://gdpr-info.eu/">GDPR — full text (gdpr-info.eu)</a> — the EU regulation that drives much of modern data protection.</li>
 </ul>
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/databases/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/data_modeling/">
       
       
-        <link rel="prev" href="../data_modeling/">
+        <link rel="prev" href="../introduction_to_data/">
       
       
-        <link rel="next" href="../data_engineering/">
+        <link rel="next" href="../databases/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Databases - Software Handbook</title>
+        <title>Data Modelling & Architecture - Software Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#databases" class="md-skip">
+        <a href="#data-modelling-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Databases
+              Data Modelling & Architecture
             
           </span>
         </div>
@@ -1138,34 +1138,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../data_modeling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data Modelling & Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1185,7 +1157,7 @@
   <span class="md-ellipsis">
     
   
-    Databases
+    Data Modelling & Architecture
   
 
     
@@ -1203,7 +1175,7 @@
   <span class="md-ellipsis">
     
   
-    Databases
+    Data Modelling & Architecture
   
 
     
@@ -1229,10 +1201,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Relational vs NoSQL
+        What It Is
       
     </span>
   </a>
@@ -1240,10 +1212,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
+  <a href="#modelling-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL in One Breath
+        Modelling Styles
       
     </span>
   </a>
@@ -1251,10 +1223,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
+  <a href="#frameworks-that-apply" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indexing
+        Frameworks That Apply
       
     </span>
   </a>
@@ -1262,38 +1234,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
+  <a href="#golden-lesson" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
+        Golden Lesson
       
     </span>
   </a>
@@ -1301,10 +1245,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
+  <a href="#learn-more" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rule of Thumb
+        Learn More
       
     </span>
   </a>
@@ -1315,6 +1259,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1899,10 +1871,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Relational vs NoSQL
+        What It Is
       
     </span>
   </a>
@@ -1910,10 +1882,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
+  <a href="#modelling-styles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL in One Breath
+        Modelling Styles
       
     </span>
   </a>
@@ -1921,10 +1893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
+  <a href="#frameworks-that-apply" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indexing
+        Frameworks That Apply
       
     </span>
   </a>
@@ -1932,38 +1904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
+  <a href="#golden-lesson" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
+        Golden Lesson
       
     </span>
   </a>
@@ -1971,10 +1915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
+  <a href="#learn-more" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rule of Thumb
+        Learn More
       
     </span>
   </a>
@@ -2001,99 +1945,89 @@
   
 
 
-<h1 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h1>
-<p>Where state lives. <a href="../introduction_to_data/">Introduction to Data</a> covered data types and normalization (1NF→BCNF); this page goes deeper into how a database stores, finds, and protects data. For the full menu of database <em>types</em> (document, key-value, wide-column, graph), see <a href="../../../software/basics/architecture/">Architecture</a> under <em>Databases</em> — here we focus on the relational core and when to leave it.</p>
-<h2 id="relational-vs-nosql">Relational vs NoSQL<a class="headerlink" href="#relational-vs-nosql" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th><strong>Relational (SQL)</strong></th>
-<th><strong>NoSQL</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Schema</td>
-<td>fixed, enforced</td>
-<td>flexible / none</td>
-</tr>
-<tr>
-<td>Strength</td>
-<td>joins, transactions, integrity</td>
-<td>scale-out, varied shapes</td>
-</tr>
-<tr>
-<td>Scales by</td>
-<td>mostly up (one strong node)</td>
-<td>mostly out (many nodes)</td>
-</tr>
-<tr>
-<td>Default for</td>
-<td>most apps</td>
-<td>a specific, known access pattern</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Start relational</strong> (PostgreSQL) unless you have a measured reason — extreme write scale, a schema that genuinely varies per record, or a pure key-value access pattern.</p>
-<h2 id="sql-in-one-breath">SQL in One Breath<a class="headerlink" href="#sql-in-one-breath" title="Permanent link">&para;</a></h2>
-<p>SQL has sub-languages: <strong>DDL</strong> defines structure (<code>CREATE</code>, <code>ALTER</code>), <strong>DML</strong> changes rows (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), and queries read them:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">orders</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">u</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">id</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">&para;</a></h2>
-<p>An index is a sorted lookup structure (usually a B-tree — a balanced tree, see <a href="../../../software/basics/algorithms/">Algorithms</a>) that turns an O(n) table scan into an O(log n) lookup.</p>
-<ul>
-<li><strong>Index the columns you filter, join, and sort on.</strong></li>
-<li>Every index <strong>speeds reads but slows writes</strong> and costs space — don't index everything.</li>
-<li>A query that filters on an unindexed column scans the whole table; check the query plan (<code>EXPLAIN</code>).</li>
-</ul>
-<h2 id="transactions-acid">Transactions &amp; ACID<a class="headerlink" href="#transactions-acid" title="Permanent link">&para;</a></h2>
-<p>A <strong>transaction</strong> groups operations so they succeed or fail as one unit. The guarantees are <strong>ACID</strong>:</p>
-<ul>
-<li><strong>Atomicity</strong> — all or nothing; a failure rolls everything back.</li>
-<li><strong>Consistency</strong> — every transaction moves the DB from one valid state to another.</li>
-<li><strong>Isolation</strong> — concurrent transactions don't corrupt each other.</li>
-<li><strong>Durability</strong> — once committed, it survives a crash, persisted via a write-ahead log.</li>
-</ul>
-<h3 id="isolation-levels">Isolation Levels<a class="headerlink" href="#isolation-levels" title="Permanent link">&para;</a></h3>
-<p>Stronger isolation prevents more anomalies but allows less concurrency:</p>
+<h1 id="data-modelling-architecture">Data Modelling &amp; Architecture<a class="headerlink" href="#data-modelling-architecture" title="Permanent link">&para;</a></h1>
+<p>Two related disciplines: <strong>modelling</strong> designs the <em>structure</em> of data — entities, attributes, and relationships. <strong>Architecture</strong> is the org-wide <em>blueprint</em> — how data flows, where it lands, and who serves it. <a href="../introduction_to_data/">Introduction to Data</a> covered normalization (1NF→BCNF); <a href="../databases/">Databases</a> and <a href="../data_engineering/">Data Engineering</a> covered where data lives and how it moves. This page ties them together.</p>
+<h2 id="what-it-is">What It Is<a class="headerlink" href="#what-it-is" title="Permanent link">&para;</a></h2>
+<p>Modelling proceeds through three levels of increasing detail:</p>
 <table>
 <thead>
 <tr>
 <th>Level</th>
-<th>Allows</th>
+<th>Answers</th>
+<th>Audience</th>
+<th>Artifact</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Read Uncommitted</strong></td>
-<td>dirty reads (seeing uncommitted data)</td>
+<td><strong>Conceptual</strong></td>
+<td><em>What</em> entities exist and how they relate</td>
+<td>business</td>
+<td>ER diagram, no attributes</td>
 </tr>
 <tr>
-<td><strong>Read Committed</strong></td>
-<td>non-repeatable reads (a row changes mid-transaction)</td>
+<td><strong>Logical</strong></td>
+<td><em>Which</em> attributes, keys, and normal form</td>
+<td>analyst / architect</td>
+<td>normalized schema, DB-agnostic</td>
 </tr>
 <tr>
-<td><strong>Repeatable Read</strong></td>
-<td>phantom reads (new rows appear)</td>
-</tr>
-<tr>
-<td><strong>Serializable</strong></td>
-<td>nothing — behaves as if transactions ran one at a time</td>
+<td><strong>Physical</strong></td>
+<td><em>How</em> it's stored — tables, types, indexes</td>
+<td>engineer</td>
+<td>DDL for a specific engine</td>
 </tr>
 </tbody>
 </table>
-<h2 id="consistency-at-scale">Consistency at Scale<a class="headerlink" href="#consistency-at-scale" title="Permanent link">&para;</a></h2>
-<p>ACID describes guarantees <strong>within one database</strong>. Spread data across machines and you hit the <strong>CAP trade-off</strong> (see <a href="../../../software/basics/architecture/">Architecture</a>) — many distributed stores relax strict consistency for availability. This looser model is called <strong>BASE</strong>: <em>Basically Available, Soft state, Eventually consistent</em>.</p>
-<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<p><strong>Architecture</strong> then decides the macro shape: OLTP vs OLAP separation, <a href="../data_engineering/">warehouse / lake / lakehouse</a> storage, and how curated data is served to consumers.</p>
+<h2 id="modelling-styles">Modelling Styles<a class="headerlink" href="#modelling-styles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Shape</th>
+<th>Optimized for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normalized (3NF)</strong></td>
+<td>many narrow tables, no redundancy</td>
+<td>transactional writes (OLTP)</td>
+</tr>
+<tr>
+<td><strong>Dimensional (star/snowflake)</strong></td>
+<td>facts + surrounding dimensions</td>
+<td>analytical reads (OLAP)</td>
+</tr>
+<tr>
+<td><strong>Data Vault</strong></td>
+<td>hubs, links, satellites</td>
+<td>auditable, evolving warehouses</td>
+</tr>
+<tr>
+<td><strong>One Big Table (OBT)</strong></td>
+<td>wide denormalized flat table</td>
+<td>simple BI, columnar stores</td>
+</tr>
+</tbody>
+</table>
+<h2 id="frameworks-that-apply">Frameworks That Apply<a class="headerlink" href="#frameworks-that-apply" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>PostgreSQL until proven otherwise.</strong> It scales further than you'd expect.</li>
-<li><strong>Model for your queries</strong>, not just your nouns.</li>
-<li><strong>Wrap any multi-step change in a transaction</strong>, and index deliberately — measure, don't guess.</li>
+<li><strong>Inmon (top-down)</strong> — build one integrated, 3NF enterprise warehouse first, then spin off marts. Consistent but slower to deliver.</li>
+<li><strong>Kimball (bottom-up)</strong> — build dimensional marts (star schemas) per business process, connected by conformed dimensions. Faster to value, the common default.</li>
+<li><strong>Data Vault 2.0 (Linstedt)</strong> — hub/link/satellite modelling for full history and auditability at scale.</li>
+<li><strong>Medallion (bronze → silver → gold)</strong> — the lakehouse layering convention: raw → cleaned → business-ready.</li>
+<li><strong>Data Mesh</strong> — organizational architecture: domain teams own their data as products, on a self-serve platform.</li>
+</ul>
+<h2 id="golden-lesson">Golden Lesson<a class="headerlink" href="#golden-lesson" title="Permanent link">&para;</a></h2>
+<p><strong>Model for the questions you'll ask, not the data you happen to have.</strong> Match the model to the workload: normalize for write-heavy transactional systems, denormalize into star schemas for read-heavy analytics. A model that ignores the query pattern is either slow or a maintenance nightmare — usually both.</p>
+<h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/">Kimball Group — Dimensional Modeling Techniques</a> — the canonical reference for star schemas, facts, and dimensions.</li>
+<li><a href="https://datavaultalliance.com/">Data Vault Alliance</a> — Dan Linstedt's hub/link/satellite methodology.</li>
+<li><a href="https://martinfowler.com/articles/data-mesh-principles.html">Data Mesh Principles (Martin Fowler / Zhamak Dehghani)</a> — the essay that defined domain-oriented data ownership.</li>
+<li><a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf">Lakehouse: A New Generation of Open Platforms (CIDR 2021)</a> — the paper behind the lakehouse and medallion layering.</li>
 </ul>
 
 

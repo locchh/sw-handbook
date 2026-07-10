@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/databases/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/data/basics/data_quality/">
       
       
-        <link rel="prev" href="../data_modeling/">
+        <link rel="prev" href="../data_engineering/">
       
       
-        <link rel="next" href="../data_engineering/">
+        <link rel="next" href="../data_governance/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Databases - Software Handbook</title>
+        <title>Data Quality & Cleansing - Software Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#databases" class="md-skip">
+        <a href="#data-quality-cleansing" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Databases
+              Data Quality & Cleansing
             
           </span>
         </div>
@@ -1166,37 +1166,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Databases
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
         
   
   
@@ -1212,109 +1185,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Relational vs NoSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQL in One Breath
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Indexing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rule of Thumb
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1352,10 +1222,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../data_quality/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1371,6 +1268,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cleansing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cleansing Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks-that-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks That Apply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#golden-lesson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Golden Lesson
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1899,10 +1871,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relational-vs-nosql" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Relational vs NoSQL
+        What It Is
       
     </span>
   </a>
@@ -1910,10 +1882,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-in-one-breath" class="md-nav__link">
+  <a href="#the-cleansing-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL in One Breath
+        The Cleansing Workflow
       
     </span>
   </a>
@@ -1921,10 +1893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#indexing" class="md-nav__link">
+  <a href="#frameworks-that-apply" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indexing
+        Frameworks That Apply
       
     </span>
   </a>
@@ -1932,38 +1904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transactions-acid" class="md-nav__link">
+  <a href="#golden-lesson" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transactions &amp; ACID
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions &amp; ACID">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#isolation-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Isolation Levels
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consistency-at-scale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency at Scale
+        Golden Lesson
       
     </span>
   </a>
@@ -1971,10 +1915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
+  <a href="#learn-more" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rule of Thumb
+        Learn More
       
     </span>
   </a>
@@ -2001,99 +1945,76 @@
   
 
 
-<h1 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h1>
-<p>Where state lives. <a href="../introduction_to_data/">Introduction to Data</a> covered data types and normalization (1NF→BCNF); this page goes deeper into how a database stores, finds, and protects data. For the full menu of database <em>types</em> (document, key-value, wide-column, graph), see <a href="../../../software/basics/architecture/">Architecture</a> under <em>Databases</em> — here we focus on the relational core and when to leave it.</p>
-<h2 id="relational-vs-nosql">Relational vs NoSQL<a class="headerlink" href="#relational-vs-nosql" title="Permanent link">&para;</a></h2>
+<h1 id="data-quality-cleansing">Data Quality &amp; Cleansing<a class="headerlink" href="#data-quality-cleansing" title="Permanent link">&para;</a></h1>
+<p><strong>Quality</strong> measures whether data is fit for its intended use; <strong>cleansing</strong> is the corrective work that raises it. <a href="../introduction_to_data/">Introduction to Data</a> listed five quality dimensions and "garbage in, garbage out"; this page turns that into something you can measure and act on. Related: <a href="../data_engineering/">Data Engineering</a> on validating at ingestion.</p>
+<h2 id="what-it-is">What It Is<a class="headerlink" href="#what-it-is" title="Permanent link">&para;</a></h2>
+<p>Quality is scored across dimensions — the six DAMA dimensions are the common baseline:</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th><strong>Relational (SQL)</strong></th>
-<th><strong>NoSQL</strong></th>
+<th>Dimension</th>
+<th>Question</th>
+<th>Example failure</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Schema</td>
-<td>fixed, enforced</td>
-<td>flexible / none</td>
+<td><strong>Accuracy</strong></td>
+<td>Does it match reality?</td>
+<td>wrong birth date</td>
 </tr>
 <tr>
-<td>Strength</td>
-<td>joins, transactions, integrity</td>
-<td>scale-out, varied shapes</td>
+<td><strong>Completeness</strong></td>
+<td>Are required values present?</td>
+<td>null email</td>
 </tr>
 <tr>
-<td>Scales by</td>
-<td>mostly up (one strong node)</td>
-<td>mostly out (many nodes)</td>
+<td><strong>Consistency</strong></td>
+<td>Does it agree across systems?</td>
+<td>two totals that disagree</td>
 </tr>
 <tr>
-<td>Default for</td>
-<td>most apps</td>
-<td>a specific, known access pattern</td>
+<td><strong>Validity</strong></td>
+<td>Does it fit format/rules?</td>
+<td><code>"31/13/2026"</code></td>
+</tr>
+<tr>
+<td><strong>Uniqueness</strong></td>
+<td>No unintended duplicates?</td>
+<td>same customer twice</td>
+</tr>
+<tr>
+<td><strong>Timeliness</strong></td>
+<td>Is it current enough?</td>
+<td>yesterday's price</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Start relational</strong> (PostgreSQL) unless you have a measured reason — extreme write scale, a schema that genuinely varies per record, or a pure key-value access pattern.</p>
-<h2 id="sql-in-one-breath">SQL in One Breath<a class="headerlink" href="#sql-in-one-breath" title="Permanent link">&para;</a></h2>
-<p>SQL has sub-languages: <strong>DDL</strong> defines structure (<code>CREATE</code>, <code>ALTER</code>), <strong>DML</strong> changes rows (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), and queries read them:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">orders</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">u</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">id</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
-<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">&para;</a></h2>
-<p>An index is a sorted lookup structure (usually a B-tree — a balanced tree, see <a href="../../../software/basics/algorithms/">Algorithms</a>) that turns an O(n) table scan into an O(log n) lookup.</p>
+<h2 id="the-cleansing-workflow">The Cleansing Workflow<a class="headerlink" href="#the-cleansing-workflow" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    P[Profile] --&gt; S[Standardize] --&gt; D[De-duplicate] --&gt; V[Validate] --&gt; M[Handle missing/outliers] --&gt; Mo[Monitor]</code></pre>
 <ul>
-<li><strong>Index the columns you filter, join, and sort on.</strong></li>
-<li>Every index <strong>speeds reads but slows writes</strong> and costs space — don't index everything.</li>
-<li>A query that filters on an unindexed column scans the whole table; check the query plan (<code>EXPLAIN</code>).</li>
+<li><strong>Profile first</strong> — measure the defects before fixing anything; you can't improve what you haven't quantified.</li>
+<li><strong>Standardize</strong> — one format for dates, units, casing, categories.</li>
+<li><strong>De-duplicate</strong> — match and merge records for the same real-world entity.</li>
+<li><strong>Handle missing values</strong> — impute, flag, or drop; document which and why.</li>
+<li><strong>Handle outliers</strong> — investigate before deleting; an outlier is sometimes the signal.</li>
 </ul>
-<h2 id="transactions-acid">Transactions &amp; ACID<a class="headerlink" href="#transactions-acid" title="Permanent link">&para;</a></h2>
-<p>A <strong>transaction</strong> groups operations so they succeed or fail as one unit. The guarantees are <strong>ACID</strong>:</p>
+<h2 id="frameworks-that-apply">Frameworks That Apply<a class="headerlink" href="#frameworks-that-apply" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Atomicity</strong> — all or nothing; a failure rolls everything back.</li>
-<li><strong>Consistency</strong> — every transaction moves the DB from one valid state to another.</li>
-<li><strong>Isolation</strong> — concurrent transactions don't corrupt each other.</li>
-<li><strong>Durability</strong> — once committed, it survives a crash, persisted via a write-ahead log.</li>
+<li><strong>DAMA-DMBOK data-quality dimensions</strong> — the vocabulary above; the industry reference.</li>
+<li><strong>Six Sigma DMAIC</strong> (Define-Measure-Analyze-Improve-Control) — a process discipline for driving defect rates down and keeping them there.</li>
+<li><strong>Data contracts</strong> — schema + quality expectations agreed between producer and consumer, enforced in the pipeline.</li>
+<li><strong>Tools</strong> — Great Expectations, dbt tests, Soda, and Deequ codify checks; OpenRefine and Talend for interactive cleansing.</li>
 </ul>
-<h3 id="isolation-levels">Isolation Levels<a class="headerlink" href="#isolation-levels" title="Permanent link">&para;</a></h3>
-<p>Stronger isolation prevents more anomalies but allows less concurrency:</p>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Allows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Read Uncommitted</strong></td>
-<td>dirty reads (seeing uncommitted data)</td>
-</tr>
-<tr>
-<td><strong>Read Committed</strong></td>
-<td>non-repeatable reads (a row changes mid-transaction)</td>
-</tr>
-<tr>
-<td><strong>Repeatable Read</strong></td>
-<td>phantom reads (new rows appear)</td>
-</tr>
-<tr>
-<td><strong>Serializable</strong></td>
-<td>nothing — behaves as if transactions ran one at a time</td>
-</tr>
-</tbody>
-</table>
-<h2 id="consistency-at-scale">Consistency at Scale<a class="headerlink" href="#consistency-at-scale" title="Permanent link">&para;</a></h2>
-<p>ACID describes guarantees <strong>within one database</strong>. Spread data across machines and you hit the <strong>CAP trade-off</strong> (see <a href="../../../software/basics/architecture/">Architecture</a>) — many distributed stores relax strict consistency for availability. This looser model is called <strong>BASE</strong>: <em>Basically Available, Soft state, Eventually consistent</em>.</p>
-<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<h2 id="golden-lesson">Golden Lesson<a class="headerlink" href="#golden-lesson" title="Permanent link">&para;</a></h2>
+<p><strong>Fix quality at the source, not downstream.</strong> Cleaning the same defect in every dashboard is a losing game — push the fix as close to where the data is created as possible, and make the checks automated and continuous. Clean-once-then-monitor beats clean-forever-everywhere.</p>
+<h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>PostgreSQL until proven otherwise.</strong> It scales further than you'd expect.</li>
-<li><strong>Model for your queries</strong>, not just your nouns.</li>
-<li><strong>Wrap any multi-step change in a transaction</strong>, and index deliberately — measure, don't guess.</li>
+<li><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy Data — Hadley Wickham (PDF)</a> — the classic paper on structuring data so it's analysis-ready.</li>
+<li><a href="https://greatexpectations.io/">Great Expectations</a> — declarative data-quality checks with auto-generated documentation.</li>
+<li><a href="https://docs.getdbt.com/docs/build/data-tests">dbt data tests</a> — quality assertions that run inside your transformation pipeline.</li>
+<li><a href="https://www.dama.org/cpages/body-of-knowledge">DAMA International — Body of Knowledge</a> — the source of the six quality dimensions.</li>
 </ul>
 
 
