@@ -12,13 +12,13 @@
         <meta name="author" content="locch">
       
       
-        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/apis/">
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/becoming_senior/">
       
       
-        <link rel="prev" href="../networking/">
+        <link rel="prev" href="../styles/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="../senior_curriculum/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>APIs - Software Handbook</title>
+        <title>Becoming Senior - Software Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-design" class="md-skip">
+        <a href="#becoming-senior" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              APIs
+              Becoming Senior
             
           </span>
         </div>
@@ -614,37 +614,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    APIs
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../apis/" class="md-nav__link">
         
   
   
@@ -660,92 +633,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#styles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Styles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status Codes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#idempotency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Idempotency
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Versioning
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pagination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pagination
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rule of Thumb
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -867,10 +754,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../becoming_senior/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -886,6 +800,180 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Ladder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#think-in-business-capabilities-not-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Think in Business Capabilities, Not Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-for-the-failure-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design for the Failure Path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-is-a-property-of-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability Is a Property of the Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-is-measured-not-felt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability Is Measured, Not Felt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalation-is-a-designed-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escalation Is a Designed Path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-and-scale-are-part-of-the-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment and Scale Are Part of the Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-is-where-the-risk-lives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Is Where the Risk Lives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-is-part-of-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Is Part of the System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-senior-reflex-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Senior Reflex Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anti-Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1942,10 +2030,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#styles" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Styles
+        Why It Matters
       
     </span>
   </a>
@@ -1953,10 +2041,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
+  <a href="#the-ladder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Codes
+        The Ladder
       
     </span>
   </a>
@@ -1964,10 +2052,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#idempotency" class="md-nav__link">
+  <a href="#think-in-business-capabilities-not-frameworks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Idempotency
+        Think in Business Capabilities, Not Frameworks
       
     </span>
   </a>
@@ -1975,10 +2063,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
+  <a href="#design-for-the-failure-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Versioning
+        Design for the Failure Path
       
     </span>
   </a>
@@ -1986,10 +2074,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pagination" class="md-nav__link">
+  <a href="#observability-is-a-property-of-the-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pagination
+        Observability Is a Property of the Pipeline
       
     </span>
   </a>
@@ -1997,10 +2085,98 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rule-of-thumb" class="md-nav__link">
+  <a href="#reliability-is-measured-not-felt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rule of Thumb
+        Reliability Is Measured, Not Felt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalation-is-a-designed-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escalation Is a Designed Path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-and-scale-are-part-of-the-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment and Scale Are Part of the Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-is-where-the-risk-lives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Is Where the Risk Lives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-is-part-of-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Is Part of the System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-senior-reflex-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Senior Reflex Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anti-Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
       
     </span>
   </a>
@@ -2027,105 +2203,298 @@
   
 
 
-<h1 id="api-design">API Design<a class="headerlink" href="#api-design" title="Permanent link">&para;</a></h1>
-<p>An API is a <strong>contract</strong>. Good ones are predictable, hard to misuse, and safe to evolve. This page covers the contract details; for where APIs sit in a system see <a href="../architecture/">Architecture</a>, and for the styles in context see <a href="../tech_stacks/">Tech Stacks</a>.</p>
-<h2 id="styles">Styles<a class="headerlink" href="#styles" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Style</th>
-<th>Shape</th>
-<th>Best for</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>REST</strong></td>
-<td>resources over HTTP verbs</td>
-<td>public / CRUD APIs, caching, simplicity</td>
-</tr>
-<tr>
-<td><strong>GraphQL</strong></td>
-<td>one endpoint, client picks the fields</td>
-<td>varied clients, avoiding over- / under-fetching</td>
-</tr>
-<tr>
-<td><strong>gRPC</strong></td>
-<td>binary RPC over HTTP/2</td>
-<td>internal service-to-service, low latency, streaming</td>
-</tr>
-</tbody>
-</table>
-<h2 id="status-codes">Status Codes<a class="headerlink" href="#status-codes" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Meaning</th>
-<th>Common codes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>2xx</strong></td>
-<td>success</td>
-<td>200 OK, 201 Created, 204 No Content</td>
-</tr>
-<tr>
-<td><strong>3xx</strong></td>
-<td>redirect</td>
-<td>301 Moved, 304 Not Modified</td>
-</tr>
-<tr>
-<td><strong>4xx</strong></td>
-<td>client error</td>
-<td>400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable, 429 Too Many Requests</td>
-</tr>
-<tr>
-<td><strong>5xx</strong></td>
-<td>server error</td>
-<td>500 Internal Error, 503 Unavailable</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>401 vs 403:</strong> 401 = not authenticated (who are you?); 403 = authenticated but not allowed. See <a href="../security/">Security</a>.</p>
-</blockquote>
-<h2 id="idempotency">Idempotency<a class="headerlink" href="#idempotency" title="Permanent link">&para;</a></h2>
-<p>Retries are inevitable — timeouts and flaky networks guarantee them. An <strong>idempotent</strong> call has the same effect whether it runs once or five times, so it's safe to retry. <code>GET</code>, <code>PUT</code>, and <code>DELETE</code> are naturally idempotent; make <code>POST</code> safe by accepting a client-generated <strong>idempotency key</strong> the server deduplicates.</p>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>Treat a published API as immutable:</p>
+<h1 id="becoming-senior">Becoming Senior<a class="headerlink" href="#becoming-senior" title="Permanent link">&para;</a></h1>
+<p>Seniority is not years of experience or the number of frameworks you know. It is technical skill anchored in business meaning: a senior engineer designs for the failure path, thinks in business capabilities rather than libraries, and can answer feasibility, cost, and risk — not only "how do I code it."</p>
+<h2 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Add freely</strong> — new optional fields and new endpoints don't break callers.</li>
-<li><strong>Never change or remove</strong> in place — ship a new version (<code>/v2</code> or a header) and deprecate the old one on a schedule.</li>
+<li><strong>Frameworks rotate; capabilities endure</strong> — claims adjudication, KYC, and settlement reconciliation outlive every JavaScript framework.</li>
+<li><strong>Companies pay for outcomes</strong> — a business capability that fails well, not code that works on the happy path.</li>
+<li><strong>The gap between mid and senior is judgment, not syntax</strong> — knowing <em>which</em> mechanism fits the problem, and what happens when it breaks.</li>
 </ul>
-<h2 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h2>
+<h2 id="the-ladder">The Ladder<a class="headerlink" href="#the-ladder" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Strategy</th>
-<th>How</th>
-<th>Trade-off</th>
+<th>Level</th>
+<th>What they deliver</th>
+<th>What they receive</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Offset / limit</strong></td>
-<td><code>?page=3&amp;size=20</code></td>
-<td>simple; drifts when data changes, slow at deep offsets</td>
+<td><strong>Junior</strong></td>
+<td>Makes it work — the happy path runs.</td>
+<td>Tasks.</td>
 </tr>
 <tr>
-<td><strong>Cursor</strong></td>
-<td><code>?after=&lt;token&gt;</code></td>
-<td>stable and fast; can't jump to an arbitrary page</td>
+<td><strong>Mid</strong></td>
+<td>Makes it right — correct, tested, maintainable.</td>
+<td>Features.</td>
+</tr>
+<tr>
+<td><strong>Senior</strong></td>
+<td>Makes it survive contact with the business — failure paths, money, compliance, people.</td>
+<td>Problems.</td>
+</tr>
+<tr>
+<td><strong>Staff+</strong></td>
+<td>Makes the organization effective — direction, leverage, alignment.</td>
+<td>Ambiguity.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<p>The step to senior is not "more code, faster." It is a change in what you consider the deliverable.</p>
+<h2 id="think-in-business-capabilities-not-frameworks">Think in Business Capabilities, Not Frameworks<a class="headerlink" href="#think-in-business-capabilities-not-frameworks" title="Permanent link">&para;</a></h2>
+<p>When a senior engineer hears an industry name, a map unrolls by itself — from business need down to deployment:</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Business capability] --&gt; B[Services]
+    B --&gt; C[Modules / code]
+    C --&gt; D[Data]
+    D --&gt; E[Infrastructure]
+    E --&gt; F[Deployment &amp; operations]</code></pre>
+<p>The same capabilities recur across industries, wearing different names:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Appears as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity &amp; authentication</td>
+<td>Login, KYC, member verification, SSO</td>
+</tr>
+<tr>
+<td>Payment</td>
+<td>Checkout, claims payout, payroll, settlement</td>
+</tr>
+<tr>
+<td>Document extraction</td>
+<td>Invoices, medical records, contracts, customs forms</td>
+</tr>
+<tr>
+<td>Customer support</td>
+<td>Tickets, disputes, returns, escalations</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>Alerts, statements, reminders, confirmations</td>
+</tr>
+<tr>
+<td>Reconciliation &amp; reporting</td>
+<td>Ledgers, audits, end-of-day batches</td>
+</tr>
+</tbody>
+</table>
+<p>And each industry adds its own constraints on top:</p>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Core capabilities</th>
+<th>Hard constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insurance</td>
+<td>Policy admin, underwriting, claims, reinsurance</td>
+<td>Audit trails, retention, regulator reporting</td>
+</tr>
+<tr>
+<td>Banking</td>
+<td>Ledger, KYC/AML, settlement, lending</td>
+<td>SOX, Basel, dual approval, immutability</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>Records, claims, scheduling, prescriptions</td>
+<td>HIPAA, consent, data residency</td>
+</tr>
+<tr>
+<td>E-commerce</td>
+<td>Catalog, cart, checkout, fulfillment</td>
+<td>PCI-DSS, peak scaling, fraud</td>
+</tr>
+<tr>
+<td>Logistics</td>
+<td>Routing, tracking, warehouse, customs</td>
+<td>SLAs, offline tolerance, partner integration</td>
+</tr>
+</tbody>
+</table>
+<p>A senior hears "claims processing" and thinks: intake (multi-channel, dedup) → validation gates → fraud scoring with a human-review threshold → adjudication against rules → payout (idempotent payment, caps, dual approval) → audit trail → batch reconciliation. That map — not the framework list — is what transfers between jobs.</p>
+<h2 id="design-for-the-failure-path">Design for the Failure Path<a class="headerlink" href="#design-for-the-failure-path" title="Permanent link">&para;</a></h2>
+<p>Code that works is only the beginning; <strong>a system that fails well is the job</strong>. The first senior habit is classifying errors, because each category has a different owner and a different correct response:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+<th>Whose decision</th>
+<th>Correct response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transient</strong></td>
+<td>Network blip, timeout, rate limit</td>
+<td>Operations</td>
+<td>Retry with backoff + jitter; circuit breaker</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Input violates the contract</td>
+<td>Contract owner</td>
+<td>Reject with the specific violation; never "fix" silently</td>
+</tr>
+<tr>
+<td><strong>Business</strong></td>
+<td>Policy forbids it (refund cap, change freeze, fraud block)</td>
+<td>The business</td>
+<td>Not retryable — explain, route to approval or escalation</td>
+</tr>
+<tr>
+<td><strong>Permission</strong></td>
+<td>Caller lacks the right</td>
+<td>Security</td>
+<td>Deny, log, never leak internals</td>
+</tr>
+<tr>
+<td><strong>Logic</strong></td>
+<td>Runs fine, wrong answer</td>
+<td>Engineering</td>
+<td>Tests, invariants, independent review</td>
+</tr>
+</tbody>
+</table>
+<p>Notice these are <strong>business categories wearing technical clothes</strong>. "Is this retryable?" is a policy question. A generic <code>"Operation failed"</code> is a senior-level sin because it erases the business meaning of the failure.</p>
+<p>The supporting mechanics — see <a href="../error_handling/">Error Handling</a> for details:</p>
 <ul>
-<li><strong>Design for the caller, not the database.</strong> Consistent naming, predictable shapes.</li>
-<li><strong>Return structured errors</strong> (<code>{code, message}</code>), never HTML or stack traces — see <a href="../error_handling/">Error Handling</a>.</li>
-<li><strong>Paginate from day one</strong>, and make the wrong call hard to make.</li>
+<li><strong>Fail fast</strong> on violated invariants; <strong>idempotency</strong> on anything involving money.</li>
+<li><strong>Timeout budgets</strong> end-to-end, not per-call.</li>
+<li><strong>Dead-letter queues</strong> and <strong>compensation (sagas)</strong> for multi-step workflows.</li>
+<li><strong>Never silent failure</strong> — returning an empty result as "success" when a backend is down makes incomplete work look complete. It is the cardinal sin: the report ships with a hole and nobody knows.</li>
+<li><strong>Guarantees need code, not intentions</strong> — a rule that must <em>never</em> be violated (verify identity before refund, cap payouts) needs a programmatic gate that blocks the action <em>before</em> execution. Instructions, conventions, and review checklists only improve the odds; they never reach zero failure.</li>
+</ul>
+<h2 id="observability-is-a-property-of-the-pipeline">Observability Is a Property of the Pipeline<a class="headerlink" href="#observability-is-a-property-of-the-pipeline" title="Permanent link">&para;</a></h2>
+<p>Observability is not a tool you buy. It is a property you design in: structure the system as a pipeline of <strong>versioned stages with contracts</strong>, <strong>gates that enforce schema and policy</strong>, and <strong>records that keep full lineage</strong> (correlation IDs, typed failures, run history).</p>
+<p>Done right, one disciplined pipeline answers three audiences at once:</p>
+<table>
+<thead>
+<tr>
+<th>Audience</th>
+<th>What they get</th>
+<th>Their question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compliance</strong></td>
+<td>Coded gates, audit trail</td>
+<td>"Prove the forbidden action cannot pass."</td>
+</tr>
+<tr>
+<td><strong>Operations</strong></td>
+<td>Typed failures, run history</td>
+<td>"What broke, where, is it retryable?"</td>
+</tr>
+<tr>
+<td><strong>Leadership</strong></td>
+<td>Stratified metrics</td>
+<td>"Which segment is weak, at which step, what does it cost?"</td>
+</tr>
+</tbody>
+</table>
+<p>The test is three words: is the system <strong>explainable</strong> (why did it produce this result?), <strong>reliable</strong> (does it fail well?), and <strong>traceable</strong> (can you follow one record end to end?).</p>
+<h2 id="reliability-is-measured-not-felt">Reliability Is Measured, Not Felt<a class="headerlink" href="#reliability-is-measured-not-felt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SLI</strong></td>
+<td>The indicator you measure (success rate, p99 latency, extraction accuracy).</td>
+</tr>
+<tr>
+<td><strong>SLO</strong></td>
+<td>The target you promise (99.5% over 30 days).</td>
+</tr>
+<tr>
+<td><strong>Error budget</strong></td>
+<td>The failure you are <em>allowed</em> — spend it on releases, freeze when it's gone.</td>
+</tr>
+</tbody>
+</table>
+<p>For systems with an automated path (extraction, scoring, auto-approval), the senior questions about "acceptance rate":</p>
+<ul>
+<li><strong>Never trust an aggregate.</strong> 97% overall accuracy can hide a segment running at 85%. Stratify by type <em>and</em> field before automating anything.</li>
+<li><strong>Calibrate before you route.</strong> Confidence scores are meaningless until validated against a labeled sample of real outcomes.</li>
+<li><strong>Keep sampling forever.</strong> Stratified random human review of the auto-approved path is what catches novel failure patterns after launch.</li>
+</ul>
+<h2 id="escalation-is-a-designed-path">Escalation Is a Designed Path<a class="headerlink" href="#escalation-is-a-designed-path" title="Permanent link">&para;</a></h2>
+<p>Escalation is not an exception — it is a feature with its own design.</p>
+<p><strong>Machine → human.</strong> Explicit triggers, not vibes: policy gaps (silence in the policy is neither permission nor prohibition — escalate), exception requests, ambiguous identity (ask for another identifier, never guess), and an explicit request for a human (honor it immediately). The handoff is a <strong>structured summary</strong> — identifiers, what was verified, root cause, amounts, recommended action — because the human cannot see the transcript.</p>
+<p><strong>Human → human.</strong> Severity levels with definitions, on-call rotations, runbooks that a stranger can follow at 3 a.m., incident command for large events, and <strong>blameless postmortems</strong> that fix the system instead of the person.</p>
+<h2 id="deployment-and-scale-are-part-of-the-design">Deployment and Scale Are Part of the Design<a class="headerlink" href="#deployment-and-scale-are-part-of-the-design" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Progressive delivery</strong> — feature flags, canary, blue-green. Rollback is a first-class requirement, not an apology.</li>
+<li><strong>Capacity is planned</strong>, not discovered during the traffic spike.</li>
+<li><strong>Disaster recovery has numbers</strong> — RPO (how much data you may lose) and RTO (how long you may be down) — agreed with the business, not assumed.</li>
+<li><strong>Cost is an architectural input.</strong> A design that doubles the cloud bill or needs five on-call engineers is a wrong design, even if it is elegant.</li>
+</ul>
+<h2 id="data-is-where-the-risk-lives">Data Is Where the Risk Lives<a class="headerlink" href="#data-is-where-the-risk-lives" title="Permanent link">&para;</a></h2>
+<p>In insurance, healthcare, and banking, most of the business risk is in the data, not the code: <strong>ownership</strong> (who may change it), <strong>lineage</strong> (where it came from), <strong>quality</strong> (see <a href="../../../data/basics/data_quality/">Data Quality</a>), <strong>privacy and classification</strong> (see <a href="../../../data/basics/data_security/">Data Security</a>), and <strong>retention</strong> (what must be kept, what must be deleted). A senior treats a schema change with the same care as a payment code change.</p>
+<h2 id="communication-is-part-of-the-system">Communication Is Part of the System<a class="headerlink" href="#communication-is-part-of-the-system" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Write to decide</strong> — design docs and ADRs (architecture decision records) turn arguments into reviewable artifacts and preserve the <em>why</em>.</li>
+<li><strong>Translate between languages</strong> — the same design must answer compliance ("what cannot happen"), operations ("what do I see when it breaks"), and leadership ("what does it cost, what is the risk").</li>
+<li><strong>Deliver bad news early.</strong> Feasibility, cost, and risk said honestly at the start is cheaper than a failed demo at the end.</li>
+<li><strong>Never accept a game you cannot win</strong> — no real requirements, no real data, no realistic timeline: renegotiate the scope before you build.</li>
+</ul>
+<h2 id="how-to-practice">How to Practice<a class="headerlink" href="#how-to-practice" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Own a service end to end</strong> — including its on-call, its dashboard, and its cost line.</li>
+<li><strong>Write postmortems</strong> for your own incidents; read other companies' public ones.</li>
+<li><strong>Demand real data early.</strong> Rebuild one of your happy-path demos with production-shaped data and watch what breaks.</li>
+<li><strong>Estimate before you build</strong> — capacity, cost, and timeline; then compare with reality afterwards.</li>
+<li><strong>Learn one industry deeply</strong> — its capabilities, regulators, and vocabulary — until the capability map unrolls by itself.</li>
+<li><strong>Write one design doc per quarter</strong> and get it torn apart by someone senior.</li>
+<li><strong>Automate your repetitive work</strong> — keep your attention for judgment, not clicking.</li>
+</ol>
+<h2 id="the-senior-reflex-questions">The Senior Reflex Questions<a class="headerlink" href="#the-senior-reflex-questions" title="Permanent link">&para;</a></h2>
+<p>Ask these by reflex about any design — your own first:</p>
+<ul>
+<li>What happens when this fails? Which category of failure is it, and who owns that decision?</li>
+<li>What must <em>never</em> happen — and what <strong>code</strong> (not instruction) enforces it?</li>
+<li>Who gets paged, and what do they see when they open the alert?</li>
+<li>What will compliance need to prove afterwards?</li>
+<li>What is the acceptance rate — per segment, not aggregate — and how is it calibrated?</li>
+<li>What is the narrowest mechanism that covers this need?</li>
+<li>Is it feasible, what does it cost, what is the risk, and is now the right time?</li>
+</ul>
+<h2 id="anti-patterns">Anti-Patterns<a class="headerlink" href="#anti-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Framework collecting</strong> — technology for the résumé, not the problem.</li>
+<li><strong>Happy-path demos on mock data</strong> — real data always reveals patterns mock data cannot.</li>
+<li><strong>The prompt/config patch</strong> — strengthening instructions where the requirement is a guarantee.</li>
+<li><strong>Silent failure</strong> — anything that makes incomplete work look complete.</li>
+<li><strong>The post-hoc fix</strong> — validating or reversing after the damage, when a pre-execution gate was possible.</li>
+<li><strong>Burden shift</strong> — making users or teammates restructure their work to accommodate your system.</li>
+</ul>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<p>The full self-study path — books, courses, blogs, postmortems, papers, and practice drills with links — lives in <a href="../senior_curriculum/">The Senior Curriculum</a>. The short version:</p>
+<ul>
+<li><em>Designing Data-Intensive Applications</em> — Martin Kleppmann</li>
+<li><em>Release It!</em> — Michael Nygard</li>
+<li><em>The Staff Engineer's Path</em> — Tanya Reilly</li>
+<li><em>Site Reliability Engineering</em> — Google (free at sre.google)</li>
+<li><em>Learning Domain-Driven Design</em> — Vlad Khononov</li>
 </ul>
 
 
