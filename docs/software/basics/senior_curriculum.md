@@ -98,7 +98,7 @@ Two different games share this name. **Interview system design** is a formalized
 | C4 model | [c4model.com](https://c4model.com/) | Diagrams that stay at one altitude at a time — how seniors communicate designs. |
 | Architecture Decision Records | [adr.github.io](https://adr.github.io/) · [templates](https://github.com/joelparkerhenderson/architecture-decision-record) | Capture the *why*. In real work the design doc is the deliverable, not the whiteboard. |
 | Architectural katas — Neal Ford | [nealford.com/katas](https://nealford.com/katas/) | Practice scenarios: design for a business case and defend the trade-offs. |
-| AWS Well-Architected | [link above](#free-courses--lectures) | The review checklist to run your own designs against. |
+| AWS Well-Architected | [link above](#free-courses-lectures) | The review checklist to run your own designs against. |
 
 A real design is not done when the diagram is complete. It is done when it answers: **what breaks first, what does it cost, how do we migrate without downtime, and what does the on-call engineer see when it fails.**
 
