@@ -9,3 +9,7 @@ Welcome to the Software Engineering section of my handbook. This section covers 
 - **Development Practices** - TDD, BDD, CI/CD, and other methodologies.
 - **Languages & Frameworks** - Notes on programming languages and frameworks.
 - **Tools & Utilities** - Development tools, IDEs, and productivity enhancers.
+
+## Advanced
+
+- **[The Architecture Bookshelf](advanced/books.md)** - A map of the software-architecture literature by subfield, annotated and cross-linked.

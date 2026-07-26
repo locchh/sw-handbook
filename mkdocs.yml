@@ -60,6 +60,7 @@ plugins:
         Software Engineering:
           - software/index.md
           - software/basics/*.md
+          - software/advanced/*.md
           - software/tool_tip/*.md
         Data Science:
           - data/index.md

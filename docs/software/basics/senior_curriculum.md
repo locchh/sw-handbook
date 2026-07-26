@@ -6,6 +6,8 @@ Universities and course platforms teach fundamentals and frameworks — what can
 
 Do **not** try to read everything. Start with the core three books and the weekly habits, then pull from the tables by whichever skill is currently weakest. The [cadence table](#suggested-cadence) at the bottom turns this into a routine.
 
+This page is a **path** — a short list in an order, on a cadence. When you need the **map** instead — what literature exists on a specific subfield such as DDD, streaming, or scalability — see [The Architecture Bookshelf](../advanced/books.md).
+
 ## The Core Three
 
 If you read only three books, read these, in this order:

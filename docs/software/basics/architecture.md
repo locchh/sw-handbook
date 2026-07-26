@@ -347,3 +347,9 @@ Architecture is a series of trade-offs. When in doubt:
 2. **Split when you have evidence.** Scale, team size, or release coupling should force the split — not a blog post.
 3. **Match complexity to team size.** Microservices without DevOps discipline is chaos.
 4. **Optimize for change.** The best architecture is the one you can evolve without rewriting.
+
+---
+
+## Going Deeper
+
+The literature behind each of the concerns above — system architecture, DDD, microservices, streaming, distributed systems, scalability — is mapped by subfield in [The Architecture Bookshelf](../advanced/books.md).

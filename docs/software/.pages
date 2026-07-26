@@ -1,4 +1,5 @@
 nav:
   - Overview: index.md
   - Fundamentals: basics
+  - Advanced: advanced
   - Tool/Tip: tool_tip
