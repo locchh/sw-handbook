@@ -1,0 +1,3083 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/advanced/books/">
+      
+      
+        <link rel="prev" href="../../basics/posts/">
+      
+      
+        <link rel="next" href="../../tool_tip/tools/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Architecture Books - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-architecture-bookshelf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Books
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/tech_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/becoming_senior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/senior_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Senior Curriculum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abbreviations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-lists-two-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Lists, Two Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-this-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Read This List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-driven-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain-Driven Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-intensive-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-Intensive Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming &amp; Messaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distributed Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud &amp; Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agile-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agile &amp; Delivery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-craft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General &amp; Craft
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-snapshot-misses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Snapshot Misses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-actually-get-through-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Actually Get Through Them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Modelling & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Governance & Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-lists-two-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Lists, Two Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-this-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Read This List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-driven-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain-Driven Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-intensive-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-Intensive Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming &amp; Messaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distributed Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud &amp; Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agile-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agile &amp; Delivery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-craft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General &amp; Craft
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-snapshot-misses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Snapshot Misses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-actually-get-through-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Actually Get Through Them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="the-architecture-bookshelf">The Architecture Bookshelf<a class="headerlink" href="#the-architecture-bookshelf" title="Permanent link">&para;</a></h1>
+<p>A map of the software-architecture literature, organized by subfield. Condensed and annotated from <a href="https://github.com/mhadidg/software-architecture-books">mhadidg/software-architecture-books</a> — a Goodreads-derived survey of the field.</p>
+<p>The value of that survey is not any single recommendation; it is the <strong>shape of the field</strong>. Twelve subfields, each with its own canon, its own decade of origin, and its own blind spots. Seeing them side by side tells you what you have never read.</p>
+<h2 id="two-lists-two-jobs">Two Lists, Two Jobs<a class="headerlink" href="#two-lists-two-jobs" title="Permanent link">&para;</a></h2>
+<p>This handbook now has two reading lists. They are not competing:</p>
+<table>
+<thead>
+<tr>
+<th>List</th>
+<th>What it is</th>
+<th>Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../basics/senior_curriculum/">The Senior Curriculum</a></td>
+<td>An opinionated <strong>path</strong> — a small number of books plus courses, postmortems, and drills, in an order, on a cadence.</td>
+<td>You want to know what to read <em>next</em>.</td>
+</tr>
+<tr>
+<td><strong>This page</strong></td>
+<td>A comprehensive <strong>map</strong> — what exists per subfield and roughly why it exists.</td>
+<td>You have a specific problem (splitting a monolith, designing an event pipeline) and want the literature on it.</td>
+</tr>
+</tbody>
+</table>
+<p>Overlap is expected: <em>Designing Data-Intensive Applications</em>, <em>Release It!</em>, <em>A Philosophy of Software Design</em>, <em>SRE</em>, and <em>Fundamentals of Software Architecture</em> appear in both. When a book shows up on the curated path <em>and</em> near the top of the popularity survey, that is the strongest signal either list can give you.</p>
+<h2 id="how-to-read-this-list">How to Read This List<a class="headerlink" href="#how-to-read-this-list" title="Permanent link">&para;</a></h2>
+<p>The source author is blunt about what the list is, and it is the most useful sentence in the whole repository:</p>
+<blockquote>
+<p>This is NOT a recommendation list. […] The books are sorted solely based on the number of <strong>written</strong> reviews.</p>
+</blockquote>
+<p>Three consequences worth holding on to:</p>
+<ul>
+<li><strong>Order is popularity, not quality.</strong> Review count rewards age, marketing, and controversy. A 1994 book has had thirty years to accumulate reviews; a 2020 book has not.</li>
+<li><strong>Inclusion is mechanical.</strong> The source's rules: relevant to architecture, not obsolete, technology-agnostic, Goodreads rating ≥ 3.5, ≥ 50 ratings, ≥ 5 written reviews, ≥ 50 pages. Good books that are new, niche, or self-published fail those thresholds.</li>
+<li><strong>It is a snapshot, and the snapshot is old.</strong> The source repository was last updated <strong>October 2021</strong>. Nothing published since is in it — see <a href="#what-the-snapshot-misses">What the Snapshot Misses</a>.</li>
+</ul>
+<p>Ratings and review counts are deliberately <strong>not</strong> reproduced here; frozen numbers rot silently while looking authoritative. Every title links to its Goodreads page, where the current numbers live. The selection below is trimmed to the entries worth knowing about per subfield, with a line on <em>what each one is actually for</em> — the source has the complete tables.</p>
+<h2 id="where-to-start">Where to Start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
+<p>One book per situation. Do not read a category; read the answer to the problem you have.</p>
+<table>
+<thead>
+<tr>
+<th>Your situation</th>
+<th>Start with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First architecture book, want vocabulary and trade-off thinking</td>
+<td><em>Fundamentals of Software Architecture</em></td>
+</tr>
+<tr>
+<td>You write services and keep guessing about data</td>
+<td><em>Designing Data-Intensive Applications</em></td>
+</tr>
+<tr>
+<td>Things work in staging and break in production</td>
+<td><em>Release It!</em></td>
+</tr>
+<tr>
+<td>A monolith you must split — or defend</td>
+<td><em>Monolith to Microservices</em></td>
+</tr>
+<tr>
+<td>The business domain is the complexity, not the tech</td>
+<td><em>Learning Domain-Driven Design</em>, then Evans</td>
+</tr>
+<tr>
+<td>Nobody understands your designs</td>
+<td><em>Software Architecture for Developers, Vol. 2</em> (C4)</td>
+</tr>
+<tr>
+<td>You just became "the architect" and it feels political</td>
+<td><em>The Software Architect Elevator</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<p>The core of the field: how to structure a system and how to talk about that structure.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/44144493">Fundamentals of Software Architecture</a> — Richards &amp; Ford</td>
+<td>2020</td>
+<td>The modern textbook. Architecture characteristics, styles compared head-to-head, and the doctrine that there are no right answers, only trade-offs.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/70156">Patterns of Enterprise Application Architecture</a> — Fowler</td>
+<td>2002</td>
+<td>The pattern dictionary business systems still run on — Repository, Unit of Work, Identity Map. Dated examples, durable vocabulary.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/18043011">Clean Architecture</a> — Martin</td>
+<td>2017</td>
+<td>The most-read and most-argued-about. Strong on dependency direction and boundaries; light on cost, operations, and data. Read it, then read a critic.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/35755822">Building Evolutionary Architectures</a> — Ford, Parsons, Kua</td>
+<td>2017</td>
+<td>Treats change as the primary requirement; introduces fitness functions — automated tests for architectural properties.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/70143">Software Architecture in Practice</a> — Bass, Clements, Kazman</td>
+<td>2021</td>
+<td>The academic reference (SEI). Quality attributes and evaluation methods (ATAM). Dry, thorough, the source many other books quietly paraphrase.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/49828197">The Software Architect Elevator</a> — Hohpe</td>
+<td>2020</td>
+<td>The role rather than the artifact: moving between boardroom and engine room, and why architecture work is mostly organizational.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/31670678">Design It!</a> — Keeling</td>
+<td>2017</td>
+<td>Hands-on activities for running design work with a team — the practical companion to the theory books.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/33221518">Software Architecture for Developers, Vol. 1–2</a> — Brown</td>
+<td>2016</td>
+<td>Vol. 1: technical leadership. Vol. 2: <a href="https://www.goodreads.com/book/show/33221619">visualising and documenting</a> — the origin of the <a href="https://c4model.com/">C4 model</a>.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/223911">Documenting Software Architectures</a> — Clements et al.</td>
+<td>2010</td>
+<td>Views and beyond. Heavy, but the reference when documentation is a contractual deliverable.</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with <a href="../../basics/architecture/">Architecture</a> and <a href="../../basics/principles/">Design Principles</a>.</p>
+<h2 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link">&para;</a></h2>
+<p>Patterns are a shared vocabulary, not a checklist. The failure mode of this category is applying them to code that did not need them.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/85009">Design Patterns</a> — Gang of Four</td>
+<td>1994</td>
+<td>The original. Read as a reference and a historical document; several patterns are language workarounds that modern languages made unnecessary.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/58128">Head First Design Patterns</a> — Freeman &amp; Robson</td>
+<td>2021</td>
+<td>The same material made learnable. Updated edition uses modern Java. The one to actually start with.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/43125355">Dive Into Design Patterns</a> — Shvets</td>
+<td>2019</td>
+<td>Highest-rated in the category; the book form of <a href="https://refactoring.guru/design-patterns">refactoring.guru</a>, with strong diagrams and multi-language examples.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/85041">Refactoring to Patterns</a> — Kerievsky</td>
+<td>2004</td>
+<td>The corrective: arrive at patterns by refactoring toward them, rather than designing them in up front.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="domain-driven-design">Domain-Driven Design<a class="headerlink" href="#domain-driven-design" title="Permanent link">&para;</a></h2>
+<p>How to model a business domain so the code keeps matching it. The strategic half (bounded contexts, context maps) outlives the tactical half (aggregates, repositories).</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/179133">Domain-Driven Design</a> — Evans</td>
+<td>2003</td>
+<td>The blue book: the source of the vocabulary. Dense. The free <a href="https://www.domainlanguage.com/ddd/reference/">DDD Reference</a> summarizes the patterns if you stall.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/28602719">Domain-Driven Design Distilled</a> — Vernon</td>
+<td>2016</td>
+<td>~150 pages. The fastest honest overview — read this before committing to the blue book.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/15756865">Implementing Domain-Driven Design</a> — Vernon</td>
+<td>2013</td>
+<td>The red book: how the patterns land in real code, including event-driven and integration concerns.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/25531393">Patterns, Principles, and Practices of DDD</a> — Millett &amp; Tune</td>
+<td>2015</td>
+<td>Long and practical, .NET-flavored, strong on the strategic patterns most teams skip.</td>
+</tr>
+</tbody>
+</table>
+<p>Newer and more accessible than all of these: <em>Learning Domain-Driven Design</em> (2021) — see <a href="#what-the-snapshot-misses">below</a>.</p>
+<h2 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">&para;</a></h2>
+<p>Read this category defensively. Every book here has an "are you sure?" chapter, and those chapters are the valuable part.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/22512931">Building Microservices</a> — Newman</td>
+<td>2021</td>
+<td>The standard reference, 2nd edition. Broad and honest about cost — decomposition, deployment, testing, observability, organization.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/44144499">Monolith to Microservices</a> — Newman</td>
+<td>2019</td>
+<td>The one most teams actually need: incremental migration patterns (strangler fig, branch by abstraction) and how to split a database without downtime.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/34372564">Microservices Patterns</a> — Richardson</td>
+<td>2017</td>
+<td>The pattern catalog — saga, API composition, CQRS, transactional outbox. Java examples; language-agnostic ideas.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/33252815">Production-Ready Microservices</a> — Fowler (Susan)</td>
+<td>2016</td>
+<td>What a service must satisfy before it is allowed to exist: a standardization checklist born at Uber.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/31291348">Microservices AntiPatterns and Pitfalls</a> — Richards</td>
+<td>2016</td>
+<td>A short O'Reilly report on the failure modes, including the distributed monolith.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-intensive-systems">Data-Intensive Systems<a class="headerlink" href="#data-intensive-systems" title="Permanent link">&para;</a></h2>
+<p>Where architecture meets storage. Listed as "Data Engineering" in the source; the category has moved fastest since the snapshot.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/23463279">Designing Data-Intensive Applications</a> — Kleppmann</td>
+<td>2015</td>
+<td>The single highest-value book in the whole list. Replication, partitioning, transactions, consensus, batch and stream — each with its failure modes. A <a href="https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html">2nd edition</a> with Chris Riccomini was published in March 2026.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/13421400">Big Data</a> — Marz &amp; Warren</td>
+<td>2015</td>
+<td>The Lambda architecture, from its author. Historically important; largely superseded by unified stream processing — read it for the reasoning, not the blueprint.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/7846548">Data Modeling Made Simple</a> — Hoberman</td>
+<td>2015</td>
+<td>Conceptual, logical, and physical modelling for people who never took a database course.</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with <a href="../../../data/basics/databases/">Databases</a>, <a href="../../../data/basics/data_modeling/">Data Modelling</a>, and <a href="../../../data/basics/data_engineering/">Data Engineering</a>.</p>
+<h2 id="streaming-messaging">Streaming &amp; Messaging<a class="headerlink" href="#streaming-messaging" title="Permanent link">&para;</a></h2>
+<p>Asynchronous integration: the moment "call the other service" stops being a function call.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/85012">Enterprise Integration Patterns</a> — Hohpe &amp; Woolf</td>
+<td>2003</td>
+<td>Still the vocabulary — channel, router, aggregator, dead letter. Pre-dates Kafka and describes it anyway. Patterns are <a href="https://www.enterpriseintegrationpatterns.com/">free online</a>.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/39793332">Designing Event-Driven Systems</a> — Stopford</td>
+<td>2018</td>
+<td><a href="https://www.confluent.io/designing-event-driven-systems/">Free from Confluent</a>. Event-driven services with a log at the center; the "database inside out" idea made concrete.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/34431414">Streaming Systems</a> — Akidau, Chernyak, Lax</td>
+<td>2018</td>
+<td>The theory that makes streaming correct: event time vs. processing time, windows, watermarks, exactly-once.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/29598815">Making Sense of Stream Processing</a> — Kleppmann</td>
+<td>2016</td>
+<td>Short, and the gentlest on-ramp to event sourcing and change data capture — <a href="https://martin.kleppmann.com/2016/05/24/making-sense-of-stream-processing.html">download link on the author's site</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="distributed-systems">Distributed Systems<a class="headerlink" href="#distributed-systems" title="Permanent link">&para;</a></h2>
+<p>The physics underneath everything above: partial failure, no shared clock, no global truth.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/44647144">Database Internals</a> — Petrov</td>
+<td>2019</td>
+<td>Two halves: storage engines (B-trees, LSM) and distribution (consensus, replication). Explains <em>why</em> your database behaves the way it does.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/18652140">Distributed Systems for Fun and Profit</a> — Takada</td>
+<td>2013</td>
+<td><a href="http://book.mixu.net/distsys/">Free online</a>, ~60 pages. Consistency models, time and order, and CAP without the hand-waving.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/34691716">Designing Distributed Systems</a> — Burns</td>
+<td>2018</td>
+<td>Container-era patterns: sidecar, ambassador, adapter, scatter-gather. Kubernetes-flavored.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/405614">Distributed Systems: Principles and Paradigms</a> — Tanenbaum &amp; van Steen</td>
+<td>2016</td>
+<td>The university textbook; <a href="https://www.distributed-systems.net/index.php/books/ds3/">free PDF from the authors</a>. Use it to fill theory gaps.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/3268675">Security Engineering</a> — Anderson</td>
+<td>2020</td>
+<td>3rd edition, <a href="https://www.cl.cam.ac.uk/~rja14/book.html">chapters free on the author's page</a>. Not really a distributed-systems book — it is the book on how systems fail when someone <em>wants</em> them to.</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with <a href="../../basics/concurrency/">Concurrency</a> and <a href="../../basics/networking/">Networking</a>.</p>
+<h2 id="cloud-infrastructure">Cloud &amp; Infrastructure<a class="headerlink" href="#cloud-infrastructure" title="Permanent link">&para;</a></h2>
+<p>Ages faster than any other category — prefer the pattern books over the tool books.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/26544394">Infrastructure as Code</a> — Morris</td>
+<td>2016</td>
+<td>The principles behind Terraform-style work — idempotence, immutable servers, testing infrastructure. (A 2nd edition exists.)</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/44144501">Kubernetes Patterns</a> — Ibryam &amp; Huß</td>
+<td>2019</td>
+<td>Kubernetes as a set of design patterns rather than a pile of YAML.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/36410104">Cloud Native Patterns</a> — Davis</td>
+<td>2019</td>
+<td>Change-tolerant application design: retries, service discovery, configuration, resilience.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/23131211">The Practice of Cloud System Administration</a> — Limoncelli, Chalup, Hogan</td>
+<td>2014</td>
+<td>Operating distributed services — the pre-SRE-book SRE book, and still one of the most practical on operations.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/21403727">Cloud Design Patterns</a> — Microsoft</td>
+<td>2014</td>
+<td>Vendor-published but genuinely generic; the living version is the <a href="https://learn.microsoft.com/azure/architecture/patterns/">Azure Architecture Center</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="web-scalability">Web Scalability<a class="headerlink" href="#web-scalability" title="Permanent link">&para;</a></h2>
+<p>Mostly written between 2006 and 2015, when "scale" meant your own servers. The arithmetic still applies; the hardware assumptions do not.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/23615147">Web Scalability for Startup Engineers</a> — Ejsmont</td>
+<td>2015</td>
+<td>The best single entry point: layers, caching, queues, and where the bottlenecks actually appear.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/7282390">The Art of Scalability</a> — Abbott &amp; Fisher</td>
+<td>2015</td>
+<td>Scaling as an organizational problem too; the origin of the AKF scale cube.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/10758425">Scalability Rules</a> — Abbott &amp; Fisher</td>
+<td>2011</td>
+<td>The same material as 50 checkable rules — a review checklist.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/4843318">The Art of Capacity Planning</a> — Allspaw</td>
+<td>2008</td>
+<td>Measuring and forecasting before buying. Back-of-envelope discipline, from Flickr's ops lead.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agile-delivery">Agile &amp; Delivery<a class="headerlink" href="#agile-delivery" title="Permanent link">&para;</a></h2>
+<p>How the work gets organized. Architecture decisions are constrained by delivery cadence more often than by technology.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/84985">Agile Software Development: Principles, Patterns, Practices</a> — Martin</td>
+<td>2002</td>
+<td>Where SOLID was first laid out at length.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/45280021">Clean Agile</a> — Martin</td>
+<td>2019</td>
+<td>Agile stripped back to the original practices, against two decades of process theatre.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/1654215">The Art of Agile Development</a> — Shore &amp; Warden</td>
+<td>2007</td>
+<td>The most practice-level of the agile books (a 2021 second edition exists).</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/67839">Planning Extreme Programming</a> — Beck &amp; Fowler</td>
+<td>2000</td>
+<td>Short, and the clearest thinking on estimation and slack that the field has produced.</td>
+</tr>
+</tbody>
+</table>
+<p>Pairs with <a href="../../basics/lifecycle/">Lifecycle</a>.</p>
+<h2 id="devops">DevOps<a class="headerlink" href="#devops" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/26083308">The DevOps Handbook</a> — Kim, Humble, Debois, Willis</td>
+<td>2016</td>
+<td>The comprehensive practice reference: flow, feedback, continual learning, with case studies.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/8686650">Continuous Delivery</a> — Humble &amp; Farley</td>
+<td>2010</td>
+<td>The deployment pipeline, defined. Everything after it is commentary.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/1311542">Continuous Integration</a> — Duvall, Matyas, Glover</td>
+<td>2007</td>
+<td>Older and narrower; useful if CI is genuinely new to the team.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/23363016">DevOps: A Software Architect's Perspective</a> — Bass, Weber, Zhu</td>
+<td>2015</td>
+<td>The bridge: which architectural properties make continuous deployment possible at all.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-craft">General &amp; Craft<a class="headerlink" href="#general-craft" title="Permanent link">&para;</a></h2>
+<p>The largest category in the source, and where several of the best books hide.</p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/1069827">Release It!</a> — Nygard</td>
+<td>2007</td>
+<td>Stability patterns — circuit breaker, bulkhead, timeout — each taught through a production war story. The 2nd edition (2018) is the one to buy.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/39996759">A Philosophy of Software Design</a> — Ousterhout</td>
+<td>2018</td>
+<td>~180 pages on complexity: deep modules, information hiding, why "clean code" advice sometimes backfires. Reads well against <em>Clean Code</em>.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/27968891">Site Reliability Engineering</a> + <a href="https://www.goodreads.com/book/show/39687146">The SRE Workbook</a> — Google</td>
+<td>2016 / 2018</td>
+<td><a href="https://sre.google/books/">Free online</a>. SLOs, error budgets, blameless postmortems — reliability as a measurable input to design.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/48816586">Software Engineering at Google</a> — Winters, Manshreck, Wright</td>
+<td>2020</td>
+<td><a href="https://abseil.io/resources/swe-book">"Programming integrated over time"</a> — free online. Code review, testing, deprecation, and large-scale change at extreme scale.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/4099">The Pragmatic Programmer</a> — Hunt &amp; Thomas</td>
+<td>1999</td>
+<td>Professional habits that compound. Get the 20th-anniversary edition.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/13629">The Mythical Man-Month</a> — Brooks</td>
+<td>1975 (anniv. ed. 1995)</td>
+<td>Half a century old and still correct about people: the second-system effect, Brooks's law, why adding engineers to a late project makes it later.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/36517037">Software Design X-Rays</a> — Tornhill</td>
+<td>2018</td>
+<td>Technical debt found from version-control history — hotspots, change coupling, knowledge loss. Uniquely evidence-based.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/35516296">Chaos Engineering</a> — Rosenthal <em>et al.</em></td>
+<td>2017</td>
+<td>Experiments on production systems, from the Netflix team that started it.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/93891">Software Estimation</a> — McConnell</td>
+<td>2006</td>
+<td>The cone of uncertainty and how to give a number you can defend.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/17985198">High Performance Browser Networking</a> — Grigorik</td>
+<td>2013</td>
+<td><a href="https://hpbn.co/">Free online</a>. TCP, TLS, HTTP/2, WebSocket — the network layer most backend engineers guess about.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/665153">Waltzing with Bears</a> — DeMarco &amp; Lister</td>
+<td>2003</td>
+<td>Risk management for software projects: if a project has no risks, it has no value.</td>
+</tr>
+<tr>
+<td><a href="https://www.goodreads.com/book/show/5487765">97 Things Every Software Architect Should Know</a> — ed. Monson-Haefel</td>
+<td>2009</td>
+<td>Ninety-seven short essays of uneven quality. Good for browsing, useless as a curriculum.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-the-snapshot-misses">What the Snapshot Misses<a class="headerlink" href="#what-the-snapshot-misses" title="Permanent link">&para;</a></h2>
+<p>The source stopped updating in <strong>October 2021</strong>. Everything below post-dates it or slipped through the mechanical filters — this is where the list needs manual patching.</p>
+<p><strong>Published after the snapshot</strong></p>
+<table>
+<thead>
+<tr>
+<th>Book</th>
+<th>Year</th>
+<th>Why it belongs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Designing Data-Intensive Applications</em>, 2nd ed. — Kleppmann &amp; Riccomini</td>
+<td>2026</td>
+<td>A decade of hindsight on the most important book in the list — cloud-native storage, encoding, and consistency updated.</td>
+</tr>
+<tr>
+<td><em>Software Architecture: The Hard Parts</em> — Ford, Richards, Sadalage, Dehghani</td>
+<td>2021</td>
+<td>Missed the cut by weeks. Distributed data ownership, decomposition, and coupling — the sequel <em>Fundamentals</em> points toward.</td>
+</tr>
+<tr>
+<td><em>Learning Domain-Driven Design</em> — Khononov</td>
+<td>2021</td>
+<td>The DDD book to hand someone now: shorter than Evans, strategic patterns first.</td>
+</tr>
+<tr>
+<td><em>The Staff Engineer's Path</em> — Reilly</td>
+<td>2022</td>
+<td>The role above senior — ambiguity, influence, choosing what not to build.</td>
+</tr>
+<tr>
+<td><em>Fundamentals of Data Engineering</em> — Reis &amp; Housley</td>
+<td>2022</td>
+<td>The lifecycle framing that replaced tool-shaped data-engineering books.</td>
+</tr>
+<tr>
+<td><em>Observability Engineering</em> — Majors, Fong-Jones, Miranda</td>
+<td>2022</td>
+<td>Structured events, high-cardinality debugging — why dashboards stop working at scale.</td>
+</tr>
+<tr>
+<td><em>Designing Machine Learning Systems</em> — Huyen</td>
+<td>2022</td>
+<td>ML as a systems-design problem: data, deployment, drift, feedback loops.</td>
+</tr>
+<tr>
+<td><em>Data Mesh</em> — Dehghani</td>
+<td>2022</td>
+<td>Decentralized data ownership — contested, and worth reading before someone proposes it to you.</td>
+</tr>
+<tr>
+<td><em>Tidy First?</em> — Beck</td>
+<td>2023</td>
+<td>Small structural changes, and the economics of when to make them.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Older, but absent from the survey</strong></p>
+<ul>
+<li><em>Accelerate</em> (2018) — the research linking delivery practice to business outcomes; the evidence base for DORA metrics.</li>
+<li><em>Team Topologies</em> (2019) — Conway's law made actionable; org design <em>is</em> architecture.</li>
+<li><em>Working Effectively with Legacy Code</em> (2004) — the manual for the codebase you actually inherited.</li>
+<li><em>Refactoring</em>, 2nd ed. (2018) — the mechanics of changing structure safely.</li>
+<li><em>Building Secure and Reliable Systems</em> (2020) — Google, <a href="https://sre.google/books/building-secure-reliable-systems/">free online</a>; security and reliability as one design problem.</li>
+</ul>
+<p><strong>Whole topics with no representation</strong>: platform engineering, cost and FinOps as architectural inputs, and sustainability. For these, current conference talks and engineering blogs are ahead of the books — see the blog and postmortem sections of <a href="../../basics/senior_curriculum/">The Senior Curriculum</a>.</p>
+<h2 id="how-to-actually-get-through-them">How to Actually Get Through Them<a class="headerlink" href="#how-to-actually-get-through-them" title="Permanent link">&para;</a></h2>
+<p>A list this size is a way to feel behind. It isn't a queue.</p>
+<ol>
+<li><strong>One book per quarter, chosen by current problem.</strong> Four a year beats a stalled stack of twelve. The <a href="../../basics/senior_curriculum/#suggested-cadence">cadence table</a> puts this next to the weekly and monthly habits.</li>
+<li><strong>Read the table of contents and two Goodreads reviews first</strong> — the source author's own selection method, and it takes ten minutes.</li>
+<li><strong>Prefer the book that argues with the one you just read.</strong> <em>Clean Architecture</em> then <em>A Philosophy of Software Design</em>; any microservices book then <em>Microservices AntiPatterns</em>. Disagreement between two experienced authors is where the trade-off actually lives.</li>
+<li><strong>Convert reading into an artifact.</strong> One <a href="https://adr.github.io/">ADR</a>, design-doc section, or review comment per book. A book you cannot cite in a real decision was entertainment.</li>
+<li><strong>Skip freely.</strong> These are references, not novels. Three chapters of <em>Building Microservices</em> aimed at the problem in front of you beats a completed but unused read-through.</li>
+</ol>
+<h2 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h2>
+<p>The category structure and book selection here are derived from <a href="https://github.com/mhadidg/software-architecture-books"><strong>mhadidg/software-architecture-books</strong></a> by Mohammad Hadidi, used under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+<p><strong>Changes made:</strong> the list was condensed to a subset of entries per category; ISBN, rating, and review-count columns were removed; annotations, the starting-point and post-2021 sections, and all cross-links to this handbook were added; one category was renamed (<em>Data Engineering</em> → <em>Data-Intensive Systems</em>). Source snapshot: October 2021.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid-init.js"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

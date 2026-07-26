@@ -25,6 +25,7 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 - [Study Guide](https://locchh.github.io/sw-handbook/software/basics/study_guide/index.md)
 - [Styles](https://locchh.github.io/sw-handbook/software/basics/styles/index.md)
 - [Tech Stacks](https://locchh.github.io/sw-handbook/software/basics/tech_stacks/index.md)
+- [Architecture Books](https://locchh.github.io/sw-handbook/software/advanced/books/index.md)
 - [Tips](https://locchh.github.io/sw-handbook/software/tool_tip/tips/index.md)
 - [Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md)
 
