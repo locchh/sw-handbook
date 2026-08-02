@@ -137,32 +137,18 @@ Git is the de-facto standard for source control. A typical workflow combines thr
 The classic model is *Git Flow*, from Vincent Driessen's [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/): two branches that live forever, plus three kinds of short-lived supporting branches that always know where they came from and where they go back to.
 
 ```
-gitGraph
-   commit id: "initial"
-   commit id: "release 1.0" tag: "v1.0.0"
-   branch develop
-   commit id: "scaffold next"
-   branch feature/login
-   commit id: "feat: login form"
-   commit id: "feat: session"
-   checkout develop
-   merge feature/login
-   commit id: "feat: search"
-   branch release/1.1.0
-   commit id: "chore: bump to 1.1.0"
-   commit id: "fix: release copy"
-   checkout main
-   merge release/1.1.0 tag: "v1.1.0"
-   checkout develop
-   merge release/1.1.0
-   checkout main
-   branch hotfix/1.1.1
-   commit id: "fix: prod crash"
-   checkout main
-   merge hotfix/1.1.1 tag: "v1.1.1"
-   checkout develop
-   merge hotfix/1.1.1
+flowchart LR
+    D([develop]) -->|branch| F[feature/*]
+    F -->|merge --no-ff| D
+    D -->|branch, freeze scope| R[release/*]
+    R -->|merge + tag| M([main])
+    R -->|merge back| D
+    M -->|branch on prod bug| H[hotfix/*]
+    H -->|merge + tag| M
+    H -->|merge back| D
 ```
+
+Rounded nodes are the permanent branches; rectangles are short-lived. Note that `release/*` and `hotfix/*` each have *two* outgoing merges — that pair of arrows is the part teams most often get wrong.
 
 | Branch      | Lifetime  | Branches from | Merges into              | Purpose                                                                           |
 | ----------- | --------- | ------------- | ------------------------ | --------------------------------------------------------------------------------- |

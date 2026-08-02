@@ -2475,31 +2475,16 @@ release/* branch → merge to main → tag → deploy to production
 <p>Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme.</p>
 <h3 id="branching-models">Branching Models<a class="headerlink" href="#branching-models" title="Permanent link">&para;</a></h3>
 <p>The classic model is <em>Git Flow</em>, from Vincent Driessen's <a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>: two branches that live forever, plus three kinds of short-lived supporting branches that always know where they came from and where they go back to.</p>
-<pre class="mermaid"><code>gitGraph
-   commit id: "initial"
-   commit id: "release 1.0" tag: "v1.0.0"
-   branch develop
-   commit id: "scaffold next"
-   branch feature/login
-   commit id: "feat: login form"
-   commit id: "feat: session"
-   checkout develop
-   merge feature/login
-   commit id: "feat: search"
-   branch release/1.1.0
-   commit id: "chore: bump to 1.1.0"
-   commit id: "fix: release copy"
-   checkout main
-   merge release/1.1.0 tag: "v1.1.0"
-   checkout develop
-   merge release/1.1.0
-   checkout main
-   branch hotfix/1.1.1
-   commit id: "fix: prod crash"
-   checkout main
-   merge hotfix/1.1.1 tag: "v1.1.1"
-   checkout develop
-   merge hotfix/1.1.1</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    D([develop]) --&gt;|branch| F[feature/*]
+    F --&gt;|merge --no-ff| D
+    D --&gt;|branch, freeze scope| R[release/*]
+    R --&gt;|merge + tag| M([main])
+    R --&gt;|merge back| D
+    M --&gt;|branch on prod bug| H[hotfix/*]
+    H --&gt;|merge + tag| M
+    H --&gt;|merge back| D</code></pre>
+<p>Rounded nodes are the permanent branches; rectangles are short-lived. Note that <code>release/*</code> and <code>hotfix/*</code> each have <em>two</em> outgoing merges — that pair of arrows is the part teams most often get wrong.</p>
 <table>
 <thead>
 <tr>
