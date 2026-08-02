@@ -2474,37 +2474,90 @@ release/* branch → merge to main → tag → deploy to production
 <h2 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Permanent link">&para;</a></h2>
 <p>Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme.</p>
 <h3 id="branching-models">Branching Models<a class="headerlink" href="#branching-models" title="Permanent link">&para;</a></h3>
+<p>The classic model is <em>Git Flow</em>, from Vincent Driessen's <a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>: two branches that live forever, plus three kinds of short-lived supporting branches that always know where they came from and where they go back to.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "initial"
+   commit id: "release 1.0" tag: "v1.0.0"
+   branch develop
+   commit id: "scaffold next"
+   branch feature/login
+   commit id: "feat: login form"
+   commit id: "feat: session"
+   checkout develop
+   merge feature/login
+   commit id: "feat: search"
+   branch release/1.1.0
+   commit id: "chore: bump to 1.1.0"
+   commit id: "fix: release copy"
+   checkout main
+   merge release/1.1.0 tag: "v1.1.0"
+   checkout develop
+   merge release/1.1.0
+   checkout main
+   branch hotfix/1.1.1
+   commit id: "fix: prod crash"
+   checkout main
+   merge hotfix/1.1.1 tag: "v1.1.1"
+   checkout develop
+   merge hotfix/1.1.1</code></pre>
 <table>
 <thead>
 <tr>
 <th>Branch</th>
+<th>Lifetime</th>
+<th>Branches from</th>
+<th>Merges into</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>main</code></td>
-<td>Latest production-ready code. Tagged for releases.</td>
+<td>permanent</td>
+<td>—</td>
+<td>—</td>
+<td>Production-ready code. Every commit here <em>is</em> a release, tagged with its version.</td>
 </tr>
 <tr>
 <td><code>develop</code></td>
-<td>Integration branch for the next release.</td>
+<td>permanent</td>
+<td><code>main</code> (once)</td>
+<td>—</td>
+<td>Integration branch for the next release; nightly builds come from here.</td>
 </tr>
 <tr>
 <td><code>feature/*</code></td>
-<td>New feature work, branched from <code>develop</code>.</td>
+<td>temporary</td>
+<td><code>develop</code></td>
+<td><code>develop</code></td>
+<td>New feature work. Never touches <code>main</code> directly.</td>
 </tr>
 <tr>
 <td><code>release/*</code></td>
-<td>Stabilization branch before a release.</td>
+<td>temporary</td>
+<td><code>develop</code></td>
+<td><code>main</code> <strong>and</strong> <code>develop</code></td>
+<td>Stabilization: version bump, last-minute fixes, no new features.</td>
 </tr>
 <tr>
 <td><code>hotfix/*</code></td>
-<td>Emergency fix, branched from <code>main</code>.</td>
+<td>temporary</td>
+<td><code>main</code></td>
+<td><code>main</code> <strong>and</strong> <code>develop</code></td>
+<td>Emergency production fix, without waiting for <code>develop</code> to be releasable.</td>
 </tr>
 </tbody>
 </table>
-<p>Smaller teams often simplify this to <code>main</code> + short-lived feature branches (<em>trunk-based development</em>). Pick the simplest model that matches your release cadence.</p>
+<p>Three rules carry most of the model's value:</p>
+<ul>
+<li><strong>Merge with <code>--no-ff</code>.</strong> Forcing a merge commit even when a fast-forward is possible keeps the branch visible in history, so a whole feature can be read — or reverted — as one unit.</li>
+<li><strong>Tag on <code>main</code>, never on <code>develop</code>.</strong> The tag is what turns a commit into a release, and what you roll back to.</li>
+<li><strong><code>release/*</code> and <code>hotfix/*</code> merge both ways.</strong> Merging only into <code>main</code> silently loses the fix in the next release. If a release branch is already open, a hotfix merges into <em>that</em> branch rather than straight into <code>develop</code>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Is Git Flow still the right default?</p>
+<p>Driessen added a caveat to his own post in 2020: the model was designed for software that keeps several versions live in production at once. If you practise continuous delivery, prefer something simpler — GitHub Flow, or trunk-based development (<code>main</code> + short-lived feature branches). Pick the simplest model your release cadence allows.</p>
+</div>
 <h3 id="conventional-commits">Conventional Commits<a class="headerlink" href="#conventional-commits" title="Permanent link">&para;</a></h3>
 <p>A prefix tells readers and tooling what kind of change a commit is:</p>
 <table>
@@ -2554,7 +2607,7 @@ release/* branch → merge to main → tag → deploy to production
 <li><strong>PATCH</strong> — backwards-compatible bug fix.</li>
 </ul>
 <p>Pre-release sequence: <code>Alpha → Beta → RC1 → RC2 → … → Release</code>.</p>
-<p><strong>Further reading:</strong> <a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>, <a href="https://github.blog/developer-skills/github/write-better-commits-build-better-projects/">Write Better Commits, Build Better Projects</a>.</p>
+<p><strong>Further reading:</strong> <a href="https://github.blog/developer-skills/github/write-better-commits-build-better-projects/">Write Better Commits, Build Better Projects</a>, <a href="https://semver.org/">Semantic Versioning 2.0.0</a>.</p>
 
 
 

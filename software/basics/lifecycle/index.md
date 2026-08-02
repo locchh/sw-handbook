@@ -134,15 +134,53 @@ Git is the de-facto standard for source control. A typical workflow combines thr
 
 ### Branching Models
 
-| Branch      | Purpose                                            |
-| ----------- | -------------------------------------------------- |
-| `main`      | Latest production-ready code. Tagged for releases. |
-| `develop`   | Integration branch for the next release.           |
-| `feature/*` | New feature work, branched from `develop`.         |
-| `release/*` | Stabilization branch before a release.             |
-| `hotfix/*`  | Emergency fix, branched from `main`.               |
+The classic model is *Git Flow*, from Vincent Driessen's [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/): two branches that live forever, plus three kinds of short-lived supporting branches that always know where they came from and where they go back to.
 
-Smaller teams often simplify this to `main` + short-lived feature branches (*trunk-based development*). Pick the simplest model that matches your release cadence.
+```
+gitGraph
+   commit id: "initial"
+   commit id: "release 1.0" tag: "v1.0.0"
+   branch develop
+   commit id: "scaffold next"
+   branch feature/login
+   commit id: "feat: login form"
+   commit id: "feat: session"
+   checkout develop
+   merge feature/login
+   commit id: "feat: search"
+   branch release/1.1.0
+   commit id: "chore: bump to 1.1.0"
+   commit id: "fix: release copy"
+   checkout main
+   merge release/1.1.0 tag: "v1.1.0"
+   checkout develop
+   merge release/1.1.0
+   checkout main
+   branch hotfix/1.1.1
+   commit id: "fix: prod crash"
+   checkout main
+   merge hotfix/1.1.1 tag: "v1.1.1"
+   checkout develop
+   merge hotfix/1.1.1
+```
+
+| Branch      | Lifetime  | Branches from | Merges into              | Purpose                                                                           |
+| ----------- | --------- | ------------- | ------------------------ | --------------------------------------------------------------------------------- |
+| `main`      | permanent | —             | —                        | Production-ready code. Every commit here *is* a release, tagged with its version. |
+| `develop`   | permanent | `main` (once) | —                        | Integration branch for the next release; nightly builds come from here.           |
+| `feature/*` | temporary | `develop`     | `develop`                | New feature work. Never touches `main` directly.                                  |
+| `release/*` | temporary | `develop`     | `main` **and** `develop` | Stabilization: version bump, last-minute fixes, no new features.                  |
+| `hotfix/*`  | temporary | `main`        | `main` **and** `develop` | Emergency production fix, without waiting for `develop` to be releasable.         |
+
+Three rules carry most of the model's value:
+
+- **Merge with `--no-ff`.** Forcing a merge commit even when a fast-forward is possible keeps the branch visible in history, so a whole feature can be read — or reverted — as one unit.
+- **Tag on `main`, never on `develop`.** The tag is what turns a commit into a release, and what you roll back to.
+- **`release/*` and `hotfix/*` merge both ways.** Merging only into `main` silently loses the fix in the next release. If a release branch is already open, a hotfix merges into *that* branch rather than straight into `develop`.
+
+Is Git Flow still the right default?
+
+Driessen added a caveat to his own post in 2020: the model was designed for software that keeps several versions live in production at once. If you practise continuous delivery, prefer something simpler — GitHub Flow, or trunk-based development (`main` + short-lived feature branches). Pick the simplest model your release cadence allows.
 
 ### Conventional Commits
 
@@ -170,4 +208,4 @@ Good commit messages explain the *why* in the body, not just the *what* in the s
 
 Pre-release sequence: `Alpha → Beta → RC1 → RC2 → … → Release`.
 
-**Further reading:** [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/), [Write Better Commits, Build Better Projects](https://github.blog/developer-skills/github/write-better-commits-build-better-projects/).
+**Further reading:** [Write Better Commits, Build Better Projects](https://github.blog/developer-skills/github/write-better-commits-build-better-projects/), [Semantic Versioning 2.0.0](https://semver.org/).
