@@ -43,9 +43,12 @@ markdown_extensions:
       permalink: true
 
 # Extra JavaScript
+# Mermaid is deliberately not listed here. Material for MkDocs renders the
+# `mermaid` superfence itself (theme-aware colors, instant-navigation aware).
+# Loading a second copy makes Material reuse that older global instead of its
+# own bundled version, and the extra startOnLoad/run pass throws on every page
+# that has a diagram.
 extra_javascript:
-  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
-  - javascripts/mermaid-init.js
   - javascripts/mathjax-init.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
