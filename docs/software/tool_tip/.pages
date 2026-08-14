@@ -2,5 +2,7 @@ nav:
   - Tools: tools.md
   - Tips: tips.md
   - Machine Setup: machine_setup.md
+  - Running a Server: server_operations.md
+  - "CI/CD Platforms": cicd.md
   - Linux Commands: linux_commands.md
   - tmux Cheatsheet: tmux.md

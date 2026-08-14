@@ -2,6 +2,8 @@
 
 A practical command-line reference for Linux development and operations. Read `command --help` or `man command` before using an unfamiliar option, especially with elevated privileges.
 
+For *when* to reach for these — sizing a machine, diagnosing a full disk, triaging a slow box — see [Running a Server](server_operations.md).
+
 ## Navigation and Files
 
 | Command | Purpose | Example |

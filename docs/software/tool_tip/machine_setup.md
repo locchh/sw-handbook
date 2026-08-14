@@ -1,6 +1,6 @@
 # Machine Setup
 
-A checklist for getting a fresh Ubuntu/Debian machine ready for development. Run top to bottom on a new box; cherry-pick when adding one tool. For the commands themselves, see [Linux Commands](linux_commands.md); for the tools worth installing beyond the essentials here, see [Tools](tools.md).
+A checklist for getting a fresh Ubuntu/Debian machine ready for development. Run top to bottom on a new box; cherry-pick when adding one tool. For the commands themselves, see [Linux Commands](linux_commands.md); for the tools worth installing beyond the essentials here, see [Tools](tools.md); for keeping a *server* healthy once it is running, see [Running a Server](server_operations.md).
 
 ## Login
 - Login Google
