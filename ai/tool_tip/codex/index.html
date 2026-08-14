@@ -1,0 +1,5086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/ai/tool_tip/codex/">
+      
+      
+        <link rel="prev" href="../claude_code/">
+      
+      
+        <link rel="next" href="../../../about/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Codex - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codex" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Codex
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../software/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/methodologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophies & Methodologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git: Merge vs Rebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/code_review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/tech_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/becoming_senior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/senior_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Senior Curriculum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abbreviations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/advanced/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/machine_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/server_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running a Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/tool_tip/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Modelling & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Governance & Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/skills_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The AI Engineering Skills Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The LLM Landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec_driven_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coming-from-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coming from Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-harness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Harness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Harness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#surfaces-one-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surfaces, One Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-lives-in-codex-and-codex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Lives in ~/.codex/ and .codex/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Precedence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-extension-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Extension Points
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-manage-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Manage Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Manage Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AGENTS.md
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AGENTS.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-discovery-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Discovery Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-in-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Goes In It
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-and-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify and Debug
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-trade-planning-against-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trade Planning Against Execution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Trade Planning Against Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-dials-not-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Dials, Not One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-profiles-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Profiles (Beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plan-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-let-the-agent-close-its-own-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Let the Agent Close Its Own Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Let the Agent Close Its Own Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-they-live-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where They Live, and Trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Shape
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matchers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-wire-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Wire Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-exec-loops-in-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        codex exec — Loops in CI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-work-with-a-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Work With a Spec
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Work With a Spec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-orchestrate-multiple-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Orchestrate Multiple Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Orchestrate Multiple Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worktrees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktrees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex Cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-as-an-mcp-server-multi-agent-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex as an MCP Server: Multi-Agent Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reach-outside-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Reach Outside the Repo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Reach Outside the Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-review-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Review, Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-codex-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub: @codex review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-github-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex GitHub Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-linear-and-your-phone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slack, Linear, and Your Phone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast-mode-and-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast Mode and Spark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-avoid-the-sharp-edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Avoid the Sharp Edges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everyday-ergonomics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everyday Ergonomics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slash Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coming-from-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coming from Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-harness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Harness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Harness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#surfaces-one-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surfaces, One Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-lives-in-codex-and-codex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Lives in ~/.codex/ and .codex/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Precedence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-extension-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Extension Points
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-manage-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Manage Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Manage Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AGENTS.md
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AGENTS.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-discovery-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Discovery Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-in-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Goes In It
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-and-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify and Debug
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-trade-planning-against-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trade Planning Against Execution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Trade Planning Against Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-dials-not-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Dials, Not One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-profiles-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Profiles (Beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plan-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-let-the-agent-close-its-own-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Let the Agent Close Its Own Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Let the Agent Close Its Own Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-they-live-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where They Live, and Trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Shape
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matchers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-wire-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Wire Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-exec-loops-in-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        codex exec — Loops in CI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-work-with-a-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Work With a Spec
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Work With a Spec">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-orchestrate-multiple-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Orchestrate Multiple Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Orchestrate Multiple Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worktrees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktrees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex Cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-as-an-mcp-server-multi-agent-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex as an MCP Server: Multi-Agent Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reach-outside-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Reach Outside the Repo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Reach Outside the Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-review-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Review, Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-codex-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub: @codex review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codex-github-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codex GitHub Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-linear-and-your-phone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slack, Linear, and Your Phone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast-mode-and-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast Mode and Spark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-avoid-the-sharp-edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Avoid the Sharp Edges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everyday-ergonomics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everyday Ergonomics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slash Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule of Thumb
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="codex">Codex<a class="headerlink" href="#codex" title="Permanent link">&para;</a></h1>
+<p><a href="../../basics/skills_map/">The AI Engineering Skills Map</a> lists <em>using coding agents</em> as one of the four skills worth growing, and <a href="../claude_code/">Claude Code</a> shows what its six habits look like in one tool. This page does the same for the other major CLI agent: OpenAI's Codex.</p>
+<p>Reading the two pages side by side is the point. The habits — manage context, trade planning against execution, close loops, work with a spec, orchestrate agents, avoid the sharp edges — transfer completely. What changes is the vocabulary and the mechanism: where Claude Code has one permission mode dial, Codex has two (sandbox × approvals); where Claude Code's rules are guidance, Codex's rules are enforcement; where Claude Code loops with a stop hook, Codex ships the same trick as a first-class hook contract.</p>
+<pre class="mermaid"><code>flowchart TB
+    CX([Codex])
+    CX --&gt; A[Manage&lt;br/&gt;context]
+    CX --&gt; B[Plan vs.&lt;br/&gt;execute]
+    CX --&gt; C[Close its&lt;br/&gt;own loops]
+    CX --&gt; D[Work with&lt;br/&gt;a spec]
+    CX --&gt; E[Orchestrate&lt;br/&gt;agents]
+    CX --&gt; F[Avoid the&lt;br/&gt;sharp edges]</code></pre>
+<p>Codex moves as fast as its competitor, so treat specific flags, paths, and defaults here as accurate <strong>as of 15 August 2026</strong> rather than permanent. Several pieces are explicitly marked experimental (rules, memories) or beta (permission profiles) in the official docs.</p>
+<p><strong>Official docs:</strong> <a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI</a> → <a href="https://learn.chatgpt.com/docs/developer-commands?surface=cli">Commands reference</a> → <a href="https://learn.chatgpt.com/docs/config-file/config-basic">Configuration</a> → <a href="https://learn.chatgpt.com/docs/customization/overview">Customization</a>. The docs serve an <code>llms.txt</code> index at <a href="https://learn.chatgpt.com/llms.txt">learn.chatgpt.com/llms.txt</a>, and every page has a Markdown twin — append <code>.md</code> to the URL.</p>
+<hr />
+<h2 id="coming-from-claude-code">Coming from Claude Code<a class="headerlink" href="#coming-from-claude-code" title="Permanent link">&para;</a></h2>
+<p>The fastest way in. Same concepts, different names — plus a few places where the mapping genuinely breaks.</p>
+<table>
+<thead>
+<tr>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Same thing?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code></td>
+<td>Yes — Codex reads the open <a href="https://agents.md">AGENTS.md</a> format natively</td>
+</tr>
+<tr>
+<td><code>~/.claude/</code></td>
+<td><code>~/.codex/</code> (<code>CODEX_HOME</code>)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>settings.json</code></td>
+<td><code>config.toml</code></td>
+<td>Yes — JSON vs. TOML</td>
+</tr>
+<tr>
+<td><code>.claude/rules/*.md</code></td>
+<td><code>.codex/rules/*.rules</code></td>
+<td><strong>No</strong> — Claude Code rules are markdown <em>guidance</em>; Codex rules are Starlark <em>enforcement</em> of what commands may run</td>
+</tr>
+<tr>
+<td><code>.claude/skills/</code></td>
+<td><code>.agents/skills/</code></td>
+<td>Yes — both implement the <a href="https://agentskills.io">Agent Skills</a> open standard</td>
+</tr>
+<tr>
+<td><code>/skill-name</code></td>
+<td><code>$skill-name</code></td>
+<td>Yes — mention syntax differs</td>
+</tr>
+<tr>
+<td>Subagents (<code>.claude/agents/*.md</code>)</td>
+<td>Custom agents (<code>.codex/agents/*.toml</code>)</td>
+<td>Yes — markdown-with-frontmatter vs. TOML</td>
+</tr>
+<tr>
+<td>Hooks in <code>settings.json</code></td>
+<td><code>hooks.json</code> / <code>[hooks]</code> in <code>config.toml</code></td>
+<td>Yes — near-identical event schema; Codex even sets <code>CLAUDE_PLUGIN_ROOT</code> for plugin-hook compatibility</td>
+</tr>
+<tr>
+<td><code>.mcp.json</code> / <code>claude mcp add</code></td>
+<td><code>[mcp_servers]</code> / <code>codex mcp add</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>.claude-plugin/plugin.json</code></td>
+<td><code>.codex-plugin/plugin.json</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Permission modes (one dial)</td>
+<td><code>sandbox_mode</code> × <code>approval_policy</code> (two dials)</td>
+<td><strong>No</strong> — Codex separates <em>what's technically possible</em> from <em>when to ask</em></td>
+</tr>
+<tr>
+<td>Auto mode (classifier model)</td>
+<td>Auto-review (reviewer agent)</td>
+<td>Similar idea, different placement — see <a href="#auto-review">Auto-Review</a></td>
+</tr>
+<tr>
+<td>Auto memory (on by default)</td>
+<td>Memories (off by default)</td>
+<td>Same idea, opposite default</td>
+</tr>
+<tr>
+<td><code>/goal</code></td>
+<td><code>/goal</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>claude -p</code></td>
+<td><code>codex exec</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>--dangerously-skip-permissions</code></td>
+<td><code>--dangerously-bypass-approvals-and-sandbox</code> (<code>--yolo</code>)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>claude --worktree</code></td>
+<td>Worktree chats (desktop app only)</td>
+<td>Partially — Codex worktrees live in the ChatGPT desktop app, not the CLI</td>
+</tr>
+<tr>
+<td>Agent teams</td>
+<td>—</td>
+<td>No direct equivalent; the <a href="#codex-as-an-mcp-server-multi-agent-workflows">Agents SDK + <code>codex mcp-server</code></a> fills the role</td>
+</tr>
+<tr>
+<td>Checkpoints + <code>/rewind</code></td>
+<td>—</td>
+<td><strong>No</strong> — Codex has no code rewind; <code>Esc Esc</code> edits a previous message and forks the <em>conversation</em>, but git is the only undo for files</td>
+</tr>
+</tbody>
+</table>
+<p>Codex will do the migration for you: run <code>/import</code>, choose <strong>Claude Code</strong> (or <strong>Cursor</strong>), and it converts <code>CLAUDE.md</code> → <code>AGENTS.md</code>, <code>settings.json</code> → <code>config.toml</code>, slash commands → skills, plus MCP config, hooks, subagents, project memories, and up to 50 chats from the last 30 days. Importing doesn't change the original setup. <a href="https://learn.chatgpt.com/docs/import">Docs</a></p>
+<hr />
+<h2 id="the-harness">The Harness<a class="headerlink" href="#the-harness" title="Permanent link">&para;</a></h2>
+<h3 id="surfaces-one-configuration">Surfaces, One Configuration<a class="headerlink" href="#surfaces-one-configuration" title="Permanent link">&para;</a></h3>
+<p>Codex is one agent behind several fronts: the <strong>CLI</strong> (<code>codex</code> in a terminal), the <strong>IDE extension</strong>, <strong>Codex in the ChatGPT desktop app</strong>, <strong>Codex cloud</strong> (isolated containers), and integrations (GitHub, Slack, Linear, the phone). The CLI, IDE extension, and desktop app share the same local configuration — configure an MCP server once and every local surface sees it. This page centers on the CLI and notes where a feature lives elsewhere (worktrees and local environments are desktop-app-only; plugins don't reach the IDE extension).</p>
+<h3 id="what-lives-in-codex-and-codex">What Lives in <code>~/.codex/</code> and <code>.codex/</code><a class="headerlink" href="#what-lives-in-codex-and-codex" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>~/.codex/                     # CODEX_HOME — user scope
+├── config.toml               # settings: model, sandbox, approvals, MCP, features
+├── AGENTS.md                 # global instructions (AGENTS.override.md wins if present)
+├── rules/
+│   └── default.rules         # execpolicy command rules (Starlark)
+├── hooks.json                # lifecycle hooks (or inline [hooks] in config.toml)
+├── agents/
+│   └── reviewer.toml         # custom agent definitions
+├── memories/                 # generated memory files (when enabled)
+├── sessions/                 # transcripts, including auto-review sessions
+├── worktrees/                # desktop-app managed worktrees
+├── themes/                   # custom .tmTheme syntax themes
+└── &lt;name&gt;.config.toml        # profiles, selected with --profile &lt;name&gt;
+
+~/.agents/skills/             # user-scope skills (note: .agents, not .codex)
+
+&lt;repo&gt;/.codex/                # project scope — loads only when the project is trusted
+├── config.toml
+├── rules/
+├── hooks.json
+└── agents/
+
+&lt;repo&gt;/.agents/skills/        # repo skills, checked in for the team
+&lt;repo&gt;/AGENTS.md              # project instructions, per directory
+</code></pre></div>
+<p>Set <code>CODEX_HOME</code> to point at a different home entirely — useful for a project-specific automation profile: <code>CODEX_HOME=$(pwd)/.codex codex exec "..."</code>.</p>
+<h3 id="configuration-precedence">Configuration Precedence<a class="headerlink" href="#configuration-precedence" title="Permanent link">&para;</a></h3>
+<p>Codex resolves every setting in this order, highest first:</p>
+<ol>
+<li>CLI flags and <code>-c</code>/<code>--config</code> one-off overrides (<code>codex -c log_dir=./.codex-log</code>)</li>
+<li>Project <code>.codex/config.toml</code> files, root down to cwd — closest wins, trusted projects only</li>
+<li>Profile file selected with <code>--profile &lt;name&gt;</code> (<code>~/.codex/&lt;name&gt;.config.toml</code>)</li>
+<li>User config <code>~/.codex/config.toml</code></li>
+<li>System config <code>/etc/codex/config.toml</code></li>
+<li>Built-in defaults</li>
+</ol>
+<p>Untrusted projects skip <em>all</em> project-scoped layers — config, hooks, and rules — while user and system layers still load. On managed machines, admins can enforce constraints via <code>requirements.toml</code> (for example, disallowing <code>approval_policy = "never"</code>). Debug precedence questions with <code>/debug-config</code>, which prints layer order and policy sources.</p>
+<p>A starter <code>config.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gpt-5.6&quot;</span>
+<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+<span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;on-request&quot;</span>
+<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;workspace-write&quot;</span>
+<span class="n">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pragmatic&quot;</span><span class="w">          </span><span class="c1"># or &quot;friendly&quot; or &quot;none&quot;</span>
+<span class="n">web_search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span><span class="w">              </span><span class="c1"># cached | indexed | live | disabled</span>
+
+<span class="k">[features]</span>
+<span class="n">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">                    </span><span class="c1"># experimental, off by default</span>
+</code></pre></div>
+<p>Feature flags live under <code>[features]</code> (<code>hooks</code>, <code>goals</code>, <code>multi_agent</code>, <code>fast_mode</code>, <code>memories</code>, <code>shell_snapshot</code>, <code>unified_exec</code>, …) and can be flipped from the CLI with <code>codex --enable &lt;feature&gt;</code> or persisted with <code>codex features enable &lt;feature&gt;</code>.</p>
+<h3 id="the-extension-points">The Extension Points<a class="headerlink" href="#the-extension-points" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>What it does</th>
+<th>Where it lives</th>
+<th>Loads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AGENTS.md</strong></td>
+<td>Persistent instructions, layered global → project → subdirectory</td>
+<td><code>~/.codex/</code>, repo root, nested dirs</td>
+<td>Every session, merged root-down, ~32 KiB cap</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>Reusable workflows and expertise, open standard</td>
+<td><code>.agents/skills/</code>, <code>~/.agents/skills/</code>, <code>/etc/codex/skills</code></td>
+<td>Names + descriptions up front; full <code>SKILL.md</code> on use</td>
+</tr>
+<tr>
+<td><strong>Plugins</strong></td>
+<td>Installable bundles: skills + connectors + MCP servers + hooks</td>
+<td>Universal directory shared with ChatGPT; <code>/plugins</code> browser</td>
+<td>Bundled parts on new sessions after install</td>
+</tr>
+<tr>
+<td><strong>Subagents</strong></td>
+<td>Parallel isolated workers; custom agents with own model/sandbox</td>
+<td>Built-in + <code>~/.codex/agents/*.toml</code>, <code>.codex/agents/*.toml</code></td>
+<td>When spawned</td>
+</tr>
+<tr>
+<td><strong>MCP</strong></td>
+<td>External tools and context</td>
+<td><code>[mcp_servers]</code> in <code>config.toml</code>, shared across local surfaces</td>
+<td>Session start</td>
+</tr>
+<tr>
+<td><strong>Hooks</strong></td>
+<td>Deterministic scripts on lifecycle events</td>
+<td><code>hooks.json</code> or <code>[hooks]</code> next to any config layer</td>
+<td>On trigger, after trust review</td>
+</tr>
+<tr>
+<td><strong>Rules</strong></td>
+<td>Enforced allow/prompt/forbid policy for commands outside the sandbox</td>
+<td><code>rules/*.rules</code> next to any config layer</td>
+<td>Session start</td>
+</tr>
+</tbody>
+</table>
+<p>The docs' recommended adoption order is worth keeping: <strong>AGENTS.md first</strong> (plus linters and pre-commit hooks to enforce what it says), <strong>then a plugin</strong> if one already covers the workflow — otherwise write a skill and package it later, <strong>then MCP</strong> when work needs external systems, <strong>then subagents</strong> when you're ready to delegate noisy work.</p>
+<hr />
+<h2 id="1-manage-context">1. Manage Context<a class="headerlink" href="#1-manage-context" title="Permanent link">&para;</a></h2>
+<h3 id="agentsmd">AGENTS.md<a class="headerlink" href="#agentsmd" title="Permanent link">&para;</a></h3>
+<p>Codex reads <code>AGENTS.md</code> files before doing any work — the same onboarding-guide-for-an-agent role CLAUDE.md plays, in an <a href="https://agents.md">open format</a> other tools also honor. Run <code>/init</code> to generate a scaffold from the current directory.</p>
+<h4 id="how-discovery-works">How Discovery Works<a class="headerlink" href="#how-discovery-works" title="Permanent link">&para;</a></h4>
+<p>Codex builds one instruction chain per run (in the TUI, per launched session):</p>
+<ol>
+<li><strong>Global scope:</strong> in <code>CODEX_HOME</code>, read <code>AGENTS.override.md</code> if present, else <code>AGENTS.md</code> — first non-empty file only. The override file is for temporary global changes; delete it to restore the base.</li>
+<li><strong>Project scope:</strong> from the project root (typically the git root) <em>down</em> to the current working directory, checking each directory for <code>AGENTS.override.md</code>, then <code>AGENTS.md</code>, then any names in <code>project_doc_fallback_filenames</code>. At most one file per directory.</li>
+<li><strong>Merge:</strong> concatenated root-down, so files closer to your working directory appear later in the prompt and override earlier guidance.</li>
+</ol>
+<p>Empty files are skipped, and discovery stops adding files once the combined size hits <code>project_doc_max_bytes</code> — <strong>32 KiB by default</strong>. Raise the limit or split guidance across nested directories when you hit it.</p>
+<p>Two knobs worth knowing:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.codex/config.toml</span>
+<span class="n">project_doc_fallback_filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;TEAM_GUIDE.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.agents.md&quot;</span><span class="p">]</span>
+<span class="n">project_doc_max_bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65536</span>
+</code></pre></div>
+<p>If your repo already has a <code>TEAM_GUIDE.md</code>, the fallback list makes Codex treat it as instructions without a rename.</p>
+<h4 id="what-goes-in-it">What Goes In It<a class="headerlink" href="#what-goes-in-it" title="Permanent link">&para;</a></h4>
+<p>Keep it small, and split by audience: the <strong>global</strong> file shapes how Codex communicates with <em>you</em> (review style, verbosity, defaults); <strong>repo</strong> files carry team and codebase rules — build and test commands, review expectations, conventions, directory-specific instructions.</p>
+<p>The docs frame maintenance as a feedback loop, and it's the best single habit on this page:</p>
+<ul>
+<li><strong>Repeated mistakes</strong> → add a rule.</li>
+<li><strong>Right files, too much reading</strong> → add routing guidance: which directories and files to prioritize.</li>
+<li><strong>Recurring PR feedback</strong> → codify it once instead of typing it again.</li>
+<li><strong>When you correct Codex</strong>, tell it to update <code>AGENTS.md</code> itself so the fix persists — in a GitHub PR comment, <code>@codex add this to AGENTS.md</code> delegates the update to a cloud chat.</li>
+</ul>
+<p>Pair the file with infrastructure that <em>enforces</em> what it says — pre-commit hooks, linters, type checkers — so the system prevents recurring mistakes rather than just describing them.</p>
+<p>A <code>## Code Review Rules</code> section in the <code>AGENTS.md</code> closest to the governed code customizes <a href="#github-codex-review">GitHub PR reviews</a>; see that section for rule-writing guidance.</p>
+<h4 id="verify-and-debug">Verify and Debug<a class="headerlink" href="#verify-and-debug" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>codex --ask-for-approval never "Summarize the current instructions."</code> — Codex should quote your files in precedence order.</li>
+<li><code>codex --cd subdir --ask-for-approval never "Show which instruction files are active."</code> — confirms nested overrides.</li>
+<li>For an audit trail, <code>codex -c log_dir=./.codex-log</code> enables a plaintext TUI log listing loaded instruction files.</li>
+<li>There's no cache to clear: the chain is rebuilt on every run. If guidance looks wrong, hunt for an <code>AGENTS.override.md</code> higher in the tree.</li>
+</ul>
+<h3 id="memories">Memories<a class="headerlink" href="#memories" title="Permanent link">&para;</a></h3>
+<p>The counterpart to Claude Code's auto memory, with the opposite default: <strong>off</strong>. Enable it in the desktop app under <strong>Settings &gt; Personalization</strong>, or in config:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[features]</span>
+<span class="n">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<p>Once enabled, Codex turns useful context from eligible prior chats into local memory files under <code>~/.codex/memories/</code> — summaries, durable entries, recent inputs, and supporting evidence. It skips active or short-lived sessions, redacts secrets from generated fields, and updates in the background after a chat has been idle, not immediately at chat end. It even skips a pass when your remaining rate limit is below a threshold, so memory generation never spends quota you're about to need.</p>
+<ul>
+<li><code>/memories</code> in a session controls the current chat: whether it can <em>use</em> existing memories and whether it can <em>feed</em> future ones. Chat-level choices don't change global settings.</li>
+<li>Config keys: <code>memories.generate_memories</code>, <code>memories.use_memories</code>, <code>memories.disable_on_external_context</code> (keep chats that used MCP/web search out of memory generation), <code>memories.min_rate_limit_remaining_percent</code>, and model overrides <code>memories.extract_model</code> / <code>memories.consolidation_model</code>.</li>
+<li>Treat the files as generated state — inspect them, but don't hand-edit as your control surface. And keep required team guidance in <code>AGENTS.md</code>; memories are a recall layer, not a rules channel.</li>
+</ul>
+<h3 id="session-hygiene">Session Hygiene<a class="headerlink" href="#session-hygiene" title="Permanent link">&para;</a></h3>
+<p>The context-rot rationale is stated unusually plainly in Codex's docs: flooding the main chat with exploration notes, test logs, and stack traces buries the requirements and decisions that matter (<strong>context pollution</strong>) and degrades performance as the window fills (<strong>context rot</strong>). Everything here is about keeping the main thread clean.</p>
+<ul>
+<li><strong><code>/status</code></strong> shows the active model, approval policy, writable roots, and current token usage — the equivalent of <code>/context</code> plus <code>/permissions</code> in one view.</li>
+<li><strong><code>/compact</code></strong> summarizes the visible chat to free tokens while keeping key points.</li>
+<li><strong><code>/new</code></strong> starts a fresh chat in the same CLI session; <strong><code>/clear</code></strong> does the same <em>and</em> clears the terminal (name it inline: <code>/clear release prep</code>). <code>Ctrl+L</code> only wipes the screen and keeps the chat.</li>
+<li><strong><code>/side</code></strong> (alias <code>/btw</code>) opens an ephemeral side chat for a focused question without disturbing the main transcript — the parent's status stays visible so you can see if it's still running.</li>
+<li><strong><code>/fork</code></strong> clones the current chat under a fresh ID to explore an alternative; <code>codex fork</code> (with <code>--last</code> or the picker) forks a saved session. <strong><code>Esc Esc</code></strong> with an empty composer edits your previous message and forks from that point — the conversation-level undo.</li>
+<li><strong><code>/resume</code></strong> reopens a saved chat; <code>codex resume</code> scopes <code>--last</code> to the current directory unless you pass <code>--all</code>. <code>codex archive &lt;SESSION&gt;</code> hides a session from the picker without deleting the transcript; <code>codex delete</code> removes it permanently. <strong><code>/rename</code></strong> names sessions so you can find them.</li>
+<li><strong>Steer without restarting:</strong> press <code>Enter</code> while Codex works to inject instructions into the current turn; press <code>Tab</code> to queue a follow-up prompt or slash command for the next turn.</li>
+<li><strong><code>/mention &lt;path&gt;</code></strong> attaches a file; typing <code>@</code> searches the workspace for a path; <code>!command</code> runs a shell command under the current sandbox and adds its output to context.</li>
+<li><strong><code>/model</code></strong> switches model and reasoning effort; <strong><code>/copy</code></strong> or <code>Ctrl+O</code> copies the latest completed response; <strong><code>/usage</code></strong> shows daily/weekly/cumulative token activity; <strong><code>/diff</code></strong> shows the git diff including untracked files.</li>
+<li><strong>Images:</strong> <code>codex --image error.png</code> passes a screenshot with the first prompt, or paste one into the composer.</li>
+<li><strong>Delegate the noise.</strong> Read-heavy work — exploration, tests, triage, log analysis — belongs in <a href="#subagents">subagents</a> that return summaries instead of raw output.</li>
+</ul>
+<hr />
+<h2 id="2-trade-planning-against-execution">2. Trade Planning Against Execution<a class="headerlink" href="#2-trade-planning-against-execution" title="Permanent link">&para;</a></h2>
+<h3 id="two-dials-not-one">Two Dials, Not One<a class="headerlink" href="#two-dials-not-one" title="Permanent link">&para;</a></h3>
+<p>Claude Code folds "what can it do" and "when does it ask" into one permission mode. Codex separates them, and the separation is the single most useful thing to understand about the tool:</p>
+<ul>
+<li><strong><code>sandbox_mode</code></strong> — what commands can <em>technically</em> do. OS-enforced: Seatbelt on macOS, <code>bwrap</code> + <code>seccomp</code> on Linux and WSL2, a native sandbox on Windows. The sandbox applies to <em>spawned commands too</em> — <code>git</code>, package managers, and test runners all inherit it.</li>
+<li><strong><code>approval_policy</code></strong> — when Codex must <em>stop and ask</em> before crossing a boundary.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><code>sandbox_mode</code></th>
+<th>What commands can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read-only</code></td>
+<td>Inspect files only; edits and commands need approval</td>
+</tr>
+<tr>
+<td><code>workspace-write</code></td>
+<td>Read everywhere, write inside the workspace, run routine local commands. The default low-friction mode</td>
+</tr>
+<tr>
+<td><code>danger-full-access</code></td>
+<td>No filesystem or network boundary at all</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>approval_policy</code></th>
+<th>When Codex asks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>untrusted</code></td>
+<td>Before any command not in its trusted set — only known-safe reads run automatically</td>
+</tr>
+<tr>
+<td><code>on-request</code></td>
+<td>Works inside the sandbox freely; asks only to go beyond it</td>
+</tr>
+<tr>
+<td><code>never</code></td>
+<td>Never asks; makes a best effort within the sandbox you set</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A[Codex wants to run an action] --&gt; B{Inside the current&lt;br/&gt;sandbox boundary?}
+    B -- yes --&gt; C[Runs immediately&lt;br/&gt;no prompt]
+    B -- no --&gt; D{approval_policy}
+    D -- never --&gt; E[Fails inside the sandbox&lt;br/&gt;Codex tries another way]
+    D -- "untrusted / on-request" --&gt; F{approvals_reviewer}
+    F -- user --&gt; G[You approve or deny]
+    F -- auto_review --&gt; H[Reviewer agent decides&lt;br/&gt;see Auto-Review]</code></pre>
+<p>The common combinations:</p>
+<table>
+<thead>
+<tr>
+<th>Intent</th>
+<th>Flags / config</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auto</strong> (the preset)</td>
+<td>no flags, or <code>--sandbox workspace-write --ask-for-approval on-request</code></td>
+<td>Read, edit, and run in the workspace; ask to go outside it or touch the network</td>
+</tr>
+<tr>
+<td>Safe read-only browsing</td>
+<td><code>--sandbox read-only --ask-for-approval on-request</code></td>
+<td>Read and answer; ask before any edit, command, or network use</td>
+</tr>
+<tr>
+<td>Read-only CI</td>
+<td><code>--sandbox read-only --ask-for-approval never</code></td>
+<td>Read-only, never prompts</td>
+</tr>
+<tr>
+<td>Edit freely, gate commands</td>
+<td><code>--sandbox workspace-write --ask-for-approval untrusted</code></td>
+<td>Edits fine; untrusted commands prompt</td>
+</tr>
+<tr>
+<td>Auto-review mode</td>
+<td>add <code>-c approvals_reviewer=auto_review</code></td>
+<td>Same boundary; a reviewer agent handles eligible prompts</td>
+</tr>
+<tr>
+<td>Dangerous full access</td>
+<td><code>--dangerously-bypass-approvals-and-sandbox</code> (alias <code>--yolo</code>)</td>
+<td>No sandbox, no approvals — not recommended</td>
+</tr>
+</tbody>
+</table>
+<p>On launch, Codex recommends <strong>Auto</strong> for version-controlled folders and <code>read-only</code> for everything else, and may hold <code>read-only</code> until you explicitly trust the directory. The workspace includes the current directory and temp directories like <code>/tmp</code> — check with <code>/status</code>. Change mid-session with <strong><code>/permissions</code></strong>. Need to write in one more place? Prefer <code>--add-dir</code> over escalating to full access.</p>
+<p>Save recurring postures as profiles — <code>~/.codex/full_auto.config.toml</code> with <code>approval_policy = "on-request"</code> and <code>sandbox_mode = "workspace-write"</code>, selected via <code>codex --profile full_auto</code>.</p>
+<p>Two hard-earned defaults hide in the sandbox policy: within writable roots, <strong><code>.git</code>, <code>.codex</code>, and <code>.agents</code> stay read-only</strong> — the agent can't rewrite its own instructions, config, or your git metadata.</p>
+<p>Test what the sandbox would do to any command without involving the agent:</p>
+<div class="highlight"><pre><span></span><code>codex<span class="w"> </span>sandbox<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build<span class="w">      </span><span class="c1"># also: codex sandbox macos / windows</span>
+</code></pre></div>
+<h3 id="network-access">Network Access<a class="headerlink" href="#network-access" title="Permanent link">&para;</a></h3>
+<p>The default sandbox keeps command network access <strong>off</strong>. Turn it on per-config:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[sandbox_workspace_write]</span>
+<span class="n">network_access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<p>…and, when it's on, constrain it with the network proxy feature — allowlist-first domain rules where <code>deny</code> always beats <code>allow</code>, <code>*.example.com</code> matches subdomains, <code>**.example.com</code> matches apex plus subdomains, and local/private destinations are blocked by default as a DNS-rebinding defense:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[features.network_proxy]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;api.openai.com&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Web search is a separate, safer channel: <code>web_search = "cached"</code> (the default) serves results from an OpenAI-maintained index rather than live pages, which reduces prompt-injection exposure; <code>"live"</code> (or <code>--search</code>) fetches fresh pages; <code>"indexed"</code> gates external access through the index; <code>"disabled"</code> turns the tool off. Under <code>--yolo</code>, web search defaults to live.</p>
+<h3 id="permission-profiles-beta">Permission Profiles (Beta)<a class="headerlink" href="#permission-profiles-beta" title="Permanent link">&para;</a></h3>
+<p>The newer, unified alternative to <code>sandbox_mode</code> + <code>sandbox_workspace_write</code>: named least-privilege policies combining filesystem rules and network rules. Built-ins are <code>:read-only</code>, <code>:workspace</code>, and <code>:danger-full-access</code>; custom profiles live under <code>[permissions.&lt;name&gt;]</code> and are selected with <code>default_permissions</code>. <strong>The two systems don't compose</strong> — if <code>sandbox_mode</code> appears anywhere, Codex uses the older settings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">default_permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;project-edit&quot;</span>
+
+<span class="k">[permissions.project-edit]</span>
+<span class="n">extends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:workspace&quot;</span><span class="w">            </span><span class="c1"># inherit baseline protections</span>
+
+<span class="k">[permissions.project-edit.filesystem.</span><span class="s2">&quot;:workspace_roots&quot;</span><span class="k">]</span>
+<span class="s2">&quot;**/*.env&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w">               </span><span class="c1"># workspace stays writable, env files unreadable</span>
+
+<span class="k">[permissions.project-edit.network]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="k">[permissions.project-edit.network.domains]</span>
+<span class="s2">&quot;api.openai.com&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span>
+</code></pre></div>
+<p>Filesystem entries take <code>read</code>, <code>write</code>, or <code>deny</code>; more specific paths override broader ones, and <code>deny &gt; write &gt; read</code> at equal specificity — so a profile can grant a writable workspace and still carve out <code>.env</code> files, or deny <code>~/Documents</code> while reopening <code>~/Documents/codex</code>. Special path tokens: <code>:root</code>, <code>:minimal</code> (paths common tools need), <code>:workspace_roots</code>, <code>:tmpdir</code>, <code>:slash_tmp</code>. Prefer <code>extends</code> over building from scratch so baseline protections carry forward. <a href="https://learn.chatgpt.com/docs/permissions">Docs</a></p>
+<h3 id="plan-mode">Plan Mode<a class="headerlink" href="#plan-mode" title="Permanent link">&para;</a></h3>
+<p><strong><code>/plan</code></strong> switches the chat to plan mode — Codex proposes an execution plan before touching anything. Inline prompt works: <code>/plan Propose a migration plan for this service</code>. When the outcome itself is fuzzy, the docs' suggested pattern is <code>/plan</code> first, ask Codex to interview you and turn the answers into a goal with measurable criteria, then feed the result to <a href="#goal-mode"><code>/goal</code></a>.</p>
+<p><strong><code>/personality</code></strong> adjusts communication style (<code>friendly</code>, <code>pragmatic</code>, <code>none</code>) without touching your instructions — useful when you want terser plans, not different behavior.</p>
+<hr />
+<h2 id="3-let-the-agent-close-its-own-loops">3. Let the Agent Close Its Own Loops<a class="headerlink" href="#3-let-the-agent-close-its-own-loops" title="Permanent link">&para;</a></h2>
+<p>Codex has four loop-closing mechanisms, from deterministic to judgmental: hooks (scripts on events), rules (enforced command policy), auto-review (an agent reviewing the agent), and goal mode (a persistent completion target).</p>
+<h3 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h3>
+<p><a href="https://learn.chatgpt.com/docs/hooks">Hooks</a> inject your scripts into the agentic loop — logging chats to analytics, blocking prompts that contain pasted API keys, auto-generating memories, validating standards when a turn stops, customizing prompts per directory.</p>
+<h4 id="where-they-live-and-trust">Where They Live, and Trust<a class="headerlink" href="#where-they-live-and-trust" title="Permanent link">&para;</a></h4>
+<p>Codex discovers hooks next to every active config layer, as <code>hooks.json</code> or inline <code>[hooks]</code> tables in <code>config.toml</code> — in practice: <code>~/.codex/hooks.json</code>, <code>~/.codex/config.toml</code>, <code>&lt;repo&gt;/.codex/hooks.json</code>, <code>&lt;repo&gt;/.codex/config.toml</code>, plus plugin bundles. All matching hooks from all layers run; higher-precedence layers don't replace lower ones. Project hooks load only in trusted projects.</p>
+<p>The trust model is stricter than Claude Code's: <strong>a non-managed command hook won't run until you review and trust its exact definition</strong> in the <code>/hooks</code> browser. Trust is recorded against the hook's hash, so any change re-flags it for review. Plugin hooks go through the same flow — installing a plugin doesn't trust its hooks. Managed hooks (from <code>requirements.toml</code>, MDM) are trusted by policy and can't be disabled from the user browser. For pre-vetted automation, <code>--dangerously-bypass-hook-trust</code> skips persisted trust for one invocation.</p>
+<p>Turn hooks off entirely with <code>[features] hooks = false</code>.</p>
+<h4 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>Events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>During a turn</td>
+<td><code>PreToolUse</code>, <code>PermissionRequest</code>, <code>PostToolUse</code>, <code>PreCompact</code>, <code>PostCompact</code>, <code>UserPromptSubmit</code>, <code>SubagentStop</code>, <code>Stop</code></td>
+</tr>
+<tr>
+<td>Session/subagent start</td>
+<td><code>SessionStart</code>, <code>SubagentStart</code></td>
+</tr>
+<tr>
+<td>Main thread ends</td>
+<td><code>SessionEnd</code> — never for subagents</td>
+</tr>
+</tbody>
+</table>
+<p>One sharp difference from Claude Code: <strong>only <code>type: "command"</code> handlers run today</strong> — <code>prompt</code> and <code>agent</code> hook types are parsed but skipped. Judgment-based gating goes through <a href="#auto-review">auto-review</a> instead.</p>
+<h4 id="config-shape">Config Shape<a class="headerlink" href="#config-shape" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/python3 \&quot;$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py\&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;statusMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Checking Bash command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Or inline TOML:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[hooks.PreToolUse]]</span>
+<span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;^Bash$&quot;</span>
+
+<span class="k">[[hooks.PreToolUse.hooks]]</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;command&quot;</span>
+<span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/usr/bin/python3 &quot;$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py&quot;&#39;</span>
+<span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span>
+</code></pre></div>
+<ul>
+<li><code>timeout</code> is in seconds; default 600 (<code>SessionEnd</code>: 1 second default, 3 max).</li>
+<li>Commands run with the session <code>cwd</code> — resolve repo-local scripts from the git root, since Codex may be started from a subdirectory.</li>
+<li><code>command_windows</code> / <code>commandWindows</code> overrides the command on Windows.</li>
+<li><code>async: true</code> runs the hook in the background (up to 8 concurrent); output is delivered at the next safe point. <strong>Background hooks can't block or rewrite anything</strong> — use synchronous hooks for policy.</li>
+<li><code>additionalContextLimit</code> caps model-visible hook output (default ~2,500 tokens). Bigger output is <strong>spilled</strong> to disk with a head-and-tail preview — keep hook context lean; several chatty hooks add up and degrade the model.</li>
+</ul>
+<h4 id="matchers">Matchers<a class="headerlink" href="#matchers" title="Permanent link">&para;</a></h4>
+<p><code>matcher</code> is a regex against an event-specific value. <code>PreToolUse</code> / <code>PostToolUse</code> / <code>PermissionRequest</code> match the tool name: <code>Bash</code>, <code>apply_patch</code> (aliases <code>Edit</code> and <code>Write</code>), MCP names like <code>mcp__filesystem__read_file</code>, other function tools like <code>update_plan</code> (and <code>spawn_agent</code> matches <code>Agent</code>). <code>SessionStart</code> matches <code>startup|resume|clear|compact</code>; <code>PreCompact</code>/<code>PostCompact</code> match <code>manual|auto</code>; <code>SubagentStart</code>/<code>SubagentStop</code> match the agent type. <code>UserPromptSubmit</code> and <code>Stop</code> ignore matchers. Hosted tools like <code>WebSearch</code> don't pass through the hook path — treat tool hooks as a guardrail, not a complete enforcement boundary.</p>
+<h4 id="the-wire-contract">The Wire Contract<a class="headerlink" href="#the-wire-contract" title="Permanent link">&para;</a></h4>
+<p>Every command hook gets one JSON object on stdin — <code>session_id</code>, <code>transcript_path</code>, <code>cwd</code>, <code>hook_event_name</code>, <code>model</code>, plus event-specific fields like <code>tool_name</code>, <code>tool_input</code>, <code>tool_response</code>, <code>prompt</code>, or <code>last_assistant_message</code>. Exit 0 with no output means proceed. The interesting powers, per event:</p>
+<p><strong><code>PreToolUse</code></strong> — deny, annotate, or <em>rewrite</em> a call:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hookSpecificOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hookEventName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PreToolUse&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;permissionDecision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;permissionDecisionReason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Destructive command blocked by hook.&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Return <code>permissionDecision: "allow"</code> with <code>updatedInput</code> to rewrite a Bash command or MCP arguments before they run. Exit code 2 with a reason on stderr also blocks.</p>
+<p><strong><code>PermissionRequest</code></strong> — decide an approval before the prompt reaches a human: return <code>decision: {"behavior": "allow"}</code> or <code>{"behavior": "deny", "message": "..."}</code>. Any deny wins across multiple hooks; no decision falls through to the normal flow.</p>
+<p><strong><code>PostToolUse</code></strong> — can't undo a side effect, but <code>decision: "block"</code> replaces the tool result with your feedback so the model continues from it; <code>additionalContext</code> adds developer context.</p>
+<p><strong><code>UserPromptSubmit</code></strong> — plain stdout becomes developer context; <code>decision: "block"</code> rejects the prompt (this is where a secrets-scanner hook lives).</p>
+<p><strong><code>SessionStart</code></strong> — stdout or <code>additionalContext</code> seeds context; with <code>matcher: "compact"</code> it runs <em>after compaction, before the next model request</em>, which is the re-inject-standing-orders trick.</p>
+<p><strong><code>Stop</code> and <code>SubagentStop</code></strong> — the loop-closers. These expect JSON, and:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run one more pass over the failing tests.&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>…doesn't reject the turn — it <strong>continues</strong> it, with <code>reason</code> becoming a new continuation prompt. <code>stop_hook_active</code> in the input tells you whether the turn was already continued, so you can avoid infinite loops. This is exactly the mechanism behind Claude Code's Ralph-loop plugin, shipped as a documented contract: a Stop hook that checks completion criteria and blocks until they hold is the Ralph loop in <a href="../claude_code/#the-ralph-loop">claude_code.md → The Ralph Loop</a>, portably.</p>
+<p><code>PreCompact</code> / <code>PostCompact</code> can return <code>continue: false</code> to halt around compaction. Schemas are generated in the <a href="https://github.com/openai/codex/tree/main/codex-rs/hooks/schema/generated">Codex repo</a>.</p>
+<h3 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h3>
+<p><a href="https://learn.chatgpt.com/docs/agent-configuration/rules">Rules</a> (experimental) control which commands run <strong>outside the sandbox</strong> — enforcement, not guidance. They're Starlark (Python-like, side-effect-free) files under <code>rules/</code> next to any config layer:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.codex/rules/default.rules</span>
+<span class="n">prefix_rule</span><span class="p">(</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gh&quot;</span><span class="p">,</span> <span class="s2">&quot;pr&quot;</span><span class="p">,</span> <span class="s2">&quot;view&quot;</span><span class="p">],</span>
+    <span class="n">decision</span> <span class="o">=</span> <span class="s2">&quot;prompt&quot;</span><span class="p">,</span>                      <span class="c1"># allow | prompt | forbidden</span>
+    <span class="n">justification</span> <span class="o">=</span> <span class="s2">&quot;Viewing PRs is allowed with approval&quot;</span><span class="p">,</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;gh pr view 7888&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gh pr view --repo openai/codex&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">not_match</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;gh pr --repo openai/codex view 7888&quot;</span><span class="p">,</span>   <span class="c1"># pattern must be an exact prefix</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>pattern</code> matches a command's argument-list prefix; a list element can be a union (<code>["view", "list"]</code>).</li>
+<li>When several rules match, the most restrictive decision wins: <code>forbidden &gt; prompt &gt; allow</code>.</li>
+<li><code>match</code> / <code>not_match</code> are <strong>inline unit tests</strong> — validated at load time, so a typo'd rule fails fast instead of silently not matching.</li>
+<li>When you allow-list a command in the TUI, Codex writes the rule to <code>~/.codex/rules/default.rules</code> for you. With Smart approvals on (the default), Codex may <em>propose</em> a <code>prefix_rule</code> during an escalation — review the prefix before accepting.</li>
+</ul>
+<p>The clever part is compound-command handling. For <code>bash -lc "git add . &amp;&amp; rm -rf /"</code>, Codex parses the script with tree-sitter and — when it's a linear chain of plain words joined by <code>&amp;&amp;</code>, <code>||</code>, <code>;</code>, or <code>|</code> — splits it and evaluates each command separately, most restrictive result winning. Allowing <code>["git", "add"]</code> therefore never smuggles in the <code>rm</code>. Scripts using redirection, substitution, variables, wildcards, or control flow aren't split; the whole invocation is evaluated as one unit, conservatively.</p>
+<p>Test rules without a live session:</p>
+<div class="highlight"><pre><span></span><code>codex<span class="w"> </span>execpolicy<span class="w"> </span>check<span class="w"> </span>--pretty<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rules<span class="w"> </span>~/.codex/rules/default.rules<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--<span class="w"> </span>gh<span class="w"> </span>pr<span class="w"> </span>view<span class="w"> </span><span class="m">7888</span><span class="w"> </span>--json<span class="w"> </span>title,body,comments
+</code></pre></div>
+<h3 id="auto-review">Auto-Review<a class="headerlink" href="#auto-review" title="Permanent link">&para;</a></h3>
+<p><a href="https://learn.chatgpt.com/docs/sandboxing/auto-review">Auto-review</a> replaces <em>you</em> at the approval prompt with a separate reviewer agent — a reviewer swap, not a permission grant. The main agent keeps the same sandbox, policy, and limits; what changes is who reviews eligible escalations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;on-request&quot;</span>
+<span class="n">approvals_reviewer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto_review&quot;</span><span class="w">    </span><span class="c1"># default: &quot;user&quot;</span>
+</code></pre></div>
+<p>It evaluates only actions that already need approval — sandbox escalations, blocked network requests, out-of-root edits, side-effecting MCP/app tool calls. Actions fine inside the sandbox never see the reviewer. The reviewer sees a compact transcript plus the exact request (never hidden chain-of-thought), and its policy targets data exfiltration, credential probing, persistent security weakening, and destructive actions. Failures fail closed.</p>
+<p>Denials carry teeth: the main agent is told not to pursue the same outcome by workaround, to continue only with a materially safer alternative, or to stop and ask. A <strong>circuit breaker</strong> interrupts the turn after 3 consecutive denials or 10 within the last 50 reviews. Your override is <strong><code>/approve</code></strong> — pick one recent denied action for a single retry, which still passes through the reviewer.</p>
+<p>The <a href="https://github.com/openai/codex/blob/main/codex-rs/core/src/guardian/policy.md">default policy</a> is open source and customizable via a local <code>[auto_review].policy</code> (enterprises: <code>guardian_policy_config</code>). If too much mundane traffic hits the reviewer, fix the boundary instead of teaching the reviewer to say yes: add narrow <code>writable_roots</code>, or precise prefix rules like <code>["pnpm", "run", "lint"]</code> — broad ones like <code>["curl"]</code> erase the very boundary auto-review guards. Reviewer transcripts land in <code>~/.codex/sessions</code>, so you can ask Codex to analyze past escalation traffic before loosening anything.</p>
+<h3 id="goal-mode">Goal Mode<a class="headerlink" href="#goal-mode" title="Permanent link">&para;</a></h3>
+<p><strong><code>/goal &lt;objective&gt;</code></strong> attaches a persistent target to the chat; Codex keeps working toward it and tracks progress (pause, resume, edit, and clear with <code>/goal pause</code>, <code>/goal resume</code>, <code>/goal edit</code>, <code>/goal clear</code>; view with bare <code>/goal</code>). Objectives cap at 4,000 characters — for longer specs, point the goal at a file.</p>
+<p>Write goals the agent can verify itself:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>What to include</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Outcome</strong></td>
+<td>The result, not just the activity</td>
+</tr>
+<tr>
+<td><strong>Constraints</strong></td>
+<td>Required tools, boundaries, compatibility, approaches to avoid</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Tests, measurements, or review criteria that prove completion</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>/goal Migrate this codebase from JavaScript to TypeScript. Preserve existing
+behavior, compile in strict mode without explicit `any` types, and make the
+full test suite pass.
+</code></pre></div>
+<p>A goal doesn't widen access — the same sandbox and approval policy hold, and auto-review can absorb the escalation prompts a long run generates. Run goals in parallel across chats, but never let two chats write the same files; use <a href="#worktrees">worktrees</a> for separate checkouts.</p>
+<h3 id="codex-exec-loops-in-ci"><code>codex exec</code> — Loops in CI<a class="headerlink" href="#codex-exec-loops-in-ci" title="Permanent link">&para;</a></h3>
+<p>Non-interactive mode is the backpressure delivery vehicle: run Codex from scripts and pipelines with pre-set permissions and machine-readable output.</p>
+<div class="highlight"><pre><span></span><code>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;summarize the repository structure and list the top 5 risky areas&quot;</span>
+</code></pre></div>
+<p>Progress streams to stderr; only the final message hits stdout, so piping works naturally:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;summarize the failing tests and propose the smallest likely fix&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>test-summary.md
+</code></pre></div>
+<ul>
+<li>Defaults to a <strong>read-only</strong> sandbox. Grant the least needed: <code>--sandbox workspace-write</code>, or <code>danger-full-access</code> only inside an isolated runner. (<code>--full-auto</code> survives as a deprecated alias that warns.)</li>
+<li>If stdin is piped <em>and</em> a prompt argument is given, the prompt is the instruction and stdin is context. <code>codex exec -</code> makes stdin the entire prompt.</li>
+<li><code>--json</code> turns stdout into a JSONL event stream — <code>thread.started</code>, <code>turn.started</code>, <code>item.*</code> (agent messages, reasoning, command executions, file changes, MCP calls, web searches, plan updates), <code>turn.completed</code> with token usage.</li>
+<li><code>--output-schema schema.json</code> forces the final response to conform to a JSON Schema; <code>-o file</code> writes the final message to disk.</li>
+<li><code>codex exec resume --last "fix the race conditions you found"</code> continues a previous run — two-stage pipelines.</li>
+<li><code>--ephemeral</code> skips persisting session files; <code>--ignore-user-config</code> and <code>--ignore-rules</code> isolate automation from local setup; <code>--skip-git-repo-check</code> overrides the require-a-git-repo safety check.</li>
+<li>In CI, never set the API key as a job-level env var where repository-controlled code runs; set <code>CODEX_API_KEY</code> inline for the single invocation, or better, use the <a href="#codex-github-action">GitHub Action</a>, which proxies the key.</li>
+</ul>
+<hr />
+<h2 id="4-work-with-a-spec">4. Work With a Spec<a class="headerlink" href="#4-work-with-a-spec" title="Permanent link">&para;</a></h2>
+<p>Codex's ladder of durable artifacts: a skill for a workflow you repeat, a plugin for one you distribute, <code>AGENTS.md</code> review rules for standards, and — since the format is an open standard — the specs and Ralph-style loops from the <a href="../claude_code/#spec-driven-development">Claude Code page</a> port over nearly verbatim.</p>
+<h3 id="skills">Skills<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h3>
+<p>A skill is a directory with a <code>SKILL.md</code> (required <code>name</code> and <code>description</code> frontmatter) plus optional <code>scripts/</code>, <code>references/</code>, <code>assets/</code>, and an <code>agents/openai.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code>---
+name: commit
+<span class="gu">description: Stage and commit changes in semantic groups. Use when the user wants to commit, organize commits, or clean up a branch before pushing.</span>
+<span class="gu">---</span>
+
+<span class="k">1.</span> Do not run <span class="sb">`git add .`</span>. Stage files in logical groups by purpose.
+<span class="k">2.</span> Group into separate commits: feat → test → docs → refactor → chore.
+<span class="k">3.</span> Write concise commit messages that match the change scope.
+<span class="k">4.</span> Keep each commit focused and reviewable.
+</code></pre></div>
+<p><strong>Progressive disclosure, with a hard budget:</strong> Codex starts with each skill's name, description, and path; the full <code>SKILL.md</code> loads only when a skill is chosen; references and scripts only when needed. The initial list is capped at <strong>2% of the context window</strong> (8,000 characters if unknown) — descriptions get shortened first, then skills drop from the list with a warning. Front-load trigger words in descriptions so a shortened one still matches.</p>
+<p><strong>Invocation:</strong> explicit — <code>/skills</code> or type <code>$</code> to mention one (<code>$skill-name</code>) — or implicit, when your task matches the description. Set <code>allow_implicit_invocation: false</code> in <code>openai.yaml</code> to make a skill explicit-only.</p>
+<p><strong>Where they load from:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Location</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REPO</code></td>
+<td><code>.agents/skills</code> in cwd, parent dirs, and the repo root</td>
+<td>Team skills checked in — root skills apply everywhere, nested ones to a module</td>
+</tr>
+<tr>
+<td><code>USER</code></td>
+<td><code>~/.agents/skills</code></td>
+<td>Your skills, all repositories</td>
+</tr>
+<tr>
+<td><code>ADMIN</code></td>
+<td><code>/etc/codex/skills</code></td>
+<td>Machine-wide defaults, SDK scripts</td>
+</tr>
+<tr>
+<td><code>SYSTEM</code></td>
+<td>Bundled with Codex</td>
+<td><code>$skill-creator</code>, plan skills, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>Symlinked skill folders work. Same-name skills aren't merged — both appear in selectors. Disable one without deleting it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[skills.config]]</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/path/to/skill/SKILL.md&quot;</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</code></pre></div>
+<p><strong>Three ways to author:</strong> <code>$skill-creator</code> interviews you (what it does, when it triggers, instruction-only or scripted); <strong>Record &amp; Replay</strong> (macOS) watches you demonstrate the workflow once and drafts the skill from the recording — best for stable, show-don't-tell processes; or write the folder by hand. <code>$skill-installer linear</code> pulls curated skills from <a href="https://github.com/openai/skills">openai/skills</a>. Codex detects skill changes automatically.</p>
+<p><strong>Optional metadata</strong> (<code>agents/openai.yaml</code>) adds display name, icons, and — the interesting one — <strong>tool dependencies</strong>: declare the MCP server a skill needs and Codex can install and wire it automatically:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">policy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">allow_implicit_invocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tools</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mcp&quot;</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openaiDeveloperDocs&quot;</span>
+<span class="w">      </span><span class="nt">transport</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;streamable_http&quot;</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://developers.openai.com/mcp&quot;</span>
+</code></pre></div>
+<p><strong>Best practices, per the docs:</strong> one job per skill; instructions over scripts unless you need determinism or external tooling; imperative steps with explicit inputs and outputs; test prompts against the description to confirm triggering. (Custom prompts, the older mechanism, are deprecated in favor of skills.)</p>
+<h3 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h3>
+<p>Plugins are the distribution unit: skills remain the authoring format, plugins are what you install. One <strong>universal plugin directory</strong> is shared between ChatGPT and Codex — publish once, discoverable in both. A plugin can bundle skills, connectors, MCP servers, browser extensions, hooks, and scheduled-task templates.</p>
+<ul>
+<li><strong>Use:</strong> <code>/plugins</code> opens the CLI browser (grouped by marketplace; <code>Space</code> toggles an installed plugin). Plugins work in the desktop app and CLI, not the IDE extension. Bundled skills appear in new sessions after install; plugin capabilities run under your sandbox and approval policy.</li>
+<li><strong>Build:</strong> <code>$plugin-creator</code> scaffolds the manifest and folder, and can add a local marketplace entry for testing. Minimal by hand:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>meeting-follow-up/
+├── .codex-plugin/
+│   └── plugin.json
+└── skills/
+    └── meeting-follow-up/
+        └── SKILL.md
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meeting-follow-up&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turn meeting notes into decisions and next steps&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./skills/&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Distribute:</strong> <code>codex plugin marketplace add owner/repo</code> (also <code>owner/repo@ref</code>, git URLs, or local directories) registers a marketplace source; <code>codex plugin add/list/remove</code> manage installs, all with <code>--json</code> for automation. Start with a skill while iterating; make it a plugin when you want to share, bundle, or attach connectors. <a href="https://developers.openai.com/plugins">Builder docs</a></li>
+</ul>
+<p>Notable first-party plugin: <strong>Codex Security</strong> — an application-security agent for scanning authorized repositories, validating findings to cut false positives, and preparing reviewed fixes; also available as a CLI (<code>npx @openai/codex-security</code>), TypeScript SDK, and cloud scanning on connected GitHub repos. <a href="https://learn.chatgpt.com/docs/security">Docs</a></p>
+<hr />
+<h2 id="5-orchestrate-multiple-agents">5. Orchestrate Multiple Agents<a class="headerlink" href="#5-orchestrate-multiple-agents" title="Permanent link">&para;</a></h2>
+<h3 id="subagents">Subagents<a class="headerlink" href="#subagents" title="Permanent link">&para;</a></h3>
+<p>Codex spawns specialized agents in parallel and collects their results in one response — on by default in current releases. The motivation is the context-rot argument from §1: keep the main thread for requirements and decisions, push exploration, tests, and log analysis into workers that return summaries.</p>
+<p><strong>Triggering is explicit:</strong> "spawn two agents", "delegate this in parallel", "use one agent per point" — or an <code>AGENTS.md</code>/skill instruction that requests delegation. A good delegation prompt says how to divide the work, whether to wait for all agents, and what to return:</p>
+<div class="highlight"><pre><span></span><code>Review this branch with parallel subagents. Spawn one subagent for security
+risks, one for test gaps, and one for maintainability. Wait for all three,
+then summarize the findings by category with file references.
+</code></pre></div>
+<p><strong>Managing them:</strong> <code>/agent</code> (or <code>/subagents</code>) switches between agent threads to inspect or continue work. Approval requests can surface from inactive threads — the overlay names the source thread, and <code>o</code> opens it before you decide. Subagents inherit the parent's sandbox and approval settings, including live overrides like <code>/permissions</code> changes or <code>--yolo</code>. Start with parallel agents for read-heavy work; be careful with parallel <em>writes</em>, which invite conflicts.</p>
+<p>Each subagent does its own model and tool work, so parallel runs multiply token spend.</p>
+<p><strong>Built-in agents:</strong> <code>default</code> (general fallback), <code>worker</code> (implementation), <code>explorer</code> (read-heavy exploration). <strong>Custom agents</strong> are TOML files — <code>~/.codex/agents/</code> personal, <code>.codex/agents/</code> project — each defining <code>name</code>, <code>description</code>, and <code>developer_instructions</code>, plus any normal config keys (<code>model</code>, <code>model_reasoning_effort</code>, <code>sandbox_mode</code>, <code>mcp_servers</code>, <code>skills.config</code>). A custom agent with a built-in's name wins.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># .codex/agents/reviewer.toml</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;reviewer&quot;</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PR reviewer focused on correctness, security, and missing tests.&quot;</span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gpt-5.6-terra&quot;</span>
+<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
+<span class="n">developer_instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Review code like an owner.</span>
+<span class="s2">Prioritize correctness, security, behavior regressions, and missing test coverage.</span>
+<span class="s2">Lead with concrete findings, include reproduction steps when possible, and avoid</span>
+<span class="s2">style-only comments unless they hide a real bug.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+<p>The docs' worked pattern is a review trio — a read-only <code>pr_explorer</code> mapping code paths, a <code>reviewer</code> hunting real risks, and a <code>docs_researcher</code> wired to a docs MCP server to verify APIs:</p>
+<div class="highlight"><pre><span></span><code>Review this branch against main. Have pr_explorer map the affected code paths,
+reviewer find real risks, and docs_researcher verify the framework APIs that
+the patch relies on.
+</code></pre></div>
+<p>Global knobs under <code>[agents]</code>: <code>enabled</code>, <code>max_concurrent_threads_per_session</code>, <code>default_subagent_model</code>, <code>default_subagent_reasoning_effort</code>.</p>
+<p><strong>Model selection for workers:</strong> <code>gpt-5.6</code> for demanding, ambiguous multi-step work; <code>gpt-5.6-terra</code> for fast, read-heavy parallel workers; <code>gpt-5.6-luna</code> for narrow, high-volume tasks. Reasoning effort runs <code>low → medium → high → xhigh → max</code> (plus <code>ultra</code> where supported). Leave model and effort unpinned and Codex picks a balance per task.</p>
+<h3 id="worktrees">Worktrees<a class="headerlink" href="#worktrees" title="Permanent link">&para;</a></h3>
+<p>Codex's worktree support lives in the <strong>ChatGPT desktop app</strong>, built on plain <a href="https://git-scm.com/docs/git-worktree">git worktrees</a> — see <a href="../claude_code/#worktrees">claude_code.md → Worktrees</a> for the underlying git mechanics, which are identical. What Codex adds:</p>
+<ul>
+<li><strong>Start a chat in a worktree:</strong> pick <strong>Worktree</strong> under the composer, choose the base branch (including your current branch with uncommitted changes — they're applied to the worktree), and Codex creates a checkout under <code>$CODEX_HOME/worktrees</code> in <strong>detached HEAD</strong> state, so parallel chats never pollute your branches.</li>
+<li><strong>Handoff</strong> moves a chat — <em>and its code</em> — between Local and Worktree in either direction. Git only allows a branch checked out in one place at a time; Handoff does the safe surgery for you. Each chat keeps the same associated worktree over time.</li>
+<li><strong>Create branch here</strong> turns a worktree's detached HEAD into a real branch to commit and push from.</li>
+<li><strong><code>.worktreeinclude</code></strong> at the repo root lists gitignored files (<code>.env</code>, <code>config/secrets.json</code>) to copy into new managed worktrees — tracked files are already there; an ignored <code>AGENTS.override.md</code> is copied automatically.</li>
+<li><strong>Cleanup:</strong> managed worktrees are disposable — Codex keeps the most recent 15 by default, snapshots work before deleting, and offers restore if you reopen the chat. Pinned, in-progress, and <em>permanent</em> worktrees (created from a project's three-dot menu) are never auto-deleted.</li>
+<li><strong>Local environments</strong> (<code>.codex</code> folder, shareable via git) attach setup scripts that run when a worktree is created — <code>npm install &amp;&amp; npm run build</code> — plus named <strong>actions</strong> (run dev server, run tests) surfaced in the app's top bar.</li>
+</ul>
+<p>Scheduled tasks on git repos run on dedicated background worktrees, so recurring automation never collides with your working copy.</p>
+<h3 id="codex-cloud">Codex Cloud<a class="headerlink" href="#codex-cloud" title="Permanent link">&para;</a></h3>
+<p>Cloud chats run in isolated OpenAI-managed containers — delegate longer tasks, run attempts in parallel, and start work from the web, GitHub, Linear, or Slack. <a href="https://chatgpt.com/codex">Setup</a>: connect GitHub, create an environment per repository, prompt.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Submit prompt] --&gt; B["Container created&lt;br/&gt;repo checked out at branch/SHA"]
+    B --&gt; C["Setup script runs&lt;br/&gt;WITH internet access&lt;br/&gt;secrets available"]
+    C --&gt; D["Agent phase&lt;br/&gt;internet OFF by default&lt;br/&gt;secrets removed"]
+    D --&gt; E["Agent loops: edit code,&lt;br/&gt;run checks, validate&lt;br/&gt;(uses AGENTS.md for lint/test cmds)"]
+    E --&gt; F["Summary + diff"]
+    F --&gt; G{Review}
+    G --&gt; H[Open a PR]
+    G --&gt; I[Ask a follow-up]
+    G --&gt; J["codex apply&lt;br/&gt;pull diff into local repo"]</code></pre>
+<p>The two-phase runtime is the security story: <strong>setup scripts run with internet access and secrets; the agent phase runs offline by default, with secrets removed</strong>. Environment <em>variables</em> persist across both phases; <em>secrets</em> are setup-only. Agent-phase internet can be enabled per environment — full or domain-allowlisted — and all outbound traffic passes through a proxy.</p>
+<ul>
+<li>The default <code>universal</code> container image (<a href="https://github.com/openai/codex-universal">openai/codex-universal</a>) pre-installs common languages; pin runtime versions in environment settings, or add a custom setup script. Common package managers (<code>npm</code>, <code>pnpm</code>, <code>pip</code>, <code>poetry</code>, …) are auto-detected.</li>
+<li>Containers are <strong>cached up to 12 hours</strong>; a resumed cache checks out your branch and runs an optional maintenance script. Changing setup, variables, or secrets invalidates the cache.</li>
+<li>From the terminal: <code>codex cloud</code> opens an interactive picker over active and completed chats, <code>codex cloud exec</code> submits work directly, <code>codex cloud list --json</code> scripts over recent chats, and <strong><code>codex apply</code></strong> pulls a cloud chat's diff into your local repo (non-zero exit if <code>git apply</code> conflicts).</li>
+</ul>
+<h3 id="codex-as-an-mcp-server-multi-agent-workflows">Codex as an MCP Server: Multi-Agent Workflows<a class="headerlink" href="#codex-as-an-mcp-server-multi-agent-workflows" title="Permanent link">&para;</a></h3>
+<p>Codex has no agent-teams feature; its answer to orchestration is composition. <code>codex mcp-server</code> runs Codex itself as an MCP server exposing two tools — <code>codex</code> (start a session: prompt plus overrides for model, sandbox, approval policy, cwd, base/developer instructions) and <code>codex-reply</code> (continue by <code>threadId</code>). Any MCP client can drive it; the documented pattern uses the OpenAI Agents SDK to build a project-manager agent that gates handoffs between designer, frontend, backend, and tester agents, each calling Codex MCP to do the actual file work, with full traces. <a href="https://learn.chatgpt.com/docs/mcp-server">Guide</a></p>
+<p>For direct programmatic control there's the <strong>Codex SDK</strong> — TypeScript (<code>npm install @openai/codex-sdk</code>: <code>codex.startThread()</code>, <code>thread.run(prompt)</code>, <code>codex.resumeThread(id)</code>) and Python (<code>pip install openai-codex</code>: <code>codex.thread_start(model=..., sandbox=Sandbox.workspace_write)</code>, with per-turn sandbox switching — run a change in <code>workspace_write</code>, then review the diff in <code>read_only</code>). Use the SDK when Codex is the centerpiece; use <code>mcp-server</code> + Agents SDK when Codex is one specialist in a larger workflow. The <strong>app-server</strong> protocol (<code>codex app-server</code>) sits underneath both for embedding Codex in your own product, over stdio or WebSocket — the TUI itself can attach to a remote one with <code>codex --remote ws://host:port</code>.</p>
+<hr />
+<h2 id="6-reach-outside-the-repo">6. Reach Outside the Repo<a class="headerlink" href="#6-reach-outside-the-repo" title="Permanent link">&para;</a></h2>
+<h3 id="mcp">MCP<a class="headerlink" href="#mcp" title="Permanent link">&para;</a></h3>
+<p>Local Codex clients connect to MCP servers directly, and the configuration is shared across CLI, IDE extension, and desktop app.</p>
+<div class="highlight"><pre><span></span><code>codex<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>context7<span class="w"> </span>--<span class="w"> </span>npx<span class="w"> </span>-y<span class="w"> </span>@upstash/context7-mcp
+codex<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>my-server<span class="w"> </span>--env<span class="w"> </span><span class="nv">API_KEY</span><span class="o">=</span>xxx<span class="w"> </span>--<span class="w"> </span>npx<span class="w"> </span>my-mcp-server
+codex<span class="w"> </span>mcp<span class="w"> </span>list
+codex<span class="w"> </span>mcp<span class="w"> </span>login<span class="w"> </span>&lt;server-name&gt;<span class="w">     </span><span class="c1"># OAuth, streamable HTTP servers only</span>
+</code></pre></div>
+<p>In <code>config.toml</code>, each server is a <code>[mcp_servers.&lt;name&gt;]</code> table. STDIO servers take <code>command</code>, <code>args</code>, <code>env</code>, <code>env_vars</code>, <code>cwd</code>; streamable HTTP servers take <code>url</code> plus auth options (<code>bearer_token_env_var</code>, <code>http_headers</code>, <code>env_http_headers</code>, OAuth by default, or <code>auth = "chatgpt"</code> to ride the current ChatGPT session for trusted first-party servers).</p>
+<p>The options Claude Code doesn't have are the per-server <em>policy</em> controls:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[mcp_servers.chrome_devtools]</span>
+<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/mcp&quot;</span>
+<span class="n">enabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;screenshot&quot;</span><span class="p">]</span><span class="w">      </span><span class="c1"># tool allowlist</span>
+<span class="n">disabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;screenshot&quot;</span><span class="p">]</span><span class="w">             </span><span class="c1"># deny, applied after allow</span>
+<span class="n">default_tools_approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prompt&quot;</span><span class="w">      </span><span class="c1"># auto | prompt | writes | approve</span>
+<span class="n">startup_timeout_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
+<span class="n">tool_timeout_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span>
+<span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">                             </span><span class="c1"># fail startup if it can&#39;t initialize</span>
+
+<span class="k">[mcp_servers.chrome_devtools.tools.open]</span>
+<span class="n">approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;approve&quot;</span><span class="w">                   </span><span class="c1"># per-tool override</span>
+</code></pre></div>
+<p><code>writes</code> prompts only for tools not marked read-only. Codex also reads a server's MCP <code>instructions</code> field as server-wide guidance — if you build servers, keep the first 512 characters self-contained. Plugin-bundled servers are configured under <code>plugins.&lt;plugin&gt;.mcp_servers.&lt;server&gt;</code>. In a session, <code>/mcp</code> lists what's connected (<code>/mcp verbose</code> for diagnostics); <code>/apps</code> browses connector-backed apps and inserts them as <code>$app-slug</code>.</p>
+<p>Useful servers named in the docs: <a href="https://developers.openai.com/learn/docs-mcp">OpenAI Docs MCP</a>, <a href="https://github.com/upstash/context7">Context7</a>, Figma, <a href="https://www.npmjs.com/package/@playwright/mcp">Playwright</a>, <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/">Chrome DevTools</a>, Sentry, <a href="https://github.com/github/github-mcp-server">GitHub</a>.</p>
+<h3 id="code-review-local">Code Review, Local<a class="headerlink" href="#code-review-local" title="Permanent link">&para;</a></h3>
+<p><code>/review</code> starts a dedicated reviewer that reads a diff and reports prioritized findings <strong>without changing your working tree</strong>. Scopes: against a base branch (merge-base diff), uncommitted changes (staged + unstaged + untracked), a specific commit, or custom instructions. Set <code>review_model</code> in <code>config.toml</code> to review with a different model than the session. Non-interactively: <code>codex review --base main</code>, <code>--uncommitted</code>, or <code>--commit &lt;sha&gt;</code> (one target only). If you then ask Codex to apply the fixes, normal sandbox and approval rules apply.</p>
+<h3 id="github-codex-review">GitHub: <code>@codex review</code><a class="headerlink" href="#github-codex-review" title="Permanent link">&para;</a></h3>
+<p>With <a href="#codex-cloud">Codex cloud</a> set up and <strong>Code review</strong> enabled for the repository in <a href="https://chatgpt.com/codex/settings/code-review">Codex settings</a>:</p>
+<ul>
+<li>Comment <strong><code>@codex review</code></strong> on a PR — Codex reacts 👀 and posts a standard GitHub review, deliberately flagging <strong>only P0/P1 issues</strong> so comments stay high-signal. One-off focus: <code>@codex review for issues in the database migration</code>.</li>
+<li><strong>Automatic reviews</strong> on every new PR is a settings toggle.</li>
+<li><strong><code>@codex fix the P1 issue</code></strong> starts a cloud chat with the PR as context that can push a fix to the branch. Any other <code>@codex &lt;task&gt;</code> comment does the same for arbitrary work.</li>
+<li><strong><code>@codex security review</code></strong> (research preview) runs the deeper security pass; findings post to the PR with a full report in the task's Security Report tab.</li>
+</ul>
+<p>Customize with a <code>## Code Review Rules</code> section in the <code>AGENTS.md</code> nearest the governed code — repository-wide checks at the root, service-specific checks nested. Rule-writing guidance from the docs: focus on consequential, repo-specific behavior; state the safe path or exception so Codex can tell a real issue from expected behavior; prefer outcomes over function names; and leave formatting and lint to CI. Start with two or three rules, run a review on a representative PR, and prune what produces noise.</p>
+<div class="highlight"><pre><span></span><code><span class="gu">## Code Review Rules</span>
+
+<span class="gu">### Experiment cohorts</span>
+
+<span class="k">-</span><span class="w"> </span>Do not filter treatment comparisons on post-exposure behavior, including
+  conversion or retention.
+  Safe path: build cohorts from assignment or exposure; report conversion as
+  an outcome.
+</code></pre></div>
+<h3 id="codex-github-action">Codex GitHub Action<a class="headerlink" href="#codex-github-action" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/openai/codex-action"><code>openai/codex-action@v1</code></a> runs <code>codex exec</code> inside GitHub Actions: it installs the CLI, starts a Responses API proxy so your <code>OPENAI_API_KEY</code> never sits in the job environment, and executes your <code>prompt</code> or <code>prompt-file</code> under inputs mapping to exec options (<code>model</code>, <code>effort</code>, <code>sandbox</code>, <code>codex-args</code>, <code>output-file</code>, <code>codex-version</code>, <code>codex-home</code>). The final message surfaces as the <code>final-message</code> output.</p>
+<p>Privilege management is the point of the action: <code>safety-strategy: drop-sudo</code> (the default) irreversibly removes <code>sudo</code> before Codex runs; <code>unprivileged-user</code> runs it as a dedicated account; <code>allow-users</code> / <code>allow-bots</code> restrict who can trigger the workflow. The documented CI-autofix pattern splits jobs: the Codex job gets <code>contents: read</code> only and serializes its diff as a patch artifact; a separate job with write permissions — but no API key — applies the patch and opens the PR. Sanitize PR-sourced prompt inputs (hidden HTML comments included) before feeding them to the agent.</p>
+<h3 id="slack-linear-and-your-phone">Slack, Linear, and Your Phone<a class="headerlink" href="#slack-linear-and-your-phone" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Slack:</strong> install the app from <a href="https://chatgpt.com/codex/settings/connectors">connector settings</a>, then mention <code>@Codex</code> in a channel or thread with a prompt — it reads thread history for context, picks the best-matching cloud environment (falling back to your most recent), and replies with a chat link and results. Pin a repo inline: <code>@Codex fix the above in openai/codex</code>.</li>
+<li><strong>Linear:</strong> assign an issue to Codex like a teammate, or mention <code>@Codex</code> in a comment; progress lands in the issue's Activity feed. Triage rules can auto-delegate new issues to Codex.</li>
+<li><strong>Codex Remote:</strong> drive tasks on your own connected computer from the ChatGPT mobile app — start tasks, follow progress, approve commands, review diffs. Pair via <strong>Settings &gt; Connections &gt; Control this Mac or PC</strong> plus a QR scan; <code>codex remote-control start</code>/<code>stop</code>/<code>pair</code> manage the local daemon.</li>
+</ul>
+<h3 id="fast-mode-and-spark">Fast Mode and Spark<a class="headerlink" href="#fast-mode-and-spark" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>/fast</code></strong> (<code>/fast on|off|status</code>) buys ~1.5× model speed at a higher credit burn — 2.5× the standard rate on GPT-5.6/5.5, 2× on GPT-5.4. Persist with <code>service_tier = "fast"</code> plus <code>[features] fast_mode = true</code>. It's a ChatGPT-credit feature; on an API key you get API pricing instead.</li>
+<li><strong>GPT-5.3-Codex-Spark</strong> is different: a separate, less-capable model optimized for near-instant iteration, with its own limits (research preview, Pro plans).</li>
+<li>Switch models with <code>/model</code>, <code>--model</code>/<code>-m</code>, or per-run <code>codex exec -m gpt-5.6 "..."</code>.</li>
+</ul>
+<hr />
+<h2 id="7-avoid-the-sharp-edges">7. Avoid the Sharp Edges<a class="headerlink" href="#7-avoid-the-sharp-edges" title="Permanent link">&para;</a></h2>
+<p><strong>Git is the safety net — even more so here.</strong> Codex has no checkpoint/rewind for files: <code>Esc Esc</code> forks the <em>conversation</em>, not the working tree. The docs' own guidance: work on a feature branch with <code>git status</code> clean before delegating, commit frequently in small revertable increments, treat Codex output like any other PR, and create checkpoints before and after a task. <code>codex exec</code> refuses to run outside a git repository unless you explicitly <code>--skip-git-repo-check</code>.</p>
+<p><strong><code>--yolo</code> is for containers you can burn.</strong> <code>--dangerously-bypass-approvals-and-sandbox</code> removes both dials at once. If your host can't run the Linux sandbox (Docker often blocks the needed namespaces), let the container be the boundary — the <a href="https://github.com/openai/codex/tree/main/.devcontainer">secure devcontainer reference</a> ships an allowlist firewall — and remember that inside a full-access container, a malicious repo can exfiltrate anything present, <em>including your Codex credentials</em>.</p>
+<p><strong>Protected paths are load-bearing.</strong> <code>.git</code>, <code>.codex</code>, and <code>.agents</code> stay read-only inside writable roots — the agent can't edit its own instructions, config, rules, or hooks. Keep it that way; don't hand out full access to "fix" a write into <code>.codex/</code>.</p>
+<p><strong>Prompt injection rides on network access.</strong> Cached web search exists precisely to reduce exposure to live hostile pages; treat all web results as untrusted, prefer domain allowlists over blanket <code>network_access = true</code>, and remember the local/private-network guard and DNS-rebinding checks are best-effort — hostile-DNS scenarios need egress control at a lower layer.</p>
+<p><strong>Secrets discipline.</strong> Cloud secrets exist only during setup, never the agent phase — that's the design, use it. In CI, <code>CODEX_API_KEY</code> goes inline on the single invocation, never job-level where checked-out code runs. <code>~/.codex/auth.json</code> is a password. Locally, <code>shell_environment_policy</code> filters which env vars spawned commands inherit (automatic <code>KEY</code>/<code>SECRET</code>/<code>TOKEN</code> filtering is available but off by default — <code>ignore_default_excludes = false</code> turns it on). Don't return secrets in hook output either; oversized output spills to disk.</p>
+<p><strong>Hooks and rules are guardrails, not guarantees.</strong> Some tool paths bypass hooks (hosted tools like WebSearch), untrusted projects skip project hooks/rules, and broad prefix rules erase the boundary auto-review guards. Enforcement you must have belongs in the sandbox, permission profiles, and managed <code>requirements.toml</code>.</p>
+<p><strong>Watch the multipliers.</strong> Subagents multiply token spend per parallel worker; auto-review adds model calls per escalation; fast mode multiplies credit burn; worktrees eat disk (auto-cleanup keeps 15). All worth it deliberately, wasteful by default.</p>
+<p><strong>Don't over-instruct.</strong> The 32 KiB AGENTS.md cap, the 2% skills-list budget, and the 2,500-token hook-output limit all exist because context from many small sources adds up and degrades the model. The docs repeat it: keep it small, keep it close to the code it governs.</p>
+<hr />
+<h2 id="keeping-up">Keeping Up<a class="headerlink" href="#keeping-up" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Open source:</strong> the <a href="https://github.com/openai/codex">openai/codex</a> repo is the primary home — CLI, SDK sources, app-server, hook schemas, the auto-review policy. Skills live in <a href="https://github.com/openai/skills">openai/skills</a>, plugins in <a href="https://github.com/openai/plugins">openai/plugins</a>, the security CLI in <a href="https://github.com/openai/codex-security">openai/codex-security</a>, the cloud base image in <a href="https://github.com/openai/codex-universal">openai/codex-universal</a>. The IDE extension and Codex cloud are not open source. Issues → <code>openai/codex/issues</code>; discussions → <code>openai/codex/discussions</code>.</li>
+<li><strong>Docs as data:</strong> <code>llms.txt</code> at <a href="https://learn.chatgpt.com/llms.txt">learn.chatgpt.com/llms.txt</a>, every page with a <code>.md</code> twin, plus a condensed machine-oriented <a href="https://learn.chatgpt.com/docs/codex-manual.md">codex-manual.md</a> — the docs are built to be read by the agent itself.</li>
+<li><strong>Feature maturity labels</strong> (Experimental / Beta / Stable) are attached throughout the docs; the experimental pieces on this page (rules, memories, permission profiles, Security Review) are the likeliest to have drifted by the time you read this.</li>
+<li><strong>Migration is two-way:</strong> <code>/import</code> pulls a Claude Code or Cursor setup in, and because skills, <code>AGENTS.md</code>, and the hook event schema are shared or compatible standards, most of what you build here travels back out.</li>
+</ul>
+<p><strong>In this handbook:</strong> <a href="../claude_code/">Claude Code</a>, <a href="../tools/">AI Tools</a>, <a href="../../basics/landscape/">The LLM Landscape</a>.</p>
+<hr />
+<h2 id="everyday-ergonomics">Everyday Ergonomics<a class="headerlink" href="#everyday-ergonomics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Composer:</strong> <code>@</code> for file search, <code>!</code> prefix for shell commands, <code>Ctrl+G</code> opens <code>$VISUAL</code>/<code>$EDITOR</code> for long prompts, <code>/vim</code> toggles Vim mode (<code>tui.vim_mode_default = true</code> to persist), <code>Ctrl+V</code>-style image paste, <code>Up</code>/<code>Down</code> restores draft history, <code>Ctrl+R</code> searches prompt history.</li>
+<li><strong>While it works:</strong> <code>Enter</code> injects instructions into the running turn, <code>Tab</code> queues the next prompt or slash command, <code>/ps</code> shows background terminals with recent output, <code>/stop</code> halts them.</li>
+<li><strong>Output:</strong> <code>Ctrl+O</code> / <code>/copy</code> copies the latest completed response; <code>/raw</code> (or <code>Alt+R</code>) toggles raw scrollback for cleaner terminal selection; <code>/theme</code> picks a syntax theme (drop custom <code>.tmTheme</code> files in <code>$CODEX_HOME/themes</code>).</li>
+<li><strong>Chrome:</strong> <code>/statusline</code> picks and orders footer items (model, context stats, rate limits, git branch, token counters, session id, Codex version — persisted to <code>tui.status_line</code>); <code>/title</code> does the same for the terminal window title; <code>/keymap</code> remaps TUI shortcuts into <code>tui.keymap</code>; <code>/pets</code> adds an ambient terminal pet, because of course it does.</li>
+<li><strong>Shell completions:</strong> <code>codex completion zsh</code> (bash/fish/PowerShell too) — <code>eval "$(codex completion zsh)"</code> in your rc file.</li>
+<li><strong>Health:</strong> <code>codex doctor</code> generates a diagnostic report; <code>codex update</code> self-updates; <code>/feedback</code> ships logs to the maintainers; <code>/experimental</code> toggles preview features like the network proxy and prevent-sleep.</li>
+<li><strong>Desktop app hop:</strong> <code>/app</code> moves the current session into the ChatGPT desktop app; <code>codex app</code> launches it from the terminal.</li>
+</ul>
+<hr />
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># macOS / Linux</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://chatgpt.com/codex/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<span class="c1"># Windows</span>
+powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://chatgpt.com/codex/install.ps1 | iex&quot;</span>
+<span class="c1"># or</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@openai/codex
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>codex
+</code></pre></div>
+<p>Run <code>codex</code> in a project directory and sign in with ChatGPT (or an API key / access token via <code>codex login</code>; <code>codex login status</code> exits 0 when credentials exist, handy in scripts).</p>
+<h3 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>codex</code></td>
+<td>Interactive TUI in the current directory</td>
+</tr>
+<tr>
+<td><code>codex exec "..."</code> / <code>codex e</code></td>
+<td>Non-interactive run; see <a href="#codex-exec-loops-in-ci">§3</a></td>
+</tr>
+<tr>
+<td><code>codex exec resume [--last\|&lt;id&gt;]</code></td>
+<td>Continue a non-interactive session</td>
+</tr>
+<tr>
+<td><code>codex resume [--last] [--all]</code></td>
+<td>Resume an interactive session</td>
+</tr>
+<tr>
+<td><code>codex fork [--last]</code></td>
+<td>Fork a saved session into a new chat</td>
+</tr>
+<tr>
+<td><code>codex archive &lt;session&gt;</code> / <code>codex unarchive &lt;session&gt;</code></td>
+<td>Hide/restore a session without deleting the transcript</td>
+</tr>
+<tr>
+<td><code>codex delete &lt;session&gt; [--force]</code></td>
+<td>Permanently delete a session</td>
+</tr>
+<tr>
+<td><code>codex apply</code></td>
+<td>Apply the latest diff from a cloud chat to the local repo</td>
+</tr>
+<tr>
+<td><code>codex review [--uncommitted\|--base &lt;branch&gt;\|--commit &lt;sha&gt;]</code></td>
+<td>Non-interactive code review</td>
+</tr>
+<tr>
+<td><code>codex cloud</code> / <code>codex cloud exec</code> / <code>codex cloud list</code></td>
+<td>Browse, submit, and list cloud chats</td>
+</tr>
+<tr>
+<td><code>codex mcp add\|list\|get\|remove\|login\|logout</code></td>
+<td>Manage MCP servers</td>
+</tr>
+<tr>
+<td><code>codex mcp-server</code></td>
+<td>Run Codex <em>as</em> an MCP server (stdio)</td>
+</tr>
+<tr>
+<td><code>codex app-server [--listen ws://IP:PORT]</code></td>
+<td>Run the app-server protocol for embedding</td>
+</tr>
+<tr>
+<td><code>codex plugin add\|list\|remove</code></td>
+<td>Manage plugins</td>
+</tr>
+<tr>
+<td><code>codex plugin marketplace add\|list\|upgrade\|remove</code></td>
+<td>Manage marketplace sources</td>
+</tr>
+<tr>
+<td><code>codex sandbox macos\|linux\|windows -- &lt;cmd&gt;</code></td>
+<td>Run a command under Codex's sandbox policies</td>
+</tr>
+<tr>
+<td><code>codex execpolicy check --rules &lt;file&gt; -- &lt;cmd&gt;</code></td>
+<td>Test rules files against a command</td>
+</tr>
+<tr>
+<td><code>codex features enable\|disable &lt;flag&gt;</code></td>
+<td>Persist feature flags</td>
+</tr>
+<tr>
+<td><code>codex completion &lt;shell&gt;</code></td>
+<td>Generate shell completions</td>
+</tr>
+<tr>
+<td><code>codex doctor</code></td>
+<td>Diagnostic report</td>
+</tr>
+<tr>
+<td><code>codex login</code> / <code>codex logout</code></td>
+<td>Authentication</td>
+</tr>
+<tr>
+<td><code>codex remote-control [start\|stop\|pair]</code></td>
+<td>Remote-control daemon for the mobile app</td>
+</tr>
+<tr>
+<td><code>codex app</code></td>
+<td>Open the ChatGPT desktop app</td>
+</tr>
+<tr>
+<td><code>codex update</code></td>
+<td>Self-update</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-flags">Key Flags<a class="headerlink" href="#key-flags" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-m</code>, <code>--model &lt;model&gt;</code></td>
+<td>Model for this run</td>
+</tr>
+<tr>
+<td><code>--sandbox &lt;mode&gt;</code></td>
+<td><code>read-only</code>, <code>workspace-write</code>, <code>danger-full-access</code></td>
+</tr>
+<tr>
+<td><code>-a</code>, <code>--ask-for-approval &lt;policy&gt;</code></td>
+<td><code>untrusted</code>, <code>on-request</code>, <code>never</code></td>
+</tr>
+<tr>
+<td><code>--dangerously-bypass-approvals-and-sandbox</code> / <code>--yolo</code></td>
+<td>No sandbox, no approvals</td>
+</tr>
+<tr>
+<td><code>-C</code>, <code>--cd &lt;dir&gt;</code></td>
+<td>Run as if launched from <code>&lt;dir&gt;</code></td>
+</tr>
+<tr>
+<td><code>--profile &lt;name&gt;</code></td>
+<td>Load <code>~/.codex/&lt;name&gt;.config.toml</code></td>
+</tr>
+<tr>
+<td><code>-c key=value</code>, <code>--config</code></td>
+<td>One-off config override</td>
+</tr>
+<tr>
+<td><code>--enable &lt;feature&gt;</code></td>
+<td>Enable a feature flag for this run (repeatable)</td>
+</tr>
+<tr>
+<td><code>--add-dir &lt;dir&gt;</code></td>
+<td>Extra writable directory — prefer over full access</td>
+</tr>
+<tr>
+<td><code>--search</code></td>
+<td>Live web search instead of cached</td>
+</tr>
+<tr>
+<td><code>--image &lt;path&gt;</code></td>
+<td>Attach an image to the first prompt</td>
+</tr>
+<tr>
+<td><code>--oss</code></td>
+<td>Use a local open-weight model provider</td>
+</tr>
+<tr>
+<td><code>--remote ws://host:port</code></td>
+<td>Attach the TUI to a remote app-server (<code>--remote-auth-token-env</code> for auth)</td>
+</tr>
+<tr>
+<td><code>--dangerously-bypass-hook-trust</code></td>
+<td>Run enabled hooks without persisted trust (one invocation)</td>
+</tr>
+<tr>
+<td><code>codex exec --json</code></td>
+<td>JSONL event stream on stdout</td>
+</tr>
+<tr>
+<td><code>codex exec --output-schema &lt;file&gt;</code></td>
+<td>Constrain the final message to a JSON Schema</td>
+</tr>
+<tr>
+<td><code>codex exec -o &lt;file&gt;</code>, <code>--output-last-message</code></td>
+<td>Write the final message to a file</td>
+</tr>
+<tr>
+<td><code>codex exec --ephemeral</code></td>
+<td>Don't persist session files</td>
+</tr>
+<tr>
+<td><code>codex exec --ignore-user-config</code> / <code>--ignore-rules</code></td>
+<td>Isolate automation from local setup</td>
+</tr>
+<tr>
+<td><code>codex exec --skip-git-repo-check</code></td>
+<td>Allow running outside a git repository</td>
+</tr>
+<tr>
+<td><code>codex exec --full-auto</code></td>
+<td>Deprecated alias for <code>--sandbox workspace-write</code> (warns)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="slash-commands">Slash Commands<a class="headerlink" href="#slash-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/permissions</code></td>
+<td>Change the approval/sandbox preset or named profile</td>
+</tr>
+<tr>
+<td><code>/model</code></td>
+<td>Switch model and reasoning effort</td>
+</tr>
+<tr>
+<td><code>/fast</code></td>
+<td>Toggle the Fast service tier</td>
+</tr>
+<tr>
+<td><code>/personality</code></td>
+<td>Communication style: <code>friendly</code>, <code>pragmatic</code>, <code>none</code></td>
+</tr>
+<tr>
+<td><code>/plan</code></td>
+<td>Switch to plan mode, optional inline prompt</td>
+</tr>
+<tr>
+<td><code>/goal</code></td>
+<td>Set / view / <code>edit</code> / <code>pause</code> / <code>resume</code> / <code>clear</code> a task goal</td>
+</tr>
+<tr>
+<td><code>/review</code></td>
+<td>Review the working tree, a base-branch diff, or a commit</td>
+</tr>
+<tr>
+<td><code>/diff</code></td>
+<td>Git diff including untracked files</td>
+</tr>
+<tr>
+<td><code>/status</code></td>
+<td>Model, approval policy, writable roots, token usage</td>
+</tr>
+<tr>
+<td><code>/usage</code></td>
+<td>Account token activity (<code>daily</code>, <code>weekly</code>, <code>cumulative</code>)</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td>Summarize the chat to free context</td>
+</tr>
+<tr>
+<td><code>/new</code> / <code>/clear</code></td>
+<td>New chat (the latter also clears the terminal)</td>
+</tr>
+<tr>
+<td><code>/rename</code></td>
+<td>Name the current chat</td>
+</tr>
+<tr>
+<td><code>/resume</code> / <code>/fork</code></td>
+<td>Reopen or branch a saved chat</td>
+</tr>
+<tr>
+<td><code>/archive</code> / <code>/delete</code></td>
+<td>Archive or permanently delete the current session</td>
+</tr>
+<tr>
+<td><code>/side</code>, <code>/btw</code></td>
+<td>Ephemeral side chat</td>
+</tr>
+<tr>
+<td><code>/agent</code>, <code>/subagents</code></td>
+<td>Switch between agent threads</td>
+</tr>
+<tr>
+<td><code>/approve</code></td>
+<td>Retry one auto-review denial</td>
+</tr>
+<tr>
+<td><code>/memories</code></td>
+<td>Per-chat memory use and generation</td>
+</tr>
+<tr>
+<td><code>/skills</code></td>
+<td>Browse and apply skills</td>
+</tr>
+<tr>
+<td><code>/plugins</code></td>
+<td>Plugin browser</td>
+</tr>
+<tr>
+<td><code>/hooks</code></td>
+<td>Inspect, trust, and disable lifecycle hooks</td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td>List MCP servers and tools (<code>verbose</code> for diagnostics)</td>
+</tr>
+<tr>
+<td><code>/apps</code></td>
+<td>Browse connector apps, insert as <code>$app-slug</code></td>
+</tr>
+<tr>
+<td><code>/mention</code></td>
+<td>Attach a file to the chat</td>
+</tr>
+<tr>
+<td><code>/ide</code></td>
+<td>Pull IDE context (open files, selection) into the prompt</td>
+</tr>
+<tr>
+<td><code>/init</code></td>
+<td>Generate an <code>AGENTS.md</code> scaffold</td>
+</tr>
+<tr>
+<td><code>/import</code></td>
+<td>Import Claude Code or Cursor setup, projects, chats</td>
+</tr>
+<tr>
+<td><code>/ps</code> / <code>/stop</code></td>
+<td>Show / stop background terminals</td>
+</tr>
+<tr>
+<td><code>/copy</code></td>
+<td>Copy the latest completed response</td>
+</tr>
+<tr>
+<td><code>/raw</code></td>
+<td>Toggle raw scrollback</td>
+</tr>
+<tr>
+<td><code>/statusline</code> / <code>/title</code> / <code>/theme</code> / <code>/keymap</code> / <code>/pets</code></td>
+<td>TUI chrome</td>
+</tr>
+<tr>
+<td><code>/vim</code></td>
+<td>Toggle Vim composer mode</td>
+</tr>
+<tr>
+<td><code>/experimental</code></td>
+<td>Toggle experimental features</td>
+</tr>
+<tr>
+<td><code>/debug-config</code></td>
+<td>Config layer and policy diagnostics</td>
+</tr>
+<tr>
+<td><code>/feedback</code></td>
+<td>Send logs to the maintainers</td>
+</tr>
+<tr>
+<td><code>/app</code></td>
+<td>Continue this session in the desktop app</td>
+</tr>
+<tr>
+<td><code>/logout</code></td>
+<td>Sign out</td>
+</tr>
+<tr>
+<td><code>/quit</code>, <code>/exit</code></td>
+<td>Exit the CLI</td>
+</tr>
+</tbody>
+</table>
+<p>Windows-only: <code>/setup-default-sandbox</code> (elevated sandbox setup) and <code>/sandbox-add-read-dir &lt;path&gt;</code> (grant sandbox read access to a directory).</p>
+<h3 id="interactive-shortcuts">Interactive Shortcuts<a class="headerlink" href="#interactive-shortcuts" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@</code></td>
+<td>Search workspace files, insert the path</td>
+</tr>
+<tr>
+<td><code>!&lt;cmd&gt;</code></td>
+<td>Run a shell command under current sandbox/approval settings</td>
+</tr>
+<tr>
+<td><code>Enter</code> (while working)</td>
+<td>Inject instructions into the current turn</td>
+</tr>
+<tr>
+<td><code>Tab</code> (while working)</td>
+<td>Queue a follow-up for the next turn</td>
+</tr>
+<tr>
+<td><code>Esc Esc</code> (empty composer)</td>
+<td>Edit the previous message and fork the chat</td>
+</tr>
+<tr>
+<td><code>Ctrl+O</code></td>
+<td>Copy the latest completed output</td>
+</tr>
+<tr>
+<td><code>Ctrl+R</code></td>
+<td>Search prompt history</td>
+</tr>
+<tr>
+<td><code>Ctrl+G</code></td>
+<td>Open the prompt in <code>$VISUAL</code> / <code>$EDITOR</code></td>
+</tr>
+<tr>
+<td><code>Ctrl+L</code></td>
+<td>Clear the terminal view (keeps the chat)</td>
+</tr>
+<tr>
+<td><code>Alt+R</code></td>
+<td>Toggle raw scrollback</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code> / <code>/exit</code></td>
+<td>Close the session</td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CODEX_HOME</code></td>
+<td>Relocate the whole config/state home (default <code>~/.codex</code>)</td>
+</tr>
+<tr>
+<td><code>CODEX_API_KEY</code></td>
+<td>Per-invocation API key, <code>codex exec</code> only</td>
+</tr>
+<tr>
+<td><code>VISUAL</code> / <code>EDITOR</code></td>
+<td>Editor for <code>Ctrl+G</code> prompt editing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<p>The same two questions govern this page as the last one: <em>what can the agent see?</em> and <em>what happens when it's wrong?</em> Codex's distinctive answers: an <code>AGENTS.md</code> chain with a hard byte budget for the first, and an OS-enforced sandbox with a separate ask-first dial for the second.</p>
+<p>So spend your setup effort the same way — a short, accurate <code>AGENTS.md</code> plus real verification commands — and add the one Codex-specific habit: <strong>tune the boundary, not the exceptions</strong>. When prompts get noisy, the fix is a narrower writable root, a precise prefix rule, or auto-review — not a broader sandbox.</p>
+<p>And notice what just happened across two pages: every mechanism here slotted into the same six habits. That's the evidence for the claim in <a href="../../basics/skills_map/">The AI Engineering Skills Map</a> — the skill is the habits, not the tool.</p>
+<hr />
+<p><strong>Sources:</strong> the official Codex documentation at <a href="https://learn.chatgpt.com/llms.txt">learn.chatgpt.com</a> (fetched via its <code>llms.txt</code> index) and the <a href="https://github.com/openai/codex">openai/codex</a> repository. Specific flags, paths, and defaults reflect the docs as of <strong>15 August 2026</strong> and will drift; the habits in <a href="../../basics/skills_map/">The AI Engineering Skills Map</a> are what stay put.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

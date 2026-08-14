@@ -1,6 +1,6 @@
 # Design Principles
 
-Principles for writing code that is readable, maintainable, and robust. Use them as guidelines, not laws — judgment always wins over dogma.
+Principles for writing code that is readable, maintainable, and robust. Use them as guidelines, not laws — judgment always wins over dogma. For where these ideas came from and who to read, see [Philosophies & Methodologies](https://locchh.github.io/sw-handbook/software/basics/methodologies/index.md).
 
 ## SOLID
 

@@ -92,6 +92,8 @@ Every change merged by a second pair of eyes. Rules of thumb:
 
 Code review is the cheapest place to catch bugs and the best place to spread knowledge across the team.
 
+For the mechanics — how to read a `git diff` hunk by hunk, what to look for in a PR, and where AI review tools fit — see [Code Review](https://locchh.github.io/sw-handbook/software/basics/code_review/index.md).
+
 ## CI/CD
 
 - **Continuous Integration (CI)** — every commit is built and tested automatically. Broken builds are fixed immediately.
@@ -99,6 +101,8 @@ Code review is the cheapest place to catch bugs and the best place to spread kno
 - **Continuous Deployment** — every green commit is automatically pushed to production.
 
 A minimal CI pipeline: **lint → unit tests → integration tests → build artifact → deploy to staging → (manual gate) → deploy to prod**.
+
+For the mechanics on specific platforms — which file to add, how GitLab / GitHub / Jenkins / Vercel connect to your repo, where secrets live, and what CPU and memory a job gets — see [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md).
 
 ## Development Workflow (Example)
 
@@ -130,7 +134,7 @@ release/* branch → merge to main → tag → deploy to production
 
 ## Version Control
 
-Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme.
+Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme. This section covers the *model*; for the commands that implement it — merge vs. rebase, conflicts, the daily branch loop — see [Git: Merge vs Rebase](https://locchh.github.io/sw-handbook/software/basics/git/index.md).
 
 ### Branching Models
 

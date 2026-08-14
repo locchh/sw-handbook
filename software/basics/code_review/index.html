@@ -1,0 +1,3418 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/basics/code_review/">
+      
+      
+        <link rel="prev" href="../git/">
+      
+      
+        <link rel="next" href="../tech_stacks/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Code Review - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-review-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code Review
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophies & Methodologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git: Merge vs Rebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Review
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-reading-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Reading Git Diff
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Reading Git Diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Git Diff?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-git-diff-two-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Git Diff — Two Forms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Git Diff — Two Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-argument-form-while-checked-out-on-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-argument form (while checked out on a branch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-argument-form-explicit-recommended-for-pr-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-argument form (explicit, recommended for PR review)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-against-remote-tracking-branches-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing against remote tracking branches (best practice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overall-structure-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overall Structure (Hierarchy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-file-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. File Header
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hunk-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hunk Header
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hunk-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hunk Body
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multiple-hunks-per-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multiple Hunks Per File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-summary-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick Summary Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-reviewing-a-prmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Reviewing a PR/MR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2 — Reviewing a PR/MR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-beyond-the-diff-understanding-a-prmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Beyond the Diff — Understanding a PR/MR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reading-commit-messages-to-understand-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Reading Commit Messages to Understand Intent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-what-seniors-look-for-in-a-pr-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. What Seniors Look For in a PR Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-ai-assisted-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3 — AI-Assisted Code Review
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3 — AI-Assisted Code Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9-devin-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Devin Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-claude-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Claude Code Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-the-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing the Two
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Cheat Sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../becoming_senior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../senior_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Senior Curriculum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abbreviations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/machine_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/server_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running a Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool_tip/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Modelling & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Governance & Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/skills_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The AI Engineering Skills Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The LLM Landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/spec_driven_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/claude_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/codex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-reading-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Reading Git Diff
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Reading Git Diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Git Diff?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-git-diff-two-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Git Diff — Two Forms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Git Diff — Two Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-argument-form-while-checked-out-on-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-argument form (while checked out on a branch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-argument-form-explicit-recommended-for-pr-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-argument form (explicit, recommended for PR review)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-against-remote-tracking-branches-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing against remote tracking branches (best practice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overall-structure-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overall Structure (Hierarchy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-file-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. File Header
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hunk-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hunk Header
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hunk-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hunk Body
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multiple-hunks-per-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multiple Hunks Per File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-summary-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick Summary Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-reviewing-a-prmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Reviewing a PR/MR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2 — Reviewing a PR/MR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-beyond-the-diff-understanding-a-prmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Beyond the Diff — Understanding a PR/MR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reading-commit-messages-to-understand-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Reading Commit Messages to Understand Intent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-what-seniors-look-for-in-a-pr-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. What Seniors Look For in a PR Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-ai-assisted-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3 — AI-Assisted Code Review
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3 — AI-Assisted Code Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9-devin-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Devin Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-claude-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Claude Code Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-the-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing the Two
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Cheat Sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="how-to-review-code">How to Review Code<a class="headerlink" href="#how-to-review-code" title="Permanent link">&para;</a></h1>
+<p>Every day, developers read diffs and review pull requests. It looks simple — lines in red and green — but reading a diff fluently, and reviewing code well, are two different skills. This guide covers both: how to decode what <code>git diff</code> is actually telling you, and what a thorough code review really requires beyond just reading the lines that changed.</p>
+<p>This page owns <strong>reading diffs and reviewing PRs</strong>. For the branch mechanics underneath — merge vs. rebase, conflicts, the daily branch workflow — see <a href="../git/">Git: Merge vs Rebase</a>; for where review sits in the delivery process, see <a href="../lifecycle/">Lifecycle</a>.</p>
+<h2 id="part-1-reading-git-diff">Part 1 — Reading Git Diff<a class="headerlink" href="#part-1-reading-git-diff" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-a-git-diff">What is a Git Diff?<a class="headerlink" href="#what-is-a-git-diff" title="Permanent link">&para;</a></h3>
+<p>A git diff shows the <strong>differences between two states</strong> — two branches, two commits, or a working file vs. the last commit. It answers the question: <em>"What changed?"</em></p>
+<p>A <strong>MR (Merge Request) / PR (Pull Request)</strong> is a request to apply a diff from one branch into another. The platform (GitLab/GitHub) displays the diff so reviewers can inspect what will change before approving.</p>
+<hr />
+<h3 id="running-git-diff-two-forms">Running Git Diff — Two Forms<a class="headerlink" href="#running-git-diff-two-forms" title="Permanent link">&para;</a></h3>
+<p>There are two forms, and the order of "old" vs "new" differs between them.</p>
+<h4 id="single-argument-form-while-checked-out-on-a-branch">Single-argument form (while checked out on a branch)<a class="headerlink" href="#single-argument-form-while-checked-out-on-a-branch" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Stand on branch feature, compare with main</span>
+git<span class="w"> </span>diff<span class="w"> </span>main
+</code></pre></div>
+<ul>
+<li><strong>Current branch</strong> (<code>feature</code>) = <strong>new version</strong> (<code>+++</code>)</li>
+<li><strong>Argument branch</strong> (<code>main</code>) = <strong>old version</strong> (<code>---</code>)</li>
+</ul>
+<blockquote>
+<p><strong>Rule:</strong> current branch is always "new", argument branch is always "old".</p>
+</blockquote>
+<p>If you swap — stand on <code>main</code> and run <code>git diff feature</code> — the <code>+</code> and <code>-</code> lines flip completely.</p>
+<h4 id="two-argument-form-explicit-recommended-for-pr-review">Two-argument form (explicit, recommended for PR review)<a class="headerlink" href="#two-argument-form-explicit-recommended-for-pr-review" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>&lt;old&gt;<span class="w"> </span>&lt;new&gt;
+git<span class="w"> </span>diff<span class="w"> </span>main<span class="w"> </span>feature
+</code></pre></div>
+<ul>
+<li><strong>First argument</strong> (<code>main</code>) = <strong>old version</strong> (<code>---</code>)</li>
+<li><strong>Second argument</strong> (<code>feature</code>) = <strong>new version</strong> (<code>+++</code>)</li>
+</ul>
+<blockquote>
+<p><strong>Rule:</strong> first argument is always "old", second argument is always "new".</p>
+</blockquote>
+<p>The naming looks like the opposite of the single-argument form, but the underlying rule is the same: <strong>argument = old</strong>. In the two-argument form, both are arguments, so first = old, second = new.</p>
+<h4 id="comparing-against-remote-tracking-branches-best-practice">Comparing against remote tracking branches (best practice)<a class="headerlink" href="#comparing-against-remote-tracking-branches-best-practice" title="Permanent link">&para;</a></h4>
+<p>Local branches can be stale if you haven't pulled recently. Always compare remote tracking branches to get the true state of each branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>diff<span class="w"> </span>origin/&lt;old-branch&gt;<span class="w"> </span>origin/&lt;new-branch&gt;
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Old (<code>---</code>)</th>
+<th>New (<code>+++</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git diff A</code> (on branch A)</td>
+<td>A (argument)</td>
+<td>B (current)</td>
+</tr>
+<tr>
+<td><code>git diff A B</code></td>
+<td>A (first)</td>
+<td>B (second)</td>
+</tr>
+<tr>
+<td><code>git diff origin/main origin/feature</code></td>
+<td>origin/main (first)</td>
+<td>origin/feature (second)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="overall-structure-hierarchy">Overall Structure (Hierarchy)<a class="headerlink" href="#overall-structure-hierarchy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>diff (overall output)
+└── per changed file
+    ├── file header  (identifies which file changed)
+    └── hunk(s)  (one or more regions of change per file)
+        ├── hunk header  (where the change is + how many lines)
+        └── hunk body   (the actual changes + surrounding context)
+</code></pre></div>
+<hr />
+<h3 id="1-file-header">1. File Header<a class="headerlink" href="#1-file-header" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="gh">diff --git a/example.py b/example.py</span>
+<span class="gh">index abc123..def456 100644</span>
+<span class="gd">--- a/example.py</span>
+<span class="gi">+++ b/example.py</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>diff --git a/... b/...</code></td>
+<td>Which file changed. <code>a/</code> = old version, <code>b/</code> = new version</td>
+</tr>
+<tr>
+<td><code>index abc123..def456</code></td>
+<td>Git hashes of the old and new file versions</td>
+</tr>
+<tr>
+<td><code>100644</code></td>
+<td>File permission mode (regular file, owner read/write, others read)</td>
+</tr>
+<tr>
+<td><code>--- a/example.py</code></td>
+<td>Lines marked <code>-</code> in the body belong to the <strong>old/argument branch</strong></td>
+</tr>
+<tr>
+<td><code>+++ b/example.py</code></td>
+<td>Lines marked <code>+</code> in the body belong to the <strong>new/current branch</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-hunk-header">2. Hunk Header<a class="headerlink" href="#2-hunk-header" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="gu">@@ -10,6 +10,7 @@ class Example:</span>
+</code></pre></div>
+<p><strong>Format:</strong> <code>@@ -old_start,old_count +new_start,new_count @@ context_name</code></p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-10,6</code></td>
+<td>In the <strong>old file</strong>: change starts at line <strong>10</strong>, covers <strong>6 lines</strong></td>
+</tr>
+<tr>
+<td><code>+10,7</code></td>
+<td>In the <strong>new file</strong>: change starts at line <strong>10</strong>, covers <strong>7 lines</strong></td>
+</tr>
+<tr>
+<td><code>class Example:</code></td>
+<td>Context hint — which class/function this change is inside</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How the counts are calculated:</strong></p>
+<div class="highlight"><pre><span></span><code>old_count  =  context lines  +  removed lines (-)
+new_count  =  context lines  +  added lines (+)
+</code></pre></div>
+<p>So if one line was added, <code>new_count</code> will be exactly 1 more than <code>old_count</code>.</p>
+<hr />
+<h3 id="3-hunk-body">3. Hunk Body<a class="headerlink" href="#3-hunk-body" title="Permanent link">&para;</a></h3>
+<p>The hunk body is a <strong>merged view</strong> of both old and new versions, using three types of lines:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(no symbol / space)</em></td>
+<td><strong>Context line</strong> — unchanged, exists in both branches. Shown for reference only.</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td><strong>Removed line</strong> — exists in the old/argument branch, NOT in the current branch</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><strong>Added line</strong> — exists in the current branch, NOT in the old/argument branch</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="gu">@@ -10,6 +10,7 @@ class User:</span>
+<span class="w"> </span>        self.id: int = 0            ← context (unchanged)
+<span class="w"> </span>        self.name: str = &quot;&quot;          ← context (unchanged)
+<span class="w"> </span>        self.email: str = &quot;&quot;         ← context (unchanged)
+<span class="gi">+        self.role: str = &quot;viewer&quot;    ← added in current branch</span>
+<span class="w"> </span>                                     ← context (blank line, unchanged)
+<span class="w"> </span>    # ----------------------------   ← context (unchanged)
+<span class="w"> </span>    # Helper methods                 ← context (unchanged)
+</code></pre></div>
+<p>Git shows ~3 context lines above and below each change by default, so you have enough surrounding code to understand where the change happened without opening the file.</p>
+<hr />
+<h3 id="4-multiple-hunks-per-file">4. Multiple Hunks Per File<a class="headerlink" href="#4-multiple-hunks-per-file" title="Permanent link">&para;</a></h3>
+<p>A file can have <strong>many hunks</strong> if changes happened in different regions. Each hunk has its own header and body. They appear sequentially in the diff output.</p>
+<div class="highlight"><pre><span></span><code><span class="gu">@@ -10,6 +10,7 @@    ← hunk 1: change near line 10</span>
+...
+<span class="gu">@@ -45,9 +46,13 @@   ← hunk 2: change near line 45</span>
+...
+<span class="gu">@@ -90,14 +95,49 @@  ← hunk 3: change near line 90</span>
+...
+</code></pre></div>
+<hr />
+<h3 id="5-quick-summary-commands">5. Quick Summary Commands<a class="headerlink" href="#5-quick-summary-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show files changed + insertions/deletions per file</span>
+git<span class="w"> </span>diff<span class="w"> </span>--stat<span class="w"> </span>B
+
+<span class="c1"># Show only the total numbers</span>
+git<span class="w"> </span>diff<span class="w"> </span>--shortstat<span class="w"> </span>B
+</code></pre></div>
+<p>Example output of <code>--stat</code>:</p>
+<div class="highlight"><pre><span></span><code> src/user.py    |  12 ++++++----
+ src/config.py  |   3 +++
+ 2 files changed, 15 insertions(+), 4 deletions(-)
+</code></pre></div>
+<p>Example output of <code>--shortstat</code>:</p>
+<div class="highlight"><pre><span></span><code>2 files changed, 15 insertions(+), 4 deletions(-)
+</code></pre></div>
+<hr />
+<h2 id="part-2-reviewing-a-prmr">Part 2 — Reviewing a PR/MR<a class="headerlink" href="#part-2-reviewing-a-prmr" title="Permanent link">&para;</a></h2>
+<h3 id="6-beyond-the-diff-understanding-a-prmr">6. Beyond the Diff — Understanding a PR/MR<a class="headerlink" href="#6-beyond-the-diff-understanding-a-prmr" title="Permanent link">&para;</a></h3>
+<p>A <strong>MR (Merge Request) / PR (Pull Request)</strong> is a request to apply a diff from one branch into another. Reading the diff tells you <em>what</em> changed — but a complete code review requires understanding four layers:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Source</th>
+<th>Tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What changed</strong></td>
+<td><code>git diff</code></td>
+<td>Exact lines added/removed</td>
+</tr>
+<tr>
+<td><strong>Why it changed</strong></td>
+<td>Commit messages (<code>git log</code>)</td>
+<td>The author's intent</td>
+</tr>
+<tr>
+<td><strong>How it fits</strong></td>
+<td>Codebase / architecture</td>
+<td>Design patterns, structure, conventions</td>
+</tr>
+<tr>
+<td><strong>Business context</strong></td>
+<td>PR description, linked tickets</td>
+<td>The requirement or bug being solved</td>
+</tr>
+</tbody>
+</table>
+<p>A reviewer who only reads the diff might approve code that is technically correct but architecturally wrong, or reject code that looks unusual but has a valid reason.</p>
+<hr />
+<h3 id="7-reading-commit-messages-to-understand-intent">7. Reading Commit Messages to Understand Intent<a class="headerlink" href="#7-reading-commit-messages-to-understand-intent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># See all commits in branch B that are not in branch A</span>
+git<span class="w"> </span>log<span class="w"> </span>A..B<span class="w"> </span>--oneline
+
+<span class="c1"># See full commit messages</span>
+git<span class="w"> </span>log<span class="w"> </span>A..B
+</code></pre></div>
+<p>A good commit message explains <strong>what</strong> changed and <strong>why</strong>:</p>
+<div class="highlight"><pre><span></span><code>Add role field to User — needed for permission checks in #123
+</code></pre></div>
+<p>A bad commit message gives you nothing:</p>
+<div class="highlight"><pre><span></span><code>fix
+update
+wip
+</code></pre></div>
+<p>When commit messages are poor, you must rely more on the PR description and linked tickets to understand intent. This is why good commit discipline is a <strong>team responsibility</strong> that seniors enforce during reviews.</p>
+<hr />
+<h3 id="8-what-seniors-look-for-in-a-pr-review">8. What Seniors Look For in a PR Review<a class="headerlink" href="#8-what-seniors-look-for-in-a-pr-review" title="Permanent link">&para;</a></h3>
+<p>Reading a diff fluently is a necessary foundation, but senior reviewers go further:</p>
+<ul>
+<li><strong>Intent</strong> — does this change solve the right problem?</li>
+<li><strong>Architecture</strong> — is the approach well-designed, or over-engineered?</li>
+<li><strong>Edge cases</strong> — what happens with invalid input, race conditions, or failures?</li>
+<li><strong>Security</strong> — any injection risks, exposed secrets, improper access control?</li>
+<li><strong>Performance</strong> — any N+1 queries, unnecessary loops, or memory leaks?</li>
+<li><strong>Testability</strong> — is the code testable, are tests included and meaningful?</li>
+<li><strong>Readability</strong> — is the code clear to the next person who reads it?</li>
+<li><strong>Consistency</strong> — does it follow the project's conventions and patterns?</li>
+</ul>
+<p>The standard PR review workflow:                                                                                                                                             </p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># 1. Get latest remote state</span>
+git<span class="w"> </span>fetch<span class="w">                                                                                                                                                                    </span>
+
+<span class="c1"># 2. See what commits the feature added (Before and After)</span>
+git<span class="w"> </span>log<span class="w"> </span>origin/main..origin/feature<span class="w"> </span>--oneline<span class="w">                                        </span>
+
+<span class="c1"># 3. See the full file changes</span>
+git<span class="w"> </span>diff<span class="w"> </span>origin/main<span class="w"> </span>origin/feature<span class="w">                                                                                                                                          </span>
+
+<span class="c1"># 4. Optional: commits + changes together</span>
+git<span class="w"> </span>log<span class="w"> </span>origin/main..origin/feature<span class="w"> </span>--oneline<span class="w"> </span>--stat
+</code></pre></div>
+Why this order:</p>
+<ul>
+<li>
+<p><code>git log</code> first — understand the story (how many commits, what they claim to do)</p>
+</li>
+<li>
+<p><code>git diff</code> second — verify the actual changes match the commit messages</p>
+</li>
+</ul>
+<hr />
+<h2 id="part-3-ai-assisted-code-review">Part 3 — AI-Assisted Code Review<a class="headerlink" href="#part-3-ai-assisted-code-review" title="Permanent link">&para;</a></h2>
+<p>Human reviewers are expensive and slow. AI review tools have emerged to run a first pass on every PR automatically — catching bugs, flagging security issues, and surfacing problems before a human even opens the diff. Two of the most capable are <strong>Devin Review</strong> and <strong>Claude Code Review</strong>.</p>
+<hr />
+<h3 id="9-devin-review">9. Devin Review<a class="headerlink" href="#9-devin-review" title="Permanent link">&para;</a></h3>
+<p>Devin Review was built around a specific insight: as AI generates more code, the bottleneck shifts from writing to reviewing. A PR that took hours to write can contain thousands of lines that no human has time to read carefully.</p>
+<p><strong>How it works:</strong></p>
+<p>Devin Review comes in two modes:</p>
+<ul>
+<li><strong>Webapp</strong> — diff-only review. Uses the GitHub API and a pre-indexed snapshot of the repo to power codebase-aware chat ("Ask Devin"). No fresh clone triggered.</li>
+<li><strong>CLI (<code>devin-review</code>)</strong> — enables "deeper analysis than diff-only review" (Cognition's own words). Fetches the PR branch, checks it out into an isolated local git worktree, and sends the diff to Devin's servers. The Bug Catcher can then run read-only shell commands (<code>cat</code>, <code>grep</code>, <code>find</code>, <code>ls</code>, etc.) scoped to that worktree for deeper file-level analysis.</li>
+</ul>
+<p>Rather than reading a diff as a flat list of changed lines, it reorganizes changes semantically — grouping related edits together and detecting when code was moved or copied, so those show as relocations rather than full deletes and re-inserts. This makes the diff genuinely easier for a human to read even before the AI analysis begins.</p>
+<p>On top of that, an integrated <strong>Bug Catcher</strong> analyzes the PR and categorizes its findings into two types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Icon</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bug</strong> (severe)</td>
+<td>🔴</td>
+<td>An actionable error that requires immediate attention before merging</td>
+</tr>
+<tr>
+<td><strong>Bug</strong> (non-severe)</td>
+<td>🟠</td>
+<td>An issue worth reviewing, but not necessarily blocking</td>
+</tr>
+<tr>
+<td><strong>Flag</strong> (investigate)</td>
+<td>—</td>
+<td>Warrants closer inspection — something unusual or risky</td>
+</tr>
+<tr>
+<td><strong>Flag</strong> (informational)</td>
+<td>—</td>
+<td>Explains what code does without requiring any action</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Triggers:</strong> Auto-review can be configured to run when a PR is opened, when new commits are pushed, when a draft is marked ready, or when an enrolled user is added as a reviewer. Users can self-enroll without admin permissions.</p>
+<p><strong>Customization:</strong> Add a <code>REVIEW.md</code> to your repository to define which areas need scrutiny, which conventions to enforce, and which files to ignore. Additional glob-pattern rules can be configured in Settings &gt; Review.</p>
+<p><strong>Ref:</strong> <a href="https://app.devin.ai/review">Devin Review</a> — Cognition AI | <a href="https://docs.devin.ai/work-with-devin/devin-review">Docs</a> | <a href="https://cognition.ai/blog/devin-review">Blog: Devin Review: AI to Stop Slop</a></p>
+<hr />
+<h3 id="10-claude-code-review">10. Claude Code Review<a class="headerlink" href="#10-claude-code-review" title="Permanent link">&para;</a></h3>
+<p>Claude Code Review takes a multi-agent approach: instead of one model reading the diff, a fleet of specialized agents examines the PR in parallel, each looking for a different class of issue. A verification step then checks each candidate finding against actual code behavior to filter out false positives before anything is posted.</p>
+<p><strong>How it works:</strong></p>
+<p>Claude Code Review installs as a GitHub App (<code>Contents: read</code>, <code>Pull requests: read/write</code>) and pulls the full source on Anthropic's infrastructure when a review triggers. Agents then analyze the diff in the context of the full codebase — not just the lines that changed. The results are deduplicated, ranked by severity, and posted as inline comments on the specific lines where issues were found. If nothing is found, Claude posts a short confirmation comment rather than staying silent.</p>
+<p>Each finding is tagged with a severity level:</p>
+<table>
+<thead>
+<tr>
+<th>Marker</th>
+<th>Severity</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴</td>
+<td>Normal</td>
+<td>A bug that should be fixed before merging</td>
+</tr>
+<tr>
+<td>🟡</td>
+<td>Nit</td>
+<td>A minor issue, worth fixing but not blocking</td>
+</tr>
+<tr>
+<td>🟣</td>
+<td>Pre-existing</td>
+<td>A bug in the codebase not introduced by this PR</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Default focus:</strong> Correctness only — bugs that would break production. It does not flag formatting preferences or missing test coverage unless you tell it to.</p>
+<p><strong>Triggers:</strong> Runs when a PR is opened, on every push, or manually via <code>@claude review</code> in a PR comment. Manual mode is useful for high-traffic repos where you want to opt specific PRs into review.</p>
+<p><strong>Customization:</strong> Two files control behavior:</p>
+<ul>
+<li><code>CLAUDE.md</code> — shared project instructions used by all Claude Code tasks, not just reviews. Violations in new code are flagged as nits.</li>
+<li><code>REVIEW.md</code> — review-only rules: what to always flag, what to skip, team conventions. Keeps review guidance separate from general project instructions.</li>
+</ul>
+<p><strong>Ref:</strong> <a href="https://code.claude.com/docs/en/code-review">Claude Code Review</a> — Anthropic</p>
+<hr />
+<h3 id="comparing-the-two">Comparing the Two<a class="headerlink" href="#comparing-the-two" title="Permanent link">&para;</a></h3>
+<p>Both tools post inline comments on GitHub PRs without blocking existing review workflows. The key differences are in approach:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Devin Review</th>
+<th>Claude Code Review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source access</strong></td>
+<td>Webapp: diff + pre-indexed context. CLI: local worktree checkout with read-only shell access</td>
+<td>GitHub App, full repo on Anthropic infra</td>
+</tr>
+<tr>
+<td><strong>Core idea</strong></td>
+<td>Reorganize the diff + bug detection</td>
+<td>Multi-agent parallel analysis of full codebase</td>
+</tr>
+<tr>
+<td><strong>Severity system</strong></td>
+<td>Bugs (severe/non-severe) + Flags</td>
+<td>🔴 Normal / 🟡 Nit / 🟣 Pre-existing</td>
+</tr>
+<tr>
+<td><strong>Default scope</strong></td>
+<td>Bugs and code understanding</td>
+<td>Correctness bugs only</td>
+</tr>
+<tr>
+<td><strong>Customization</strong></td>
+<td><code>REVIEW.md</code> + glob rules in settings</td>
+<td><code>CLAUDE.md</code> + <code>REVIEW.md</code></td>
+</tr>
+<tr>
+<td><strong>Manual trigger</strong></td>
+<td>Add enrolled user as reviewer</td>
+<td>Comment <code>@claude review</code> on PR</td>
+</tr>
+<tr>
+<td><strong>False positive handling</strong></td>
+<td>Confidence levels on findings</td>
+<td>Verification step filters before posting</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading only the diff isn't enough.</strong> A change that looks correct in isolation can break something elsewhere in the codebase that was never touched by the PR. Claude Code Review accesses the full repository to catch these cross-file issues. Devin Review's webapp mode uses a pre-indexed snapshot for this context, while the CLI mode checks out the full worktree locally. For Claude Code Review, cost scales with codebase size, not just PR size: the larger the repo, the more context the agents load and analyze.</p>
+<p>Neither tool replaces a human reviewer — they are a first pass that catches the obvious problems so human attention can focus on intent, architecture, and judgment calls that AI cannot make.</p>
+<hr />
+<h2 id="quick-reference-cheat-sheet">Quick Reference Cheat Sheet<a class="headerlink" href="#quick-reference-cheat-sheet" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Single-argument form (on branch A):
+  git diff A
+           ↑
+           A = old (---)
+           B (current) = new (+++)
+
+Two-argument form:
+  git diff &lt;old&gt; &lt;new&gt;
+           ↑      ↑
+           old    new
+           (---)  (+++)
+
+PR review best practice:
+  git fetch
+  git diff origin/main origin/feature
+                ↑              ↑
+               old            new
+              (---)           (+++)
+
+File header:
+  diff --git a/file b/file   → which file
+  --- a/file                 → old version (first arg)
+  +++ b/file                 → new version (second arg)
+
+Hunk header:
+  @@ -old_start,old_count +new_start,new_count @@ function_name
+       ↑                    ↑
+       old = context + (-)  new = context + (+)
+
+Hunk body:
+  (space) context line  → unchanged, in both versions
+  -       removed line  → only in old branch
+  +       added line    → only in new branch
+</code></pre></div>
+<p><strong>Further reading:</strong> <a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a> — Vincent Driessen. The branching model this workflow assumes is summarized in <a href="../lifecycle/#version-control">Lifecycle → Version Control</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

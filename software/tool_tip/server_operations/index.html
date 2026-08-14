@@ -1,0 +1,4112 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/">
+      
+      
+        <link rel="prev" href="../machine_setup/">
+      
+      
+        <link rel="next" href="../cicd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Running a Server - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#running-a-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Running a Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/methodologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophies & Methodologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git: Merge vs Rebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/code_review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/tech_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/becoming_senior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/senior_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Senior Curriculum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abbreviations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running a Server
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running a Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-stack-and-where-your-responsibility-starts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Stack, and Where Your Responsibility Starts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sizing-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sizing the Machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sizing the Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-the-workload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching the workload
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-use-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The USE Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-first-sixty-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The First Sixty Seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cpu-and-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. CPU and Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. CPU and Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-free-h-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading free -h correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-memory-runs-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When memory runs out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-disk-the-three-ways-it-fills-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Disk: The Three Ways It Fills Up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Disk: The Three Ways It Fills Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cause-1-out-of-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 1 — Out of bytes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-2-out-of-inodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 2 — Out of inodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-3-deleted-but-still-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 3 — Deleted but still open
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-network-ports-and-exposure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Network, Ports, and Exposure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Network, Ports, and Exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-listening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is listening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic-and-reachability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traffic and reachability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-exposure-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The exposure chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-containers-and-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Containers and Orchestration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Containers and Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-eats-the-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker eats the disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-needs-requests-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes needs requests and limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-watching-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Watching Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Watching Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picking-by-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picking by situation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-monitoring-stack-will-try-to-fill-your-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your monitoring stack will try to fill your disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-operational-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Operational Baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Runbooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Runbooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-full" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk full
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-is-high-app-is-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load is high, app is slow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-not-reachable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port not reachable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Modelling & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Governance & Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/skills_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The AI Engineering Skills Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The LLM Landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/spec_driven_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/claude_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/codex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-stack-and-where-your-responsibility-starts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Stack, and Where Your Responsibility Starts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sizing-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sizing the Machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sizing the Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-the-workload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching the workload
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-use-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The USE Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-first-sixty-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The First Sixty Seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cpu-and-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. CPU and Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. CPU and Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-free-h-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading free -h correctly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-memory-runs-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When memory runs out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-disk-the-three-ways-it-fills-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Disk: The Three Ways It Fills Up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Disk: The Three Ways It Fills Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cause-1-out-of-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 1 — Out of bytes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-2-out-of-inodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 2 — Out of inodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-3-deleted-but-still-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause 3 — Deleted but still open
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-network-ports-and-exposure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Network, Ports, and Exposure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Network, Ports, and Exposure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-listening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is listening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic-and-reachability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traffic and reachability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-exposure-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The exposure chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-containers-and-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Containers and Orchestration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Containers and Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-eats-the-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker eats the disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-needs-requests-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes needs requests and limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-watching-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Watching Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Watching Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picking-by-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picking by situation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-monitoring-stack-will-try-to-fill-your-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your monitoring stack will try to fill your disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-operational-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Operational Baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Runbooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Runbooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-full" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk full
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-is-high-app-is-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load is high, app is slow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-not-reachable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port not reachable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="running-a-server">Running a Server<a class="headerlink" href="#running-a-server" title="Permanent link">&para;</a></h1>
+<p>Choosing a machine, then keeping it healthy. This page covers the layers you are responsible for, how to size CPU / memory / disk / network, the diagnostic commands worth memorising, and runbooks for the failures that actually happen.</p>
+<p>It assumes a Linux VPS or bare-metal box. For setting up a <em>development</em> machine see <a href="../machine_setup/">Machine Setup</a>; for the commands themselves as a flat lookup see <a href="../linux_commands/">Linux Commands</a>.</p>
+<hr />
+<h2 id="1-the-stack-and-where-your-responsibility-starts">1. The Stack, and Where Your Responsibility Starts<a class="headerlink" href="#1-the-stack-and-where-your-responsibility-starts" title="Permanent link">&para;</a></h2>
+<p>Every server is the same pile of layers. What changes between hosting models is <strong>where the line falls between "someone else's problem" and yours</strong>.</p>
+<pre class="mermaid"><code>flowchart TB
+    APP[Your application]
+    RT[Container runtime / systemd units]
+    OS[Distro userland: packages, libs, config]
+    KRN[Kernel, drivers, filesystem]
+    VIRT[Hypervisor / virtualisation]
+    FW[Firmware: BIOS / UEFI]
+    HW[Hardware: CPU, RAM, disk, NIC]
+    APP --&gt; RT
+    RT --&gt; OS
+    OS --&gt; KRN
+    KRN --&gt; VIRT
+    VIRT --&gt; FW
+    FW --&gt; HW</code></pre>
+<p>Who owns each layer:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th style="text-align: center;">Bare metal</th>
+<th style="text-align: center;">VPS / cloud VM</th>
+<th style="text-align: center;">Managed container (ECS, Cloud Run)</th>
+<th style="text-align: center;">Serverless</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+</tr>
+<tr>
+<td>Runtime / container</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">provider</td>
+</tr>
+<tr>
+<td>Distro userland</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">you (image)</td>
+<td style="text-align: center;">provider</td>
+</tr>
+<tr>
+<td>Kernel &amp; drivers</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+</tr>
+<tr>
+<td>Hypervisor</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+</tr>
+<tr>
+<td>Firmware / BIOS</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td style="text-align: center;">you</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+<td style="text-align: center;">provider</td>
+</tr>
+</tbody>
+</table>
+<p>Two things follow from this table:</p>
+<ul>
+<li><strong>Most VPS problems are yours.</strong> You don't own the kernel, but you own everything that fills the disk, leaks the memory, and opens the port. "It's the host's fault" is almost never true.</li>
+<li><strong>Moving up the table trades control for less surface area.</strong> Bare metal is the only place you tune BIOS settings or pick a filesystem at install time — and the only place a failed disk is your job to replace.</li>
+</ul>
+<p><strong>Rule of thumb:</strong> pick the highest layer that still lets you do what you need. Own the kernel only when you have a reason to.</p>
+<hr />
+<h2 id="2-sizing-the-machine">2. Sizing the Machine<a class="headerlink" href="#2-sizing-the-machine" title="Permanent link">&para;</a></h2>
+<p>Sizing from a guess is how you end up paying for idle cores while the disk fills. Measure first — run the workload somewhere cheap, watch the four resources under realistic load, then size with headroom.</p>
+<h3 id="cpu">CPU<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>What to check</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>vCPU vs dedicated core</strong></td>
+<td>A "vCPU" is usually a hyperthread on a shared physical core. Burstable tiers (AWS <code>t</code>-family, similar elsewhere) throttle hard once credits run out.</td>
+</tr>
+<tr>
+<td><strong>Steal time</strong> (<code>st</code> in <code>top</code>)</td>
+<td>Time your VM was ready to run but the hypervisor gave the core to someone else. Persistently above a few percent means a noisy neighbour — move.</td>
+</tr>
+<tr>
+<td><strong>Single-core speed vs core count</strong></td>
+<td>Compilers, most web request handling, and anything single-threaded want clock speed. Batch and parallel workloads want cores.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h3>
+<p>Memory is the resource that kills processes rather than slowing them. When the kernel can't satisfy an allocation, the <strong>OOM killer</strong> picks a victim and terminates it — usually your largest process, which is usually the thing you cared about.</p>
+<p>Size for peak, not average, and leave headroom for page cache. Swap buys you a slow death instead of a fast one: useful as a safety margin, not as capacity.</p>
+<h3 id="disk">Disk<a class="headerlink" href="#disk" title="Permanent link">&para;</a></h3>
+<p>Three separate questions, and people usually only ask the first:</p>
+<ul>
+<li><strong>Capacity</strong> — how many bytes.</li>
+<li><strong>Type and IOPS</strong> — NVMe ≫ SSD ≫ network-attached ≫ spinning rust. Databases care enormously; static file servers barely at all.</li>
+<li><strong>Inode count</strong> — how many <em>files</em>, which is fixed at format time on ext4. See §6.</li>
+</ul>
+<h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Bandwidth</strong> is rarely the constraint. <strong>Egress cost</strong> frequently is — many providers give generous ingress and bill hard on the way out.</li>
+<li><strong>Latency to your users</strong> beats raw throughput for interactive apps. Pick the region, then the machine.</li>
+</ul>
+<h3 id="gpu">GPU<a class="headerlink" href="#gpu" title="Permanent link">&para;</a></h3>
+<p>For AI workloads, <strong>VRAM is the binding constraint</strong>, not FLOPS. A model that doesn't fit in VRAM doesn't run at any speed. Size VRAM to the model plus KV cache plus batch, then worry about throughput.</p>
+<h3 id="matching-the-workload">Matching the workload<a class="headerlink" href="#matching-the-workload" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Workload</th>
+<th>Prioritise</th>
+<th>Watch out for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static site / reverse proxy</td>
+<td>Network, a little CPU</td>
+<td>Egress billing</td>
+</tr>
+<tr>
+<td>API / web app</td>
+<td>CPU, memory</td>
+<td>Connection limits, memory leaks</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>Disk IOPS, memory</td>
+<td>Slow network storage, fsync latency</td>
+</tr>
+<tr>
+<td>Batch / ETL</td>
+<td>Cores, disk throughput</td>
+<td>Filling the disk mid-job</td>
+</tr>
+<tr>
+<td>CI runner</td>
+<td>Cores, disk <strong>inodes</strong></td>
+<td><code>node_modules</code>, container layers</td>
+</tr>
+<tr>
+<td>LLM inference</td>
+<td>GPU VRAM</td>
+<td>Model + context won't fit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> size memory and disk for peak, CPU for p95, and always leave 30% disk headroom — a full disk takes the whole machine down, while a busy CPU only makes it slow.</p>
+<hr />
+<h2 id="3-the-use-method">3. The USE Method<a class="headerlink" href="#3-the-use-method" title="Permanent link">&para;</a></h2>
+<p>Rather than memorising symptoms, use a checklist. Brendan Gregg's <strong>USE method</strong> says: for every resource, check three things.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>U</strong>tilisation</td>
+<td>What percent of the time is it busy?</td>
+<td>CPU at 90%</td>
+</tr>
+<tr>
+<td><strong>S</strong>aturation</td>
+<td>How much work is queued and waiting?</td>
+<td>Load average above core count</td>
+</tr>
+<tr>
+<td><strong>E</strong>rrors</td>
+<td>Are operations failing outright?</td>
+<td>Disk I/O errors, dropped packets</td>
+</tr>
+</tbody>
+</table>
+<p>The trap it saves you from: <strong>utilisation alone lies</strong>. A disk at 100% utilisation with a queue depth of 1 is fine. A CPU at 60% with a run queue of 40 is on fire. Always look at saturation next to utilisation.</p>
+<p>Apply it across the four resources — CPU, memory, disk, network — and you have covered nearly everything a single box can do wrong.</p>
+<hr />
+<h2 id="4-the-first-sixty-seconds">4. The First Sixty Seconds<a class="headerlink" href="#4-the-first-sixty-seconds" title="Permanent link">&para;</a></h2>
+<p>When you SSH into a box that "is slow", run these in order before forming a theory:</p>
+<div class="highlight"><pre><span></span><code>uptime<span class="w">                  </span><span class="c1"># load average vs core count (nproc)</span>
+dmesg<span class="w"> </span>-T<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30<span class="w">     </span><span class="c1"># OOM kills, disk errors, link flaps</span>
+free<span class="w"> </span>-h<span class="w">                 </span><span class="c1"># look at &quot;available&quot;, not &quot;free&quot;</span>
+df<span class="w"> </span>-h<span class="w">                   </span><span class="c1"># bytes</span>
+df<span class="w"> </span>-i<span class="w">                   </span><span class="c1"># inodes</span>
+vmstat<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">              </span><span class="c1"># r (run queue), si/so (swapping), wa (I/O wait)</span>
+iostat<span class="w"> </span>-xz<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w">          </span><span class="c1"># per-disk utilisation and await</span>
+ss<span class="w"> </span>-tulpn<span class="w">               </span><span class="c1"># what is listening</span>
+top<span class="w"> </span>-o<span class="w"> </span>%CPU<span class="w">             </span><span class="c1"># who is burning it</span>
+</code></pre></div>
+<p>Reading the load average requires the core count: <code>uptime</code> showing <code>4.00</code> is <strong>fully loaded on 4 cores</strong> and <strong>badly oversubscribed on 1</strong>. Always pair it with <code>nproc</code>.</p>
+<p><strong>Rule of thumb:</strong> the answer is in <code>dmesg</code>, <code>df -i</code>, or <code>free -h</code> far more often than in the application logs.</p>
+<hr />
+<h2 id="5-cpu-and-memory">5. CPU and Memory<a class="headerlink" href="#5-cpu-and-memory" title="Permanent link">&para;</a></h2>
+<h3 id="reading-free-h-correctly">Reading <code>free -h</code> correctly<a class="headerlink" href="#reading-free-h-correctly" title="Permanent link">&para;</a></h3>
+<p>The single most misread number on Linux:</p>
+<div class="highlight"><pre><span></span><code>              total   used   free   shared  buff/cache   available
+Mem:           15Gi   6Gi    300Mi   1Gi      9Gi         8Gi
+</code></pre></div>
+<p><code>free</code> being near zero is <strong>normal and good</strong> — Linux uses otherwise-idle RAM for page cache and hands it back on demand. The number that matters is <strong><code>available</code></strong>: how much a new process could actually get. Alarm on <code>available</code>, never on <code>free</code>.</p>
+<h3 id="when-memory-runs-out">When memory runs out<a class="headerlink" href="#when-memory-runs-out" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dmesg<span class="w"> </span>-T<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;killed process|out of memory&#39;</span><span class="w">    </span><span class="c1"># did the OOM killer fire?</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10<span class="w">                          </span><span class="c1"># who is biggest now</span>
+systemd-cgtop<span class="w"> </span>-m<span class="w">                                        </span><span class="c1"># memory by cgroup/service</span>
+</code></pre></div>
+<p>If the OOM killer fired, the log names the victim and its RSS. That is your leak, or your undersized box.</p>
+<h3 id="cpu-saturation">CPU saturation<a class="headerlink" href="#cpu-saturation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>uptime<span class="p">;</span><span class="w"> </span>nproc<span class="w">                     </span><span class="c1"># load vs cores</span>
+top<span class="w"> </span>-o<span class="w"> </span>%CPU<span class="w">                       </span><span class="c1"># per-process</span>
+pidstat<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">                       </span><span class="c1"># per-process over time</span>
+vmstat<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">                        </span><span class="c1"># r = run queue, st = steal time</span>
+</code></pre></div>
+<p>High <code>wa</code> (I/O wait) means the CPU is idle <em>waiting for disk</em> — the fix is in §6, not here. High <code>st</code> means the hypervisor is starving you: that's a hosting problem, not a code problem.</p>
+<hr />
+<h2 id="6-disk-the-three-ways-it-fills-up">6. Disk: The Three Ways It Fills Up<a class="headerlink" href="#6-disk-the-three-ways-it-fills-up" title="Permanent link">&para;</a></h2>
+<p>This is the section worth reading twice. <code>No space left on device</code> has <strong>three distinct causes</strong>, and only one of them is what people assume.</p>
+<pre class="mermaid"><code>flowchart TD
+    S[Writes fail: No space left on device] --&gt; A{df -h shows 100%?}
+    A --&gt;|No| B{df -i shows IUse 100%?}
+    B --&gt;|Yes| C[Out of inodes: too many small files]
+    B --&gt;|No| D[Check quota, read-only remount, or a different mount point]
+    A --&gt;|Yes| E{Does du total agree with df used?}
+    E --&gt;|Yes| F[Genuinely full: find and delete large files]
+    E --&gt;|No| G[Deleted but still-open files: restart the holder]</code></pre>
+<h3 id="cause-1-out-of-bytes">Cause 1 — Out of bytes<a class="headerlink" href="#cause-1-out-of-bytes" title="Permanent link">&para;</a></h3>
+<p>The ordinary case. <code>df -h</code> says 100%, and <code>du</code> agrees.</p>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w">                                        </span><span class="c1"># which filesystem</span>
+du<span class="w"> </span>-xh<span class="w"> </span>/<span class="w"> </span>--max-depth<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+ncdu<span class="w"> </span>-x<span class="w"> </span>/<span class="w">                                    </span><span class="c1"># interactive, if installed</span>
+journalctl<span class="w"> </span>--disk-usage<span class="w">                      </span><span class="c1"># systemd logs are a common culprit</span>
+docker<span class="w"> </span>system<span class="w"> </span>df<span class="w">                             </span><span class="c1"># so are container layers</span>
+</code></pre></div>
+<p>The <code>-x</code> matters: it keeps <code>du</code> on one filesystem instead of wandering into <code>/proc</code> and network mounts.</p>
+<h3 id="cause-2-out-of-inodes">Cause 2 — Out of inodes<a class="headerlink" href="#cause-2-out-of-inodes" title="Permanent link">&para;</a></h3>
+<p>An <strong>inode</strong> is the metadata record for one file: its permissions, timestamps, size, and pointers to the data blocks. The filename lives in the directory; everything else about the file lives in the inode.</p>
+<p>On <strong>ext4 the number of inodes is fixed when the filesystem is created</strong> and cannot be grown afterwards. <code>mke2fs</code> defaults to one inode per 16 KB of space. That is the whole trap: <strong>if your average file is smaller than 16 KB, you run out of inodes before you run out of bytes.</strong></p>
+<p>Concretely, on a 457 GB ext4 root filesystem:</p>
+<div class="highlight"><pre><span></span><code>$ df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p4  457G   55G  379G  13% /
+
+$ df -i /
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+/dev/nvme0n1p4 30466048 1070206 29395842    4% /
+</code></pre></div>
+<p>30.5 million inodes for 457 GB — one per ~16 KB, exactly the default. Thirteen percent of the space is used but only four percent of the inodes, so this box is healthy. Had it been filled with small files instead, <code>IUse%</code> would have hit 100% while <code>Avail</code> still read hundreds of gigabytes, and every write would fail with <code>ENOSPC</code> — a full disk that isn't full.</p>
+<p>Finding the offender:</p>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-i<span class="w">                                        </span><span class="c1"># confirm which filesystem</span>
+<span class="c1"># count files per top-level directory, staying on one filesystem</span>
+<span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%8s  %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>find<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$d</span><span class="s2">&quot;</span><span class="w"> </span>-xdev<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$d</span><span class="s2">&quot;</span>
+<span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
+
+<span class="c1"># then drill down</span>
+find<span class="w"> </span>/var<span class="w"> </span>-xdev<span class="w"> </span>-printf<span class="w"> </span><span class="s1">&#39;%h\n&#39;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</code></pre></div>
+<p>The usual suspects, all of which are millions of tiny files:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Typical path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP / framework session files</td>
+<td><code>/var/lib/php/sessions</code></td>
+</tr>
+<tr>
+<td>Mail spool</td>
+<td><code>/var/spool/</code></td>
+</tr>
+<tr>
+<td>Unrotated or per-request logs</td>
+<td><code>/var/log/</code></td>
+</tr>
+<tr>
+<td>Container layers and build cache</td>
+<td><code>/var/lib/docker/</code></td>
+</tr>
+<tr>
+<td>Package manager caches</td>
+<td><code>/var/cache/</code></td>
+</tr>
+<tr>
+<td>JavaScript dependencies</td>
+<td><code>node_modules/</code> anywhere</td>
+</tr>
+</tbody>
+</table>
+<p>Fixes, in order of preference: <strong>delete the files</strong> (usually a missing cleanup cron or logrotate rule); <strong>move that tree to its own filesystem</strong>; or, as a last resort, <strong>recreate the filesystem</strong> with <code>mkfs.ext4 -i 4096</code> or <code>-N &lt;count&gt;</code> — which means backup and restore, since it cannot be done in place.</p>
+<p><strong>XFS does not have this problem</strong> — it allocates inodes dynamically. If you are formatting a box that will hold many small files and you have the choice, that is a real argument for XFS.</p>
+<h3 id="cause-3-deleted-but-still-open">Cause 3 — Deleted but still open<a class="headerlink" href="#cause-3-deleted-but-still-open" title="Permanent link">&para;</a></h3>
+<p>The one that wastes an afternoon. <code>df</code> says full, <code>du</code> says the files aren't there, and there is nothing left to delete.</p>
+<p>When a process holds a file open, deleting the directory entry does <strong>not</strong> free the blocks. The kernel keeps them until the last file descriptor closes. Classic trigger: someone <code>rm</code>s a 40 GB log that an application is still writing to.</p>
+<div class="highlight"><pre><span></span><code>lsof<span class="w"> </span>+L1<span class="w">                        </span><span class="c1"># open files with a link count of 0 = deleted but held</span>
+lsof<span class="w"> </span>-nP<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;(deleted)&#39;</span><span class="w">     </span><span class="c1"># same idea, more portable</span>
+</code></pre></div>
+<p>The fix is <strong>not</strong> <code>rm</code>. Restart or signal the holding process — for a log, <code>systemctl restart &lt;service&gt;</code> or a <code>logrotate</code> <code>copytruncate</code>. Space returns instantly.</p>
+<p><strong>Rule of thumb:</strong> when a disk is full, run <code>df -h</code>, then <code>df -i</code>, then <code>lsof +L1</code>. Three commands, three different diseases, thirty seconds.</p>
+<hr />
+<h2 id="7-network-ports-and-exposure">7. Network, Ports, and Exposure<a class="headerlink" href="#7-network-ports-and-exposure" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-listening">What is listening<a class="headerlink" href="#what-is-listening" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-tulpn<span class="w">              </span><span class="c1"># TCP/UDP listening sockets with owning process</span>
+ss<span class="w"> </span>-s<span class="w">                  </span><span class="c1"># summary of socket states</span>
+ip<span class="w"> </span>-brief<span class="w"> </span>address<span class="w">      </span><span class="c1"># interfaces and IPs</span>
+</code></pre></div>
+<p><code>ss</code> replaces <code>netstat</code>, which is deprecated and often not installed on modern distros.</p>
+<h3 id="traffic-and-reachability">Traffic and reachability<a class="headerlink" href="#traffic-and-reachability" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>host<span class="w">                    </span><span class="c1"># basic reachability</span>
+mtr<span class="w"> </span>host<span class="w">                          </span><span class="c1"># traceroute + loss, the better tool</span>
+curl<span class="w"> </span>-sSv<span class="w"> </span>https://host/path<span class="w">       </span><span class="c1"># what actually happens at L7</span>
+iftop<span class="w"> </span>/<span class="w"> </span>nload<span class="w"> </span>/<span class="w"> </span>bmon<span class="w">              </span><span class="c1"># live bandwidth by connection</span>
+dig<span class="w"> </span>+short<span class="w"> </span>name<span class="w">                    </span><span class="c1"># DNS resolution</span>
+</code></pre></div>
+<h3 id="the-exposure-chain">The exposure chain<a class="headerlink" href="#the-exposure-chain" title="Permanent link">&para;</a></h3>
+<p>Everything public should sit behind a firewall and a reverse proxy, with the application bound to localhost:</p>
+<pre class="mermaid"><code>flowchart LR
+    I[Internet] --&gt; F[Firewall: ufw or cloud security group]
+    F --&gt; N[nginx on 80/443]
+    N --&gt; A[App on 127.0.0.1:8000]
+    A --&gt; D[(Database on private network)]</code></pre>
+<div class="highlight"><pre><span></span><code>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>,443/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+nginx<span class="w"> </span>-t<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx<span class="w">    </span><span class="c1"># ALWAYS test config before reload</span>
+</code></pre></div>
+<p>Three rules that prevent most incidents:</p>
+<ul>
+<li><strong>Bind services to <code>127.0.0.1</code></strong>, not <code>0.0.0.0</code>, unless they are genuinely public. A database listening on a public interface will be found within hours.</li>
+<li><strong>Terminate TLS at the proxy.</strong> Use <a href="https://certbot.eff.org/">certbot</a> for certificates and generate the TLS config from <a href="https://ssl-config.mozilla.org/">Mozilla's SSL Configuration Generator</a> rather than copying a blog post.</li>
+<li><strong>Never <code>systemctl reload nginx</code> without <code>nginx -t</code> first.</strong> A syntax error takes the site down until you notice.</li>
+</ul>
+<p>See <a href="../../basics/networking/">Networking &amp; the Web</a> for the protocol layer beneath this, and <a href="../../basics/security/">Security</a> for the threat model.</p>
+<hr />
+<h2 id="8-containers-and-orchestration">8. Containers and Orchestration<a class="headerlink" href="#8-containers-and-orchestration" title="Permanent link">&para;</a></h2>
+<p>Containers move the same four resources around; they don't remove them. Two failure modes dominate — and for watching containers once they are running, see §9.</p>
+<h3 id="docker-eats-the-disk">Docker eats the disk<a class="headerlink" href="#docker-eats-the-disk" title="Permanent link">&para;</a></h3>
+<p>Images, stopped containers, volumes, build cache, and <strong>container logs</strong> all accumulate silently under <code>/var/lib/docker</code>.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>system<span class="w"> </span>df<span class="w">                  </span><span class="c1"># what is using space</span>
+docker<span class="w"> </span>system<span class="w"> </span>df<span class="w"> </span>-v<span class="w">               </span><span class="c1"># itemised</span>
+docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a<span class="w">            </span><span class="c1"># reclaim: images, containers, networks, build cache</span>
+docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span>-qf<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-r<span class="w"> </span>docker<span class="w"> </span>volume<span class="w"> </span>rm
+</code></pre></div>
+<p>Container logs grow without bound by default. Cap them in <code>/etc/docker/daemon.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;log-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json-file&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;log-opts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;max-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="kubernetes-needs-requests-and-limits">Kubernetes needs requests and limits<a class="headerlink" href="#kubernetes-needs-requests-and-limits" title="Permanent link">&para;</a></h3>
+<p>A pod with no <code>resources</code> block can consume the whole node and take its neighbours with it.</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>top<span class="w"> </span>nodes<span class="w">                 </span><span class="c1"># node-level utilisation</span>
+kubectl<span class="w"> </span>top<span class="w"> </span>pods<span class="w"> </span>-A<span class="w">               </span><span class="c1"># per-pod</span>
+kubectl<span class="w"> </span>describe<span class="w"> </span>node<span class="w"> </span>&lt;node&gt;<span class="w">      </span><span class="c1"># allocatable vs requested, eviction pressure</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>-A<span class="w"> </span>--sort-by<span class="o">=</span>.lastTimestamp
+</code></pre></div>
+<p>Set <strong>requests</strong> (what the scheduler reserves) and <strong>limits</strong> (the hard ceiling) on everything. A memory limit turns a node-wide outage into one restarted pod — which is the entire point.</p>
+<p><strong>Rule of thumb:</strong> the orchestrator only protects you from what you told it to reserve. Unbounded pods are unbounded blast radius.</p>
+<hr />
+<h2 id="9-watching-containers">9. Watching Containers<a class="headerlink" href="#9-watching-containers" title="Permanent link">&para;</a></h2>
+<p>Container tooling answers two different questions, and mixing them up is why people install a dashboard and then discover they still have no history:</p>
+<ul>
+<li><strong>"What is running, and can I restart it?"</strong> → a <strong>management UI</strong>. Live state, logs, shell access. No memory of yesterday.</li>
+<li><strong>"How has it behaved over time, and will it wake me up?"</strong> → a <strong>metrics and logs pipeline</strong>. Time series, retention, alerting.</li>
+</ul>
+<p>You want one of each. Neither substitutes for the other.</p>
+<h3 id="the-pipeline">The pipeline<a class="headerlink" href="#the-pipeline" title="Permanent link">&para;</a></h3>
+<p>The standard open-source shape, and what each piece is for:</p>
+<pre class="mermaid"><code>flowchart LR
+    C[Containers] --&gt; CA[cAdvisor]
+    H[Host OS] --&gt; NE[node_exporter]
+    CA --&gt; P[(Prometheus)]
+    NE --&gt; P
+    C --&gt; AL[Grafana Alloy]
+    AL --&gt; LK[(Loki)]
+    P --&gt; G[Grafana]
+    LK --&gt; G
+    P --&gt; AM[Alertmanager]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cAdvisor</strong></td>
+<td>Reads per-container CPU, memory, disk, and network from the runtime; exposes them in Prometheus format.</td>
+</tr>
+<tr>
+<td><strong>node_exporter</strong></td>
+<td>The same for the host itself — the four resources from §5 and §6.</td>
+</tr>
+<tr>
+<td><strong>Prometheus</strong></td>
+<td>Scrapes those endpoints on an interval and stores the time series. The database, not the dashboard.</td>
+</tr>
+<tr>
+<td><strong>Grafana</strong></td>
+<td>Queries and draws. Reads from Prometheus, Loki, and most other things.</td>
+</tr>
+<tr>
+<td><strong>Loki</strong></td>
+<td>Log aggregation, indexed by label rather than full text — cheap to run next to Prometheus.</td>
+</tr>
+<tr>
+<td><strong>Grafana Alloy</strong></td>
+<td>The collector that ships logs (and metrics/traces) into Loki.</td>
+</tr>
+<tr>
+<td><strong>Alertmanager</strong></td>
+<td>Turns Prometheus alert rules into pages, emails, and Slack messages.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Promtail is end of life</p>
+<p>If you follow an older tutorial you will be told to ship logs to Loki with <strong>Promtail</strong>. Promtail reached <strong>end of life on 2 March 2026</strong>; all further development is in <strong>Grafana Alloy</strong>, and the Loki docs ship a tool that converts a Promtail config to an Alloy one in a single command. Start with Alloy. (<a href="https://grafana.com/docs/loki/latest/send-data/promtail/">Loki: Promtail agent</a>, <a href="https://grafana.com/docs/loki/latest/setup/migrate/migrate-to-alloy/">migrate to Alloy</a>)</p>
+</div>
+<h3 id="picking-by-situation">Picking by situation<a class="headerlink" href="#picking-by-situation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Reach for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One box, want answers in 5 minutes</strong></td>
+<td><a href="https://github.com/netdata/netdata">Netdata</a> — one install, per-second metrics, dashboards with no configuration</td>
+</tr>
+<tr>
+<td><strong>One box, want to manage containers by hand</strong></td>
+<td><a href="https://docs.portainer.io/">Portainer</a> CE, plus <a href="https://github.com/amir20/dozzle">Dozzle</a> for logs</td>
+</tr>
+<tr>
+<td><strong>Terminal only, over SSH</strong></td>
+<td><a href="https://github.com/jesseduffield/lazydocker">lazydocker</a></td>
+</tr>
+<tr>
+<td><strong>A handful of boxes, want history and alerts</strong></td>
+<td>Prometheus + Grafana + cAdvisor + node_exporter</td>
+</tr>
+<tr>
+<td><strong>Also want centralised logs</strong></td>
+<td>Add Loki + Alloy to the above</td>
+</tr>
+<tr>
+<td><strong>"Is my site up?" from outside</strong></td>
+<td><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> — run it somewhere <em>else</em></td>
+</tr>
+<tr>
+<td><strong>Kubernetes</strong></td>
+<td>kube-prometheus-stack; <code>kubectl top</code> for a quick look</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tool-status">Tool status<a class="headerlink" href="#tool-status" title="Permanent link">&para;</a></h3>
+<p>Ecosystem churn is real, and stale tutorials recommend dead tools. Snapshot <strong>as of August 2026</strong> — re-check any of these with <code>curl -s https://github.com/&lt;owner&gt;/&lt;repo&gt;/releases.atom | grep -m1 updated</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it is</th>
+<th style="text-align: center;">Latest release</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://grafana.com/docs/alloy/latest/">Grafana Alloy</a></td>
+<td>Telemetry collector (OpenTelemetry distribution)</td>
+<td style="text-align: center;">2026-08</td>
+</tr>
+<tr>
+<td><a href="https://github.com/portainer/portainer">Portainer</a></td>
+<td>Container management UI</td>
+<td style="text-align: center;">2026-08</td>
+</tr>
+<tr>
+<td><a href="https://github.com/netdata/netdata">Netdata</a></td>
+<td>Zero-config real-time monitoring</td>
+<td style="text-align: center;">2026-08</td>
+</tr>
+<tr>
+<td><a href="https://github.com/amir20/dozzle">Dozzle</a></td>
+<td>Live container log viewer in the browser</td>
+<td style="text-align: center;">2026-08</td>
+</tr>
+<tr>
+<td><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a></td>
+<td>Self-hosted uptime monitoring</td>
+<td style="text-align: center;">2026-08</td>
+</tr>
+<tr>
+<td><a href="https://github.com/google/cadvisor">cAdvisor</a></td>
+<td>Per-container metrics exporter</td>
+<td style="text-align: center;">2026-07</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jesseduffield/lazydocker">lazydocker</a></td>
+<td>Terminal UI for Docker</td>
+<td style="text-align: center;">2026-04</td>
+</tr>
+<tr>
+<td><a href="https://github.com/henrygd/beszel">Beszel</a></td>
+<td>Lightweight server monitoring hub</td>
+<td style="text-align: center;">2026-04</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bcicen/ctop">ctop</a></td>
+<td>Terminal container metrics</td>
+<td style="text-align: center;">⚠️ 2022-03</td>
+</tr>
+<tr>
+<td><a href="https://github.com/containrrr/watchtower">Watchtower</a></td>
+<td>Automatic container updates</td>
+<td style="text-align: center;">⚠️ 2023-11</td>
+</tr>
+</tbody>
+</table>
+<p>The two marked entries have had no release in years. <code>ctop</code> still works but <code>lazydocker</code> is the maintained equivalent. For Watchtower, the community has moved to the <a href="https://github.com/nicholas-fedor/watchtower"><code>nicholas-fedor/watchtower</code></a> fork, which is actively released — though see the warning about auto-updates below.</p>
+<p>Portainer's Community Edition is open source and enough for most self-hosting. Business Edition adds RBAC and richer auth, and is <a href="https://docs.portainer.io/sts/faqs/licensing.md">free for up to three nodes</a>.</p>
+<h3 id="your-monitoring-stack-will-try-to-fill-your-disk">Your monitoring stack will try to fill your disk<a class="headerlink" href="#your-monitoring-stack-will-try-to-fill-your-disk" title="Permanent link">&para;</a></h3>
+<p>This is the part tutorials skip, and it loops straight back to §6. <strong>A Prometheus TSDB and a Loki chunk store are exactly the "millions of small files" pattern that exhausts inodes</strong> — as is an uncapped <code>json-file</code> log driver. The stack you installed to warn you about disk usage is a leading cause of it.</p>
+<p>Set retention deliberately, on day one:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Prometheus: cap by time and/or by size</span>
+--storage.tsdb.retention.time<span class="o">=</span>15d
+--storage.tsdb.retention.size<span class="o">=</span>20GB
+
+<span class="c1"># Loki: set retention_period in limits_config, and enable the compactor</span>
+<span class="c1">#   limits_config: { retention_period: 720h }</span>
+<span class="c1">#   compactor:     { retention_enabled: true }</span>
+
+<span class="c1"># Check what it is actually costing you</span>
+docker<span class="w"> </span>system<span class="w"> </span>df<span class="w"> </span>-v
+df<span class="w"> </span>-i<span class="w">                       </span><span class="c1"># inodes, not just bytes</span>
+</code></pre></div>
+<h3 id="pitfalls">Pitfalls<a class="headerlink" href="#pitfalls" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mounting the Docker socket is granting root.</strong> Portainer, Dozzle, Watchtower, and lazydocker all want <code>/var/run/docker.sock</code>. Anything that can talk to that socket can start a privileged container and own the host. Mount it read-only where the tool supports it, never expose such a container to the internet, and prefer a socket proxy that whitelists API endpoints.</li>
+<li><strong>Do not publish dashboards.</strong> Grafana, Portainer, and Prometheus on a public port are an invitation — Prometheus in particular has no authentication at all by default. Bind to localhost and reach them over an SSH tunnel or a VPN, or put them behind the authenticated proxy from §7.</li>
+<li><strong>Automatic updates cut both ways.</strong> Watchtower-style auto-pulling means an upstream tag change can roll a breaking release into production at 3am unattended. Pin digests for anything that matters, and let it auto-update only what you can afford to lose.</li>
+<li><strong>Monitoring is not free.</strong> Per-second collection across many containers costs real CPU and disk. On a small VPS, sample less often rather than dropping monitoring entirely.</li>
+</ul>
+<p><strong>Rule of thumb:</strong> one management UI, one metrics pipeline, retention capped on both, and nothing on a public port.</p>
+<hr />
+<h2 id="10-operational-baseline">10. Operational Baseline<a class="headerlink" href="#10-operational-baseline" title="Permanent link">&para;</a></h2>
+<p>The unglamorous work that prevents most incidents:</p>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Concretely</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Monitor the four resources</strong></td>
+<td>Pick a stack from §9. Whatever you choose, alert on disk <strong>and inode</strong> percentage.</td>
+</tr>
+<tr>
+<td><strong>Rotate logs</strong></td>
+<td><code>logrotate</code> for files, <code>SystemMaxUse=</code> in <code>journald.conf</code>, <code>max-size</code> for Docker.</td>
+</tr>
+<tr>
+<td><strong>Cap what grows</strong></td>
+<td>Every cache, upload directory, and log needs an eviction policy on day one.</td>
+</tr>
+<tr>
+<td><strong>Patch</strong></td>
+<td><code>unattended-upgrades</code> for security updates; reboot on kernel updates.</td>
+</tr>
+<tr>
+<td><strong>Back up, and restore</strong></td>
+<td>A backup you have never restored is a hypothesis. Test it.</td>
+</tr>
+<tr>
+<td><strong>Harden SSH</strong></td>
+<td>Keys only, no root login, no password auth.</td>
+</tr>
+<tr>
+<td><strong>Alert before the cliff</strong></td>
+<td>80% disk, not 100%. You need time to react.</td>
+</tr>
+</tbody>
+</table>
+<p>Alert on <strong>inode usage</strong> as well as byte usage. Almost nobody does, and it is the same one-line change in every monitoring tool.</p>
+<hr />
+<h2 id="11-runbooks">11. Runbooks<a class="headerlink" href="#11-runbooks" title="Permanent link">&para;</a></h2>
+<h3 id="disk-full">Disk full<a class="headerlink" href="#disk-full" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>df -h</code> — which filesystem, and is it really at 100%?</li>
+<li><code>df -i</code> — inodes exhausted? If yes, jump to the small-file hunt in §6.</li>
+<li><code>du -xh / --max-depth=2 | sort -rh | head -20</code> — where are the bytes?</li>
+<li>If <code>du</code> disagrees with <code>df</code>: <code>lsof +L1</code>, then restart the holding process.</li>
+<li>Clear the safe wins: <code>journalctl --vacuum-size=200M</code>, <code>docker system prune -a</code>, <code>apt clean</code>.</li>
+<li>Fix the cause — add rotation or eviction — then raise the alert threshold to 80%.</li>
+</ol>
+<h3 id="out-of-memory">Out of memory<a class="headerlink" href="#out-of-memory" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>dmesg -T | grep -i 'killed process'</code> — did the OOM killer fire, and on whom?</li>
+<li><code>ps aux --sort=-%mem | head</code> — current largest consumers.</li>
+<li>Watch RSS over time; a steady climb is a leak, a spike is a workload.</li>
+<li>Short term: add swap or resize. Long term: fix the leak or cap the service with a systemd <code>MemoryMax=</code>.</li>
+</ol>
+<h3 id="load-is-high-app-is-slow">Load is high, app is slow<a class="headerlink" href="#load-is-high-app-is-slow" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>uptime</code> against <code>nproc</code> — is the run queue actually oversubscribed?</li>
+<li><code>vmstat 1 5</code> — is it <code>r</code> (CPU), <code>wa</code> (disk), <code>si/so</code> (swapping), or <code>st</code> (steal)?</li>
+<li>Follow the winner: CPU → <code>top</code>/<code>pidstat</code>; disk → <code>iostat -xz</code>; swap → §5; steal → change host.</li>
+<li>Only then read application logs.</li>
+</ol>
+<h3 id="port-not-reachable">Port not reachable<a class="headerlink" href="#port-not-reachable" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>ss -tulpn</code> on the box — is anything listening, and on which interface?</li>
+<li>Bound to <code>127.0.0.1</code> when it should be <code>0.0.0.0</code>? That's the answer more often than not.</li>
+<li><code>ufw status</code> and the cloud provider's security group — two firewalls, both must allow it.</li>
+<li>From outside: <code>curl -sSv</code> / <code>mtr</code> to separate DNS, routing, and application failures.</li>
+</ol>
+<hr />
+<h2 id="command-reference">Command Reference<a class="headerlink" href="#command-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Commands</th>
+<th>What you are looking for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Overview</strong></td>
+<td><code>uptime</code>, <code>htop</code>, <code>glances</code>, <code>dstat</code></td>
+<td>Load vs <code>nproc</code>; anything obviously pegged</td>
+</tr>
+<tr>
+<td><strong>CPU</strong></td>
+<td><code>top -o %CPU</code>, <code>pidstat 1</code>, <code>vmstat 1</code>, <code>mpstat -P ALL</code></td>
+<td>Run queue <code>r</code>, steal <code>st</code>, I/O wait <code>wa</code></td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td><code>free -h</code>, <code>ps aux --sort=-%mem</code>, <code>smem</code>, <code>systemd-cgtop</code></td>
+<td><code>available</code> (not <code>free</code>); OOM kills in <code>dmesg</code></td>
+</tr>
+<tr>
+<td><strong>Disk space</strong></td>
+<td><code>df -h</code>, <code>df -i</code>, <code>du -xh</code>, <code>ncdu</code>, <code>lsof +L1</code></td>
+<td>Bytes, <strong>inodes</strong>, deleted-but-open files</td>
+</tr>
+<tr>
+<td><strong>Disk I/O</strong></td>
+<td><code>iostat -xz 1</code>, <code>iotop</code>, <code>biotop</code></td>
+<td><code>%util</code> with <code>await</code>; queue depth</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td><code>ss -tulpn</code>, <code>mtr</code>, <code>iftop</code>, <code>nload</code>, <code>dig</code>, <code>tcpdump</code></td>
+<td>Listeners, loss, per-connection bandwidth</td>
+</tr>
+<tr>
+<td><strong>Processes</strong></td>
+<td><code>ps auxf</code>, <code>pstree</code>, <code>lsof -p</code>, <code>strace -p</code></td>
+<td>Parentage, open files, syscall stalls</td>
+</tr>
+<tr>
+<td><strong>Logs</strong></td>
+<td><code>journalctl -u X -f</code>, <code>journalctl --disk-usage</code>, <code>dmesg -T</code></td>
+<td>Service errors, OOM, disk and link errors</td>
+</tr>
+<tr>
+<td><strong>Containers</strong></td>
+<td><code>docker system df -v</code>, <code>docker stats</code>, <code>ctr</code>/<code>nerdctl</code>, <code>kubectl top</code></td>
+<td>Layer/volume growth, per-container limits</td>
+</tr>
+<tr>
+<td><strong>Container UIs</strong></td>
+<td><code>lazydocker</code>, Portainer, Dozzle, Netdata</td>
+<td>Live state and logs; see §9 for the metrics pipeline</td>
+</tr>
+</tbody>
+</table>
+<p><code>htop</code> and <code>ncdu</code> are worth installing on every box you will visit twice.</p>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.brendangregg.com/usemethod.html">The USE Method</a> — Brendan Gregg. The checklist §3 is built on.</li>
+<li><a href="https://www.brendangregg.com/linuxperf.html">Linux Performance</a> — Gregg's index of tools, tracing, and the 60-second checklist. The canonical starting point.</li>
+<li><a href="https://sre.google/sre-book/monitoring-distributed-systems/">Monitoring Distributed Systems</a> — Google SRE Book, on the Four Golden Signals and what deserves an alert.</li>
+<li><a href="https://man7.org/linux/man-pages/">Linux man-pages</a> — authoritative reference; see <a href="https://man7.org/linux/man-pages/man5/proc.5.html"><code>proc(5)</code></a> for what the tools above are actually reading.</li>
+<li><a href="https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html">ext4 documentation</a> and <a href="https://docs.kernel.org/filesystems/xfs/index.html">XFS documentation</a> — the inode behaviour in §6.</li>
+<li><a href="https://jvns.ca/">Julia Evans</a> — the clearest explanations anywhere of <code>strace</code>, networking, and how Linux actually works.</li>
+<li><a href="https://nginx.org/en/docs/">nginx documentation</a> · <a href="https://ssl-config.mozilla.org/">Mozilla SSL Config Generator</a> · <a href="https://certbot.eff.org/">certbot</a></li>
+<li><a href="https://docs.docker.com/engine/manage-resources/pruning/">Docker: prune unused objects</a> · <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">Kubernetes: resource management</a></li>
+<li>Container observability (§9): <a href="https://prometheus.io/docs/introduction/overview/">Prometheus</a> · <a href="https://grafana.com/oss/grafana/">Grafana</a> · <a href="https://grafana.com/docs/alloy/latest/">Grafana Alloy</a> · <a href="https://grafana.com/oss/loki/">Loki</a> · <a href="https://github.com/google/cadvisor">cAdvisor</a> · <a href="https://github.com/prometheus/node_exporter">node_exporter</a></li>
+<li>Container management (§9): <a href="https://docs.portainer.io/">Portainer docs</a> · <a href="https://github.com/netdata/netdata">Netdata</a> · <a href="https://github.com/amir20/dozzle">Dozzle</a> · <a href="https://github.com/jesseduffield/lazydocker">lazydocker</a> · <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> · <a href="https://github.com/henrygd/beszel">Beszel</a></li>
+<li><a href="https://wiki.archlinux.org/title/Systemd">Arch Wiki: systemd</a> — distro-agnostic and consistently the best-written Linux documentation on the web.</li>
+<li><a href="https://ubuntu.com/server/docs">Ubuntu Server documentation</a> · <a href="https://www.digitalocean.com/community/tutorials">DigitalOcean community tutorials</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

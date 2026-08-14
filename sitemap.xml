@@ -2,158 +2,210 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://locchh.github.io/sw-handbook/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/about/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/basics/concepts/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/ai/basics/landscape/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/basics/posts/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/ai/basics/skills_map/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/ai/tool_tip/codex/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/ai/tool_tip/spec_driven_development/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/ai/tool_tip/tools/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/analytics/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/big_data/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/data_engineering/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/data_governance/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/data_modeling/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/data_quality/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/data_security/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/databases/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/introduction_to_data/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/posts/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/data/basics/visualization/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/advanced/books/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/abbreviations/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/algorithms/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/apis/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/architecture/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/becoming_senior/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/basics/code_review/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/concurrency/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/error_handling/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/fundamentals/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/basics/git/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/lifecycle/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/basics/methodologies/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/networking/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/posts/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/principles/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/security/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/senior_curriculum/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/study_guide/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/styles/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/basics/tech_stacks/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/tool_tip/cicd/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/tool_tip/linux_commands/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/tool_tip/machine_setup/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/tool_tip/tips/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://locchh.github.io/sw-handbook/software/tool_tip/tmux/</loc>
+         <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://locchh.github.io/sw-handbook/software/tool_tip/tools/</loc>
-         <lastmod>2026-08-02</lastmod>
+         <lastmod>2026-08-14</lastmod>
     </url>
 </urlset>

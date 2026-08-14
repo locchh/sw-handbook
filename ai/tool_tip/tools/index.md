@@ -8,6 +8,20 @@ Ready-to-use configurations for Anthropic's Claude Code. A comprehensive collect
 
 - [AITmpl Agents](https://www.aitmpl.com/agents)
 
+### Claude Code
+
+Anthropic's CLI coding agent — memory files, skills, subagents, hooks, plugins, MCP, and workflows. Covered in depth in [Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md).
+
+- [Official Documentation](https://code.claude.com/docs/en/overview)
+- [GitHub Repository](https://github.com/anthropics/claude-code)
+
+### Codex
+
+OpenAI's CLI coding agent — AGENTS.md, sandbox and approvals, rules, auto-review, and cloud delegation. Covered in depth in [Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md).
+
+- [Official Documentation](https://developers.openai.com/codex/) (full docs at [learn.chatgpt.com](https://learn.chatgpt.com/docs/codex/cli), with an [llms.txt](https://learn.chatgpt.com/llms.txt) index)
+- [GitHub Repository](https://github.com/openai/codex)
+
 ### DeepWiki
 
 AI-powered wiki and knowledge management platform

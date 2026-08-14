@@ -13,10 +13,13 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 - [APIs](https://locchh.github.io/sw-handbook/software/basics/apis/index.md)
 - [Architecture](https://locchh.github.io/sw-handbook/software/basics/architecture/index.md)
 - [Becoming Senior](https://locchh.github.io/sw-handbook/software/basics/becoming_senior/index.md)
+- [Code Review](https://locchh.github.io/sw-handbook/software/basics/code_review/index.md)
 - [Concurrency](https://locchh.github.io/sw-handbook/software/basics/concurrency/index.md)
 - [Error Handling](https://locchh.github.io/sw-handbook/software/basics/error_handling/index.md)
 - [Fundamentals](https://locchh.github.io/sw-handbook/software/basics/fundamentals/index.md)
+- [Git: Merge vs Rebase](https://locchh.github.io/sw-handbook/software/basics/git/index.md)
 - [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/lifecycle/index.md)
+- [Philosophies & Methodologies](https://locchh.github.io/sw-handbook/software/basics/methodologies/index.md)
 - [Networking](https://locchh.github.io/sw-handbook/software/basics/networking/index.md)
 - [Posts](https://locchh.github.io/sw-handbook/software/basics/posts/index.md)
 - [Design Principles](https://locchh.github.io/sw-handbook/software/basics/principles/index.md)
@@ -26,7 +29,12 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 - [Styles](https://locchh.github.io/sw-handbook/software/basics/styles/index.md)
 - [Tech Stacks](https://locchh.github.io/sw-handbook/software/basics/tech_stacks/index.md)
 - [Architecture Books](https://locchh.github.io/sw-handbook/software/advanced/books/index.md)
+- [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md)
+- [Linux Commands](https://locchh.github.io/sw-handbook/software/tool_tip/linux_commands/index.md)
+- [Machine Setup](https://locchh.github.io/sw-handbook/software/tool_tip/machine_setup/index.md)
+- [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md)
 - [Tips](https://locchh.github.io/sw-handbook/software/tool_tip/tips/index.md)
+- [tmux Cheatsheet](https://locchh.github.io/sw-handbook/software/tool_tip/tmux/index.md)
 - [Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md)
 
 ## Data Science
@@ -48,7 +56,12 @@ A comprehensive collection of notes about Software Engineering, Data Science, an
 
 - [Overview](https://locchh.github.io/sw-handbook/ai/index.md)
 - [Concepts](https://locchh.github.io/sw-handbook/ai/basics/concepts/index.md)
+- [The LLM Landscape](https://locchh.github.io/sw-handbook/ai/basics/landscape/index.md)
 - [Posts](https://locchh.github.io/sw-handbook/ai/basics/posts/index.md)
+- [The AI Engineering Skills Map](https://locchh.github.io/sw-handbook/ai/basics/skills_map/index.md)
+- [Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md)
+- [Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md)
+- [Spec-Driven Development](https://locchh.github.io/sw-handbook/ai/tool_tip/spec_driven_development/index.md)
 - [Tools](https://locchh.github.io/sw-handbook/ai/tool_tip/tools/index.md)
 
 ## Reference

