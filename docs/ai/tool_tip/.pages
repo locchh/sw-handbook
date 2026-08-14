@@ -1,3 +1,5 @@
 nav:
   - Tools: tools.md
   - Spec-Driven Development: spec_driven_development.md
+  - Claude Code: claude_code.md
+  - Codex: codex.md
