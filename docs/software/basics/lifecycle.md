@@ -90,6 +90,8 @@ Every change merged by a second pair of eyes. Rules of thumb:
 
 Code review is the cheapest place to catch bugs and the best place to spread knowledge across the team.
 
+For the mechanics — how to read a `git diff` hunk by hunk, what to look for in a PR, and where AI review tools fit — see [Code Review](code_review.md).
+
 ## CI/CD
 
 - **Continuous Integration (CI)** — every commit is built and tested automatically. Broken builds are fixed immediately.
@@ -128,7 +130,7 @@ release/* branch → merge to main → tag → deploy to production
 
 ## Version Control
 
-Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme.
+Git is the de-facto standard for source control. A typical workflow combines three things: a branching model, a commit convention, and a versioning scheme. This section covers the *model*; for the commands that implement it — merge vs. rebase, conflicts, the daily branch loop — see [Git: Merge vs Rebase](git.md).
 
 ### Branching Models
 

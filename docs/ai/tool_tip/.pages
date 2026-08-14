@@ -1,2 +1,3 @@
 nav:
   - Tools: tools.md
+  - Spec-Driven Development: spec_driven_development.md

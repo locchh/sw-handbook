@@ -1,3 +1,6 @@
 nav:
   - Tools: tools.md
   - Tips: tips.md
+  - Machine Setup: machine_setup.md
+  - Linux Commands: linux_commands.md
+  - tmux Cheatsheet: tmux.md

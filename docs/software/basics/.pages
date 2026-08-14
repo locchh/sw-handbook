@@ -2,6 +2,7 @@ nav:
   - Fundamentals: fundamentals.md
   - Data Structures & Algorithms: algorithms.md
   - Design Principles: principles.md
+  - Philosophies & Methodologies: methodologies.md
   - Architecture: architecture.md
   - Concurrency: concurrency.md
   - Error Handling: error_handling.md
@@ -9,6 +10,8 @@ nav:
   - APIs: apis.md
   - Security: security.md
   - Lifecycle: lifecycle.md
+  - "Git: Merge vs Rebase": git.md
+  - Code Review: code_review.md
   - Tech Stacks: tech_stacks.md
   - Styles: styles.md
   - Becoming Senior: becoming_senior.md
