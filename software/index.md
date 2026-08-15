@@ -23,6 +23,6 @@ Welcome to the Software Engineering section of my handbook. This section covers 
 - **[Tips](https://locchh.github.io/sw-handbook/software/tool_tip/tips/index.md)** - Pair-coding with AI, testing habits, and custom commands.
 - **[Machine Setup](https://locchh.github.io/sw-handbook/software/tool_tip/machine_setup/index.md)** - Getting a fresh Linux box ready for development.
 - **[Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md)** - Sizing a VPS, the USE method, disk and inode exhaustion, and triage runbooks.
-- **[CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md)** - GitLab CI, GitHub Actions, Jenkins, and Vercel: config files, connection mechanisms, secrets, and runner resources.
+- **[CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md)** - GitLab CI, GitHub Actions, Azure Pipelines, Jenkins, and Vercel: config files, connection mechanisms, secrets, and runner resources.
 - **[Linux Commands](https://locchh.github.io/sw-handbook/software/tool_tip/linux_commands/index.md)** - Command reference: files, network, processes, Git, Docker, and Kubernetes.
 - **[tmux Cheatsheet](https://locchh.github.io/sw-handbook/software/tool_tip/tmux/index.md)** - Sessions, panes, and windows for resilient remote work.
