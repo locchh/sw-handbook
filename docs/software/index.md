@@ -23,6 +23,6 @@ Welcome to the Software Engineering section of my handbook. This section covers 
 - **[Tips](tool_tip/tips.md)** - Pair-coding with AI, testing habits, and custom commands.
 - **[Machine Setup](tool_tip/machine_setup.md)** - Getting a fresh Linux box ready for development.
 - **[Running a Server](tool_tip/server_operations.md)** - Sizing a VPS, the USE method, disk and inode exhaustion, and triage runbooks.
-- **[CI/CD Platforms](tool_tip/cicd.md)** - GitLab CI, GitHub Actions, Jenkins, and Vercel: config files, connection mechanisms, secrets, and runner resources.
+- **[CI/CD Platforms](tool_tip/cicd.md)** - GitLab CI, GitHub Actions, Azure Pipelines, Jenkins, and Vercel: config files, connection mechanisms, secrets, and runner resources.
 - **[Linux Commands](tool_tip/linux_commands.md)** - Command reference: files, network, processes, Git, Docker, and Kubernetes.
 - **[tmux Cheatsheet](tool_tip/tmux.md)** - Sessions, panes, and windows for resilient remote work.

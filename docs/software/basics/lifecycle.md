@@ -100,7 +100,7 @@ For the mechanics — how to read a `git diff` hunk by hunk, what to look for in
 
 A minimal CI pipeline: **lint → unit tests → integration tests → build artifact → deploy to staging → (manual gate) → deploy to prod**.
 
-For the mechanics on specific platforms — which file to add, how GitLab / GitHub / Jenkins / Vercel connect to your repo, where secrets live, and what CPU and memory a job gets — see [CI/CD Platforms](../tool_tip/cicd.md).
+For the mechanics on specific platforms — which file to add, how GitLab / GitHub / Azure Pipelines / Jenkins / Vercel connect to your repo, where secrets live, and what CPU and memory a job gets — see [CI/CD Platforms](../tool_tip/cicd.md).
 
 ## Development Workflow (Example)
 
