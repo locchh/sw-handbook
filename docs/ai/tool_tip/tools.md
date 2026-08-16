@@ -27,12 +27,16 @@ Up-to-date developer docs for AI agents to write better code
 
 ## Model Inference & Serving
 
+If you self-host inference, [Running a Server](../../software/tool_tip/server_operations.md) covers capacity planning, resource diagnosis, containers, monitoring, and operational runbooks.
+
 ### Hugging Face
 Open-source AI model hub and tools
 - [Hugging Face Documentation](https://huggingface.co/docs)
 - [GitHub Repository](https://github.com/huggingface)
 
 ## Model Training & Deployment
+
+For repository-driven build and deployment automation, see [CI/CD Platforms](../../software/tool_tip/cicd.md).
 
 ### MLflow
 Open-source platform for machine learning lifecycle

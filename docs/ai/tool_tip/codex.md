@@ -494,6 +494,8 @@ A goal doesn't widen access — the same sandbox and approval policy hold, and a
 
 Non-interactive mode is the backpressure delivery vehicle: run Codex from scripts and pipelines with pre-set permissions and machine-readable output.
 
+For the surrounding workflow syntax, runner model, secrets, and deployment mechanics, see [CI/CD Platforms](../../software/tool_tip/cicd.md).
+
 ```bash
 codex exec "summarize the repository structure and list the top 5 risky areas"
 ```

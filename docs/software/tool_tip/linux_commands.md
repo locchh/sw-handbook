@@ -296,7 +296,7 @@ kubectl config current-context
 kubectl config view --minify --output 'jsonpath={..namespace}'
 ```
 
-Production clusters should use reviewable manifests or deployment automation. Interactive `kubectl` changes are difficult to reproduce and audit.
+Production clusters should use reviewable manifests or deployment automation. Interactive `kubectl` changes are difficult to reproduce and audit. See [CI/CD Platforms §10](cicd.md#10-how-the-deploy-actually-happens) for push-based and pull-based deployment mechanics.
 
 ## Rule of Thumb
 

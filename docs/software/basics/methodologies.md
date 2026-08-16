@@ -51,6 +51,8 @@ For decades, developers wrote code and handed it to a separate operations team t
 
 **Ref:** [_The Phoenix Project_](https://itrevolution.com/product/the-phoenix-project/) — Gene Kim (2013); [_Accelerate_](https://itrevolution.com/product/accelerate/) — Nicole Forsgren (2018)
 
+**Practical detail:** [CI/CD Platforms](../tool_tip/cicd.md) · [Running a Server](../tool_tip/server_operations.md)
+
 ---
 
 ### 5. Unix Philosophy

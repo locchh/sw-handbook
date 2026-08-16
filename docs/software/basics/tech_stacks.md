@@ -67,3 +67,4 @@ Order of considerations, roughly in this priority:
 
 - The [Architecture](architecture.md) page covers the patterns these stacks implement.
 - The [Lifecycle](lifecycle.md) page covers how teams ship software built on any stack, including version control practices.
+- [CI/CD Platforms](../tool_tip/cicd.md) covers the concrete pipeline and deployment mechanics.
