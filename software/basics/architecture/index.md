@@ -225,6 +225,8 @@ All-in-One → Split DB → Extract Services → Full Microservices
 
 Start simple. Move to the next stage only when a real constraint (scale, team size, release coupling) forces the change — not because the next step sounds more modern.
 
+Once the topology is chosen, [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) covers how changes reach it, while [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) covers sizing, monitoring, and troubleshooting the machines underneath it.
+
 ______________________________________________________________________
 
 ## 5. System Design Building Blocks

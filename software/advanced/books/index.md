@@ -179,6 +179,8 @@ Pairs with [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/life
 | [Continuous Integration](https://www.goodreads.com/book/show/1311542) — Duvall, Matyas, Glover                | 2007 | Older and narrower; useful if CI is genuinely new to the team.                               |
 | [DevOps: A Software Architect's Perspective](https://www.goodreads.com/book/show/23363016) — Bass, Weber, Zhu | 2015 | The bridge: which architectural properties make continuous deployment possible at all.       |
 
+Pairs with [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) and [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md).
+
 ## General & Craft
 
 The largest category in the source, and where several of the best books hide.

@@ -3222,7 +3222,7 @@ kubectl<span class="w"> </span>port-forward<span class="w"> </span>service/app<s
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
 kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span>
 </code></pre></div>
-<p>Production clusters should use reviewable manifests or deployment automation. Interactive <code>kubectl</code> changes are difficult to reproduce and audit.</p>
+<p>Production clusters should use reviewable manifests or deployment automation. Interactive <code>kubectl</code> changes are difficult to reproduce and audit. See <a href="../cicd/#10-how-the-deploy-actually-happens">CI/CD Platforms §10</a> for push-based and pull-based deployment mechanics.</p>
 <h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
 <p>Before a command that changes state:</p>
 <ol>

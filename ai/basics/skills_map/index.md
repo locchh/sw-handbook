@@ -32,7 +32,7 @@ So the skill has two halves:
 
 The second half is the one people skip. The core practice is a **disciplined evals and error-analysis loop**: define what good looks like, measure it, look at the failures individually, and let what you find drive the next change. Without it you are guessing, and an AI app you can't evaluate is an AI app you can't safely change.
 
-**In this handbook:** [AI Concepts](https://locchh.github.io/sw-handbook/ai/basics/concepts/index.md) covers the building blocks; [The LLM Landscape](https://locchh.github.io/sw-handbook/ai/basics/landscape/index.md) covers the layers you assemble them from, including the observability and evaluation tools this loop depends on.
+**In this handbook:** [AI Concepts](https://locchh.github.io/sw-handbook/ai/basics/concepts/index.md) covers the building blocks; [The LLM Landscape](https://locchh.github.io/sw-handbook/ai/basics/landscape/index.md) covers the layers you assemble them from, including the observability and evaluation tools this loop depends on. For delivery, [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) covers pipeline mechanics, while [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) covers capacity and operations when you self-host.
 
 ## 2. Software Engineering Fundamentals
 
@@ -69,7 +69,7 @@ The expectation that you'll be handed a pixel-perfect design and asked only to i
 
 Ng frames this as an opportunity rather than a loss. AI lets you take on more ownership and agency than before — spotting a problem worth solving and executing on it responsibly. That requires knowing how to drive a project: when to build a quick MVP and put it in front of users, and when to slow down and build carefully instead.
 
-**In this handbook:** [Becoming Senior](https://locchh.github.io/sw-handbook/software/basics/becoming_senior/index.md) covers thinking in business capabilities rather than frameworks; [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/lifecycle/index.md) covers the delivery machinery around it.
+**In this handbook:** [Becoming Senior](https://locchh.github.io/sw-handbook/software/basics/becoming_senior/index.md) covers thinking in business capabilities rather than frameworks; [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/lifecycle/index.md) covers the delivery process; [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) covers the concrete automation machinery.
 
 ## The Skill Underneath
 

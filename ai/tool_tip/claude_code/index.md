@@ -1733,6 +1733,8 @@ Three GitHub-related commands:
 - **`/pr-comments`** — pull comments from a GitHub pull request.
 - **`/review`** — review a pull request. `/security-review` covers pending changes on the current branch.
 
+For the surrounding GitHub Actions workflow, runner, secrets, and deployment model, see [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md).
+
 ### IDE and Browser
 
 **IDE.** Install the Claude Code extension in your IDE, then run `/ide` from an external terminal to connect. The plugin shares the currently open file path, selected text, cursor position, and IDE diagnostics (lint errors, type errors). Once connected, Claude queries the IDE through MCP tools like `getDiagnostics`.

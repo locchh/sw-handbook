@@ -36,6 +36,8 @@ Up-to-date developer docs for AI agents to write better code
 
 ## Model Inference & Serving
 
+If you self-host inference, [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) covers capacity planning, resource diagnosis, containers, monitoring, and operational runbooks.
+
 ### Hugging Face
 
 Open-source AI model hub and tools
@@ -44,6 +46,8 @@ Open-source AI model hub and tools
 - [GitHub Repository](https://github.com/huggingface)
 
 ## Model Training & Deployment
+
+For repository-driven build and deployment automation, see [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md).
 
 ### MLflow
 

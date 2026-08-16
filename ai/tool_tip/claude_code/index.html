@@ -7066,6 +7066,7 @@ claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </s
 <li><strong><code>/pr-comments</code></strong> — pull comments from a GitHub pull request.</li>
 <li><strong><code>/review</code></strong> — review a pull request. <code>/security-review</code> covers pending changes on the current branch.</li>
 </ul>
+<p>For the surrounding GitHub Actions workflow, runner, secrets, and deployment model, see <a href="../../../software/tool_tip/cicd/">CI/CD Platforms</a>.</p>
 <h3 id="ide-and-browser">IDE and Browser<a class="headerlink" href="#ide-and-browser" title="Permanent link">&para;</a></h3>
 <p><strong>IDE.</strong> Install the Claude Code extension in your IDE, then run <code>/ide</code> from an external terminal to connect. The plugin shares the currently open file path, selected text, cursor position, and IDE diagnostics (lint errors, type errors). Once connected, Claude queries the IDE through MCP tools like <code>getDiagnostics</code>.</p>
 <p><code>/ide</code> is only needed when running Claude Code in an <strong>external</strong> terminal. In the IDE's built-in terminal, context is shared automatically.</p>

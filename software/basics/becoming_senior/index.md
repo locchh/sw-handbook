@@ -115,6 +115,8 @@ Escalation is not an exception — it is a feature with its own design.
 
 ## Deployment and Scale Are Part of the Design
 
+The implementation details live in [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) for delivery automation and [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) for capacity, monitoring, and incident triage.
+
 - **Progressive delivery** — feature flags, canary, blue-green. Rollback is a first-class requirement, not an apology.
 - **Capacity is planned**, not discovered during the traffic spike.
 - **Disaster recovery has numbers** — RPO (how much data you may lose) and RTO (how long you may be down) — agreed with the business, not assumed.

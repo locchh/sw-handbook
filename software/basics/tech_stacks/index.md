@@ -67,3 +67,4 @@ Order of considerations, roughly in this priority:
 
 - The [Architecture](https://locchh.github.io/sw-handbook/software/basics/architecture/index.md) page covers the patterns these stacks implement.
 - The [Lifecycle](https://locchh.github.io/sw-handbook/software/basics/lifecycle/index.md) page covers how teams ship software built on any stack, including version control practices.
+- [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) covers the concrete pipeline and deployment mechanics.
