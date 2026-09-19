@@ -19,7 +19,7 @@ Welcome to the Software Engineering section of my handbook. This section covers 
 
 ## Tools & Tips
 
-- **[Tools](tool_tip/tools.md)** - Package managers, linters, test runners, and diagramming tools.
+- **[Tools](tool_tip/tools.md)** - Tool selection, Python workflows, code checks, local services, and design tools.
 - **[Tips](tool_tip/tips.md)** - Pair-coding with AI, testing habits, and custom commands.
 - **[Machine Setup](tool_tip/machine_setup.md)** - Getting a fresh Linux box ready for development.
 - **[Running a Server](tool_tip/server_operations.md)** - Sizing a VPS, the USE method, disk and inode exhaustion, and triage runbooks.

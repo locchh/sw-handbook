@@ -19,7 +19,9 @@ This repository contains a web-based handbook with my notes and insights about S
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 3.13 (the version used to verify `requirements.lock`)
+- Git; Make is optional
+- Repository write access for deployment
 
 ### Installation
 
@@ -29,12 +31,24 @@ git clone https://github.com/locchh/sw-handbook.git
 cd sw-handbook
 
 # Create a virtual environment
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
+python -m pip install -r requirements.lock
 ```
+
+With [uv](https://docs.astral.sh/uv/), the equivalent setup is:
+
+```bash
+uv venv --python 3.13 .venv
+uv pip sync --python .venv/bin/python requirements.lock
+source .venv/bin/activate
+```
+
+`requirements.txt` lists direct dependencies; `requirements.lock` pins the resolved build environment. To refresh dependencies deliberately, run `uv pip compile --python-version 3.13 requirements.txt -o requirements.lock`, sync the environment, and verify a strict build before deploying.
+
+On Linux/macOS, `make setup`, `make serve`, `make build`, and `make deploy` provide the same workflow without activating the environment. `make setup` uses `python3`; override it with `make setup PYTHON=python3.13` if needed.
 
 ### Development
 
@@ -49,15 +63,21 @@ Visit `http://127.0.0.1:8000/` to see the handbook locally.
 
 ```bash
 # Build the static site
-mkdocs build
+mkdocs build --strict
 ```
 
 ### Deployment
 
 ```bash
 # Deploy to GitHub Pages
-mkdocs gh-deploy
+mkdocs gh-deploy --strict
 ```
+
+The generated site is published to the `gh-pages` branch at [locchh.github.io/sw-handbook](https://locchh.github.io/sw-handbook/). GitHub Pages must use **Deploy from a branch → gh-pages → / (root)**. The remote must be writable through your Git credentials.
+
+Build and review locally before deploying. `gh-deploy` publishes the current working tree, including uncommitted documentation edits; it does not commit or push source changes on `main`. Commit source changes separately when ready. See the [MkDocs deployment guide](https://www.mkdocs.org/user-guide/deploying-your-docs/).
+
+After publishing, check the repository's Pages build and open the changed pages on the live site. Generated `site/` files and the local `.venv/` stay out of Git. No `.env` file or application API keys are needed to build this handbook.
 
 ## License
 

@@ -10,7 +10,7 @@ Welcome to the AI section of my handbook. This is the newest and thinnest sectio
 
 ## Tools & Tips
 
-- **[AI Tools](tool_tip/tools.md)** - Development, inference, serving, and training tools.
+- **[AI Tools](tool_tip/tools.md)** - Coding assistants, local inference, serving, evaluation, and experiment tracking.
 - **[Spec-Driven Development](tool_tip/spec_driven_development.md)** - Making intent an explicit artifact before an agent writes code.
 - **[Claude Code](tool_tip/claude_code.md)** - The coding-agent skill in one tool: context, permissions, hooks, skills, subagents, teams, and loops.
 - **[Codex](tool_tip/codex.md)** - The same six habits in OpenAI's agent: AGENTS.md, sandbox and approvals, rules, auto-review, and cloud delegation.
