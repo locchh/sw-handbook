@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3872,12 +3872,12 @@
 </ol>
 <p>Untrusted projects skip <em>all</em> project-scoped layers — config, hooks, and rules — while user and system layers still load. On managed machines, admins can enforce constraints via <code>requirements.toml</code> (for example, disallowing <code>approval_policy = "never"</code>). Debug precedence questions with <code>/debug-config</code>, which prints layer order and policy sources.</p>
 <p>A starter <code>config.toml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gpt-5.6&quot;</span>
-<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
-<span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;on-request&quot;</span>
-<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;workspace-write&quot;</span>
-<span class="n">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pragmatic&quot;</span><span class="w">          </span><span class="c1"># or &quot;friendly&quot; or &quot;none&quot;</span>
-<span class="n">web_search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span><span class="w">              </span><span class="c1"># cached | indexed | live | disabled</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gpt-5.6"</span>
+<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"high"</span>
+<span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"on-request"</span>
+<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"workspace-write"</span>
+<span class="n">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"pragmatic"</span><span class="w">          </span><span class="c1"># or "friendly" or "none"</span>
+<span class="n">web_search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cached"</span><span class="w">              </span><span class="c1"># cached | indexed | live | disabled</span>
 
 <span class="k">[features]</span>
 <span class="n">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">                    </span><span class="c1"># experimental, off by default</span>
@@ -3953,7 +3953,7 @@
 <p>Empty files are skipped, and discovery stops adding files once the combined size hits <code>project_doc_max_bytes</code> — <strong>32 KiB by default</strong>. Raise the limit or split guidance across nested directories when you hit it.</p>
 <p>Two knobs worth knowing:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ~/.codex/config.toml</span>
-<span class="n">project_doc_fallback_filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;TEAM_GUIDE.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.agents.md&quot;</span><span class="p">]</span>
+<span class="n">project_doc_fallback_filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"TEAM_GUIDE.md"</span><span class="p">,</span><span class="w"> </span><span class="s2">".agents.md"</span><span class="p">]</span>
 <span class="n">project_doc_max_bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65536</span>
 </code></pre></div>
 <p>If your repo already has a <code>TEAM_GUIDE.md</code>, the fallback list makes Codex treat it as instructions without a rename.</p>
@@ -4117,24 +4117,24 @@
 <p>…and, when it's on, constrain it with the network proxy feature — allowlist-first domain rules where <code>deny</code> always beats <code>allow</code>, <code>*.example.com</code> matches subdomains, <code>**.example.com</code> matches apex plus subdomains, and local/private destinations are blocked by default as a DNS-rebinding defense:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[features.network_proxy]</span>
 <span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="n">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;api.openai.com&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"api.openai.com"</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"allow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"example.com"</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"deny"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>Web search is a separate, safer channel: <code>web_search = "cached"</code> (the default) serves results from an OpenAI-maintained index rather than live pages, which reduces prompt-injection exposure; <code>"live"</code> (or <code>--search</code>) fetches fresh pages; <code>"indexed"</code> gates external access through the index; <code>"disabled"</code> turns the tool off. Under <code>--yolo</code>, web search defaults to live.</p>
 <h3 id="permission-profiles-beta">Permission Profiles (Beta)<a class="headerlink" href="#permission-profiles-beta" title="Permanent link">&para;</a></h3>
 <p>The newer, unified alternative to <code>sandbox_mode</code> + <code>sandbox_workspace_write</code>: named least-privilege policies combining filesystem rules and network rules. Built-ins are <code>:read-only</code>, <code>:workspace</code>, and <code>:danger-full-access</code>; custom profiles live under <code>[permissions.&lt;name&gt;]</code> and are selected with <code>default_permissions</code>. <strong>The two systems don't compose</strong> — if <code>sandbox_mode</code> appears anywhere, Codex uses the older settings.</p>
-<div class="highlight"><pre><span></span><code><span class="n">default_permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;project-edit&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">default_permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"project-edit"</span>
 
 <span class="k">[permissions.project-edit]</span>
-<span class="n">extends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:workspace&quot;</span><span class="w">            </span><span class="c1"># inherit baseline protections</span>
+<span class="n">extends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">":workspace"</span><span class="w">            </span><span class="c1"># inherit baseline protections</span>
 
-<span class="k">[permissions.project-edit.filesystem.</span><span class="s2">&quot;:workspace_roots&quot;</span><span class="k">]</span>
-<span class="s2">&quot;**/*.env&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w">               </span><span class="c1"># workspace stays writable, env files unreadable</span>
+<span class="k">[permissions.project-edit.filesystem.</span><span class="s2">":workspace_roots"</span><span class="k">]</span>
+<span class="s2">"**/*.env"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span><span class="w">               </span><span class="c1"># workspace stays writable, env files unreadable</span>
 
 <span class="k">[permissions.project-edit.network]</span>
 <span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 
 <span class="k">[permissions.project-edit.network.domains]</span>
-<span class="s2">&quot;api.openai.com&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span>
+<span class="s2">"api.openai.com"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"allow"</span>
 </code></pre></div>
 <p>Filesystem entries take <code>read</code>, <code>write</code>, or <code>deny</code>; more specific paths override broader ones, and <code>deny &gt; write &gt; read</code> at equal specificity — so a profile can grant a writable workspace and still carve out <code>.env</code> files, or deny <code>~/Documents</code> while reopening <code>~/Documents/codex</code>. Special path tokens: <code>:root</code>, <code>:minimal</code> (paths common tools need), <code>:workspace_roots</code>, <code>:tmpdir</code>, <code>:slash_tmp</code>. Prefer <code>extends</code> over building from scratch so baseline protections carry forward. <a href="https://learn.chatgpt.com/docs/permissions">Docs</a></p>
 <h3 id="plan-mode">Plan Mode<a class="headerlink" href="#plan-mode" title="Permanent link">&para;</a></h3>
@@ -4175,16 +4175,16 @@
 <p>One sharp difference from Claude Code: <strong>only <code>type: "command"</code> handlers run today</strong> — <code>prompt</code> and <code>agent</code> hook types are parsed but skipped. Judgment-based gating goes through <a href="#auto-review">auto-review</a> instead.</p>
 <h4 id="config-shape">Config Shape<a class="headerlink" href="#config-shape" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bash"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/python3 \&quot;$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py\&quot;&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;statusMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Checking Bash command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py\""</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"statusMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checking Bash command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -4194,11 +4194,11 @@
 </code></pre></div>
 <p>Or inline TOML:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[[hooks.PreToolUse]]</span>
-<span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;^Bash$&quot;</span>
+<span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"^Bash$"</span>
 
 <span class="k">[[hooks.PreToolUse.hooks]]</span>
-<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;command&quot;</span>
-<span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/usr/bin/python3 &quot;$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py&quot;&#39;</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"command"</span>
+<span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'/usr/bin/python3 "$(git rev-parse --show-toplevel)/.codex/hooks/pre_tool_use_policy.py"'</span>
 <span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span>
 </code></pre></div>
 <ul>
@@ -4213,9 +4213,9 @@
 <h4 id="the-wire-contract">The Wire Contract<a class="headerlink" href="#the-wire-contract" title="Permanent link">&para;</a></h4>
 <p>Every command hook gets one JSON object on stdin — <code>session_id</code>, <code>transcript_path</code>, <code>cwd</code>, <code>hook_event_name</code>, <code>model</code>, plus event-specific fields like <code>tool_name</code>, <code>tool_input</code>, <code>tool_response</code>, <code>prompt</code>, or <code>last_assistant_message</code>. Exit 0 with no output means proceed. The interesting powers, per event:</p>
 <p><strong><code>PreToolUse</code></strong> — deny, annotate, or <em>rewrite</em> a call:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hookSpecificOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hookEventName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PreToolUse&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;permissionDecision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;permissionDecisionReason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Destructive command blocked by hook.&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"hookSpecificOutput"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"hookEventName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PreToolUse"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permissionDecision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deny"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permissionDecisionReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destructive command blocked by hook."</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>Return <code>permissionDecision: "allow"</code> with <code>updatedInput</code> to rewrite a Bash command or MCP arguments before they run. Exit code 2 with a reason on stderr also blocks.</p>
 <p><strong><code>PermissionRequest</code></strong> — decide an approval before the prompt reaches a human: return <code>decision: {"behavior": "allow"}</code> or <code>{"behavior": "deny", "message": "..."}</code>. Any deny wins across multiple hooks; no decision falls through to the normal flow.</p>
@@ -4223,7 +4223,7 @@
 <p><strong><code>UserPromptSubmit</code></strong> — plain stdout becomes developer context; <code>decision: "block"</code> rejects the prompt (this is where a secrets-scanner hook lives).</p>
 <p><strong><code>SessionStart</code></strong> — stdout or <code>additionalContext</code> seeds context; with <code>matcher: "compact"</code> it runs <em>after compaction, before the next model request</em>, which is the re-inject-standing-orders trick.</p>
 <p><strong><code>Stop</code> and <code>SubagentStop</code></strong> — the loop-closers. These expect JSON, and:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run one more pass over the failing tests.&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"decision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block"</span><span class="p">,</span><span class="w"> </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run one more pass over the failing tests."</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>…doesn't reject the turn — it <strong>continues</strong> it, with <code>reason</code> becoming a new continuation prompt. <code>stop_hook_active</code> in the input tells you whether the turn was already continued, so you can avoid infinite loops. This is exactly the mechanism behind Claude Code's Ralph-loop plugin, shipped as a documented contract: a Stop hook that checks completion criteria and blocks until they hold is the Ralph loop in <a href="../claude_code/#the-ralph-loop">claude_code.md → The Ralph Loop</a>, portably.</p>
 <p><code>PreCompact</code> / <code>PostCompact</code> can return <code>continue: false</code> to halt around compaction. Schemas are generated in the <a href="https://github.com/openai/codex/tree/main/codex-rs/hooks/schema/generated">Codex repo</a>.</p>
@@ -4231,15 +4231,15 @@
 <p><a href="https://learn.chatgpt.com/docs/agent-configuration/rules">Rules</a> (experimental) control which commands run <strong>outside the sandbox</strong> — enforcement, not guidance. They're Starlark (Python-like, side-effect-free) files under <code>rules/</code> next to any config layer:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ~/.codex/rules/default.rules</span>
 <span class="n">prefix_rule</span><span class="p">(</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gh&quot;</span><span class="p">,</span> <span class="s2">&quot;pr&quot;</span><span class="p">,</span> <span class="s2">&quot;view&quot;</span><span class="p">],</span>
-    <span class="n">decision</span> <span class="o">=</span> <span class="s2">&quot;prompt&quot;</span><span class="p">,</span>                      <span class="c1"># allow | prompt | forbidden</span>
-    <span class="n">justification</span> <span class="o">=</span> <span class="s2">&quot;Viewing PRs is allowed with approval&quot;</span><span class="p">,</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"gh"</span><span class="p">,</span> <span class="s2">"pr"</span><span class="p">,</span> <span class="s2">"view"</span><span class="p">],</span>
+    <span class="n">decision</span> <span class="o">=</span> <span class="s2">"prompt"</span><span class="p">,</span>                      <span class="c1"># allow | prompt | forbidden</span>
+    <span class="n">justification</span> <span class="o">=</span> <span class="s2">"Viewing PRs is allowed with approval"</span><span class="p">,</span>
     <span class="n">match</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;gh pr view 7888&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;gh pr view --repo openai/codex&quot;</span><span class="p">,</span>
+        <span class="s2">"gh pr view 7888"</span><span class="p">,</span>
+        <span class="s2">"gh pr view --repo openai/codex"</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">not_match</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;gh pr --repo openai/codex view 7888&quot;</span><span class="p">,</span>   <span class="c1"># pattern must be an exact prefix</span>
+        <span class="s2">"gh pr --repo openai/codex view 7888"</span><span class="p">,</span>   <span class="c1"># pattern must be an exact prefix</span>
     <span class="p">],</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -4257,8 +4257,8 @@
 </code></pre></div>
 <h3 id="auto-review">Auto-Review<a class="headerlink" href="#auto-review" title="Permanent link">&para;</a></h3>
 <p><a href="https://learn.chatgpt.com/docs/sandboxing/auto-review">Auto-review</a> replaces <em>you</em> at the approval prompt with a separate reviewer agent — a reviewer swap, not a permission grant. The main agent keeps the same sandbox, policy, and limits; what changes is who reviews eligible escalations.</p>
-<div class="highlight"><pre><span></span><code><span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;on-request&quot;</span>
-<span class="n">approvals_reviewer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto_review&quot;</span><span class="w">    </span><span class="c1"># default: &quot;user&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">approval_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"on-request"</span>
+<span class="n">approvals_reviewer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"auto_review"</span><span class="w">    </span><span class="c1"># default: "user"</span>
 </code></pre></div>
 <p>It evaluates only actions that already need approval — sandbox escalations, blocked network requests, out-of-root edits, side-effecting MCP/app tool calls. Actions fine inside the sandbox never see the reviewer. The reviewer sees a compact transcript plus the exact request (never hidden chain-of-thought), and its policy targets data exfiltration, credential probing, persistent security weakening, and destructive actions. Failures fail closed.</p>
 <p>Denials carry teeth: the main agent is told not to pursue the same outcome by workaround, to continue only with a materially safer alternative, or to stop and ask. A <strong>circuit breaker</strong> interrupts the turn after 3 consecutive denials or 10 within the last 50 reviews. Your override is <strong><code>/approve</code></strong> — pick one recent denied action for a single retry, which still passes through the reviewer.</p>
@@ -4296,11 +4296,11 @@ full test suite pass.
 <h3 id="codex-exec-loops-in-ci"><code>codex exec</code> — Loops in CI<a class="headerlink" href="#codex-exec-loops-in-ci" title="Permanent link">&para;</a></h3>
 <p>Non-interactive mode is the backpressure delivery vehicle: run Codex from scripts and pipelines with pre-set permissions and machine-readable output.</p>
 <p>For the surrounding workflow syntax, runner model, secrets, and deployment mechanics, see <a href="../../../software/tool_tip/cicd/">CI/CD Platforms</a>.</p>
-<div class="highlight"><pre><span></span><code>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;summarize the repository structure and list the top 5 risky areas&quot;</span>
+<div class="highlight"><pre><span></span><code>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"summarize the repository structure and list the top 5 risky areas"</span>
 </code></pre></div>
 <p>Progress streams to stderr; only the final message hits stdout, so piping works naturally:</p>
 <div class="highlight"><pre><span></span><code>npm<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;summarize the failing tests and propose the smallest likely fix&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>codex<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"summarize the failing tests and propose the smallest likely fix"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>test-summary.md
 </code></pre></div>
 <ul>
@@ -4363,7 +4363,7 @@ name: commit
 </table>
 <p>Symlinked skill folders work. Same-name skills aren't merged — both appear in selectors. Disable one without deleting it:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[[skills.config]]</span>
-<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/path/to/skill/SKILL.md&quot;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/path/to/skill/SKILL.md"</span>
 <span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </code></pre></div>
 <p><strong>Three ways to author:</strong> <code>$skill-creator</code> interviews you (what it does, when it triggers, instruction-only or scripted); <strong>Record &amp; Replay</strong> (macOS) watches you demonstrate the workflow once and drafts the skill from the recording — best for stable, show-don't-tell processes; or write the folder by hand. <code>$skill-installer linear</code> pulls curated skills from <a href="https://github.com/openai/skills">openai/skills</a>. Codex detects skill changes automatically.</p>
@@ -4373,10 +4373,10 @@ name: commit
 
 <span class="nt">dependencies</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">tools</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mcp&quot;</span>
-<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openaiDeveloperDocs&quot;</span>
-<span class="w">      </span><span class="nt">transport</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;streamable_http&quot;</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://developers.openai.com/mcp&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"mcp"</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"openaiDeveloperDocs"</span>
+<span class="w">      </span><span class="nt">transport</span><span class="p">:</span><span class="w"> </span><span class="s">"streamable_http"</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"https://developers.openai.com/mcp"</span>
 </code></pre></div>
 <p><strong>Best practices, per the docs:</strong> one job per skill; instructions over scripts unless you need determinism or external tooling; imperative steps with explicit inputs and outputs; test prompts against the description to confirm triggering. (Custom prompts, the older mechanism, are deprecated in favor of skills.)</p>
 <h3 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h3>
@@ -4393,10 +4393,10 @@ name: commit
         └── SKILL.md
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meeting-follow-up&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turn meeting notes into decisions and next steps&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./skills/&quot;</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meeting-follow-up"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turn meeting notes into decisions and next steps"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"skills"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./skills/"</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
@@ -4416,17 +4416,17 @@ then summarize the findings by category with file references.
 <p>Each subagent does its own model and tool work, so parallel runs multiply token spend.</p>
 <p><strong>Built-in agents:</strong> <code>default</code> (general fallback), <code>worker</code> (implementation), <code>explorer</code> (read-heavy exploration). <strong>Custom agents</strong> are TOML files — <code>~/.codex/agents/</code> personal, <code>.codex/agents/</code> project — each defining <code>name</code>, <code>description</code>, and <code>developer_instructions</code>, plus any normal config keys (<code>model</code>, <code>model_reasoning_effort</code>, <code>sandbox_mode</code>, <code>mcp_servers</code>, <code>skills.config</code>). A custom agent with a built-in's name wins.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># .codex/agents/reviewer.toml</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;reviewer&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PR reviewer focused on correctness, security, and missing tests.&quot;</span>
-<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gpt-5.6-terra&quot;</span>
-<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
-<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
-<span class="n">developer_instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reviewer"</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"PR reviewer focused on correctness, security, and missing tests."</span>
+<span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gpt-5.6-terra"</span>
+<span class="n">model_reasoning_effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"high"</span>
+<span class="n">sandbox_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
+<span class="n">developer_instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"""</span>
 <span class="s2">Review code like an owner.</span>
 <span class="s2">Prioritize correctness, security, behavior regressions, and missing test coverage.</span>
 <span class="s2">Lead with concrete findings, include reproduction steps when possible, and avoid</span>
 <span class="s2">style-only comments unless they hide a real bug.</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 </code></pre></div>
 <p>The docs' worked pattern is a review trio — a read-only <code>pr_explorer</code> mapping code paths, a <code>reviewer</code> hunting real risks, and a <code>docs_researcher</code> wired to a docs MCP server to verify APIs:</p>
 <div class="highlight"><pre><span></span><code>Review this branch against main. Have pr_explorer map the affected code paths,
@@ -4479,16 +4479,16 @@ codex<span class="w"> </span>mcp<span class="w"> </span>login<span class="w"> </
 <p>In <code>config.toml</code>, each server is a <code>[mcp_servers.&lt;name&gt;]</code> table. STDIO servers take <code>command</code>, <code>args</code>, <code>env</code>, <code>env_vars</code>, <code>cwd</code>; streamable HTTP servers take <code>url</code> plus auth options (<code>bearer_token_env_var</code>, <code>http_headers</code>, <code>env_http_headers</code>, OAuth by default, or <code>auth = "chatgpt"</code> to ride the current ChatGPT session for trusted first-party servers).</p>
 <p>The options Claude Code doesn't have are the per-server <em>policy</em> controls:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[mcp_servers.chrome_devtools]</span>
-<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/mcp&quot;</span>
-<span class="n">enabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;screenshot&quot;</span><span class="p">]</span><span class="w">      </span><span class="c1"># tool allowlist</span>
-<span class="n">disabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;screenshot&quot;</span><span class="p">]</span><span class="w">             </span><span class="c1"># deny, applied after allow</span>
-<span class="n">default_tools_approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prompt&quot;</span><span class="w">      </span><span class="c1"># auto | prompt | writes | approve</span>
+<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://localhost:3000/mcp"</span>
+<span class="n">enabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"open"</span><span class="p">,</span><span class="w"> </span><span class="s2">"screenshot"</span><span class="p">]</span><span class="w">      </span><span class="c1"># tool allowlist</span>
+<span class="n">disabled_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"screenshot"</span><span class="p">]</span><span class="w">             </span><span class="c1"># deny, applied after allow</span>
+<span class="n">default_tools_approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"prompt"</span><span class="w">      </span><span class="c1"># auto | prompt | writes | approve</span>
 <span class="n">startup_timeout_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <span class="n">tool_timeout_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span>
-<span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">                             </span><span class="c1"># fail startup if it can&#39;t initialize</span>
+<span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">                             </span><span class="c1"># fail startup if it can't initialize</span>
 
 <span class="k">[mcp_servers.chrome_devtools.tools.open]</span>
-<span class="n">approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;approve&quot;</span><span class="w">                   </span><span class="c1"># per-tool override</span>
+<span class="n">approval_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"approve"</span><span class="w">                   </span><span class="c1"># per-tool override</span>
 </code></pre></div>
 <p><code>writes</code> prompts only for tools not marked read-only. Codex also reads a server's MCP <code>instructions</code> field as server-wide guidance — if you build servers, keep the first 512 characters self-contained. Plugin-bundled servers are configured under <code>plugins.&lt;plugin&gt;.mcp_servers.&lt;server&gt;</code>. In a session, <code>/mcp</code> lists what's connected (<code>/mcp verbose</code> for diagnostics); <code>/apps</code> browses connector-backed apps and inserts them as <code>$app-slug</code>.</p>
 <p>Useful servers named in the docs: <a href="https://developers.openai.com/learn/docs-mcp">OpenAI Docs MCP</a>, <a href="https://github.com/upstash/context7">Context7</a>, Figma, <a href="https://www.npmjs.com/package/@playwright/mcp">Playwright</a>, <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/">Chrome DevTools</a>, Sentry, <a href="https://github.com/github/github-mcp-server">GitHub</a>.</p>
@@ -4563,7 +4563,7 @@ codex<span class="w"> </span>mcp<span class="w"> </span>login<span class="w"> </
 <div class="highlight"><pre><span></span><code><span class="c1"># macOS / Linux</span>
 curl<span class="w"> </span>-fsSL<span class="w"> </span>https://chatgpt.com/codex/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 <span class="c1"># Windows</span>
-powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://chatgpt.com/codex/install.ps1 | iex&quot;</span>
+powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">"irm https://chatgpt.com/codex/install.ps1 | iex"</span>
 <span class="c1"># or</span>
 npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@openai/codex
 brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>codex
@@ -5076,7 +5076,7 @@ brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

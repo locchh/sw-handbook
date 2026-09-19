@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3132,7 +3132,7 @@ git<span class="w"> </span>merge<span class="w"> </span>feature/your-branch<span
 </code></pre></div>
 <h3 id="never-use-git-merge-locally-to-catch-up">Never use <code>git merge</code> locally to catch up<a class="headerlink" href="#never-use-git-merge-locally-to-catch-up" title="Permanent link">&para;</a></h3>
 <p>Some developers run <code>git merge main</code> on their feature branch to pull in upstream changes. Don't — it litters your feature branch with a noisy merge commit:</p>
-<div class="highlight"><pre><span></span><code>feature: D - E - [M] &lt;- &quot;merged main into feature&quot; — this is just noise
+<div class="highlight"><pre><span></span><code>feature: D - E - [M] &lt;- "merged main into feature" — this is just noise
 </code></pre></div>
 <p>Reviewers see this extra commit mixed in with your real work. Use <code>git rebase origin/main</code> instead (see §4).</p>
 <h2 id="4-git-rebase">4. Git Rebase<a class="headerlink" href="#4-git-rebase" title="Permanent link">&para;</a></h2>
@@ -3147,7 +3147,7 @@ feature:       D - E   (based on B, now behind)
 <p>Git lifts <code>D</code> and <code>E</code> off their old base and replays them after <code>C</code>:</p>
 <div class="highlight"><pre><span></span><code>main:    A - B - C
                   \
-feature:           D&#39; - E&#39;   (rebased on C, now up to date)
+feature:           D' - E'   (rebased on C, now up to date)
 </code></pre></div>
 <h3 id="why-d-and-e-not-d-and-e">Why D' and E' (not D and E)?<a class="headerlink" href="#why-d-and-e-not-d-and-e" title="Permanent link">&para;</a></h3>
 <p>Rebase <strong>rewrites</strong> your commits. Each replayed commit gets a new parent and a new hash. The content of your changes is the same, but they are technically new objects.</p>
@@ -3166,14 +3166,14 @@ git<span class="w"> </span>rebase<span class="w"> </span>origin/main<span class=
 <p>Just replays your commits on top of latest main. Automatic.</p>
 <h3 id="git-rebase-i-originmain"><code>git rebase -i origin/main</code><a class="headerlink" href="#git-rebase-i-originmain" title="Permanent link">&para;</a></h3>
 <p><code>-i</code> = interactive. Opens an editor to clean up commits before replaying.</p>
-<div class="highlight"><pre><span></span><code>pick abc &quot;wip&quot;
-pick def &quot;fix&quot;
-pick ghi &quot;fix again&quot;
+<div class="highlight"><pre><span></span><code>pick abc "wip"
+pick def "fix"
+pick ghi "fix again"
 
 # change to:
-squash abc &quot;wip&quot;
-squash def &quot;fix&quot;
-pick ghi &quot;add login feature&quot; # squash all 3 into 1 clean commit
+squash abc "wip"
+squash def "fix"
+pick ghi "add login feature" # squash all 3 into 1 clean commit
 </code></pre></div>
 <p><strong>Interactive mode options:</strong></p>
 <table>
@@ -3306,7 +3306,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
 
 <span class="c1"># Do your work</span>
 git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;meaningful commit message&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"meaningful commit message"</span>
 
 <span class="c1"># Catch up with latest main (before PR)</span>
 git<span class="w"> </span>fetch
@@ -3401,7 +3401,7 @@ feature (local)
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

@@ -19,7 +19,7 @@ Welcome to the Software Engineering section of my handbook. This section covers 
 
 ## Tools & Tips
 
-- **[Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md)** - Package managers, linters, test runners, and diagramming tools.
+- **[Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md)** - Tool selection, Python workflows, code checks, local services, and design tools.
 - **[Tips](https://locchh.github.io/sw-handbook/software/tool_tip/tips/index.md)** - Pair-coding with AI, testing habits, and custom commands.
 - **[Machine Setup](https://locchh.github.io/sw-handbook/software/tool_tip/machine_setup/index.md)** - Getting a fresh Linux box ready for development.
 - **[Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md)** - Sizing a VPS, the USE method, disk and inode exhaustion, and triage runbooks.

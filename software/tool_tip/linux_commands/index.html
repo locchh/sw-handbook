@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2899,10 +2899,10 @@ producer<span class="w"> </span><span class="p">|</span><span class="w"> </span>
 </tbody>
 </table>
 <p>Prefer null-delimited pipelines for arbitrary filenames:</p>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.log&#39;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>wc<span class="w"> </span>-l
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.log'</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
 <p>Quote variables unless you explicitly need word splitting:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$project_path</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">printf</span><span class="w"> </span><span class="s1">'%s\n'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$project_path</span><span class="s2">"</span>
 </code></pre></div>
 <h2 id="permissions-and-identity">Permissions and Identity<a class="headerlink" href="#permissions-and-identity" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>r = read   w = write   x = execute
@@ -2985,7 +2985,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </
 <div class="highlight"><pre><span></span><code><span class="nb">command</span><span class="w"> </span>--help
 man<span class="w"> </span><span class="nb">command</span>
 whatis<span class="w"> </span><span class="nb">command</span>
-apropos<span class="w"> </span><span class="s2">&quot;search phrase&quot;</span>
+apropos<span class="w"> </span><span class="s2">"search phrase"</span>
 </code></pre></div>
 <p>Package managers and command behavior vary by distribution. Confirm the platform before following an installation guide.</p>
 <h2 id="archives">Archives<a class="headerlink" href="#archives" title="Permanent link">&para;</a></h2>
@@ -3050,8 +3050,8 @@ unzip<span class="w"> </span>archive.zip<span class="w"> </span>-d<span class="w
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-I<span class="w"> </span>https://example.com<span class="w">              </span><span class="c1"># response headers</span>
 curl<span class="w"> </span>-fLO<span class="w"> </span>https://example.com/file.tgz<span class="w">   </span><span class="c1"># fail on HTTP error, keep name</span>
 curl<span class="w"> </span>-fsS<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;:&quot;value&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"key":"value"}'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>https://example.com/api
 </code></pre></div>
 <p>Avoid putting access tokens directly on the command line: they may appear in shell history and process listings.</p>
@@ -3168,7 +3168,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 
 journalctl<span class="w"> </span>-u<span class="w"> </span>nginx
 journalctl<span class="w"> </span>-u<span class="w"> </span>nginx<span class="w"> </span>-f
-journalctl<span class="w"> </span>-u<span class="w"> </span>nginx<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;1 hour ago&quot;</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>nginx<span class="w"> </span>--since<span class="w"> </span><span class="s2">"1 hour ago"</span>
 </code></pre></div>
 <p><code>enable</code> controls startup at boot; it does not necessarily start the service immediately. Use <code>enable --now</code> when both behaviors are intended.</p>
 <h2 id="shell-sessions">Shell Sessions<a class="headerlink" href="#shell-sessions" title="Permanent link">&para;</a></h2>
@@ -3220,7 +3220,7 @@ kubectl<span class="w"> </span>port-forward<span class="w"> </span>service/app<s
 </code></pre></div>
 <p>Always check the current context and namespace before a mutating command:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>current-context
-kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span>
+kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">'jsonpath={..namespace}'</span>
 </code></pre></div>
 <p>Production clusters should use reviewable manifests or deployment automation. Interactive <code>kubectl</code> changes are difficult to reproduce and audit. See <a href="../cicd/#10-how-the-deploy-actually-happens">CI/CD Platforms §10</a> for push-based and pull-based deployment mechanics.</p>
 <h2 id="rule-of-thumb">Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
@@ -3284,7 +3284,7 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

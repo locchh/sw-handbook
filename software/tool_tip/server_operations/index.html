@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3529,7 +3529,7 @@
 <p>When you SSH into a box that "is slow", run these in order before forming a theory:</p>
 <div class="highlight"><pre><span></span><code>uptime<span class="w">                  </span><span class="c1"># load average vs core count (nproc)</span>
 dmesg<span class="w"> </span>-T<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30<span class="w">     </span><span class="c1"># OOM kills, disk errors, link flaps</span>
-free<span class="w"> </span>-h<span class="w">                 </span><span class="c1"># look at &quot;available&quot;, not &quot;free&quot;</span>
+free<span class="w"> </span>-h<span class="w">                 </span><span class="c1"># look at "available", not "free"</span>
 df<span class="w"> </span>-h<span class="w">                   </span><span class="c1"># bytes</span>
 df<span class="w"> </span>-i<span class="w">                   </span><span class="c1"># inodes</span>
 vmstat<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">              </span><span class="c1"># r (run queue), si/so (swapping), wa (I/O wait)</span>
@@ -3548,7 +3548,7 @@ Mem:           15Gi   6Gi    300Mi   1Gi      9Gi         8Gi
 </code></pre></div>
 <p><code>free</code> being near zero is <strong>normal and good</strong> — Linux uses otherwise-idle RAM for page cache and hands it back on demand. The number that matters is <strong><code>available</code></strong>: how much a new process could actually get. Alarm on <code>available</code>, never on <code>free</code>.</p>
 <h3 id="when-memory-runs-out">When memory runs out<a class="headerlink" href="#when-memory-runs-out" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>dmesg<span class="w"> </span>-T<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;killed process|out of memory&#39;</span><span class="w">    </span><span class="c1"># did the OOM killer fire?</span>
+<div class="highlight"><pre><span></span><code>dmesg<span class="w"> </span>-T<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">'killed process|out of memory'</span><span class="w">    </span><span class="c1"># did the OOM killer fire?</span>
 ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10<span class="w">                          </span><span class="c1"># who is biggest now</span>
 systemd-cgtop<span class="w"> </span>-m<span class="w">                                        </span><span class="c1"># memory by cgroup/service</span>
 </code></pre></div>
@@ -3597,11 +3597,11 @@ Filesystem       Inodes   IUsed    IFree IUse% Mounted on
 <div class="highlight"><pre><span></span><code>df<span class="w"> </span>-i<span class="w">                                        </span><span class="c1"># confirm which filesystem</span>
 <span class="c1"># count files per top-level directory, staying on one filesystem</span>
 <span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%8s  %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>find<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$d</span><span class="s2">&quot;</span><span class="w"> </span>-xdev<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$d</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%8s  %s\n'</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>find<span class="w"> </span><span class="s2">"</span><span class="nv">$d</span><span class="s2">"</span><span class="w"> </span>-xdev<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$d</span><span class="s2">"</span>
 <span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
 
 <span class="c1"># then drill down</span>
-find<span class="w"> </span>/var<span class="w"> </span>-xdev<span class="w"> </span>-printf<span class="w"> </span><span class="s1">&#39;%h\n&#39;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+find<span class="w"> </span>/var<span class="w"> </span>-xdev<span class="w"> </span>-printf<span class="w"> </span><span class="s1">'%h\n'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
 </code></pre></div>
 <p>The usual suspects, all of which are millions of tiny files:</p>
 <table>
@@ -3644,7 +3644,7 @@ find<span class="w"> </span>/var<span class="w"> </span>-xdev<span class="w"> </
 <p>The one that wastes an afternoon. <code>df</code> says full, <code>du</code> says the files aren't there, and there is nothing left to delete.</p>
 <p>When a process holds a file open, deleting the directory entry does <strong>not</strong> free the blocks. The kernel keeps them until the last file descriptor closes. Classic trigger: someone <code>rm</code>s a 40 GB log that an application is still writing to.</p>
 <div class="highlight"><pre><span></span><code>lsof<span class="w"> </span>+L1<span class="w">                        </span><span class="c1"># open files with a link count of 0 = deleted but held</span>
-lsof<span class="w"> </span>-nP<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;(deleted)&#39;</span><span class="w">     </span><span class="c1"># same idea, more portable</span>
+lsof<span class="w"> </span>-nP<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'(deleted)'</span><span class="w">     </span><span class="c1"># same idea, more portable</span>
 </code></pre></div>
 <p>The fix is <strong>not</strong> <code>rm</code>. Restart or signal the holding process — for a log, <code>systemctl restart &lt;service&gt;</code> or a <code>logrotate</code> <code>copytruncate</code>. Space returns instantly.</p>
 <p><strong>Rule of thumb:</strong> when a disk is full, run <code>df -h</code>, then <code>df -i</code>, then <code>lsof +L1</code>. Three commands, three different diseases, thirty seconds.</p>
@@ -3693,8 +3693,8 @@ docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> <
 </code></pre></div>
 <p>Container logs grow without bound by default. Cap them in <code>/etc/docker/daemon.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;log-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json-file&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-opts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;max-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"log-driver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json-file"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"log-opts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"max-size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10m"</span><span class="p">,</span><span class="w"> </span><span class="nt">"max-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="kubernetes-needs-requests-and-limits">Kubernetes needs requests and limits<a class="headerlink" href="#kubernetes-needs-requests-and-limits" title="Permanent link">&para;</a></h3>
@@ -4101,7 +4101,7 @@ df<span class="w"> </span>-i<span class="w">                       </span><span 
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

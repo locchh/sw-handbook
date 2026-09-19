@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3573,11 +3573,11 @@
 <span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">runner_system_failure</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">stuck_or_timeout_failure</span><span class="p p-Indicator">]</span>
 
 <span class="nt">variables</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">PIP_CACHE_DIR</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$CI_PROJECT_DIR/.cache/pip&quot;</span>
+<span class="w">  </span><span class="nt">PIP_CACHE_DIR</span><span class="p">:</span><span class="w"> </span><span class="s">"$CI_PROJECT_DIR/.cache/pip"</span>
 
-<span class="nt">workflow</span><span class="p">:</span><span class="w">                       </span><span class="c1"># don&#39;t run duplicate branch+MR pipelines</span>
+<span class="nt">workflow</span><span class="p">:</span><span class="w">                       </span><span class="c1"># don't run duplicate branch+MR pipelines</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_PIPELINE_SOURCE == &quot;merge_request_event&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_PIPELINE_SOURCE == "merge_request_event"</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_TAG</span>
 
@@ -3599,7 +3599,7 @@
 <span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --junitxml=report.xml --cov=app</span>
-<span class="w">  </span><span class="nt">coverage</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/TOTAL.*\s(\d+%)$/&#39;</span>
+<span class="w">  </span><span class="nt">coverage</span><span class="p">:</span><span class="w"> </span><span class="s">'/TOTAL.*\s(\d+%)$/'</span>
 <span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 <span class="w">    </span><span class="nt">reports</span><span class="p">:</span>
@@ -3611,9 +3611,9 @@
 <span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker:27</span>
 <span class="w">  </span><span class="nt">services</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker</span><span class="p p-Indicator">:</span><span class="nv">27-dind</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;$CI_REGISTRY_PASSWORD&quot; | docker login -u &quot;$CI_REGISTRY_USER&quot; --password-stdin &quot;$CI_REGISTRY&quot;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker build -t &quot;$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA&quot; .</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker push &quot;$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span>
 
@@ -3626,7 +3626,7 @@
 <span class="w">  </span><span class="nt">resource_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span><span class="w">    </span><span class="c1"># never two deploys at once</span>
 <span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manual</span><span class="w">                  </span><span class="c1"># &lt;-- Continuous Delivery, not Deployment</span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./deploy.sh &quot;$CI_COMMIT_SHA&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./deploy.sh "$CI_COMMIT_SHA"</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span>
 </code></pre></div>
@@ -3750,7 +3750,7 @@
 <p>Full list: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax">workflow syntax</a>.</p>
 <h3 id="contexts">Contexts<a class="headerlink" href="#contexts" title="Permanent link">&para;</a></h3>
 <p>Expressions use <code>${{ }}</code> and read from contexts: <code>github</code> (event, ref, sha, actor), <code>secrets</code>, <code>vars</code>, <code>env</code>, <code>job</code>, <code>steps</code>, <code>matrix</code>, <code>needs</code>, <code>runner</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.event_name == &#39;push&#39; &amp;&amp; github.ref == &#39;refs/heads/main&#39; }}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.event_name == 'push' &amp;&amp; github.ref == 'refs/heads/main' }}</span>
 </code></pre></div>
 <h3 id="a-realistic-file_1">A realistic file<a class="headerlink" href="#a-realistic-file_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/ci.yml</span>
@@ -3775,7 +3775,7 @@
 <span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">fail-fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;3.11&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.13&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'3.11'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'3.12'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'3.13'</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
@@ -3787,7 +3787,7 @@
 
 <span class="w">  </span><span class="nt">build</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == 'refs/heads/main'</span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">permissions</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -4009,7 +4009,7 @@
 <span class="nt">pr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span><span class="w">                     </span><span class="c1"># Azure Repos PRs are gated by branch policy, not here</span>
 
 <span class="nt">pool</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ubuntu-latest&#39;</span>
+<span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">'ubuntu-latest'</span>
 
 <span class="nt">variables</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">PIP_CACHE_DIR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Pipeline.Workspace)/.pip</span>
@@ -4021,15 +4021,15 @@
 <span class="w">    </span><span class="nt">timeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
 <span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">py312</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> pythonVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span>
-<span class="w">        </span><span class="nt">py313</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> pythonVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.13&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">        </span><span class="nt">py312</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> pythonVersion</span><span class="p">:</span><span class="w"> </span><span class="s">'3.12'</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">        </span><span class="nt">py313</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> pythonVersion</span><span class="p">:</span><span class="w"> </span><span class="s">'3.13'</span><span class="w"> </span><span class="p p-Indicator">}</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
 <span class="w">      </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(pythonVersion)</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache@2</span>
 <span class="w">      </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;pip</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">&quot;$(Agent.OS)&quot;</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">requirements.txt&#39;</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">'pip</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">"$(Agent.OS)"</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">requirements.txt'</span>
 <span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(PIP_CACHE_DIR)</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
 <span class="w">      </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
@@ -4042,20 +4042,20 @@
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
 <span class="w">  </span><span class="nt">dependsOn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
-<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">and(succeeded(), eq(variables[&#39;Build.SourceBranch&#39;], &#39;refs/heads/main&#39;))</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))</span>
 <span class="w">  </span><span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker@2</span>
 <span class="w">      </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">containerRegistry</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;acr-connection&#39;</span><span class="w">   </span><span class="c1"># service connection — no stored password</span>
-<span class="w">        </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;app&#39;</span>
+<span class="w">        </span><span class="nt">containerRegistry</span><span class="p">:</span><span class="w"> </span><span class="s">'acr-connection'</span><span class="w">   </span><span class="c1"># service connection — no stored password</span>
+<span class="w">        </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="s">'app'</span>
 <span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">buildAndPush</span>
 <span class="w">        </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Build.SourceVersion)</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
 <span class="w">  </span><span class="nt">dependsOn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
-<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">and(succeeded(), eq(variables[&#39;Build.SourceBranch&#39;], &#39;refs/heads/main&#39;))</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))</span>
 <span class="w">  </span><span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">deployment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span><span class="w">      </span><span class="c1"># deployment job, not a plain job</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span><span class="w">     </span><span class="c1"># approvals and checks live on the environment</span>
@@ -4157,59 +4157,59 @@
 <span class="w">  </span><span class="n">agent</span><span class="w"> </span><span class="n">none</span><span class="w">                              </span><span class="c1">// pick an agent per stage</span>
 
 <span class="w">  </span><span class="n">options</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">timeout</span><span class="o">(</span><span class="nl">time:</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="nl">unit:</span><span class="w"> </span><span class="s1">&#39;MINUTES&#39;</span><span class="o">)</span>
-<span class="w">    </span><span class="n">buildDiscarder</span><span class="o">(</span><span class="n">logRotator</span><span class="o">(</span><span class="nl">numToKeepStr:</span><span class="w"> </span><span class="s1">&#39;30&#39;</span><span class="o">))</span>
+<span class="w">    </span><span class="n">timeout</span><span class="o">(</span><span class="nl">time:</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="nl">unit:</span><span class="w"> </span><span class="s1">'MINUTES'</span><span class="o">)</span>
+<span class="w">    </span><span class="n">buildDiscarder</span><span class="o">(</span><span class="n">logRotator</span><span class="o">(</span><span class="nl">numToKeepStr:</span><span class="w"> </span><span class="s1">'30'</span><span class="o">))</span>
 <span class="w">    </span><span class="n">disableConcurrentBuilds</span><span class="o">()</span>
 <span class="w">    </span><span class="n">timestamps</span><span class="o">()</span>
 <span class="w">  </span><span class="o">}</span>
 
 <span class="w">  </span><span class="n">environment</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">REGISTRY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;registry.example.com&#39;</span>
-<span class="w">    </span><span class="n">IMAGE</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${REGISTRY}/app:${env.GIT_COMMIT}&quot;</span>
+<span class="w">    </span><span class="n">REGISTRY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'registry.example.com'</span>
+<span class="w">    </span><span class="n">IMAGE</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"${REGISTRY}/app:${env.GIT_COMMIT}"</span>
 <span class="w">  </span><span class="o">}</span>
 
 <span class="w">  </span><span class="n">stages</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Test&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="s1">&#39;python:3.12&#39;</span><span class="o">;</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="s1">&#39;--memory=4g --cpus=2&#39;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">'Test'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="s1">'python:3.12'</span><span class="o">;</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="s1">'--memory=4g --cpus=2'</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
 <span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;pip install -r requirements.txt&#39;</span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;pytest --junitxml=report.xml&#39;</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">'pip install -r requirements.txt'</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s1">'pytest --junitxml=report.xml'</span>
 <span class="w">      </span><span class="o">}</span>
 <span class="w">      </span><span class="n">post</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">always</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">junit</span><span class="w"> </span><span class="s1">&#39;report.xml&#39;</span><span class="w"> </span><span class="o">}</span><span class="w">     </span><span class="c1">// publish results even on failure</span>
+<span class="w">        </span><span class="n">always</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">junit</span><span class="w"> </span><span class="s1">'report.xml'</span><span class="w"> </span><span class="o">}</span><span class="w">     </span><span class="c1">// publish results even on failure</span>
 <span class="w">      </span><span class="o">}</span>
 <span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Build and push&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span><span class="o">}</span>
-<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="s1">&#39;docker&#39;</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">'Build and push'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">'main'</span><span class="w"> </span><span class="o">}</span>
+<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="s1">'docker'</span><span class="w"> </span><span class="o">}</span>
 <span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="n">withCredentials</span><span class="o">([</span><span class="n">usernamePassword</span><span class="o">(</span>
-<span class="w">            </span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">&#39;registry-creds&#39;</span><span class="o">,</span>
-<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">&#39;U&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">&#39;P&#39;</span><span class="o">)])</span><span class="w"> </span><span class="o">{</span>
-<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;echo &quot;$P&quot; | docker login -u &quot;$U&quot; --password-stdin $REGISTRY&#39;</span>
-<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;docker build -t $IMAGE .&#39;</span>
-<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">&#39;docker push $IMAGE&#39;</span>
+<span class="w">            </span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">'registry-creds'</span><span class="o">,</span>
+<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">'U'</span><span class="o">,</span><span class="w"> </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">'P'</span><span class="o">)])</span><span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">'echo "$P" | docker login -u "$U" --password-stdin $REGISTRY'</span>
+<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">'docker build -t $IMAGE .'</span>
+<span class="w">          </span><span class="n">sh</span><span class="w"> </span><span class="s1">'docker push $IMAGE'</span>
 <span class="w">        </span><span class="o">}</span>
 <span class="w">      </span><span class="o">}</span>
 <span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Approve&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">'Approve'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">'main'</span><span class="w"> </span><span class="o">}</span>
 <span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">input</span><span class="w"> </span><span class="nl">message:</span><span class="w"> </span><span class="s1">&#39;Deploy to production?&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">ok:</span><span class="w"> </span><span class="s1">&#39;Deploy&#39;</span>
+<span class="w">        </span><span class="n">input</span><span class="w"> </span><span class="nl">message:</span><span class="w"> </span><span class="s1">'Deploy to production?'</span><span class="o">,</span><span class="w"> </span><span class="nl">ok:</span><span class="w"> </span><span class="s1">'Deploy'</span>
 <span class="w">      </span><span class="o">}</span>
 <span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Deploy&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span><span class="o">}</span>
-<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="s1">&#39;deploy&#39;</span><span class="w"> </span><span class="o">}</span>
-<span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;./deploy.sh ${env.GIT_COMMIT}&quot;</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">'Deploy'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="s1">'main'</span><span class="w"> </span><span class="o">}</span>
+<span class="w">      </span><span class="n">agent</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="s1">'deploy'</span><span class="w"> </span><span class="o">}</span>
+<span class="w">      </span><span class="n">steps</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">sh</span><span class="w"> </span><span class="s2">"./deploy.sh ${env.GIT_COMMIT}"</span><span class="w"> </span><span class="o">}</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="w">  </span><span class="o">}</span>
 
 <span class="w">  </span><span class="n">post</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">failure</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">slackSend</span><span class="w"> </span><span class="nl">channel:</span><span class="w"> </span><span class="s1">&#39;#ci&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">message:</span><span class="w"> </span><span class="s2">&quot;FAILED ${env.BUILD_URL}&quot;</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="n">failure</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">slackSend</span><span class="w"> </span><span class="nl">channel:</span><span class="w"> </span><span class="s1">'#ci'</span><span class="o">,</span><span class="w"> </span><span class="nl">message:</span><span class="w"> </span><span class="s2">"FAILED ${env.BUILD_URL}"</span><span class="w"> </span><span class="o">}</span>
 <span class="w">    </span><span class="n">cleanup</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">cleanWs</span><span class="o">()</span><span class="w"> </span><span class="o">}</span><span class="w">                 </span><span class="c1">// reclaim disk on the agent</span>
 <span class="w">  </span><span class="o">}</span>
 <span class="o">}</span>
@@ -4299,27 +4299,27 @@
 <p>There is also <strong><code>vercel.ts</code></strong>, which supports the same properties but computes them at build time. One config file per project. Full reference: <a href="https://vercel.com/docs/project-configuration">project configuration</a>.</p>
 <h3 id="a-realistic-file_4">A realistic file<a class="headerlink" href="#a-realistic-file_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://openapi.vercel.sh/vercel.json&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nextjs&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;buildCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;outputDirectory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.next&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;regions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fra1&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;functions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;api/report/*.ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3009</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;maxDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://openapi.vercel.sh/vercel.json"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nextjs"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"buildCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"outputDirectory"</span><span class="p">:</span><span class="w"> </span><span class="s2">".next"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"fra1"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"api/report/*.ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"memory"</span><span class="p">:</span><span class="w"> </span><span class="mi">3009</span><span class="p">,</span><span class="w"> </span><span class="nt">"maxDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;crons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/cron/digest&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0 6 * * *&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"crons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/cron/digest"</span><span class="p">,</span><span class="w"> </span><span class="nt">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 6 * * *"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/(.*)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X-Content-Type-Options&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nosniff&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Referrer-Policy&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;strict-origin-when-cross-origin&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/(.*)"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Content-Type-Options"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Referrer-Policy"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict-origin-when-cross-origin"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;ignoreCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git diff --quiet HEAD^ HEAD -- ./apps/web&quot;</span>
+<span class="w">  </span><span class="nt">"ignoreCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git diff --quiet HEAD^ HEAD -- ./apps/web"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>ignoreCommand</code> is the monorepo saver: skip the build when nothing in the relevant path changed.</p>
@@ -4426,17 +4426,17 @@
 <span class="k">[[runners]]</span>
 <span class="w">  </span><span class="n">request_concurrency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">  </span><span class="k">[runners.docker]</span>
-<span class="w">    </span><span class="n">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4g&quot;</span>
-<span class="w">    </span><span class="n">memory_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4g&quot;</span>
-<span class="w">    </span><span class="n">memory_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2g&quot;</span>
-<span class="w">    </span><span class="n">cpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+<span class="w">    </span><span class="n">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"4g"</span>
+<span class="w">    </span><span class="n">memory_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"4g"</span>
+<span class="w">    </span><span class="n">memory_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2g"</span>
+<span class="w">    </span><span class="n">cpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2"</span>
 </code></pre></div>
 <p>On the Kubernetes executor, set it per job instead:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">KUBERNETES_CPU_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
-<span class="w">  </span><span class="nt">KUBERNETES_CPU_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
-<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2Gi&quot;</span>
-<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4Gi&quot;</span>
+<span class="w">  </span><span class="nt">KUBERNETES_CPU_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span>
+<span class="w">  </span><span class="nt">KUBERNETES_CPU_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">"2"</span>
+<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_REQUEST</span><span class="p">:</span><span class="w"> </span><span class="s">"2Gi"</span>
+<span class="w">  </span><span class="nt">KUBERNETES_MEMORY_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="s">"4Gi"</span>
 </code></pre></div>
 <h3 id="jenkins-executors-and-agents">Jenkins — executors and agents<a class="headerlink" href="#jenkins-executors-and-agents" title="Permanent link">&para;</a></h3>
 <p>No per-job limits of its own. Control comes from three places:</p>
@@ -4573,7 +4573,7 @@ docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

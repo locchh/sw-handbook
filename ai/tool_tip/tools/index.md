@@ -1,57 +1,85 @@
 # AI Tools
 
-## Development Tools
+Choose AI tools by the part of the workflow that needs help: changing code, running a model, evaluating its answers, or operating a deployed system. A coding assistant and an inference server solve different problems; an evaluation suite tells you whether either change helped your application.
 
-### AITmpl
+See [The LLM Landscape](https://locchh.github.io/sw-handbook/ai/basics/landscape/index.md) for the broader architecture and [Software Tools](https://locchh.github.io/sw-handbook/software/tool_tip/tools/index.md) for environments, checks, and local services.
 
-Ready-to-use configurations for Anthropic's Claude Code. A comprehensive collection of AI agents, custom commands, settings, hooks, external integrations (MCPs), and project templates to enhance your development workflow.
+## Choose by task
 
-- [AITmpl Agents](https://www.aitmpl.com/agents)
+| Task                                       | Starting point                                                                                                                                                 | Decision to make                                                                 |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Work on a codebase                         | [Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md), [Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md) | Which tool fits your editor, repository instructions, and permission boundaries? |
+| Understand unfamiliar code                 | [DeepWiki](https://deepwiki.com/)                                                                                                                              | Can you verify its explanation against the relevant source and revision?         |
+| Supply library documentation               | [Context7](https://github.com/upstash/context7)                                                                                                                | Does the retrieved documentation match the project's dependency version?         |
+| Explore models and datasets                | [Hugging Face](https://huggingface.co/docs)                                                                                                                    | Does the model's license, size, and intended use fit the task?                   |
+| Experiment with local inference            | [Ollama](https://docs.ollama.com/)                                                                                                                             | Does the model fit your hardware and produce acceptable answers?                 |
+| Serve models on shared infrastructure      | [vLLM](https://docs.vllm.ai/en/latest/)                                                                                                                        | Can the server meet concurrency, latency, and memory requirements?               |
+| Compare prompts and models                 | [Promptfoo](https://www.promptfoo.dev/docs/intro/)                                                                                                             | Which examples and assertions define success?                                    |
+| Track experiments and application behavior | [MLflow](https://mlflow.org/docs/latest/)                                                                                                                      | What parameters, artifacts, metrics, and traces explain each result?             |
 
-### Claude Code
+## Coding assistants
 
-Anthropic's CLI coding agent — memory files, skills, subagents, hooks, plugins, MCP, and workflows. Covered in depth in [Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md).
+Use one assistant on a bounded change first. Give it the goal, relevant files, constraints, and commands that demonstrate success. Read its diff and run those commands before accepting the result.
 
-- [Official Documentation](https://code.claude.com/docs/en/overview)
-- [GitHub Repository](https://github.com/anthropics/claude-code)
+```
+Goal: handle an empty result in the search page.
+Context: start with the search component and its existing tests.
+Constraints: keep the public API and avoid new dependencies.
+Verification: add a regression case, run the relevant tests,
+then run the project's lint and build commands.
+Report: summarize the behavior change and anything not verified.
+```
 
-### Codex
+The detailed [Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md) and [Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md) guides cover their repository context and execution controls. Use [Spec-Driven Development](https://locchh.github.io/sw-handbook/ai/tool_tip/spec_driven_development/index.md) when a change needs explicit acceptance criteria across several steps.
 
-OpenAI's CLI coding agent — AGENTS.md, sandbox and approvals, rules, auto-review, and cloud delegation. Covered in depth in [Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md).
+Community collections such as [AITmpl](https://www.aitmpl.com/agents) and [Playbooks](https://playbooks.com/) can provide starting points for configuration and reusable instructions. Read the commands, hooks, and integration requirements before importing them; keep only the parts that match your workflow.
 
-- [Official Documentation](https://developers.openai.com/codex/) (full docs at [learn.chatgpt.com](https://learn.chatgpt.com/docs/codex/cli), with an [llms.txt](https://learn.chatgpt.com/llms.txt) index)
-- [GitHub Repository](https://github.com/openai/codex)
+## Local inference and serving
 
-### DeepWiki
+**Ollama** is a starting point for experimenting with models on your own machine. **vLLM** is an option for serving supported models with attention to throughput and concurrent requests. Check model support and hardware requirements in their official docs before choosing a runtime: [Ollama documentation](https://docs.ollama.com/) and [vLLM documentation](https://docs.vllm.ai/en/latest/).
 
-AI-powered wiki and knowledge management platform
+Before downloading or deploying a model, record:
 
-- [DeepWiki](https://deepwiki.com/)
+- The exact model identifier, revision, license, and quantization.
+- Available RAM or GPU memory, intended context length, and request concurrency.
+- A small set of representative prompts with expected behavior.
+- Measured latency and answer quality on your hardware.
 
-### Playbook
+Model weights are only part of memory usage; context and concurrent requests also consume capacity. Compare candidates using the same workload. A smaller model that meets the task's criteria can be more useful than a larger model that exceeds the deployment budget.
 
-Up-to-date developer docs for AI agents to write better code
+Use [Hugging Face model cards](https://huggingface.co/docs/hub/model-cards) to inspect intended uses and limitations. For a shared service, add authentication, request limits, monitoring, and a recovery procedure; [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) covers the operational groundwork.
 
-- [Playbook](https://playbooks.com/)
+## Evaluate before expanding
 
-## Model Inference & Serving
+Start with a small versioned dataset of real tasks: ordinary inputs, empty inputs, ambiguous requests, and known failures. Define an expected answer or observable property for each case before tuning prompts.
 
-If you self-host inference, [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md) covers capacity planning, resource diagnosis, containers, monitoring, and operational runbooks.
+| Dimension        | Example check                                               |
+| ---------------- | ----------------------------------------------------------- |
+| Correctness      | Extracted fields match a labeled example                    |
+| Format           | Output parses and satisfies the required schema             |
+| Grounding        | Claims are supported by the supplied reference material     |
+| Tool behavior    | The assistant selects the intended tool and valid arguments |
+| Failure handling | Missing information produces a useful fallback              |
+| Performance      | Latency and token use remain within the task's budget       |
 
-### Hugging Face
+[Promptfoo](https://www.promptfoo.dev/docs/intro/) supports comparing prompts and models using test cases and assertions. Use deterministic checks where possible and human review for judgments that require interpretation. If you use a model as a judge, test that judge against examples you have already labeled.
 
-Open-source AI model hub and tools
+Keep a baseline and change one major variable at a time. Record the prompt version, model configuration, dataset revision, and result. Repeat enough cases to see whether the improvement survives variation; a single impressive response is not a regression suite.
 
-- [Hugging Face Documentation](https://huggingface.co/docs)
-- [GitHub Repository](https://github.com/huggingface)
+## Track and deploy
 
-## Model Training & Deployment
+[MLflow](https://mlflow.org/docs/latest/) provides experiment tracking and tools for tracing and evaluating AI applications. Use tracking when you need to explain which configuration produced a result or where a request failed. Decide what data may be stored in traces before collecting real user prompts or retrieved documents.
 
-For repository-driven build and deployment automation, see [CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md).
+A practical release loop:
 
-### MLflow
+1. Version the application, prompt, and evaluation dataset.
+1. Run application tests and the evaluation suite against the proposed configuration.
+1. Compare quality, latency, and cost with the baseline.
+1. Deploy a known version with a rollback path.
+1. Inspect failures and add representative cases to the evaluation set.
 
-Open-source platform for machine learning lifecycle
+[CI/CD Platforms](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) covers build and deployment automation. Keep credentials in environment variables or the deployment platform's secret store. Document variable names and placeholder values without committing keys.
 
-- [MLflow](https://mlflow.org/)
-- [GitHub Repository](https://github.com/mlflow/mlflow)
+## A minimal starting setup
+
+For **AI-assisted software development**, start with your normal toolchain, one coding assistant, repository instructions, and executable checks. For **an AI application**, start with one model interface, a small evaluation dataset, and recorded results. Add retrieval, orchestration frameworks, self-hosting, or more agents when a measured requirement calls for them.

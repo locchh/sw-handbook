@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -5227,13 +5227,13 @@ Explain folders and patterns.
 <p>Like CLAUDE.md, rules are guidance Claude reads — not configuration Claude Code enforces. For hard enforcement you need a <code>PreToolUse</code> hook.</p>
 <div class="highlight"><pre><span></span><code>---
 paths:
-<span class="w">  </span><span class="k">-</span><span class="w"> </span>&quot;**/*.test.ts&quot;
-<span class="gu">  - &quot;**/*.test.tsx&quot;</span>
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>"**/*.test.ts"
+<span class="gu">  - "**/*.test.tsx"</span>
 <span class="gu">---</span>
 
 <span class="gh"># Testing Rules</span>
 
-<span class="k">-</span><span class="w"> </span>Use descriptive test names: &quot;should [expected] when [condition]&quot;
+<span class="k">-</span><span class="w"> </span>Use descriptive test names: "should [expected] when [condition]"
 <span class="k">-</span><span class="w"> </span>Mock external dependencies, not internal modules
 <span class="k">-</span><span class="w"> </span>Clean up side effects in afterEach
 </code></pre></div>
@@ -5455,18 +5455,18 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 <li><strong>Deny</strong> — Claude can't use the tool at all.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json.schemastore.org/claude-code-settings.json&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;Bash(npm run lint)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;Bash(npm run test *)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;Read(~/.zshrc)&quot;</span>
+<span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://json.schemastore.org/claude-code-settings.json"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Bash(npm run lint)"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Bash(npm run test *)"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Read(~/.zshrc)"</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;Bash(curl *)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;Read(./.env)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;Read(./.env.*)&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;Read(./secrets/**)&quot;</span>
+<span class="w">    </span><span class="nt">"deny"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Bash(curl *)"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Read(./.env)"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Read(./.env.*)"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Read(./secrets/**)"</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -5612,10 +5612,10 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </ul>
 <p>For structured control, exit 0 and print JSON to stdout:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hookSpecificOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;hookEventName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PreToolUse&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;permissionDecision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;permissionDecisionReason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use rg instead of grep&quot;</span>
+<span class="w">  </span><span class="nt">"hookSpecificOutput"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"hookEventName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PreToolUse"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permissionDecision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deny"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permissionDecisionReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Use rg instead of grep"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -5658,23 +5658,23 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </table>
 <p>MCP tools follow the <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> naming, so they're matchable too:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mcp__memory__.*&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcp__memory__.*"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo &#39;Memory operation initiated&#39; &gt;&gt; ~/mcp-operations.log&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo 'Memory operation initiated' &gt;&gt; ~/mcp-operations.log"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mcp__.*__write.*&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcp__.*__write.*"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/user/scripts/validate-mcp-write.py&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/user/scripts/validate-mcp-write.py"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5727,14 +5727,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 <h4 id="worked-examples">Worked Examples<a class="headerlink" href="#worked-examples" title="Permanent link">&para;</a></h4>
 <p><strong>Desktop notification when Claude needs input</strong> — so you can context-switch while it works instead of watching the terminal. Add to <code>~/.claude/settings.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Notification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Notification"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;notify-send &#39;Claude Code&#39; &#39;Claude Code needs your attention&#39;&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notify-send 'Claude Code' 'Claude Code needs your attention'"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5744,14 +5744,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Auto-format after every edit</strong> — catches the CI edge cases, so ugly code never gets committed. Add to <code>.claude/settings.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PostToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PostToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Edit|Write&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edit|Write"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jq -r &#39;.tool_input.file_path&#39; | xargs npx prettier --write&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jq -r '.tool_input.file_path' | xargs npx prettier --write"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5761,14 +5761,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Log every Bash command</strong> — a cheap audit trail:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PostToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PostToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bash"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jq -r &#39;.tool_input.command&#39; &gt;&gt; ~/.claude/command-log.txt&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jq -r '.tool_input.command' &gt;&gt; ~/.claude/command-log.txt"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5779,13 +5779,13 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 <p><strong>Block edits to protected files</strong> — a <code>PreToolUse</code> guardrail for destructive operations. Create <code>.claude/hooks/protect-files.sh</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">INPUT</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
-<span class="nv">FILE_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.tool_input.file_path // empty&#39;</span><span class="k">)</span>
+<span class="nv">FILE_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$INPUT</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.tool_input.file_path // empty'</span><span class="k">)</span>
 
-<span class="nv">PROTECTED_PATTERNS</span><span class="o">=(</span><span class="s2">&quot;.env&quot;</span><span class="w"> </span><span class="s2">&quot;package-lock.json&quot;</span><span class="w"> </span><span class="s2">&quot;.git/&quot;</span><span class="o">)</span>
+<span class="nv">PROTECTED_PATTERNS</span><span class="o">=(</span><span class="s2">".env"</span><span class="w"> </span><span class="s2">"package-lock.json"</span><span class="w"> </span><span class="s2">".git/"</span><span class="o">)</span>
 
-<span class="k">for</span><span class="w"> </span>pattern<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PROTECTED_PATTERNS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FILE_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*<span class="s2">&quot;</span><span class="nv">$pattern</span><span class="s2">&quot;</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Blocked: </span><span class="nv">$FILE_PATH</span><span class="s2"> matches protected pattern &#39;</span><span class="nv">$pattern</span><span class="s2">&#39;&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">for</span><span class="w"> </span>pattern<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PROTECTED_PATTERNS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$FILE_PATH</span><span class="s2">"</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*<span class="s2">"</span><span class="nv">$pattern</span><span class="s2">"</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Blocked: </span><span class="nv">$FILE_PATH</span><span class="s2"> matches protected pattern '</span><span class="nv">$pattern</span><span class="s2">'"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
 <span class="w">  </span><span class="k">fi</span>
 <span class="k">done</span>
@@ -5794,14 +5794,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p>Make it executable with <code>chmod +x .claude/hooks/protect-files.sh</code>, then register it:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Edit|Write&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edit|Write"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\&quot;$CLAUDE_PROJECT_DIR\&quot;/.claude/hooks/protect-files.sh&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.sh"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5811,14 +5811,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Re-inject context after compaction</strong> — runs after <code>/compact</code>, so the rules that got summarised away come back:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;SessionStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"SessionStart"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;compact&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compact"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo &#39;Reminder: use Bun, not npm. Run bun test before committing. Current sprint: auth refactor.&#39;&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo 'Reminder: use Bun, not npm. Run bun test before committing. Current sprint: auth refactor.'"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5828,14 +5828,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Audit configuration changes:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ConfigChange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ConfigChange"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jq -c &#39;{timestamp: now | todate, source: .source, file: .file_path}&#39; &gt;&gt; ~/claude-config-audit.log&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jq -c '{timestamp: now | todate, source: .source, file: .file_path}' &gt;&gt; ~/claude-config-audit.log"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5845,13 +5845,13 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Judgment instead of rules</strong> — for decisions a regex can't make, a <code>prompt</code> hook asks a model:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Stop"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prompt&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Check if all tasks are complete. If not, respond with {\&quot;ok\&quot;: false, \&quot;reason\&quot;: \&quot;what remains to be done\&quot;}.&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prompt"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check if all tasks are complete. If not, respond with {\"ok\": false, \"reason\": \"what remains to be done\"}."</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5861,14 +5861,14 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 </code></pre></div>
 <p><strong>Verification that needs tools</strong> — an <code>agent</code> hook spawns a subagent that can read files and run commands:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Stop"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verify that all unit tests pass. Run the test suite and check the results. $ARGUMENTS&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verify that all unit tests pass. Run the test suite and check the results. $ARGUMENTS"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -5993,7 +5993,7 @@ Background layer: Auto dream (cleans &amp; indexes memory)
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-skill</span><span class="w">                    </span><span class="c1"># Becomes the /slash-command</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">What this skill does</span><span class="w"> </span><span class="c1"># Claude uses this to decide when to load it</span>
-<span class="nt">argument-hint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[issue-number]&quot;</span><span class="w">   </span><span class="c1"># Shown in autocomplete</span>
+<span class="nt">argument-hint</span><span class="p">:</span><span class="w"> </span><span class="s">"[issue-number]"</span><span class="w">   </span><span class="c1"># Shown in autocomplete</span>
 <span class="nt">disable-model-invocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">    </span><span class="c1"># Only you can invoke it</span>
 <span class="nt">user-invocable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">             </span><span class="c1"># Only Claude can invoke it</span>
 <span class="nt">allowed-tools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read, Grep, Glob</span><span class="w">   </span><span class="c1"># Tools allowed without per-use approval</span>
@@ -6237,10 +6237,10 @@ Skill(deploy *)
 <h4 id="creating-one">Creating One<a class="headerlink" href="#creating-one" title="Permanent link">&para;</a></h4>
 <p><strong>1. Create the manifest</strong> at <code>my-plugin/.claude-plugin/plugin.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-plugin&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My custom plugin&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your Name&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-plugin"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My custom plugin"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Name"</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The <code>name</code> field becomes the skill namespace, so skills appear as <code>/my-plugin:hello</code>.</p>
@@ -6249,7 +6249,7 @@ Skill(deploy *)
 <span class="gu">description: Greet the user with a friendly message</span>
 <span class="gu">---</span>
 
-Greet the user named &quot;$ARGUMENTS&quot; warmly and ask how you can help them today.
+Greet the user named "$ARGUMENTS" warmly and ask how you can help them today.
 </code></pre></div>
 <p><strong>3. Test locally</strong> with <code>--plugin-dir</code>:</p>
 <div class="highlight"><pre><span></span><code>claude<span class="w"> </span>--plugin-dir<span class="w"> </span>./my-plugin
@@ -6260,7 +6260,7 @@ claude<span class="w"> </span>--plugin-dir<span class="w"> </span>./plugin-one<s
 </code></pre></div>
 <h4 id="shipping-default-settings">Shipping Default Settings<a class="headerlink" href="#shipping-default-settings" title="Permanent link">&para;</a></h4>
 <p>A <code>settings.json</code> at the plugin root applies configuration when the plugin is enabled. Only the <code>agent</code> key is supported so far — it activates one of the plugin's agents as the main thread:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;security-reviewer&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"security-reviewer"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h4 id="converting-standalone-to-plugin">Converting Standalone to Plugin<a class="headerlink" href="#converting-standalone-to-plugin" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>my-plugin/.claude-plugin
@@ -6407,38 +6407,38 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <span class="c1">#   ./loop.sh plan 5       # Plan mode, max 5 iterations</span>
 
 <span class="c1"># Parse arguments</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;plan&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;plan&quot;</span>
-<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">&quot;PROMPT_plan.md&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"plan"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"plan"</span>
+<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">"PROMPT_plan.md"</span>
 <span class="w">    </span><span class="nv">MAX_ITERATIONS</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="k">:-</span><span class="nv">0</span><span class="si">}</span>
-<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">[</span><span class="m">0</span>-9<span class="o">]</span>+$<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;build&quot;</span>
-<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">&quot;PROMPT_build.md&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">[</span><span class="m">0</span>-9<span class="o">]</span>+$<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"build"</span>
+<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">"PROMPT_build.md"</span>
 <span class="w">    </span><span class="nv">MAX_ITERATIONS</span><span class="o">=</span><span class="nv">$1</span>
 <span class="k">else</span>
-<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;build&quot;</span>
-<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">&quot;PROMPT_build.md&quot;</span>
+<span class="w">    </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"build"</span>
+<span class="w">    </span><span class="nv">PROMPT_FILE</span><span class="o">=</span><span class="s2">"PROMPT_build.md"</span>
 <span class="w">    </span><span class="nv">MAX_ITERATIONS</span><span class="o">=</span><span class="m">0</span>
 <span class="k">fi</span>
 
 <span class="nv">ITERATION</span><span class="o">=</span><span class="m">0</span>
 <span class="nv">CURRENT_BRANCH</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>branch<span class="w"> </span>--show-current<span class="k">)</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Mode:   </span><span class="nv">$MODE</span><span class="s2">&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Prompt: </span><span class="nv">$PROMPT_FILE</span><span class="s2">&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Branch: </span><span class="nv">$CURRENT_BRANCH</span><span class="s2">&quot;</span>
-<span class="o">[</span><span class="w"> </span><span class="nv">$MAX_ITERATIONS</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Max:    </span><span class="nv">$MAX_ITERATIONS</span><span class="s2"> iterations&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Mode:   </span><span class="nv">$MODE</span><span class="s2">"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Prompt: </span><span class="nv">$PROMPT_FILE</span><span class="s2">"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Branch: </span><span class="nv">$CURRENT_BRANCH</span><span class="s2">"</span>
+<span class="o">[</span><span class="w"> </span><span class="nv">$MAX_ITERATIONS</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Max:    </span><span class="nv">$MAX_ITERATIONS</span><span class="s2"> iterations"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"</span>
 
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROMPT_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: </span><span class="nv">$PROMPT_FILE</span><span class="s2"> not found&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">"</span><span class="nv">$PROMPT_FILE</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Error: </span><span class="nv">$PROMPT_FILE</span><span class="s2"> not found"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$MAX_ITERATIONS</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$ITERATION</span><span class="w"> </span>-ge<span class="w"> </span><span class="nv">$MAX_ITERATIONS</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Reached max iterations: </span><span class="nv">$MAX_ITERATIONS</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Reached max iterations: </span><span class="nv">$MAX_ITERATIONS</span><span class="s2">"</span>
 <span class="w">        </span><span class="k">break</span>
 <span class="w">    </span><span class="k">fi</span>
 
@@ -6446,21 +6446,21 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <span class="w">    </span><span class="c1"># --dangerously-skip-permissions auto-approve all tool calls</span>
 <span class="w">    </span><span class="c1"># --output-format=stream-json    structured output for logging/monitoring</span>
 <span class="w">    </span><span class="c1"># --model opus                   complex reasoning for task selection;</span>
-<span class="w">    </span><span class="c1">#                                &#39;sonnet&#39; works in build mode when the plan is clear</span>
+<span class="w">    </span><span class="c1">#                                'sonnet' works in build mode when the plan is clear</span>
 <span class="w">    </span><span class="c1"># --verbose                      detailed execution logging</span>
-<span class="w">    </span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROMPT_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>claude<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>cat<span class="w"> </span><span class="s2">"</span><span class="nv">$PROMPT_FILE</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>claude<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--dangerously-skip-permissions<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--output-format<span class="o">=</span>stream-json<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--model<span class="w"> </span>opus<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--verbose
 
-<span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CURRENT_BRANCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Failed to push. Creating remote branch...&quot;</span>
-<span class="w">        </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CURRENT_BRANCH</span><span class="s2">&quot;</span>
+<span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="s2">"</span><span class="nv">$CURRENT_BRANCH</span><span class="s2">"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Failed to push. Creating remote branch..."</span>
+<span class="w">        </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span><span class="s2">"</span><span class="nv">$CURRENT_BRANCH</span><span class="s2">"</span>
 <span class="w">    </span><span class="o">}</span>
 
 <span class="w">    </span><span class="nv">ITERATION</span><span class="o">=</span><span class="k">$((</span><span class="nv">ITERATION</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n\n======================== LOOP </span><span class="nv">$ITERATION</span><span class="s2"> ========================\n&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\n\n======================== LOOP </span><span class="nv">$ITERATION</span><span class="s2"> ========================\n"</span>
 <span class="k">done</span>
 </code></pre></div>
 <h4 id="key-principles">Key Principles<a class="headerlink" href="#key-principles" title="Permanent link">&para;</a></h4>
@@ -6471,7 +6471,7 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <h4 id="the-ralph-loop-plugin">The Ralph Loop Plugin<a class="headerlink" href="#the-ralph-loop-plugin" title="Permanent link">&para;</a></h4>
 <p>The <a href="https://github.com/anthropics/claude-plugins-official/tree/main/plugins/ralph-loop">official plugin</a> brings the technique into your <em>current</em> session using a <code>Stop</code> hook instead of an external bash loop — so context isn't thrown away each turn.</p>
 <div class="highlight"><pre><span></span><code>claude<span class="w">       </span><span class="c1"># open interactive mode</span>
-/plugin<span class="w">      </span><span class="c1"># open the plugin menu, choose &quot;Ralph Loop&quot;</span>
+/plugin<span class="w">      </span><span class="c1"># open the plugin menu, choose "Ralph Loop"</span>
 </code></pre></div>
 <p>Each iteration: Claude receives the same prompt → works on the task, modifying files → tries to exit → the stop hook intercepts and feeds the prompt again → Claude sees its previous work in the files → it iterates toward completion.</p>
 <table>
@@ -6514,10 +6514,10 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <span class="nt">iteration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">session_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;session_id&gt;</span>
 <span class="nt">max_iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-<span class="nt">completion_promise</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DONE&quot;</span>
-<span class="nt">started_at</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2026-03-17T...&quot;</span>
+<span class="nt">completion_promise</span><span class="p">:</span><span class="w"> </span><span class="s">"DONE"</span>
+<span class="nt">started_at</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-03-17T..."</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">&lt;the user&#39;s prompt&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;the user's prompt&gt;</span>
 </code></pre></div>
 <p><strong>The loop.</strong> When Claude tries to exit, the <code>Stop</code> hook fires and:</p>
 <ol>
@@ -6530,9 +6530,9 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <li>Otherwise <strong>continues</strong>: increments the iteration, updates the state file atomically via a temp file plus <code>mv</code>, and outputs:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;the original prompt&gt;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;systemMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;🔄 Ralph iteration 2 | To stop: output &lt;promise&gt;DONE&lt;/promise&gt;&quot;</span>
+<span class="w">  </span><span class="nt">"decision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;the original prompt&gt;"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"systemMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"🔄 Ralph iteration 2 | To stop: output &lt;promise&gt;DONE&lt;/promise&gt;"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>"decision": "block"</code> prevents Claude from exiting, and <code>"reason"</code> becomes the prompt fed back as its next task.</p>
@@ -6571,7 +6571,7 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <li><strong>Safety</strong> — <code>--max-iterations</code> is the escape hatch. Without it <em>or</em> a completion promise, the loop runs forever.</li>
 </ul>
 <p><strong>Commands:</strong></p>
-<div class="highlight"><pre><span></span><code>/ralph-loop<span class="w"> </span><span class="s2">&quot;your task description&quot;</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>/ralph-loop<span class="w"> </span><span class="s2">"your task description"</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 <span class="c1">#   --max-iterations &lt;n&gt;          stop after N iterations</span>
 <span class="c1">#   --completion-promise &lt;text&gt;   stop when Claude outputs this in a &lt;promise&gt; tag</span>
 
@@ -6580,11 +6580,11 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <div class="highlight"><pre><span></span><code># Run a task exactly N times
 /ralph-loop:ralph-loop SAY HELLO --max-iterations 3
 
-# Stop on a signal when you don&#39;t know how many iterations it will take
-/ralph-loop:ralph-loop SAY HELLO --completion-promise &quot;DONE&quot;
+# Stop on a signal when you don't know how many iterations it will take
+/ralph-loop:ralph-loop SAY HELLO --completion-promise "DONE"
 
 # Both: stop on the signal, but never run forever
-/ralph-loop:ralph-loop SAY HELLO --completion-promise &quot;DONE&quot; --max-iterations 3
+/ralph-loop:ralph-loop SAY HELLO --completion-promise "DONE" --max-iterations 3
 </code></pre></div>
 <p><strong>When it fits:</strong></p>
 <table>
@@ -6709,11 +6709,11 @@ cp<span class="w"> </span>-r<span class="w"> </span>.claude/skills<span class="w
 <p><strong>Step 1 — enable teams and split panes:</strong></p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>~/.claude/settings.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">{</span>
-<span class="s">  &quot;env&quot;: {</span>
-<span class="s">    &quot;CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS&quot;: &quot;1&quot;</span>
+<span class="s">  "env": {</span>
+<span class="s">    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"</span>
 <span class="s">  },</span>
-<span class="s">  &quot;preference&quot;: {</span>
-<span class="s">    &quot;tmuxSplitPanes&quot;: true</span>
+<span class="s">  "preference": {</span>
+<span class="s">    "tmuxSplitPanes": true</span>
 <span class="s">  }</span>
 <span class="s">}</span>
 <span class="s">EOF</span>
@@ -6728,9 +6728,9 @@ tmux<span class="w"> </span>--help
 </code></pre></div>
 <p><strong>Step 3 — launch Claude Code.</strong> Teammates start with the lead's permission settings; if the lead runs with <code>--dangerously-skip-permissions</code>, so do all teammates. You can change an individual teammate's mode after spawning, but not set per-teammate modes at spawn time.</p>
 <p><strong>Step 4 — create the team.</strong> Describe the task and the team structure in natural language:</p>
-<div class="highlight"><pre><span></span><code>I&#39;m designing a CLI tool that helps developers track TODO comments across
+<div class="highlight"><pre><span></span><code>I'm designing a CLI tool that helps developers track TODO comments across
 their codebase. Create an agent team to explore this from different angles: one
-teammate on UX, one on technical architecture, one playing devil&#39;s advocate.
+teammate on UX, one on technical architecture, one playing devil's advocate.
 Use model Haiku for each teammate.
 </code></pre></div>
 <p>That example works because the three roles are independent and can explore without waiting on each other. Claude creates the team with a shared task list, spawns a teammate per perspective, has them explore, synthesises findings, and attempts to clean up when finished.</p>
@@ -6880,7 +6880,7 @@ git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> <
 <span class="nb">cd</span><span class="w"> </span>../feature-payment
 <span class="c1"># edit files</span>
 git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;implement feature payment&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"implement feature payment"</span>
 
 <span class="nb">cd</span><span class="w"> </span>../myapp
 git<span class="w"> </span>merge<span class="w"> </span>feature-payment
@@ -6889,7 +6889,7 @@ git<span class="w"> </span>worktree<span class="w"> </span>list
 git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>../main-fix
 </code></pre></div>
 <p>Claude Code wraps this:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Start Claude in a worktree named &quot;feature-auth&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start Claude in a worktree named "feature-auth"</span>
 claude<span class="w"> </span>--worktree<span class="w"> </span>feature-auth
 
 <span class="c1"># Another session in a separate worktree</span>
@@ -6923,7 +6923,7 @@ claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </s
 
 <span class="c1"># HTTP server with headers</span>
 claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>corridor<span class="w"> </span>https://app.corridor.dev/api/mcp<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer ...&quot;</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s2">"Authorization: Bearer ..."</span>
 
 <span class="c1"># stdio server with environment variables</span>
 claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>-e<span class="w"> </span><span class="nv">API_KEY</span><span class="o">=</span>xxx<span class="w"> </span>my-server<span class="w"> </span>--<span class="w"> </span>npx<span class="w"> </span>my-mcp-server
@@ -6973,21 +6973,21 @@ claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </s
 </table>
 <p><code>add-json</code> is useful when you have a full config to paste in one shot rather than building it from flags:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># stdio server (e.g. filesystem MCP)</span>
-claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>filesystem<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;:&quot;stdio&quot;,&quot;command&quot;:&quot;npx&quot;,&quot;args&quot;:[&quot;-y&quot;,&quot;@modelcontextprotocol/server-filesystem&quot;,&quot;/tmp&quot;]}&#39;</span>
+claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>filesystem<span class="w"> </span><span class="s1">'{"type":"stdio","command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","/tmp"]}'</span>
 
 <span class="c1"># SSE server</span>
-claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>my-sse-server<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;:&quot;sse&quot;,&quot;url&quot;:&quot;https://example.com/sse&quot;}&#39;</span>
+claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>my-sse-server<span class="w"> </span><span class="s1">'{"type":"sse","url":"https://example.com/sse"}'</span>
 
 <span class="c1"># With scope (user = all projects)</span>
-claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>-s<span class="w"> </span>user<span class="w"> </span>my-server<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;:&quot;stdio&quot;,&quot;command&quot;:&quot;npx&quot;,&quot;args&quot;:[&quot;-y&quot;,&quot;my-mcp-server&quot;],&quot;env&quot;:{&quot;API_KEY&quot;:&quot;xxx&quot;}}&#39;</span>
+claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>-s<span class="w"> </span>user<span class="w"> </span>my-server<span class="w"> </span><span class="s1">'{"type":"stdio","command":"npx","args":["-y","my-mcp-server"],"env":{"API_KEY":"xxx"}}'</span>
 </code></pre></div>
 <p>The JSON schema:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stdio&quot;</span><span class="p">,</span><span class="w">           </span><span class="c1">// or &quot;sse&quot;</span>
-<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span><span class="w">          </span><span class="c1">// stdio only: executable</span>
-<span class="w">  </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pkg&quot;</span><span class="p">],</span><span class="w">     </span><span class="c1">// stdio only: arguments</span>
-<span class="w">  </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;KEY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;val&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">   </span><span class="c1">// optional env vars</span>
-<span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://...&quot;</span><span class="w">       </span><span class="c1">// sse only: endpoint URL</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stdio"</span><span class="p">,</span><span class="w">           </span><span class="c1">// or "sse"</span>
+<span class="w">  </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npx"</span><span class="p">,</span><span class="w">          </span><span class="c1">// stdio only: executable</span>
+<span class="w">  </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"-y"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pkg"</span><span class="p">],</span><span class="w">     </span><span class="c1">// stdio only: arguments</span>
+<span class="w">  </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"KEY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"val"</span><span class="w"> </span><span class="p">},</span><span class="w">   </span><span class="c1">// optional env vars</span>
+<span class="w">  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="w">       </span><span class="c1">// sse only: endpoint URL</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Three scopes:</strong></p>
@@ -7051,7 +7051,7 @@ claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"
 </table>
 <div class="highlight"><pre><span></span><code><span class="c1"># Available in every project</span>
 claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>-s<span class="w"> </span>user<span class="w"> </span>context7<span class="w"> </span>https://mcp.context7.com/mcp<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--header<span class="w"> </span><span class="s2">&quot;CONTEXT7_API_KEY: ctx7sk-...&quot;</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s2">"CONTEXT7_API_KEY: ctx7sk-..."</span>
 
 <span class="c1"># A local stdio server</span>
 claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>-s<span class="w"> </span>user<span class="w"> </span>search-papers<span class="w"> </span>--<span class="w"> </span>uv<span class="w"> </span>--directory<span class="w"> </span>/path/to/mcp-server-papers<span class="w"> </span>run<span class="w"> </span>mcp_server_papers
@@ -7096,7 +7096,7 @@ bun<span class="w"> </span>run<span class="w"> </span>apps/tui/src/main.ts<span 
 
 <span class="c1"># 4. Point Claude Code at ccflare</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_BASE_URL</span><span class="o">=</span>http://localhost:8080
-<span class="c1"># Permanently: echo &#39;export ANTHROPIC_BASE_URL=http://localhost:8080&#39; &gt;&gt; ~/.zshrc</span>
+<span class="c1"># Permanently: echo 'export ANTHROPIC_BASE_URL=http://localhost:8080' &gt;&gt; ~/.zshrc</span>
 
 <span class="c1"># 5. Run Claude Code normally — requests now rotate across accounts</span>
 claude
@@ -7396,9 +7396,9 @@ npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </s
 <p>The status line is a script that renders whatever you want under the prompt. Prerequisite: <code>jq</code>.</p>
 <p>Point <code>~/.claude/settings.json</code> at a script:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;statusLine&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bash ~/.claude/statusline-command.sh&quot;</span>
+<span class="w">  </span><span class="nt">"statusLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bash ~/.claude/statusline-command.sh"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -7407,39 +7407,39 @@ npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </s
 <span class="nv">input</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
 
 <span class="c1"># Context window usage</span>
-<span class="nv">ctx_used</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.context_window.current_usage.input_tokens // 0&#39;</span><span class="k">)</span>
-<span class="nv">ctx_total</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.context_window.context_window_size // 0&#39;</span><span class="k">)</span>
-<span class="nv">ctx_pct</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.context_window.used_percentage // empty&#39;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
+<span class="nv">ctx_used</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.context_window.current_usage.input_tokens // 0'</span><span class="k">)</span>
+<span class="nv">ctx_total</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.context_window.context_window_size // 0'</span><span class="k">)</span>
+<span class="nv">ctx_pct</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.context_window.used_percentage // empty'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
 
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ctx_pct</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ctx_pct</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nv">ctx_pct_fmt</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%.0f&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ctx_pct</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ctx_pct</span><span class="s2">&quot;</span><span class="k">)</span>
-<span class="w">  </span><span class="nv">ctx_str</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ctx_used</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">ctx_total</span><span class="si">}</span><span class="s2"> (</span><span class="si">${</span><span class="nv">ctx_pct_fmt</span><span class="si">}</span><span class="s2">%)&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$ctx_pct</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ctx_pct</span><span class="s2">"</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">"null"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">ctx_pct_fmt</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">"%.0f"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ctx_pct</span><span class="s2">"</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ctx_pct</span><span class="s2">"</span><span class="k">)</span>
+<span class="w">  </span><span class="nv">ctx_str</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">ctx_used</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">ctx_total</span><span class="si">}</span><span class="s2"> (</span><span class="si">${</span><span class="nv">ctx_pct_fmt</span><span class="si">}</span><span class="s2">%)"</span>
 <span class="k">else</span>
-<span class="w">  </span><span class="nv">ctx_str</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ctx_used</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">ctx_total</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">ctx_str</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">ctx_used</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">ctx_total</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">fi</span>
 
 <span class="c1"># Session cost</span>
-<span class="nv">cost</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.cost.total_cost_usd // 0&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{printf &quot;%.4f&quot;, $1}&#39;</span><span class="k">)</span>
+<span class="nv">cost</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.cost.total_cost_usd // 0'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{printf "%.4f", $1}'</span><span class="k">)</span>
 
 <span class="c1"># Git branch</span>
-<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.workspace.current_dir // .cwd // &quot;&quot;&#39;</span><span class="k">)</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nv">git_branch</span><span class="o">=</span><span class="k">$(</span><span class="nv">GIT_OPTIONAL_LOCKS</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>git<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.workspace.current_dir // .cwd // ""'</span><span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">"null"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">git_branch</span><span class="o">=</span><span class="k">$(</span><span class="nv">GIT_OPTIONAL_LOCKS</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>git<span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
 <span class="k">fi</span>
-<span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$git_branch</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">git_branch</span><span class="o">=</span><span class="s2">&quot;no-git&quot;</span>
+<span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$git_branch</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">git_branch</span><span class="o">=</span><span class="s2">"no-git"</span>
 
 <span class="c1"># Current folder basename</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nv">folder</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cwd</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">"null"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">folder</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="k">)</span>
 <span class="k">else</span>
-<span class="w">  </span><span class="nv">folder</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="w">  </span><span class="nv">folder</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">"</span><span class="k">)</span>
 <span class="k">fi</span>
 
 <span class="c1"># Model name</span>
-<span class="nv">model</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.model.display_name // .model.id // &quot;unknown&quot;&#39;</span><span class="k">)</span>
+<span class="nv">model</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.model.display_name // .model.id // "unknown"'</span><span class="k">)</span>
 
-<span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\033[0;36mctx:\033[0m %s  \033[0;33mcost:\033[0m \$%s  \033[0;35mbranch:\033[0m %s  \033[0;34mdir:\033[0m %s  \033[0;32mmodel:\033[0m %s&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;</span><span class="nv">$ctx_str</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cost</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$git_branch</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$folder</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$model</span><span class="s2">&quot;</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s2">"\033[0;36mctx:\033[0m %s  \033[0;33mcost:\033[0m \$%s  \033[0;35mbranch:\033[0m %s  \033[0;34mdir:\033[0m %s  \033[0;32mmodel:\033[0m %s"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"</span><span class="nv">$ctx_str</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$cost</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$git_branch</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$folder</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$model</span><span class="s2">"</span>
 </code></pre></div>
 <p>Make it executable: <code>chmod +x ~/.claude/statusline-command.sh</code>. <a href="https://code.claude.com/docs/en/statusline">Docs</a></p>
 <hr />
@@ -8447,7 +8447,7 @@ npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </s
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax-init.js"></script>
       

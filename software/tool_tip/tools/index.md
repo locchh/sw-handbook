@@ -1,83 +1,106 @@
-# Tools
+# Software Tools
 
-## Build Database
+Choose tools around a repeatable workflow: find the code, reproduce the environment, make a change, check it, and ship it. Start with the tools your project already uses; add another when it solves a specific problem.
 
-<https://database.build/>
+For installation, see [Machine Setup](https://locchh.github.io/sw-handbook/software/tool_tip/machine_setup/index.md). For command syntax beyond the examples here, use [Linux Commands](https://locchh.github.io/sw-handbook/software/tool_tip/linux_commands/index.md).
 
-## Package Management
+## Choose by task
 
-### uv
+| Task                       | Tools                                                                              | When to use them                                                       |
+| -------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Search and inspect code    | [ripgrep](https://github.com/BurntSushi/ripgrep), [jq](https://jqlang.org/manual/) | Search a repository quickly; filter JSON responses and logs            |
+| Manage Python dependencies | [uv](https://docs.astral.sh/uv/guides/projects/)                                   | Create isolated environments and commit a resolved dependency lockfile |
+| Run project commands       | [GNU Make](https://www.gnu.org/software/make/manual/make.html)                     | Give contributors and CI the same entry points for checks and builds   |
+| Format and lint Python     | [Ruff](https://docs.astral.sh/ruff/)                                               | Keep style consistent and catch common code problems                   |
+| Check Python types         | [mypy](https://mypy.readthedocs.io/)                                               | Check contracts between typed functions and modules                    |
+| Test behavior              | [pytest](https://docs.pytest.org/)                                                 | Exercise outcomes, edge cases, and regressions                         |
+| Run local dependencies     | [Docker Compose](https://docs.docker.com/compose/)                                 | Start an application's database, cache, and other services together    |
+| Sketch a design            | [Excalidraw](https://excalidraw.com/), [Lucidchart](https://www.lucidchart.com/)   | Discuss boundaries, dependencies, and flows before implementation      |
 
-Fast Python package installer and resolver (replaces pip/poetry)
+## A small Python workflow
 
-- [uv Documentation](https://docs.astral.sh/uv/)
-- [GitHub Repository](https://github.com/astral-sh/uv)
+For a **new Python application**, uv can manage both runtime and development dependencies. This example assumes uv is installed and runs in a new directory:
 
-## Build Tools
+```
+uv init sample-service
+cd sample-service
+uv add --dev ruff mypy pytest
+uv run ruff check .
+uv run ruff format --check .
+# After adding application code and tests:
+uv run mypy main.py
+uv run pytest
+```
 
-### make
+Commit `pyproject.toml` and `uv.lock`; keep `.venv/` out of Git. On another machine or in CI, `uv sync --locked` installs from the lockfile and fails if the project metadata requires a lock update. See [uv's project guide](https://docs.astral.sh/uv/guides/projects/).
 
-Task runner for common development commands. Define build, test, lint, and run steps as `make` targets so the project has one consistent entry point.
+An existing repository may instead use `requirements.txt`, Poetry, or another manager. Follow its setup instructions before introducing a second dependency workflow. This handbook's own setup is documented in the repository README.
 
-- [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html)
-- [Makefile Tutorial](https://makefiletutorial.com/)
+### Give checks one entry point
 
-## Code Quality
+A Makefile makes the expected commands discoverable. Recipe lines must start with a **tab**:
 
-### ruff
+```
+.PHONY: check format test
 
-Fast Python linter and formatter
+check:
+    uv run ruff check .
+    uv run ruff format --check .
+    uv run mypy main.py
 
-- [ruff Documentation](https://docs.astral.sh/ruff/)
+format:
+    uv run ruff format .
 
-### mypy
+test:
+    uv run pytest
+```
 
-Static type checking
+Replace `main.py` with your application's source path. `make check` checks lint, formatting, and types; `make test` checks behavior. A formatter is not a type checker, and neither replaces tests. Keep the same commands in [CI/CD](https://locchh.github.io/sw-handbook/software/tool_tip/cicd/index.md) so local success means something before a merge.
 
-- [mypy Documentation](https://mypy.readthedocs.io/)
+## Inspect before changing
 
-## Testing
+These commands run from a repository root; replace paths and URLs with your own:
 
-### pytest
+```
+# Find files and relevant code without opening every directory.
+rg --files
+rg -n 'timeout|retry' src/
 
-Testing framework
+# Inspect a JSON response saved locally.
+jq '.items[] | {id, name}' response.json
 
-- [pytest Documentation](https://docs.pytest.org/)
+# Review the scope of a change.
+git diff --stat
+git diff --check
+git diff
+```
 
-## Diagramming & Design
+Use [Git](https://locchh.github.io/sw-handbook/software/basics/git/index.md) for branch and history mechanics, and [Code Review](https://locchh.github.io/sw-handbook/software/basics/code_review/index.md) for evaluating the resulting change.
 
-### Lucidchart
+## Run services locally
 
-Professional diagramming and flowchart software for visual communication
+[Docker Compose](https://docs.docker.com/compose/) describes a group of services in a YAML file. In a repository with a Compose configuration:
 
-- [Lucidchart](https://www.lucidchart.com)
+```
+docker compose config --quiet
+docker compose up -d
+docker compose ps
+docker compose logs --tail=100
+docker compose down
+```
 
-### Excalidraw
+Keep application dependencies in the language lockfile and service configuration in Compose. Document required environment variables with placeholder values in `.env.example`; keep actual credentials out of Git. Named volumes retain data when running `docker compose down`; adding `--volumes` removes those volumes, so use it only when you intend to discard their data.
 
-Virtual whiteboard for sketching hand-drawn like diagrams
+A local stack is a development environment. Deployment still needs resource sizing, backups, health checks, and a recovery path; see [Running a Server](https://locchh.github.io/sw-handbook/software/tool_tip/server_operations/index.md).
 
-- [Excalidraw](https://excalidraw.com/)
+## Documentation and design
 
-## Documentation
+- **Excalidraw / Lucidchart:** sketch a request path or system boundary. Put the final decision and rationale next to the diagram.
+- **[Context7](https://github.com/upstash/context7):** supply library documentation to coding assistants. Match documentation to the dependency version used by the repository.
+- **llms.txt discovery:** [llmstxt.site](https://llmstxt.site/) and [directory.llmstxt.cloud](https://directory.llmstxt.cloud/) help find documentation indexes. Follow links back to the project's own documentation before relying on an example.
+- **[database.build](https://database.build/):** explore database ideas. Review the resulting schema, constraints, and migrations before adopting them.
+- **[petname](https://github.com/dustinkirkland/petname):** generate readable names for temporary resources. A memorable name is not a uniqueness guarantee or a secret.
 
-### Context7
+## Build a toolchain gradually
 
-Generate context with up-to-date documentation for LLMs and AI code editors
-
-- [Context7 Website](https://context7.com/)
-- [GitHub Repository](https://github.com/upstash/context7)
-
-### llms.txt directories
-
-Directories for finding and exploring llms.txt files from various products and services
-
-- [llms.txt sites directory](https://llmstxt.site/)
-- [llms.txt directory](https://directory.llmstxt.cloud/)
-
-## Utility
-
-### petname
-
-Generate memorable, random names for projects, containers, and other resources
-
-- [GitHub Repository](https://github.com/dustinkirkland/petname)
+Start with Git, an editor, the project's package manager, and its test command. Add formatting and linting for consistent feedback, a task runner when commands repeat, and containers when service dependencies become difficult to reproduce. Introduce AI assistance through the [AI Tools](https://locchh.github.io/sw-handbook/ai/tool_tip/tools/index.md) guide while keeping the same verification steps.

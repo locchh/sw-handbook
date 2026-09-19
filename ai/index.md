@@ -10,7 +10,7 @@ Welcome to the AI section of my handbook. This is the newest and thinnest sectio
 
 ## Tools & Tips
 
-- **[AI Tools](https://locchh.github.io/sw-handbook/ai/tool_tip/tools/index.md)** - Development, inference, serving, and training tools.
+- **[AI Tools](https://locchh.github.io/sw-handbook/ai/tool_tip/tools/index.md)** - Coding assistants, local inference, serving, evaluation, and experiment tracking.
 - **[Spec-Driven Development](https://locchh.github.io/sw-handbook/ai/tool_tip/spec_driven_development/index.md)** - Making intent an explicit artifact before an agent writes code.
 - **[Claude Code](https://locchh.github.io/sw-handbook/ai/tool_tip/claude_code/index.md)** - The coding-agent skill in one tool: context, permissions, hooks, skills, subagents, teams, and loops.
 - **[Codex](https://locchh.github.io/sw-handbook/ai/tool_tip/codex/index.md)** - The same six habits in OpenAI's agent: AGENTS.md, sandbox and approvals, rules, auto-review, and cloud delegation.
